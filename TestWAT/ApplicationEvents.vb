@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
 Imports OfficeOpenXml
 Imports Newtonsoft.Json
+Imports JANL
 
 Namespace My
 	' Для MyApplication имеются следующие события:

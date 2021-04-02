@@ -1,5 +1,6 @@
 ﻿Imports System.Threading
 Imports TestWAT.Models
+Imports JANL
 
 Public Class FormTest
 	Private TestObject As New TestModel()
@@ -162,12 +163,28 @@ Public Class FormTest
 
 #Region "StopWatch"
 
-	Private Sub CancelableButton1_Run_1(sender As Object, e As CancelableButton.RunEventArgs) Handles CancelableButton1.Run
-
+	Private Sub CancelableButton1_Run_1(sender As Object, e As CancelableButton.RunEventArgs) Handles CB_SW.Run
+		SWL_Test.Start()
 	End Sub
 
-	Private Sub CancelableButton1_Cancel(sender As Object, e As EventArgs) Handles CancelableButton1.Cancel
+	Private Sub CancelableButton1_Cancel(sender As Object, e As EventArgs) Handles CB_SW.Cancel
+		SWL_Test.Stop()
+		CB_SW.ResetButton()
+	End Sub
 
+#End Region
+
+#Region "ProgressBar"
+
+	Private Async Sub B_PB_Click(sender As Object, e As EventArgs) Handles B_PB.Click
+		B_PB.Enabled = False
+		PBE_Test.Start()
+		Dim PP As IProgress(Of Integer) = New Progress(Of Integer)(Sub(p) PBE_Test.Percent = p)
+		For i = 0 To 100
+			Await Task.Delay(100)
+			PP.Report(i)
+		Next
+		B_PB.Enabled = True
 	End Sub
 
 #End Region

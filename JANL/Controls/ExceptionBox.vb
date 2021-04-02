@@ -1,4 +1,6 @@
-﻿''' <summary>
+﻿Imports System.Drawing
+
+''' <summary>
 ''' Окно для отображения ошибки
 ''' </summary>
 ''' <remarks>
@@ -6,16 +8,8 @@
 ''' StackTrace различается между Debug и Release из-за встраивания(Inlining) методов
 ''' </remarks>
 Public Class ExceptionBox
-
-	Private Shared Comments As New List(Of String) From {
-		"Ух... Это сделал я?",
-		"Упсс",
-		"Прости, Дейв.",
-		"Почему оно ломается? :(",
-		"Но оно работает на моём компьютере.",
-		"Я просто незнаю что пошло не так.",
-		"Простите :(",
-		"Я подвёл тебя. Прости :("}
+	Private Shared Rnd As New Random()
+	Private Shared Comments As New List(Of String)
 
 	Private Exception As Exception
 	Private Selected As Exception
@@ -71,8 +65,21 @@ Public Class ExceptionBox
 	End Function
 
 	Private Shared Function GetComment() As String
-		Dim Rnd = New Random()
-		Return Comments(Rnd.Next(Comments.Count))
+		If Comments.Count = 0 Then
+			Comments.AddRange({
+				"Ух... Это сделал я?",
+				"Упсс",
+				"Прости, Дейв.",
+				"Почему оно ломается? :(",
+				"Но оно работает на моём компьютере.",
+				"Я просто незнаю что пошло не так.",
+				"Простите :(",
+				"Я подвёл тебя. Прости :("})
+		End If
+		Dim i = Rnd.Next(Comments.Count)
+		Dim Comment = Comments(i)
+		Comments.RemoveAt(i)
+		Return Comment
 	End Function
 
 	Private Sub B_Copy_Click(sender As Object, e As EventArgs) Handles B_Copy.Click

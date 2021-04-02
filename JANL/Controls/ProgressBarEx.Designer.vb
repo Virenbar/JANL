@@ -24,9 +24,9 @@ Partial Class ProgressBarEx
 	Private Sub InitializeComponent()
 		Me.PB = New System.Windows.Forms.ProgressBar()
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+		Me.L_Estimated = New System.Windows.Forms.Label()
 		Me.L_Percent = New System.Windows.Forms.Label()
 		Me.L_Elapsed = New System.Windows.Forms.Label()
-		Me.L_Estimated = New System.Windows.Forms.Label()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -49,50 +49,52 @@ Partial Class ProgressBarEx
 		Me.TableLayoutPanel1.Controls.Add(Me.PB, 0, 0)
 		Me.TableLayoutPanel1.Controls.Add(Me.L_Percent, 1, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.L_Elapsed, 0, 1)
-		Me.TableLayoutPanel1.Location = New System.Drawing.Point(479, 210)
+		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 2
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(200, 100)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(200, 45)
 		Me.TableLayoutPanel1.TabIndex = 1
+		'
+		'L_Estimated
+		'
+		Me.L_Estimated.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.L_Estimated.AutoSize = True
+		Me.L_Estimated.Location = New System.Drawing.Point(144, 29)
+		Me.L_Estimated.Name = "L_Estimated"
+		Me.L_Estimated.Size = New System.Drawing.Size(53, 13)
+		Me.L_Estimated.TabIndex = 3
+		Me.L_Estimated.Text = "Estimated"
 		'
 		'L_Percent
 		'
 		Me.L_Percent.Anchor = System.Windows.Forms.AnchorStyles.Top
 		Me.L_Percent.AutoSize = True
-		Me.L_Percent.Location = New System.Drawing.Point(79, 29)
+		Me.L_Percent.Location = New System.Drawing.Point(85, 29)
 		Me.L_Percent.Name = "L_Percent"
-		Me.L_Percent.Size = New System.Drawing.Size(39, 13)
+		Me.L_Percent.Size = New System.Drawing.Size(27, 13)
 		Me.L_Percent.TabIndex = 1
-		Me.L_Percent.Text = "Label1"
+		Me.L_Percent.Text = "99%"
 		'
 		'L_Elapsed
 		'
 		Me.L_Elapsed.AutoSize = True
 		Me.L_Elapsed.Location = New System.Drawing.Point(3, 29)
 		Me.L_Elapsed.Name = "L_Elapsed"
-		Me.L_Elapsed.Size = New System.Drawing.Size(39, 13)
+		Me.L_Elapsed.Size = New System.Drawing.Size(45, 13)
 		Me.L_Elapsed.TabIndex = 2
-		Me.L_Elapsed.Text = "Label2"
-		'
-		'L_Estimated
-		'
-		Me.L_Estimated.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.L_Estimated.AutoSize = True
-		Me.L_Estimated.Location = New System.Drawing.Point(158, 29)
-		Me.L_Estimated.Name = "L_Estimated"
-		Me.L_Estimated.Size = New System.Drawing.Size(39, 13)
-		Me.L_Estimated.TabIndex = 3
-		Me.L_Estimated.Text = "Label3"
+		Me.L_Elapsed.Text = "Elapsed"
 		'
 		'ProgressBarEx
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.Controls.Add(Me.TableLayoutPanel1)
+		Me.MinimumSize = New System.Drawing.Size(200, 45)
 		Me.Name = "ProgressBarEx"
-		Me.Size = New System.Drawing.Size(883, 394)
+		Me.Size = New System.Drawing.Size(200, 45)
 		Me.TableLayoutPanel1.ResumeLayout(False)
 		Me.TableLayoutPanel1.PerformLayout()
 		Me.ResumeLayout(False)

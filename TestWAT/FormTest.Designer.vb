@@ -27,30 +27,34 @@ Partial Class FormTest
 		Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+		Me.DateTimeS1 = New TestWAT.DateTimePickerEx()
+		Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.B_DateNull = New System.Windows.Forms.Button()
 		Me.B_Date2000 = New System.Windows.Forms.Button()
+		Me.DateTimeS2 = New TestWAT.DateTimePickerEx()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.TB_Test = New TestWAT.ToggleButton()
 		Me.B_Exception = New System.Windows.Forms.Button()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+		Me.CncB_Test = New TestWAT.CancelableButton()
 		Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
 		Me.TSPB_Test = New System.Windows.Forms.ToolStripProgressBar()
-		Me.CncB_Test = New TestWAT.CancelableButton()
-		Me.TB_Test = New TestWAT.ToggleButton()
-		Me.DateTimeS1 = New TestWAT.DateTimePickerEx()
-		Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
-		Me.DateTimeS2 = New TestWAT.DateTimePickerEx()
-		Me.StopWatchLabel1 = New TestWAT.StopWatchLabel()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-		Me.CancelableButton1 = New TestWAT.CancelableButton()
+		Me.SWL_Test = New TestWAT.StopWatchLabel()
+		Me.CB_SW = New TestWAT.CancelableButton()
+		Me.PBE_Test = New JANL.ProgressBarEx()
+		Me.GP_PB = New System.Windows.Forms.GroupBox()
+		Me.B_PB = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
+		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
 		Me.StatusStrip1.SuspendLayout()
-		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox4.SuspendLayout()
+		Me.GP_PB.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'ImageList1
@@ -90,6 +94,21 @@ Partial Class FormTest
 		Me.TableLayoutPanel2.Size = New System.Drawing.Size(173, 87)
 		Me.TableLayoutPanel2.TabIndex = 4
 		'
+		'DateTimeS1
+		'
+		Me.DateTimeS1.CustomFormat = "dd.MM.yyyy g"
+		Me.DateTimeS1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.DateTimeS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+		Me.DateTimeS1.Location = New System.Drawing.Point(3, 3)
+		Me.DateTimeS1.Name = "DateTimeS1"
+		Me.DateTimeS1.Size = New System.Drawing.Size(167, 20)
+		Me.DateTimeS1.TabIndex = 0
+		Me.DateTimeS1.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
+		'
+		'BS_TestModel
+		'
+		Me.BS_TestModel.DataSource = GetType(TestWAT.Models.TestModel)
+		'
 		'TableLayoutPanel1
 		'
 		Me.TableLayoutPanel1.AutoSize = True
@@ -124,6 +143,15 @@ Partial Class FormTest
 		Me.B_Date2000.Text = "Set2000"
 		Me.B_Date2000.UseVisualStyleBackColor = True
 		'
+		'DateTimeS2
+		'
+		Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.DateTimeS2.Location = New System.Drawing.Point(3, 64)
+		Me.DateTimeS2.Name = "DateTimeS2"
+		Me.DateTimeS2.Size = New System.Drawing.Size(167, 20)
+		Me.DateTimeS2.TabIndex = 4
+		Me.DateTimeS2.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
+		'
 		'GroupBox2
 		'
 		Me.GroupBox2.AutoSize = True
@@ -135,6 +163,22 @@ Partial Class FormTest
 		Me.GroupBox2.TabIndex = 3
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "ToggleButton"
+		'
+		'TB_Test
+		'
+		Me.TB_Test.AutoSize = True
+		Me.TB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.TB_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.TB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
+		Me.TB_Test.ImageOn = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
+		Me.TB_Test.Location = New System.Drawing.Point(3, 16)
+		Me.TB_Test.Name = "TB_Test"
+		Me.TB_Test.Size = New System.Drawing.Size(82, 23)
+		Me.TB_Test.TabIndex = 1
+		Me.TB_Test.Text = "Обновить"
+		Me.TB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+		Me.TB_Test.TextOn = "Отмена"
+		Me.TB_Test.UseVisualStyleBackColor = True
 		'
 		'B_Exception
 		'
@@ -159,20 +203,6 @@ Partial Class FormTest
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "CancelableButton"
 		'
-		'StatusStrip1
-		'
-		Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPB_Test})
-		Me.StatusStrip1.Location = New System.Drawing.Point(0, 227)
-		Me.StatusStrip1.Name = "StatusStrip1"
-		Me.StatusStrip1.Size = New System.Drawing.Size(648, 22)
-		Me.StatusStrip1.TabIndex = 6
-		Me.StatusStrip1.Text = "StatusStrip1"
-		'
-		'TSPB_Test
-		'
-		Me.TSPB_Test.Name = "TSPB_Test"
-		Me.TSPB_Test.Size = New System.Drawing.Size(100, 16)
-		'
 		'CncB_Test
 		'
 		Me.CncB_Test.AutoSize = True
@@ -191,84 +221,95 @@ Partial Class FormTest
 		Me.CncB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.CncB_Test.UseVisualStyleBackColor = True
 		'
-		'TB_Test
+		'StatusStrip1
 		'
-		Me.TB_Test.AutoSize = True
-		Me.TB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.TB_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
-		Me.TB_Test.ImageOn = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
-		Me.TB_Test.Location = New System.Drawing.Point(3, 16)
-		Me.TB_Test.Name = "TB_Test"
-		Me.TB_Test.Size = New System.Drawing.Size(82, 23)
-		Me.TB_Test.TabIndex = 1
-		Me.TB_Test.Text = "Обновить"
-		Me.TB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-		Me.TB_Test.TextOn = "Отмена"
-		Me.TB_Test.UseVisualStyleBackColor = True
+		Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPB_Test})
+		Me.StatusStrip1.Location = New System.Drawing.Point(0, 247)
+		Me.StatusStrip1.Name = "StatusStrip1"
+		Me.StatusStrip1.Size = New System.Drawing.Size(647, 22)
+		Me.StatusStrip1.TabIndex = 6
+		Me.StatusStrip1.Text = "StatusStrip1"
 		'
-		'DateTimeS1
+		'TSPB_Test
 		'
-		Me.DateTimeS1.CustomFormat = "dd.MM.yyyy g"
-		Me.DateTimeS1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-		Me.DateTimeS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-		Me.DateTimeS1.Location = New System.Drawing.Point(3, 3)
-		Me.DateTimeS1.Name = "DateTimeS1"
-		Me.DateTimeS1.Size = New System.Drawing.Size(167, 20)
-		Me.DateTimeS1.TabIndex = 0
-		Me.DateTimeS1.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
-		'
-		'BS_TestModel
-		'
-		Me.BS_TestModel.DataSource = GetType(TestWAT.Models.TestModel)
-		'
-		'DateTimeS2
-		'
-		Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-		Me.DateTimeS2.Location = New System.Drawing.Point(3, 64)
-		Me.DateTimeS2.Name = "DateTimeS2"
-		Me.DateTimeS2.Size = New System.Drawing.Size(167, 20)
-		Me.DateTimeS2.TabIndex = 4
-		Me.DateTimeS2.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
-		'
-		'StopWatchLabel1
-		'
-		Me.StopWatchLabel1.ImageRunning = CType(resources.GetObject("StopWatchLabel1.ImageRunning"), System.Drawing.Image)
-		Me.StopWatchLabel1.ImageWaiting = CType(resources.GetObject("StopWatchLabel1.ImageWaiting"), System.Drawing.Image)
-		Me.StopWatchLabel1.Location = New System.Drawing.Point(6, 48)
-		Me.StopWatchLabel1.Name = "StopWatchLabel1"
-		Me.StopWatchLabel1.Size = New System.Drawing.Size(109, 29)
-		Me.StopWatchLabel1.TabIndex = 7
+		Me.TSPB_Test.Name = "TSPB_Test"
+		Me.TSPB_Test.Size = New System.Drawing.Size(100, 16)
 		'
 		'GroupBox4
 		'
-		Me.GroupBox4.Controls.Add(Me.CancelableButton1)
-		Me.GroupBox4.Controls.Add(Me.StopWatchLabel1)
-		Me.GroupBox4.Location = New System.Drawing.Point(310, 109)
+		Me.GroupBox4.Controls.Add(Me.SWL_Test)
+		Me.GroupBox4.Controls.Add(Me.CB_SW)
+		Me.GroupBox4.Location = New System.Drawing.Point(27, 124)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(156, 100)
+		Me.GroupBox4.Size = New System.Drawing.Size(156, 68)
 		Me.GroupBox4.TabIndex = 8
 		Me.GroupBox4.TabStop = False
-		Me.GroupBox4.Text = "GroupBox4"
+		Me.GroupBox4.Text = "StopWatch"
 		'
-		'CancelableButton1
+		'SWL_Test
 		'
-		Me.CancelableButton1.ImageCancel = Nothing
-		Me.CancelableButton1.ImageCanceled = Nothing
-		Me.CancelableButton1.Location = New System.Drawing.Point(6, 19)
-		Me.CancelableButton1.Name = "CancelableButton1"
-		Me.CancelableButton1.Size = New System.Drawing.Size(75, 23)
-		Me.CancelableButton1.TabIndex = 8
-		Me.CancelableButton1.Text = "CancelableButton1"
-		Me.CancelableButton1.TextCancel = Nothing
-		Me.CancelableButton1.TextCanceled = Nothing
-		Me.CancelableButton1.UseVisualStyleBackColor = True
+		Me.SWL_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.SWL_Test.ImageRunning = CType(resources.GetObject("SWL_Test.ImageRunning"), System.Drawing.Image)
+		Me.SWL_Test.ImageWaiting = CType(resources.GetObject("SWL_Test.ImageWaiting"), System.Drawing.Image)
+		Me.SWL_Test.Location = New System.Drawing.Point(3, 39)
+		Me.SWL_Test.Name = "SWL_Test"
+		Me.SWL_Test.Size = New System.Drawing.Size(150, 26)
+		Me.SWL_Test.TabIndex = 7
+		'
+		'CB_SW
+		'
+		Me.CB_SW.Dock = System.Windows.Forms.DockStyle.Top
+		Me.CB_SW.ImageCancel = Nothing
+		Me.CB_SW.ImageCanceled = Nothing
+		Me.CB_SW.Location = New System.Drawing.Point(3, 16)
+		Me.CB_SW.Name = "CB_SW"
+		Me.CB_SW.Size = New System.Drawing.Size(150, 23)
+		Me.CB_SW.TabIndex = 8
+		Me.CB_SW.Text = "Start"
+		Me.CB_SW.TextCancel = "Stop"
+		Me.CB_SW.TextCanceled = Nothing
+		Me.CB_SW.UseVisualStyleBackColor = True
+		'
+		'PBE_Test
+		'
+		Me.PBE_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
+		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
+		Me.PBE_Test.Name = "PBE_Test"
+		Me.PBE_Test.Percent = 0
+		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
+		Me.PBE_Test.TabIndex = 9
+		'
+		'GP_PB
+		'
+		Me.GP_PB.Controls.Add(Me.PBE_Test)
+		Me.GP_PB.Controls.Add(Me.B_PB)
+		Me.GP_PB.Location = New System.Drawing.Point(353, 92)
+		Me.GP_PB.Name = "GP_PB"
+		Me.GP_PB.Size = New System.Drawing.Size(219, 100)
+		Me.GP_PB.TabIndex = 10
+		Me.GP_PB.TabStop = False
+		Me.GP_PB.Text = "ProgressBar"
+		'
+		'B_PB
+		'
+		Me.B_PB.AutoSize = True
+		Me.B_PB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.B_PB.Dock = System.Windows.Forms.DockStyle.Top
+		Me.B_PB.Location = New System.Drawing.Point(3, 16)
+		Me.B_PB.Name = "B_PB"
+		Me.B_PB.Size = New System.Drawing.Size(213, 23)
+		Me.B_PB.TabIndex = 11
+		Me.B_PB.Text = "Start"
+		Me.B_PB.UseVisualStyleBackColor = True
 		'
 		'FormTest
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(648, 249)
+		Me.BackColor = System.Drawing.SystemColors.ControlLightLight
+		Me.ClientSize = New System.Drawing.Size(647, 269)
+		Me.Controls.Add(Me.GP_PB)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.StatusStrip1)
 		Me.Controls.Add(Me.GroupBox3)
@@ -281,6 +322,7 @@ Partial Class FormTest
 		Me.GroupBox1.PerformLayout()
 		Me.TableLayoutPanel2.ResumeLayout(False)
 		Me.TableLayoutPanel2.PerformLayout()
+		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.TableLayoutPanel1.ResumeLayout(False)
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()
@@ -288,8 +330,9 @@ Partial Class FormTest
 		Me.GroupBox3.PerformLayout()
 		Me.StatusStrip1.ResumeLayout(False)
 		Me.StatusStrip1.PerformLayout()
-		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox4.ResumeLayout(False)
+		Me.GP_PB.ResumeLayout(False)
+		Me.GP_PB.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -311,7 +354,10 @@ Partial Class FormTest
 	Friend WithEvents CncB_Test As CancelableButton
 	Friend WithEvents StatusStrip1 As StatusStrip
 	Friend WithEvents TSPB_Test As ToolStripProgressBar
-	Friend WithEvents StopWatchLabel1 As StopWatchLabel
+	Friend WithEvents SWL_Test As StopWatchLabel
 	Friend WithEvents GroupBox4 As GroupBox
-	Friend WithEvents CancelableButton1 As CancelableButton
+	Friend WithEvents CB_SW As CancelableButton
+	Friend WithEvents PBE_Test As JANL.ProgressBarEx
+	Friend WithEvents GP_PB As GroupBox
+	Friend WithEvents B_PB As Button
 End Class

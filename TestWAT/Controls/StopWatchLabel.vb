@@ -66,7 +66,7 @@ Public Class StopWatchLabel
 	End Sub
 
 	Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-		L_Time.Text = $"Прошло: {TimeElapsed}"
+		L_Time.Text = $"Прошло: {TimeElapsed:d\.hh\:mm\:ss}"
 	End Sub
 
 End Class

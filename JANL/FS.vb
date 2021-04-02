@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class IO
+Public Class FS
 
 	Public Shared Sub OpenFolder(path As String)
 		If Not Directory.Exists(path) Then

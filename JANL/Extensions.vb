@@ -88,7 +88,7 @@ Module Extensions
 
 #Region "Vowels Begone"
 	Private ReadOnly Txt As New HashSet(Of Type) From {GetType(Button), GetType(Label), GetType(GroupBox), GetType(TabPage), GetType(ToolStripMenuItem), GetType(ToolStripDropDownButton), GetType(CheckBox)}
-	Private ReadOnly VowelsHalf() As Char = {"У", "Е", "Ы", "А", "О", "Э", "Я", "И", "Ю"}
+	Private ReadOnly VowelsHalf() As Char = {"У"c, "Е"c, "Ы"c, "А"c, "О"c, "Э"c, "Я"c, "И"c, "Ю"c}
 	Private ReadOnly Vowels() As Char = VowelsHalf.Concat(VowelsHalf.AsEnumerable.Select(Function(x) Char.ToLowerInvariant(x))).ToArray
 
 	<Extension>
@@ -136,7 +136,7 @@ Module Extensions
 	''' <returns></returns>
 	<Extension>
 	Public Function GetValue(Of T As Structure)(CB As ComboBox) As T?
-		Return If(CB.SelectedIndex > 0, New T?(CB.SelectedValue), Nothing)
+		Return If(CB.SelectedIndex > 0, New T?(DirectCast(CB.SelectedValue, T)), Nothing)
 	End Function
 
 	''' <summary>
@@ -146,7 +146,7 @@ Module Extensions
 	''' <returns></returns>
 	<Extension>
 	Public Function GetString(CB As ComboBox) As String
-		Return If(CB.SelectedIndex > 0, CB.SelectedValue, Nothing)
+		Return If(CB.SelectedIndex > 0, CStr(CB.SelectedValue), Nothing)
 	End Function
 
 	''' <summary>

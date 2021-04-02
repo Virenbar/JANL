@@ -132,12 +132,6 @@
     <Compile Include="Controls\CancelableButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ProgressBarEx.Designer.vb">
-      <DependentUpon>ProgressBarEx.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ProgressBarEx.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Controls\StopWatchLabel.Designer.vb">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
     </Compile>
@@ -163,12 +157,6 @@
     <Compile Include="Controls\ToggleButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExceptionBox.Designer.vb">
-      <DependentUpon>ExceptionBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ExceptionBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormTest.Designer.vb">
       <DependentUpon>FormTest.vb</DependentUpon>
     </Compile>
@@ -193,7 +181,6 @@
     <Compile Include="Models\RGI_Excel\Row.vb" />
     <Compile Include="Models\TestModel.vb" />
     <Compile Include="Types\Config.vb" />
-    <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Forms\FormAsync.Designer.vb">
       <DependentUpon>FormAsync.vb</DependentUpon>
     </Compile>
@@ -249,17 +236,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ProgressBarEx.resx">
-      <DependentUpon>ProgressBarEx.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddressSuggest.resx">
       <DependentUpon>AddressSuggest.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionBox.resx">
-      <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddressSuggest.resx">
       <DependentUpon>FormAddressSuggest.vb</DependentUpon>
@@ -298,6 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Connected Services\Pochta\OperationHistory12.wsdl" />
@@ -426,7 +410,12 @@
     <Content Include="Resources\icons8\icons8_trash_can16.png" />
     <Content Include="Resources\icons8\icons8_Word16.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\JANL\JANL.vbproj">
+      <Project>{5121D0BE-ADE2-426F-892B-4377962A85CC}</Project>
+      <Name>JANL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <ProjectExtensions>
     <VisualStudio>
