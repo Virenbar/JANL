@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://russianpost.org/sms-info/data" elementFormDefault="qualified" targetNamespace="http://russianpost.org/sms-info/data" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthorisationFaultReason" type="xs:string" />
+  <xs:element name="LanguageData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Language">
+          <xs:complexType>
+            <xs:sequence />
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="code" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LanguageFaultReason" type="xs:string" />
+  <xs:element name="SmsHistoryData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="historyRecord" nillable="true" type="tns:SmsHistoryRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SmsHistoryFaultReason" type="xs:string" />
+  <xs:element name="SmsHistoryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Barcode" type="xs:string" />
+        <xs:element minOccurs="0" default="RUS" name="Language" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SmsHistoryRecord">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:integer" />
+      <xs:element name="Number" type="xs:string" />
+      <xs:element name="NotificationTypeID" type="xs:integer" />
+      <xs:element name="NotificationTypeName" type="xs:string" />
+      <xs:element name="NotificationStatusID" type="xs:integer" />
+      <xs:element name="NotificationStatusName" type="xs:string" />
+      <xs:element name="NotificationStatusDate" type="xs:dateTime" />
+      <xs:element name="SendedID" type="xs:integer" />
+      <xs:element name="SourceOperation" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

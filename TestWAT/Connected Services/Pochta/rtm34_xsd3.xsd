@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attribute name="mustUnderstand" type="xs:string" />
+</xs:schema>
