@@ -129,15 +129,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\CancelableButton.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\StopWatchLabel.Designer.vb">
-      <DependentUpon>StopWatchLabel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\StopWatchLabel.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Forms\AddressSuggest.Designer.vb">
       <DependentUpon>AddressSuggest.vb</DependentUpon>
     </Compile>
@@ -150,12 +141,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DateTimePickerEx.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ToggleButton.vb">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="FormTest.Designer.vb">
       <DependentUpon>FormTest.vb</DependentUpon>
@@ -228,17 +213,8 @@
       <DependentUpon>RingAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Types\ToggleValue.vb" />
-    <Compile Include="Controls\ToggleValueBox.Designer.vb">
-      <DependentUpon>ToggleValueBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ToggleValueBox.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\StopWatchLabel.resx">
-      <DependentUpon>StopWatchLabel.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddressSuggest.resx">
       <DependentUpon>AddressSuggest.vb</DependentUpon>
     </EmbeddedResource>
@@ -272,9 +248,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ToggleValueBox.resx">
-      <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -27,22 +27,22 @@ Partial Class FormTest
 		Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-		Me.DateTimeS1 = New TestWAT.DateTimePickerEx()
+		Me.DateTimeS1 = New JANL.DateTimePickerEx()
 		Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.B_DateNull = New System.Windows.Forms.Button()
 		Me.B_Date2000 = New System.Windows.Forms.Button()
-		Me.DateTimeS2 = New TestWAT.DateTimePickerEx()
+		Me.DateTimeS2 = New JANL.DateTimePickerEx()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-		Me.TB_Test = New TestWAT.ToggleButton()
+		Me.TB_Test = New JANL.ToggleButton()
 		Me.B_Exception = New System.Windows.Forms.Button()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-		Me.CncB_Test = New TestWAT.CancelableButton()
+		Me.CncB_Test = New JANL.CancelableButton()
 		Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
 		Me.TSPB_Test = New System.Windows.Forms.ToolStripProgressBar()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-		Me.SWL_Test = New TestWAT.StopWatchLabel()
-		Me.CB_SW = New TestWAT.CancelableButton()
+		Me.SWL_Test = New JANL.StopWatchLabel()
+		Me.CB_SW = New JANL.CancelableButton()
 		Me.PBE_Test = New JANL.ProgressBarEx()
 		Me.GP_PB = New System.Windows.Forms.GroupBox()
 		Me.B_PB = New System.Windows.Forms.Button()
@@ -216,8 +216,6 @@ Partial Class FormTest
 		Me.CncB_Test.Size = New System.Drawing.Size(82, 23)
 		Me.CncB_Test.TabIndex = 6
 		Me.CncB_Test.Text = "Обновить"
-		Me.CncB_Test.TextCancel = "Отменить"
-		Me.CncB_Test.TextCanceled = "Отмена"
 		Me.CncB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.CncB_Test.UseVisualStyleBackColor = True
 		'
@@ -338,8 +336,8 @@ Partial Class FormTest
 
 	End Sub
 
-	Friend WithEvents DateTimeS1 As DateTimePickerEx
-	Friend WithEvents TB_Test As ToggleButton
+	Friend WithEvents DateTimeS1 As JANL.DateTimePickerEx
+	Friend WithEvents TB_Test As JANL.ToggleButton
 	Friend WithEvents ImageList1 As ImageList
 	Friend WithEvents GroupBox1 As GroupBox
 	Friend WithEvents B_Date2000 As Button
@@ -348,15 +346,15 @@ Partial Class FormTest
 	Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
 	Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 	Friend WithEvents GroupBox2 As GroupBox
-	Friend WithEvents DateTimeS2 As DateTimePickerEx
+	Friend WithEvents DateTimeS2 As JANL.DateTimePickerEx
 	Friend WithEvents B_Exception As Button
 	Friend WithEvents GroupBox3 As GroupBox
-	Friend WithEvents CncB_Test As CancelableButton
+	Friend WithEvents CncB_Test As JANL.CancelableButton
 	Friend WithEvents StatusStrip1 As StatusStrip
 	Friend WithEvents TSPB_Test As ToolStripProgressBar
-	Friend WithEvents SWL_Test As StopWatchLabel
+	Friend WithEvents SWL_Test As JANL.StopWatchLabel
 	Friend WithEvents GroupBox4 As GroupBox
-	Friend WithEvents CB_SW As CancelableButton
+	Friend WithEvents CB_SW As JANL.CancelableButton
 	Friend WithEvents PBE_Test As JANL.ProgressBarEx
 	Friend WithEvents GP_PB As GroupBox
 	Friend WithEvents B_PB As Button

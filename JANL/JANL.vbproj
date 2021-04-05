@@ -51,9 +51,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -79,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.vb" />
+    <Compile Include="Controls\CancelableButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimePickerEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ExceptionBox.Designer.vb">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </Compile>
@@ -89,6 +92,21 @@
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </Compile>
     <Compile Include="Controls\ProgressBarEx.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StopWatchLabel.Designer.vb">
+      <DependentUpon>StopWatchLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StopWatchLabel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToggleButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToggleValueBox.Designer.vb">
+      <DependentUpon>ToggleValueBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleValueBox.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extensions.vb" />
@@ -112,6 +130,7 @@
     <Compile Include="Prmtrs.vb" />
     <Compile Include="SQL.vb" />
     <Compile Include="Types\FixedQueue.vb" />
+    <Compile Include="Types\ToggleValue.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\ExceptionBox.resx">
@@ -119,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StopWatchLabel.resx">
+      <DependentUpon>StopWatchLabel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToggleValueBox.resx">
+      <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -140,7 +165,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

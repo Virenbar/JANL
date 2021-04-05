@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Drawing
 
 Public Class ToggleButton
 	Inherits Button

@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Drawing
 
 Public Class StopWatchLabel
 	Private WithEvents Timer As Timer
@@ -34,6 +35,16 @@ Public Class StopWatchLabel
 		End Get
 		Set(value As Integer)
 			Timer.Interval = value
+		End Set
+	End Property
+
+	<Browsable(True), Category("Appearance"), DefaultValue(True)>
+	Public Property ShowIamge As Boolean
+		Get
+			Return PB_Image.Visible
+		End Get
+		Set(value As Boolean)
+			PB_Image.Visible = value
 		End Set
 	End Property
 

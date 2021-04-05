@@ -141,10 +141,6 @@ Public Class FormTest
 		AddHandler p.FormClosed, ParentHandler
 	End Sub
 
-	Private Sub CancelableButton1_Run(sender As Object, e As CancelableButton.RunEventArgs)
-
-	End Sub
-
 	Private Sub FB()
 		Dim IsValid As Boolean = True
 

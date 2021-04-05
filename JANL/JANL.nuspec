@@ -7,10 +7,10 @@
     <authors>Virenbar</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
-    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
-    <description>Just Another Net Library</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <projectUrl>https://github.com/Virenbar/JANL</projectUrl>
+    <icon>Icon/JANL.png</icon>
+    <description>Just Another .NET Library</description>
+    <releaseNotes>Initial release of the package.</releaseNotes>
     <copyright>Virenbar</copyright>
   </metadata>
 </package>

@@ -1,5 +1,5 @@
 ﻿Imports System.ComponentModel
-Imports System.Drawing.Design
+Imports JANL.Types
 
 Public Class ToggleValueBox
 
