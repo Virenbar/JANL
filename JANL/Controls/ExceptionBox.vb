@@ -19,6 +19,7 @@ Public Class ExceptionBox
 		InitializeComponent()
 		' Добавить код инициализации после вызова InitializeComponent().
 		Icon = SystemIcons.Error
+		If MainText IsNot Nothing Then L_Text.Text = MainText
 		If WittyComments Then Text += $" - {GetComment()}"
 		StartPosition = FormStartPosition.CenterScreen
 
@@ -27,6 +28,11 @@ Public Class ExceptionBox
 		B_MailTo.Visible = MailTo IsNot Nothing
 		UpdateTree()
 	End Sub
+
+	''' <summary>
+	'''
+	''' </summary>
+	Public Shared Property MainText As String = Nothing
 
 	''' <summary>
 	''' Тема письма

@@ -23,8 +23,8 @@ Partial Class ExceptionBox
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ExceptionBox))
-		Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел1")
-		Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел0", New System.Windows.Forms.TreeNode() {TreeNode3})
+		Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел1")
+		Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел0", New System.Windows.Forms.TreeNode() {TreeNode1})
 		Me.B_Copy = New System.Windows.Forms.Button()
 		Me.B_MailTo = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -44,8 +44,8 @@ Partial Class ExceptionBox
 		Me.TB_Type = New System.Windows.Forms.TextBox()
 		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Label5 = New System.Windows.Forms.Label()
-		Me.Label6 = New System.Windows.Forms.Label()
 		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.L_Text = New System.Windows.Forms.Label()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.FlowLayoutPanel2.SuspendLayout()
 		Me.FlowLayoutPanel1.SuspendLayout()
@@ -125,11 +125,11 @@ Partial Class ExceptionBox
 		Me.TV_Exceptions.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TV_Exceptions.Location = New System.Drawing.Point(3, 3)
 		Me.TV_Exceptions.Name = "TV_Exceptions"
-		TreeNode3.Name = "Узел1"
-		TreeNode3.Text = "Узел1"
-		TreeNode4.Name = "Узел0"
-		TreeNode4.Text = "Узел0"
-		Me.TV_Exceptions.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+		TreeNode1.Name = "Узел1"
+		TreeNode1.Text = "Узел1"
+		TreeNode2.Name = "Узел0"
+		TreeNode2.Text = "Узел0"
+		Me.TV_Exceptions.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
 		Me.TV_Exceptions.Size = New System.Drawing.Size(338, 159)
 		Me.TV_Exceptions.TabIndex = 7
 		'
@@ -296,27 +296,27 @@ Partial Class ExceptionBox
 		Me.Label5.TabIndex = 13
 		Me.Label5.Text = "Описание ошибки"
 		'
-		'Label6
-		'
-		Me.Label6.AutoSize = True
-		Me.Label6.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-		Me.Label6.Location = New System.Drawing.Point(3, 0)
-		Me.Label6.Name = "Label6"
-		Me.Label6.Size = New System.Drawing.Size(796, 36)
-		Me.Label6.TabIndex = 14
-		Me.Label6.Text = "Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется. О" &
-	"тправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
-		'
 		'FlowLayoutPanel3
 		'
 		Me.FlowLayoutPanel3.AutoSize = True
 		Me.TableLayoutPanel4.SetColumnSpan(Me.FlowLayoutPanel3, 2)
-		Me.FlowLayoutPanel3.Controls.Add(Me.Label6)
+		Me.FlowLayoutPanel3.Controls.Add(Me.L_Text)
 		Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.FlowLayoutPanel3.Location = New System.Drawing.Point(8, 10)
 		Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
 		Me.FlowLayoutPanel3.Size = New System.Drawing.Size(805, 36)
 		Me.FlowLayoutPanel3.TabIndex = 15
+		'
+		'L_Text
+		'
+		Me.L_Text.AutoSize = True
+		Me.L_Text.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+		Me.L_Text.Location = New System.Drawing.Point(3, 0)
+		Me.L_Text.Name = "L_Text"
+		Me.L_Text.Size = New System.Drawing.Size(796, 36)
+		Me.L_Text.TabIndex = 14
+		Me.L_Text.Text = "Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется. О" &
+	"тправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
 		'
 		'ExceptionBox
 		'
@@ -366,5 +366,5 @@ Partial Class ExceptionBox
 	Friend WithEvents TB_Type As TextBox
 	Friend WithEvents Label5 As Label
 	Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-	Friend WithEvents Label6 As Label
+	Friend WithEvents L_Text As Label
 End Class
