@@ -23,19 +23,21 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
 		Me.MS_Main = New System.Windows.Forms.MenuStrip()
+		Me.TestFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.PerfTestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.HashVSListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.DaDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.TSMI_Address = New System.Windows.Forms.ToolStripMenuItem()
+		Me.TSMI_UL = New System.Windows.Forms.ToolStripMenuItem()
 		Me.НижнийТагилToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.НаселениеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-		Me.DaDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.РазноеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ПочтаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ImageViewerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.PerfTestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.HashVSListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Button1 = New System.Windows.Forms.Button()
-		Me.TestFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -48,6 +50,44 @@ Partial Class MainForm
 		Me.MS_Main.TabIndex = 0
 		Me.MS_Main.Text = "MenuStrip1"
 		'
+		'TestFormToolStripMenuItem
+		'
+		Me.TestFormToolStripMenuItem.Name = "TestFormToolStripMenuItem"
+		Me.TestFormToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+		Me.TestFormToolStripMenuItem.Text = "TestForm"
+		'
+		'PerfTestsToolStripMenuItem
+		'
+		Me.PerfTestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HashVSListToolStripMenuItem})
+		Me.PerfTestsToolStripMenuItem.Name = "PerfTestsToolStripMenuItem"
+		Me.PerfTestsToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+		Me.PerfTestsToolStripMenuItem.Text = "PerfTests"
+		'
+		'HashVSListToolStripMenuItem
+		'
+		Me.HashVSListToolStripMenuItem.Name = "HashVSListToolStripMenuItem"
+		Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+		Me.HashVSListToolStripMenuItem.Text = "HashVSList"
+		'
+		'DaDataToolStripMenuItem
+		'
+		Me.DaDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Address, Me.TSMI_UL})
+		Me.DaDataToolStripMenuItem.Name = "DaDataToolStripMenuItem"
+		Me.DaDataToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+		Me.DaDataToolStripMenuItem.Text = "DaData"
+		'
+		'TSMI_Address
+		'
+		Me.TSMI_Address.Name = "TSMI_Address"
+		Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
+		Me.TSMI_Address.Text = "Адрес"
+		'
+		'TSMI_UL
+		'
+		Me.TSMI_UL.Name = "TSMI_UL"
+		Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
+		Me.TSMI_UL.Text = "ЮЛ"
+		'
 		'НижнийТагилToolStripMenuItem
 		'
 		Me.НижнийТагилToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.НаселениеToolStripMenuItem})
@@ -58,7 +98,7 @@ Partial Class MainForm
 		'НаселениеToolStripMenuItem
 		'
 		Me.НаселениеToolStripMenuItem.Name = "НаселениеToolStripMenuItem"
-		Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
 		Me.НаселениеToolStripMenuItem.Text = "Население"
 		'
 		'ToolStripMenuItem1
@@ -73,12 +113,6 @@ Partial Class MainForm
 		Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
 		Me.ToolStripMenuItem3.Size = New System.Drawing.Size(92, 22)
 		Me.ToolStripMenuItem3.Text = "123"
-		'
-		'DaDataToolStripMenuItem
-		'
-		Me.DaDataToolStripMenuItem.Name = "DaDataToolStripMenuItem"
-		Me.DaDataToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-		Me.DaDataToolStripMenuItem.Text = "DaData"
 		'
 		'РазноеToolStripMenuItem
 		'
@@ -105,19 +139,6 @@ Partial Class MainForm
 		Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
 		Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
 		'
-		'PerfTestsToolStripMenuItem
-		'
-		Me.PerfTestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HashVSListToolStripMenuItem})
-		Me.PerfTestsToolStripMenuItem.Name = "PerfTestsToolStripMenuItem"
-		Me.PerfTestsToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
-		Me.PerfTestsToolStripMenuItem.Text = "PerfTests"
-		'
-		'HashVSListToolStripMenuItem
-		'
-		Me.HashVSListToolStripMenuItem.Name = "HashVSListToolStripMenuItem"
-		Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
-		Me.HashVSListToolStripMenuItem.Text = "HashVSList"
-		'
 		'Button1
 		'
 		Me.Button1.Location = New System.Drawing.Point(447, 87)
@@ -126,12 +147,6 @@ Partial Class MainForm
 		Me.Button1.TabIndex = 1
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
-		'
-		'TestFormToolStripMenuItem
-		'
-		Me.TestFormToolStripMenuItem.Name = "TestFormToolStripMenuItem"
-		Me.TestFormToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-		Me.TestFormToolStripMenuItem.Text = "TestForm"
 		'
 		'MainForm
 		'
@@ -164,4 +179,6 @@ Partial Class MainForm
 	Friend WithEvents HashVSListToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents FormAsyncToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents TestFormToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents TSMI_Address As ToolStripMenuItem
+	Friend WithEvents TSMI_UL As ToolStripMenuItem
 End Class

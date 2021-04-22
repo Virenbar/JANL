@@ -12,10 +12,6 @@
 		PlayMary()
 	End Sub
 
-	Private Sub DaDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaDataToolStripMenuItem.Click
-		FormAddressSuggest.Show()
-	End Sub
-
 	Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 	End Sub
@@ -36,6 +32,14 @@
 	Private Sub TestFormToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestFormToolStripMenuItem.Click
 		Dim F = New FormTest()
 		F.ShowDialog(Me)
+	End Sub
+
+	Private Sub TSMI_Address_Click(sender As Object, e As EventArgs) Handles TSMI_Address.Click
+		FormAddressSuggest.Show()
+	End Sub
+
+	Private Sub TSMI_UL_Click(sender As Object, e As EventArgs) Handles TSMI_UL.Click
+		FormULCheck.Show()
 	End Sub
 
 End Class
