@@ -46,7 +46,7 @@ steps:
     targetType: 'inline'
     script: |
       Write-Host "Version: $(AssemblyInfo.AssemblyVersion)"
-      Write-Host "##vso[build.updatebuildnumber]$(AssemblyInfo.AssemblyVersion)-$(rev:r)"
+      Write-Host "##vso[build.updatebuildnumber]$(AssemblyInfo.AssemblyVersion)-$(Build.BuildId)"
 
 - task: NuGetCommand@2
   inputs:
