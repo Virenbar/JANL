@@ -34,7 +34,7 @@ steps:
 
 - task: AssembyInfoReader@3
   inputs:
-    searchPattern: 'JANL\My Project\AssemblyInfo.cs'
+    searchPattern: 'JANL\My Project\AssemblyInfo.vb'
 
 #- task: PowerShell@2
 #  inputs:
@@ -44,7 +44,9 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Write-Host "##vso[build.updatebuildnumber]$(AssemblyInfo.AssemblyVersion)-$(rev:r)"'
+    script: |
+      Write-Host "Version: $(AssemblyInfo.AssemblyVersion)"
+      Write-Host "##vso[build.updatebuildnumber]$(AssemblyInfo.AssemblyVersion)-$(rev:r)"
 
 - task: NuGetCommand@2
   inputs:
