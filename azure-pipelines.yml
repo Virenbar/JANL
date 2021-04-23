@@ -53,7 +53,7 @@ steps:
     command: 'pack'
     packagesToPack: '**/*.nuspec'
     versioningScheme: 'byEnvVar'
-    versionEnvVar: '$(AssemblyInfo.AssemblyVersion)'
+    versionEnvVar: 'AssemblyInfo.AssemblyVersion'
 
 - task: PublishBuildArtifacts@1
   inputs:
