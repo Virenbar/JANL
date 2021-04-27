@@ -237,7 +237,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config.json" />
+    <Content Include="Config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Connected Services\Pochta\OperationHistory12.wsdl" />
     <None Include="Connected Services\Pochta\rtm34_xsd1.xsd">
       <SubType>Designer</SubType>
