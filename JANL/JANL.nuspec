@@ -17,8 +17,7 @@
     <releaseNotes>See GitHub.</releaseNotes>
     <copyright>Virenbar</copyright>
     <dependencies>
-      <group targetFramework="net452">
-      </group>
+      <group targetFramework=".NETFramework4.5" />
     </dependencies>
   </metadata>
   <files>
