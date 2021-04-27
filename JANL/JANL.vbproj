@@ -109,8 +109,15 @@
     <Compile Include="Controls\ToggleValueBox.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Extensions.vb" />
+    <Compile Include="Extensions\ControlExtensions.vb" />
+    <Compile Include="Extensions\IDK\VowelsBegone.vb" />
+    <Compile Include="Extensions\TypeExtensions.vb" />
     <Compile Include="FS.vb" />
+    <Compile Include="Locales\EB_Strings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EB_Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Msgs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -136,6 +143,9 @@
     <EmbeddedResource Include="Controls\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ExceptionBox.ru.resx">
+      <DependentUpon>ExceptionBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +155,12 @@
     <EmbeddedResource Include="Controls\ToggleValueBox.resx">
       <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Locales\EB_Strings.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EB_Strings.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locales\EB_Strings.ru.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -166,6 +182,14 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Icon\JANL.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Icon\JANL.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

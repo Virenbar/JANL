@@ -2,6 +2,8 @@
 Imports OfficeOpenXml
 Imports Newtonsoft.Json
 Imports JANL
+Imports System.Threading
+Imports System.Globalization
 
 Namespace My
 	' Для MyApplication имеются следующие события:
@@ -13,9 +15,11 @@ Namespace My
 	Partial Friend Class MyApplication
 
 		Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
+			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
 			Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
 			ExceptionBox.MailTo = Config.Current.ExceptionMail
 			ExceptionBox.MailSubject = "Ошибка TestWAT"
+			ExceptionBox.WittyComments = True
 			'ExcelPackage.LicenseContext = LicenseContext.NonCommercial
 			'Await Helpers.Bankrupt.Init()
 		End Sub

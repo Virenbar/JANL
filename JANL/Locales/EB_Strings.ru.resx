@@ -117,4 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EB_Continue" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="EB_Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="EB_ErrDesc" xml:space="preserve">
+    <value>Описание ошибки</value>
+  </data>
+  <data name="EB_Exit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="EB_Mail" xml:space="preserve">
+    <value>Отправить по почте</value>
+  </data>
+  <data name="EB_Message" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="EB_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="EB_Method" xml:space="preserve">
+    <value>Метод</value>
+  </data>
 </root>

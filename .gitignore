@@ -351,4 +351,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-TestWAT/Config.json
+TestWAT/MyConfig.json

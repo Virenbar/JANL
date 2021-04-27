@@ -8,20 +8,29 @@
 ''' StackTrace различается между Debug и Release из-за встраивания(Inlining) методов
 ''' </remarks>
 Public Class ExceptionBox
-	Private Shared Rnd As New Random()
 	Private Shared Comments As New List(Of String)
-
+	Private Shared Rnd As New Random()
 	Private Exception As Exception
 	Private Selected As Exception
 
 	Public Sub New(ex As Exception)
-		' Этот вызов является обязательным для конструктора.
 		InitializeComponent()
-		' Добавить код инициализации после вызова InitializeComponent().
+
 		Icon = SystemIcons.Error
 		If MainText IsNot Nothing Then L_Text.Text = MainText
 		If WittyComments Then Text += $" - {GetComment()}"
 		StartPosition = FormStartPosition.CenterScreen
+
+		'Buttons
+		B_Ignore.Text = My.Resources.EB_Strings.EB_Continue
+		B_Exit.Text = My.Resources.EB_Strings.EB_Exit
+		B_MailTo.Text = My.Resources.EB_Strings.EB_Mail
+		B_Copy.Text = My.Resources.EB_Strings.EB_Copy
+		'Labels
+		L_Description.Text = My.Resources.EB_Strings.EB_ErrDesc
+		L_Message.Text = My.Resources.EB_Strings.EB_Message
+		L_Method.Text = My.Resources.EB_Strings.EB_Method
+		L_Type.Text = My.Resources.EB_Strings.EB_Type
 
 		Exception = ex
 		Selected = ex
@@ -29,10 +38,7 @@ Public Class ExceptionBox
 		UpdateTree()
 	End Sub
 
-	''' <summary>
-	'''
-	''' </summary>
-	Public Shared Property MainText As String = Nothing
+#Region "Shared Properties"
 
 	''' <summary>
 	''' Тема письма
@@ -45,9 +51,16 @@ Public Class ExceptionBox
 	Public Shared Property MailTo As String = Nothing
 
 	''' <summary>
+	''' Основной текст
+	''' </summary>
+	Public Shared Property MainText As String = Nothing
+
+	''' <summary>
 	''' Остроумные комментарии
 	''' </summary>
-	Public Shared Property WittyComments As Boolean = True
+	Public Shared Property WittyComments As Boolean = False
+
+#End Region
 
 	Protected Overrides Sub OnFormClosing(e As FormClosingEventArgs)
 		If e.CloseReason <> CloseReason.None Then DialogResult = DialogResult.Ignore

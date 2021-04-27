@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>JANL</id>
+    <id>Virenbar.JANL</id>
     <version>1.0.0.0</version>
     <title>JANL</title>
     <authors>Virenbar</authors>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <owners>Virenbar</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Virenbar/JANL</projectUrl>
+    <repository type="git" url="https://github.com/Virenbar/JANL.git" />
+    <iconUrl>https://github.com/Virenbar/JANL/Icon/JANL.png</iconUrl>
     <icon>Icon/JANL.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Just Another .NET Library</description>
-    <releaseNotes>Initial release of the package.</releaseNotes>
+    <summary>Just Another .NET Library</summary>
+    <releaseNotes>See GitHub.</releaseNotes>
     <copyright>Virenbar</copyright>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2">
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+    <file src="Icon\JANL.png" target="Icon\JANL.png" />
+  </files>
 </package>

@@ -1,5 +1,4 @@
 Imports System.Drawing
-Imports System.Windows.Forms
 
 Public Class Prmtrs
 	Public Shared Property AppName As String = Application.ProductName

@@ -1,3 +1,6 @@
 {
-  "See _Config.json for example": ""
+  "PochtaLogin": "",
+  "PochtaPassword": "",
+  "DaDataToken": "",
+  "ExceptionMail": ""
 }

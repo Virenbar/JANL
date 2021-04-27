@@ -2,7 +2,7 @@
 Imports Dadata.Model
 
 Public Class AddressSuggest
-	Private SC1 As New SuggestClient(Config.Current.ADataToken)
+	Private SC1 As New SuggestClient(Config.Current.DaDataToken)
 	Private BS_Suggest As New BindingSource()
 	Private WithEvents Timer As New Timer() With {.Interval = 1500}
 

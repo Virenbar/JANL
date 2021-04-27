@@ -3,7 +3,7 @@ Imports System.Runtime.CompilerServices
 Imports System.Threading.Tasks
 
 ''' <summary>
-''' Класс для работы с SQL командами V2.2
+''' Класс для работы с SQL командами V2.3
 ''' (ﾉಥ益ಥ）ﾉ彡ɐɯǝɥɔSllᴉℲ
 ''' </summary>
 Public Class SQL
@@ -157,8 +157,8 @@ Public Class SQL
 	''' Создает и открывает новое соединение по умолчанию
 	''' </summary>
 	''' <returns></returns>
-	Public Shared Async Function NewConnectionAsync() As Task(Of SqlConnection)
-		Return Await NewConnectionAsync(DefaultConn)
+	Public Shared Function NewConnectionAsync() As Task(Of SqlConnection)
+		Return NewConnectionAsync(DefaultConn)
 	End Function
 
 	''' <summary>
@@ -179,9 +179,9 @@ Public Class SQL
 		End Using
 	End Function
 
-	Friend Shared Async Function ExecuteNonQueryAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of Integer)
+	Friend Shared Function ExecuteNonQueryAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of Integer)
 		command.Transaction = tr
-		Return Await ExecuteNonQueryAsync(command, tr.Connection)
+		Return ExecuteNonQueryAsync(command, tr.Connection)
 	End Function
 
 	Friend Shared Async Function ExecuteNonQueryAsync(command As SqlCommand, conn As SqlConnection) As Task(Of Integer)
@@ -215,9 +215,9 @@ Public Class SQL
 		End Using
 	End Function
 
-	Friend Shared Async Function ExecuteScalarAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of Object)
+	Friend Shared Function ExecuteScalarAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of Object)
 		command.Transaction = tr
-		Return Await ExecuteScalarAsync(command, tr.Connection)
+		Return ExecuteScalarAsync(command, tr.Connection)
 	End Function
 
 	Friend Shared Async Function ExecuteScalarAsync(command As SqlCommand, conn As SqlConnection) As Task(Of Object)
@@ -239,9 +239,9 @@ Public Class SQL
 		End Using
 	End Function
 
-	Friend Shared Async Function ExecuteSelectAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of DataTable)
+	Friend Shared Function ExecuteSelectAsync(command As SqlCommand, tr As SqlTransaction) As Task(Of DataTable)
 		command.Transaction = tr
-		Return Await ExecuteSelectAsync(command, tr.Connection)
+		Return ExecuteSelectAsync(command, tr.Connection)
 	End Function
 
 	Friend Shared Async Function ExecuteSelectAsync(command As SqlCommand, conn As SqlConnection) As Task(Of DataTable)
@@ -250,9 +250,9 @@ Public Class SQL
 			command.Connection = conn
 			Using R = Await command.ExecuteReaderAsync()
 				Await Task.Run(
-						Sub()
-							result.Load(R)
-						End Sub)
+					Sub()
+						result.Load(R)
+					End Sub)
 			End Using
 		End Using
 		Return result
@@ -284,16 +284,16 @@ Public Class SQL
 			Return ExecuteSelect(Command, conn)
 		End Function
 
-		Public Async Function ExecuteAsync() As Task(Of DataTable)
-			Return Await ExecuteSelectAsync(Command)
+		Public Function ExecuteAsync() As Task(Of DataTable)
+			Return ExecuteSelectAsync(Command)
 		End Function
 
-		Public Async Function ExecuteAsync(tr As SqlTransaction) As Task(Of DataTable)
-			Return Await ExecuteSelectAsync(Command, tr)
+		Public Function ExecuteAsync(tr As SqlTransaction) As Task(Of DataTable)
+			Return ExecuteSelectAsync(Command, tr)
 		End Function
 
-		Public Async Function ExecuteAsync(conn As SqlConnection) As Task(Of DataTable)
-			Return Await ExecuteSelectAsync(Command, conn)
+		Public Function ExecuteAsync(conn As SqlConnection) As Task(Of DataTable)
+			Return ExecuteSelectAsync(Command, conn)
 		End Function
 
 	End Class
@@ -318,16 +318,16 @@ Public Class SQL
 			Return ExecuteScalar(Of T)(Command, tr)
 		End Function
 
-		Public Async Function ExecuteAsync() As Task(Of T)
-			Return Await ExecuteScalarAsync(Of T)(Command)
+		Public Function ExecuteAsync() As Task(Of T)
+			Return ExecuteScalarAsync(Of T)(Command)
 		End Function
 
-		Public Async Function ExecuteAsync(conn As SqlConnection) As Task(Of T)
-			Return Await ExecuteScalarAsync(Of T)(Command, conn)
+		Public Function ExecuteAsync(conn As SqlConnection) As Task(Of T)
+			Return ExecuteScalarAsync(Of T)(Command, conn)
 		End Function
 
-		Public Async Function ExecuteAsync(tr As SqlTransaction) As Task(Of T)
-			Return Await ExecuteScalarAsync(Of T)(Command, tr)
+		Public Function ExecuteAsync(tr As SqlTransaction) As Task(Of T)
+			Return ExecuteScalarAsync(Of T)(Command, tr)
 		End Function
 
 	End Class
