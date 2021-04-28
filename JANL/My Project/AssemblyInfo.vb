@@ -3,7 +3,7 @@ Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("JANL")>
-<Assembly: AssemblyDescription("Just Another Net Library")>
+<Assembly: AssemblyDescription("Just Another .NET Library")>
 <Assembly: AssemblyCompany("Virenbar")>
 <Assembly: AssemblyProduct("JANL")>
 <Assembly: AssemblyCopyright("Copyright © Virenbar 2021")>

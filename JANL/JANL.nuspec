@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Virenbar.JANL</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0</version>
     <title>JANL</title>
     <authors>Virenbar</authors>
     <owners>Virenbar</owners>
@@ -17,11 +17,12 @@
     <releaseNotes>See GitHub.</releaseNotes>
     <copyright>Virenbar</copyright>
     <dependencies>
-      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.5.2" />
     </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\*.dll" target="lib\net452" />
+    <file src="bin\Release\ru\*.*" target="lib\net452\ru" />
     <file src="Icon\JANL.png" target="Icon\JANL.png" />
   </files>
 </package>
