@@ -22,6 +22,7 @@
   </metadata>
   <files>
     <file src="bin\Release\*.dll" target="lib\net452" />
+    <file src="bin\Release\*.xml" target="lib\net452" />
     <file src="bin\Release\ru\*.*" target="lib\net452\ru" />
     <file src="Icon\JANL.png" target="Icon\JANL.png" />
   </files>
