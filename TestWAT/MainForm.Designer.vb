@@ -38,6 +38,7 @@ Partial Class MainForm
 		Me.ImageViewerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Button1 = New System.Windows.Forms.Button()
+		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -79,13 +80,13 @@ Partial Class MainForm
 		'TSMI_Address
 		'
 		Me.TSMI_Address.Name = "TSMI_Address"
-		Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
+		Me.TSMI_Address.Size = New System.Drawing.Size(107, 22)
 		Me.TSMI_Address.Text = "Адрес"
 		'
 		'TSMI_UL
 		'
 		Me.TSMI_UL.Name = "TSMI_UL"
-		Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
+		Me.TSMI_UL.Size = New System.Drawing.Size(107, 22)
 		Me.TSMI_UL.Text = "ЮЛ"
 		'
 		'НижнийТагилToolStripMenuItem
@@ -116,7 +117,7 @@ Partial Class MainForm
 		'
 		'РазноеToolStripMenuItem
 		'
-		Me.РазноеToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ПочтаToolStripMenuItem, Me.ImageViewerToolStripMenuItem, Me.FormAsyncToolStripMenuItem})
+		Me.РазноеToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ПочтаToolStripMenuItem, Me.ImageViewerToolStripMenuItem, Me.FormAsyncToolStripMenuItem, Me.SelectTestToolStripMenuItem})
 		Me.РазноеToolStripMenuItem.Name = "РазноеToolStripMenuItem"
 		Me.РазноеToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
 		Me.РазноеToolStripMenuItem.Text = "Разное"
@@ -124,19 +125,19 @@ Partial Class MainForm
 		'ПочтаToolStripMenuItem
 		'
 		Me.ПочтаToolStripMenuItem.Name = "ПочтаToolStripMenuItem"
-		Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+		Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.ПочтаToolStripMenuItem.Text = "Почта"
 		'
 		'ImageViewerToolStripMenuItem
 		'
 		Me.ImageViewerToolStripMenuItem.Name = "ImageViewerToolStripMenuItem"
-		Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+		Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.ImageViewerToolStripMenuItem.Text = "ImageViewer"
 		'
 		'FormAsyncToolStripMenuItem
 		'
 		Me.FormAsyncToolStripMenuItem.Name = "FormAsyncToolStripMenuItem"
-		Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+		Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
 		'
 		'Button1
@@ -147,6 +148,12 @@ Partial Class MainForm
 		Me.Button1.TabIndex = 1
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
+		'
+		'SelectTestToolStripMenuItem
+		'
+		Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
+		Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.SelectTestToolStripMenuItem.Text = "SelectTest"
 		'
 		'MainForm
 		'
@@ -181,4 +188,5 @@ Partial Class MainForm
 	Friend WithEvents TestFormToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents TSMI_Address As ToolStripMenuItem
 	Friend WithEvents TSMI_UL As ToolStripMenuItem
+	Friend WithEvents SelectTestToolStripMenuItem As ToolStripMenuItem
 End Class

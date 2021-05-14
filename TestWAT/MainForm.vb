@@ -42,4 +42,8 @@
 		FormULCheck.Show()
 	End Sub
 
+	Private Sub SelectTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectTestToolStripMenuItem.Click
+		FormSelectTest.Show()
+	End Sub
+
 End Class

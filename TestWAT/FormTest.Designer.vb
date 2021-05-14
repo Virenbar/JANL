@@ -46,6 +46,8 @@ Partial Class FormTest
 		Me.PBE_Test = New JANL.ProgressBarEx()
 		Me.GP_PB = New System.Windows.Forms.GroupBox()
 		Me.B_PB = New System.Windows.Forms.Button()
+		Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
+		Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +57,7 @@ Partial Class FormTest
 		Me.StatusStrip1.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
 		Me.GP_PB.SuspendLayout()
+		Me.TableLayoutPanel9.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'ImageList1
@@ -222,7 +225,7 @@ Partial Class FormTest
 		'StatusStrip1
 		'
 		Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPB_Test})
-		Me.StatusStrip1.Location = New System.Drawing.Point(0, 247)
+		Me.StatusStrip1.Location = New System.Drawing.Point(0, 330)
 		Me.StatusStrip1.Name = "StatusStrip1"
 		Me.StatusStrip1.Size = New System.Drawing.Size(647, 22)
 		Me.StatusStrip1.TabIndex = 6
@@ -301,12 +304,34 @@ Partial Class FormTest
 		Me.B_PB.Text = "Start"
 		Me.B_PB.UseVisualStyleBackColor = True
 		'
+		'TableLayoutPanel9
+		'
+		Me.TableLayoutPanel9.ColumnCount = 2
+		Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+		Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+		Me.TableLayoutPanel9.Controls.Add(Me.FlowLayoutPanel4, 1, 0)
+		Me.TableLayoutPanel9.Location = New System.Drawing.Point(365, 216)
+		Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
+		Me.TableLayoutPanel9.RowCount = 1
+		Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+		Me.TableLayoutPanel9.Size = New System.Drawing.Size(195, 80)
+		Me.TableLayoutPanel9.TabIndex = 13
+		'
+		'FlowLayoutPanel4
+		'
+		Me.FlowLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.FlowLayoutPanel4.Location = New System.Drawing.Point(108, 11)
+		Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
+		Me.FlowLayoutPanel4.Size = New System.Drawing.Size(84, 57)
+		Me.FlowLayoutPanel4.TabIndex = 11
+		'
 		'FormTest
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-		Me.ClientSize = New System.Drawing.Size(647, 269)
+		Me.ClientSize = New System.Drawing.Size(647, 352)
+		Me.Controls.Add(Me.TableLayoutPanel9)
 		Me.Controls.Add(Me.GP_PB)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.StatusStrip1)
@@ -331,6 +356,7 @@ Partial Class FormTest
 		Me.GroupBox4.ResumeLayout(False)
 		Me.GP_PB.ResumeLayout(False)
 		Me.GP_PB.PerformLayout()
+		Me.TableLayoutPanel9.ResumeLayout(False)
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -358,4 +384,6 @@ Partial Class FormTest
 	Friend WithEvents PBE_Test As JANL.ProgressBarEx
 	Friend WithEvents GP_PB As GroupBox
 	Friend WithEvents B_PB As Button
+	Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
+	Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
 End Class

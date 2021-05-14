@@ -120,6 +120,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSelectTest.Designer.vb">
+      <DependentUpon>FormSelectTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelectTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormULCheck.Designer.vb">
       <DependentUpon>FormULCheck.vb</DependentUpon>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPochta.resx">
       <DependentUpon>FormPochta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelectTest.resx">
+      <DependentUpon>FormSelectTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormULCheck.resx">
       <DependentUpon>FormULCheck.vb</DependentUpon>
