@@ -16,6 +16,15 @@ Public Class Msgs
 	End Sub
 
 	''' <summary>
+	''' Отображает сообщение
+	''' </summary>
+	''' <param name="text">Текст сообщения</param>
+	''' <param name="header">Заголовок окна</param>
+	Public Shared Sub ShowInfo(text As String, header As String)
+		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information)
+	End Sub
+
+	''' <summary>
 	''' Отображает предупреждение
 	''' </summary>
 	''' <param name="text">Текст предупреждения</param>
@@ -24,11 +33,29 @@ Public Class Msgs
 	End Sub
 
 	''' <summary>
+	''' Отображает предупреждение
+	''' </summary>
+	''' <param name="text">Текст предупреждения</param>
+	''' <param name="header">Заголовок окна</param>
+	Public Shared Sub ShowWarning(text As String, header As String)
+		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+	End Sub
+
+	''' <summary>
 	''' Отображает ошибку
 	''' </summary>
 	''' <param name="text">Текст ошибки</param>
 	Public Shared Sub ShowError(text As String)
 		MessageBox.Show(text, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	End Sub
+
+	''' <summary>
+	''' Отображает ошибку
+	''' </summary>
+	''' <param name="text">Текст ошибки</param>
+	''' <param name="header">Заголовок окна</param>
+	Public Shared Sub ShowError(text As String, header As String)
+		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error)
 	End Sub
 
 	''' <summary>

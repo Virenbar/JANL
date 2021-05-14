@@ -76,6 +76,8 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors\Common.vb" />
+    <Compile Include="Colors\Status.vb" />
     <Compile Include="Consts.vb" />
     <Compile Include="Controls\CancelableButton.vb">
       <SubType>Component</SubType>
@@ -94,6 +96,12 @@
     </Compile>
     <Compile Include="Controls\ProgressBarEx.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SelectionBox.Designer.vb">
+      <DependentUpon>SelectionBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectionBox.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controls\StopWatchLabel.Designer.vb">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
@@ -136,7 +144,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Prmtrs.vb" />
-    <Compile Include="SQL.vb" />
+    <Compile Include="SQL\ISQLCommand.vb" />
+    <Compile Include="SQL\NonQueryCommand.vb" />
+    <Compile Include="SQL\ScalarCommand.vb" />
+    <Compile Include="SQL\SelectCommand.vb" />
+    <Compile Include="SQL\SQLHelper.vb" />
     <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
   </ItemGroup>
@@ -149,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SelectionBox.resx">
+      <DependentUpon>SelectionBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
@@ -189,8 +204,6 @@
     </None>
     <None Include="Icon\JANL.svg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SQL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

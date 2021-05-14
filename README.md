@@ -7,4 +7,7 @@
   
  PochtaLogin,  PochtaPassword: [Почта России](https://tracking.pochta.ru/)  
  DaDataToken: [DaData](https://dadata.ru/)  
- ExceptionMail: Any email (or list)
+ ExceptionMail: Any email (or list)  
+  
+ Icons by [Icons8]https://icons8.com  
+ 
