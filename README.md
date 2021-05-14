@@ -1,4 +1,4 @@
-# JANL
+# JANL [![Build Status](https://dev.azure.com/Virenbar/JANL/_apis/build/status/Virenbar.JANL?branchName=main)](https://dev.azure.com/Virenbar/JANL/_build/latest?definitionId=4&branchName=main)
  Just Another .Net Library
 
 ## TestWAT
@@ -9,5 +9,5 @@
  DaDataToken: [DaData](https://dadata.ru/)  
  ExceptionMail: Any email (or list)  
   
- Icons by [Icons8]https://icons8.com  
+ Icons by [Icons8](https://icons8.com)  
  
