@@ -16,6 +16,8 @@ Public Class StopWatchLabel
 		ImageWaiting = PB_Image.InitialImage
 		ImageRunning = PB_Image.Image
 		PB_Image.Image = ImageWaiting
+		Prefix = "Time passed"
+		UpdateText()
 	End Sub
 
 #Region "Properties"
@@ -37,6 +39,9 @@ Public Class StopWatchLabel
 			Timer.Interval = value
 		End Set
 	End Property
+
+	<Browsable(True), Category("Appearance"), DefaultValue("Time passed")>
+	Public Property Prefix As String
 
 	<Browsable(True), Category("Appearance"), DefaultValue(True)>
 	Public Property ShowIamge As Boolean
@@ -76,8 +81,12 @@ Public Class StopWatchLabel
 		PB_Image.Image = ImageRunning
 	End Sub
 
+	Private Sub UpdateText()
+		L_Time.Text = $"{Prefix}: {TimeElapsed:d\.hh\:mm\:ss}"
+	End Sub
+
 	Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-		L_Time.Text = $"Прошло: {TimeElapsed:d\.hh\:mm\:ss}"
+		UpdateText()
 	End Sub
 
 End Class

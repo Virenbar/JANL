@@ -79,43 +79,43 @@
     <Compile Include="Colors\Common.vb" />
     <Compile Include="Colors\Status.vb" />
     <Compile Include="Consts.vb" />
-    <Compile Include="Controls\CancelableButton.vb">
+    <Compile Include="ExtendedControls\CancelableButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\DateTimePickerEx.vb">
+    <Compile Include="ExtendedControls\DateTimePickerEx.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ExceptionBox.Designer.vb">
+    <Compile Include="Forms\ExceptionBox.Designer.vb">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ExceptionBox.vb">
+    <Compile Include="Forms\ExceptionBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\ProgressBarEx.Designer.vb">
+    <Compile Include="UserControls\ProgressBarEx.Designer.vb">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProgressBarEx.vb">
+    <Compile Include="UserControls\ProgressBarEx.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SelectionBox.Designer.vb">
+    <Compile Include="Forms\SelectionBox.Designer.vb">
       <DependentUpon>SelectionBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SelectionBox.vb">
+    <Compile Include="Forms\SelectionBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\StopWatchLabel.Designer.vb">
+    <Compile Include="UserControls\StopWatchLabel.Designer.vb">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\StopWatchLabel.vb">
+    <Compile Include="UserControls\StopWatchLabel.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ToggleButton.vb">
+    <Compile Include="ExtendedControls\ToggleButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ToggleValueBox.Designer.vb">
+    <Compile Include="UserControls\ToggleValueBox.Designer.vb">
       <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToggleValueBox.vb">
+    <Compile Include="UserControls\ToggleValueBox.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extensions\ControlExtensions.vb" />
@@ -153,22 +153,22 @@
     <Compile Include="Types\ToggleValue.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ExceptionBox.resx">
+    <EmbeddedResource Include="Forms\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ExceptionBox.ru.resx">
+    <EmbeddedResource Include="Forms\ExceptionBox.ru.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProgressBarEx.resx">
+    <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SelectionBox.resx">
+    <EmbeddedResource Include="Forms\SelectionBox.resx">
       <DependentUpon>SelectionBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\StopWatchLabel.resx">
+    <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ToggleValueBox.resx">
+    <EmbeddedResource Include="UserControls\ToggleValueBox.resx">
       <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Locales\EB_Strings.resx">
