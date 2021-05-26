@@ -69,9 +69,9 @@ Public Class ExceptionBox
 
 	Private Shared Function EXtoString(ex As Exception) As String
 		Dim L = New List(Of String) From {
-			$"Тип: {ex.GetType}",
-			$"Метод: {ex.TargetSite.DeclaringType.FullName}.{ex.TargetSite.Name}",
-			$"Сообщение: {ex.Message}",
+			$"{My.Resources.EB_Strings.EB_Type}: {ex.GetType}",
+			$"{My.Resources.EB_Strings.EB_Method}: {ex.TargetSite.DeclaringType.FullName}.{ex.TargetSite.Name}",
+			$"{My.Resources.EB_Strings.EB_Message}: {ex.Message}",
 			"StackTrace:",
 			ex.StackTrace
 		}

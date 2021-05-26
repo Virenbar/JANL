@@ -3,6 +3,7 @@ Imports System.Drawing
 
 Public Class StopWatchLabel
 	Private WithEvents Timer As Timer
+	Private Const Format = "d\.hh\:mm\:ss"
 	Private StopWatch As Stopwatch
 
 	Public Sub New()
@@ -16,7 +17,8 @@ Public Class StopWatchLabel
 		ImageWaiting = PB_Image.InitialImage
 		ImageRunning = PB_Image.Image
 		PB_Image.Image = ImageWaiting
-		Prefix = "Time passed"
+		L_Prefix.Text = "Time passed:"
+		L_Time.Text = TimeSpan.Zero.ToString(Format)
 		UpdateText()
 	End Sub
 
@@ -30,6 +32,16 @@ Public Class StopWatchLabel
 	<Browsable(True), Category("Appearance")>
 	Public Property ImageWaiting As Image
 
+	<Browsable(True), Category("Appearance"), DefaultValue("Time passed:")>
+	Public Property Prefix As String
+		Get
+			Return L_Prefix.Text
+		End Get
+		Set(value As String)
+			L_Prefix.Text = value
+		End Set
+	End Property
+
 	<Browsable(True), Category("Appearance"), DefaultValue(100)>
 	Public Property RefreshInterval As Integer
 		Get
@@ -40,11 +52,8 @@ Public Class StopWatchLabel
 		End Set
 	End Property
 
-	<Browsable(True), Category("Appearance"), DefaultValue("Time passed")>
-	Public Property Prefix As String
-
 	<Browsable(True), Category("Appearance"), DefaultValue(True)>
-	Public Property ShowIamge As Boolean
+	Public Property ShowImage As Boolean
 		Get
 			Return PB_Image.Visible
 		End Get
@@ -72,7 +81,7 @@ Public Class StopWatchLabel
 
 	Public Sub Reset()
 		[Stop]()
-		L_Time.Text = ""
+		L_Time.Text = TimeSpan.Zero.ToString(Format)
 	End Sub
 
 	Public Sub Start()
@@ -81,12 +90,12 @@ Public Class StopWatchLabel
 		PB_Image.Image = ImageRunning
 	End Sub
 
-	Private Sub UpdateText()
-		L_Time.Text = $"{Prefix}: {TimeElapsed:d\.hh\:mm\:ss}"
-	End Sub
-
 	Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
 		UpdateText()
+	End Sub
+
+	Private Sub UpdateText()
+		L_Time.Text = TimeElapsed.ToString(Format)
 	End Sub
 
 End Class

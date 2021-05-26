@@ -23,8 +23,8 @@ Partial Class ExceptionBox
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ExceptionBox))
-		Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел1")
-		Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел0", New System.Windows.Forms.TreeNode() {TreeNode3})
+		Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел1")
+		Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Узел0", New System.Windows.Forms.TreeNode() {TreeNode1})
 		Me.B_Copy = New System.Windows.Forms.Button()
 		Me.B_MailTo = New System.Windows.Forms.Button()
 		Me.L_Message = New System.Windows.Forms.Label()
@@ -99,7 +99,7 @@ Partial Class ExceptionBox
 		Me.TB_Message.Multiline = True
 		Me.TB_Message.Name = "TB_Message"
 		Me.TB_Message.ReadOnly = True
-		Me.TB_Message.Size = New System.Drawing.Size(261, 70)
+		Me.TB_Message.Size = New System.Drawing.Size(267, 76)
 		Me.TB_Message.TabIndex = 4
 		'
 		'TB_Name
@@ -108,7 +108,7 @@ Partial Class ExceptionBox
 		Me.TB_Name.Location = New System.Drawing.Point(80, 197)
 		Me.TB_Name.Name = "TB_Name"
 		Me.TB_Name.ReadOnly = True
-		Me.TB_Name.Size = New System.Drawing.Size(261, 23)
+		Me.TB_Name.Size = New System.Drawing.Size(267, 23)
 		Me.TB_Name.TabIndex = 6
 		'
 		'L_Method
@@ -127,12 +127,12 @@ Partial Class ExceptionBox
 		Me.TV_Exceptions.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.TV_Exceptions.Location = New System.Drawing.Point(3, 3)
 		Me.TV_Exceptions.Name = "TV_Exceptions"
-		TreeNode3.Name = "Узел1"
-		TreeNode3.Text = "Узел1"
-		TreeNode4.Name = "Узел0"
-		TreeNode4.Text = "Узел0"
-		Me.TV_Exceptions.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
-		Me.TV_Exceptions.Size = New System.Drawing.Size(338, 159)
+		TreeNode1.Name = "Узел1"
+		TreeNode1.Text = "Узел1"
+		TreeNode2.Name = "Узел0"
+		TreeNode2.Text = "Узел0"
+		Me.TV_Exceptions.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
+		Me.TV_Exceptions.Size = New System.Drawing.Size(344, 159)
 		Me.TV_Exceptions.TabIndex = 7
 		'
 		'TableLayoutPanel1
@@ -239,14 +239,15 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel3.Controls.Add(Me.L_Type, 0, 1)
 		Me.TableLayoutPanel3.Controls.Add(Me.TB_Type, 1, 1)
 		Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TableLayoutPanel3.Location = New System.Drawing.Point(8, 67)
+		Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 64)
+		Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
 		Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
 		Me.TableLayoutPanel3.RowCount = 4
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel3.Size = New System.Drawing.Size(344, 299)
+		Me.TableLayoutPanel3.Size = New System.Drawing.Size(350, 305)
 		Me.TableLayoutPanel3.TabIndex = 12
 		'
 		'L_Type
@@ -265,7 +266,7 @@ Partial Class ExceptionBox
 		Me.TB_Type.Location = New System.Drawing.Point(80, 168)
 		Me.TB_Type.Name = "TB_Type"
 		Me.TB_Type.ReadOnly = True
-		Me.TB_Type.Size = New System.Drawing.Size(261, 23)
+		Me.TB_Type.Size = New System.Drawing.Size(267, 23)
 		Me.TB_Type.TabIndex = 6
 		'
 		'TableLayoutPanel4
