@@ -11,3 +11,5 @@
    
   Icons by [Icons8](https://icons8.com)  
  
+### DGVTemplateEditor
+  Editor for XML templates of DataGridView  
