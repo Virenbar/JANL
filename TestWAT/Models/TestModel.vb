@@ -1,10 +1,9 @@
-﻿Imports System.ComponentModel
-Imports System.Runtime.CompilerServices
+﻿Imports JANL.Types
 
 Namespace Models
 
 	Public Class TestModel
-		Implements INotifyPropertyChanged
+		Inherits ObservableObject
 		Private Data As Data.TestModelData
 
 		Public Sub New()
@@ -23,15 +22,15 @@ Namespace Models
 			End Set
 		End Property
 
-#End Region
-
-#Region "Notify"
-
-		Protected Sub NotifyPropertyChanged(<CallerMemberName()> Optional ByVal propertyName As String = Nothing)
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End Sub
-
-		Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
+		Public Property TestString As String
+			Get
+				Return Data.TestString
+			End Get
+			Set(value As String)
+				Data.TestString = value
+				NotifyPropertyChanged()
+			End Set
+		End Property
 
 #End Region
 

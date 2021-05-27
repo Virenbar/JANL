@@ -1,7 +1,5 @@
-﻿Imports System.IO.Compression
-Imports System.IO
+﻿Imports System.IO
 Imports OfficeOpenXml
-Imports Microsoft.Office.Interop.Excel
 
 Module Saldo
 	Dim path As String = "D:\Saldo\Saldo"

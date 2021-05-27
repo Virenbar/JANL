@@ -7,6 +7,7 @@ Public Class FormTest
 
 	Private Sub FormTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		BS_TestModel.DataSource = TestObject
+		TestObject.TestString = "123"
 	End Sub
 
 #Region "Date"

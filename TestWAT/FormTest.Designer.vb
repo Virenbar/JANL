@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormTest
 	Inherits System.Windows.Forms.Form
 
 	'Форма переопределяет dispose для очистки списка компонентов.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormTest
 	'Примечание: следующая процедура является обязательной для конструктора форм Windows Forms
 	'Для ее изменения используйте конструктор форм Windows Form.  
 	'Не изменяйте ее в редакторе исходного кода.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTest))
@@ -43,11 +43,15 @@ Partial Class FormTest
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
 		Me.SWL_Test = New JANL.StopWatchLabel()
 		Me.CB_SW = New JANL.CancelableButton()
-		Me.PBE_Test = New JANL.ProgressBarEx()
 		Me.GP_PB = New System.Windows.Forms.GroupBox()
+		Me.PBE_Test = New JANL.ProgressBarEx()
 		Me.B_PB = New System.Windows.Forms.Button()
 		Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
 		Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.TextBox1 = New System.Windows.Forms.TextBox()
+		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.TextBoxEx1 = New JANL.TextBoxEx()
+		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,6 +62,8 @@ Partial Class FormTest
 		Me.GroupBox4.SuspendLayout()
 		Me.GP_PB.SuspendLayout()
 		Me.TableLayoutPanel9.SuspendLayout()
+		Me.FlowLayoutPanel1.SuspendLayout()
+		Me.GroupBox5.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'ImageList1
@@ -242,7 +248,7 @@ Partial Class FormTest
 		Me.GroupBox4.Controls.Add(Me.CB_SW)
 		Me.GroupBox4.Location = New System.Drawing.Point(27, 124)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(156, 68)
+		Me.GroupBox4.Size = New System.Drawing.Size(191, 68)
 		Me.GroupBox4.TabIndex = 8
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "StopWatch"
@@ -254,7 +260,7 @@ Partial Class FormTest
 		Me.SWL_Test.ImageWaiting = CType(resources.GetObject("SWL_Test.ImageWaiting"), System.Drawing.Image)
 		Me.SWL_Test.Location = New System.Drawing.Point(3, 39)
 		Me.SWL_Test.Name = "SWL_Test"
-		Me.SWL_Test.Size = New System.Drawing.Size(150, 26)
+		Me.SWL_Test.Size = New System.Drawing.Size(185, 26)
 		Me.SWL_Test.TabIndex = 7
 		'
 		'CB_SW
@@ -264,22 +270,12 @@ Partial Class FormTest
 		Me.CB_SW.ImageCanceled = Nothing
 		Me.CB_SW.Location = New System.Drawing.Point(3, 16)
 		Me.CB_SW.Name = "CB_SW"
-		Me.CB_SW.Size = New System.Drawing.Size(150, 23)
+		Me.CB_SW.Size = New System.Drawing.Size(185, 23)
 		Me.CB_SW.TabIndex = 8
 		Me.CB_SW.Text = "Start"
 		Me.CB_SW.TextCancel = "Stop"
 		Me.CB_SW.TextCanceled = Nothing
 		Me.CB_SW.UseVisualStyleBackColor = True
-		'
-		'PBE_Test
-		'
-		Me.PBE_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
-		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
-		Me.PBE_Test.Name = "PBE_Test"
-		Me.PBE_Test.Percent = 0
-		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
-		Me.PBE_Test.TabIndex = 9
 		'
 		'GP_PB
 		'
@@ -291,6 +287,16 @@ Partial Class FormTest
 		Me.GP_PB.TabIndex = 10
 		Me.GP_PB.TabStop = False
 		Me.GP_PB.Text = "ProgressBar"
+		'
+		'PBE_Test
+		'
+		Me.PBE_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
+		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
+		Me.PBE_Test.Name = "PBE_Test"
+		Me.PBE_Test.Percent = 0
+		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
+		Me.PBE_Test.TabIndex = 9
 		'
 		'B_PB
 		'
@@ -325,12 +331,52 @@ Partial Class FormTest
 		Me.FlowLayoutPanel4.Size = New System.Drawing.Size(84, 57)
 		Me.FlowLayoutPanel4.TabIndex = 11
 		'
+		'TextBox1
+		'
+		Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.TextBox1.Location = New System.Drawing.Point(3, 3)
+		Me.TextBox1.Name = "TextBox1"
+		Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+		Me.TextBox1.TabIndex = 15
+		'
+		'FlowLayoutPanel1
+		'
+		Me.FlowLayoutPanel1.Controls.Add(Me.TextBox1)
+		Me.FlowLayoutPanel1.Controls.Add(Me.TextBoxEx1)
+		Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 16)
+		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(194, 81)
+		Me.FlowLayoutPanel1.TabIndex = 16
+		'
+		'TextBoxEx1
+		'
+		Me.TextBoxEx1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.TextBoxEx1.ForeColor = System.Drawing.SystemColors.WindowText
+		Me.TextBoxEx1.Label = "TestString"
+		Me.TextBoxEx1.Location = New System.Drawing.Point(3, 29)
+		Me.TextBoxEx1.Name = "TextBoxEx1"
+		Me.TextBoxEx1.Size = New System.Drawing.Size(100, 20)
+		Me.TextBoxEx1.TabIndex = 14
+		Me.TextBoxEx1.Text = "123"
+		'
+		'GroupBox5
+		'
+		Me.GroupBox5.Controls.Add(Me.FlowLayoutPanel1)
+		Me.GroupBox5.Location = New System.Drawing.Point(27, 216)
+		Me.GroupBox5.Name = "GroupBox5"
+		Me.GroupBox5.Size = New System.Drawing.Size(200, 100)
+		Me.GroupBox5.TabIndex = 17
+		Me.GroupBox5.TabStop = False
+		Me.GroupBox5.Text = "GroupBox5"
+		'
 		'FormTest
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.ClientSize = New System.Drawing.Size(647, 352)
+		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.TableLayoutPanel9)
 		Me.Controls.Add(Me.GP_PB)
 		Me.Controls.Add(Me.GroupBox4)
@@ -357,6 +403,9 @@ Partial Class FormTest
 		Me.GP_PB.ResumeLayout(False)
 		Me.GP_PB.PerformLayout()
 		Me.TableLayoutPanel9.ResumeLayout(False)
+		Me.FlowLayoutPanel1.ResumeLayout(False)
+		Me.FlowLayoutPanel1.PerformLayout()
+		Me.GroupBox5.ResumeLayout(False)
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -386,4 +435,8 @@ Partial Class FormTest
 	Friend WithEvents B_PB As Button
 	Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
 	Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
+	Friend WithEvents TextBoxEx1 As JANL.TextBoxEx
+	Friend WithEvents TextBox1 As TextBox
+	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+	Friend WithEvents GroupBox5 As GroupBox
 End Class
