@@ -16,7 +16,6 @@ Public Class DateTimePickerEx
 		Set(value As Date?)
 			MyBase.Value = If(value, Now)
 			Checked = value.HasValue
-
 		End Set
 	End Property
 
@@ -24,8 +23,19 @@ Public Class DateTimePickerEx
 		MyBase.OnValidated(e)
 	End Sub
 
+	Protected Overrides Sub OnLostFocus(e As EventArgs)
+		MyBase.OnLostFocus(e)
+		If Not Checked Then ForceWrite()
+	End Sub
+
 	Protected Overrides Sub OnValueChanged(eventargs As EventArgs)
 		MyBase.OnValueChanged(eventargs)
+	End Sub
+
+	Private Sub ForceWrite()
+		For Each B As Binding In DataBindings
+			B.WriteValue()
+		Next
 	End Sub
 
 	<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>

@@ -94,6 +94,9 @@
     <Compile Include="Forms\ExceptionBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Managers\DGVManager.vb" />
+    <Compile Include="Types\DGVTemplate.vb" />
+    <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
     <Compile Include="UserControls\ProgressBarEx.Designer.vb">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
