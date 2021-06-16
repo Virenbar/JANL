@@ -88,6 +88,7 @@
     <Compile Include="ExtendedControls\TextBoxEx.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helpers\Excel.vb" />
     <Compile Include="Forms\ExceptionBox.Designer.vb">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </Compile>
@@ -128,7 +129,7 @@
     <Compile Include="Extensions\ControlExtensions.vb" />
     <Compile Include="Extensions\IDK\VowelsBegone.vb" />
     <Compile Include="Extensions\TypeExtensions.vb" />
-    <Compile Include="FS.vb" />
+    <Compile Include="Helpers\FS.vb" />
     <Compile Include="Locales\EB_Strings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

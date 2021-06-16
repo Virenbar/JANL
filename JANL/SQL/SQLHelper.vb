@@ -4,7 +4,7 @@ Imports System.Threading.Tasks
 
 Namespace SQL
 	''' <summary>
-	''' Класс для работы с SQL командами V2.3
+	''' Класс для работы с SQL командами
 	''' (ﾉಥ益ಥ）ﾉ彡ɐɯǝɥɔSllᴉℲ
 	''' </summary>
 	Public Class SQLHelper
@@ -39,16 +39,29 @@ Namespace SQL
 		''' Начинает транзакцию используя соединение по умолчанию
 		''' </summary>
 		Public Shared Function NewTransaction() As SqlTransaction
-			Dim conn = NewConnection()
-			Return conn.BeginTransaction(IsolationLevel.ReadCommitted)
+			Return NewTransaction(DefaultConn, IsolationLevel.ReadCommitted)
 		End Function
 
 		''' <summary>
 		''' Начинает транзакцию используя соединение
 		''' </summary>
 		Public Shared Function NewTransaction(str As String) As SqlTransaction
+			Return NewTransaction(str, IsolationLevel.ReadCommitted)
+		End Function
+
+		''' <summary>
+		''' Начинает транзакцию используя соединение по умолчанию и указанное поведение блокировки
+		''' </summary>
+		Public Shared Function NewTransaction(IL As IsolationLevel) As SqlTransaction
+			Return NewTransaction(DefaultConn, IL)
+		End Function
+
+		''' <summary>
+		''' Начинает транзакцию используя соединение и указанное поведение блокировки
+		''' </summary>
+		Public Shared Function NewTransaction(str As String, IL As IsolationLevel) As SqlTransaction
 			Dim conn = NewConnection(str)
-			Return conn.BeginTransaction(IsolationLevel.ReadCommitted)
+			Return conn.BeginTransaction(IL)
 		End Function
 
 		''' <summary>

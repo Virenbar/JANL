@@ -3,8 +3,8 @@
 Namespace Extensions.IDK
 	Module VowelsBegone
 		Private ReadOnly Txt As New HashSet(Of Type) From {GetType(Button), GetType(Label), GetType(GroupBox), GetType(TabPage), GetType(ToolStripMenuItem), GetType(ToolStripDropDownButton), GetType(CheckBox)}
-		Private ReadOnly Vowels() As Char = VowelsHalf.Concat(VowelsHalf.AsEnumerable.Select(Function(x) Char.ToLowerInvariant(x))).ToArray
-		Private ReadOnly VowelsHalf() As Char = {"У"c, "Е"c, "Ы"c, "А"c, "О"c, "Э"c, "Я"c, "И"c, "Ю"c}
+		Private ReadOnly VowelsHalf() As Char = {"у"c, "е"c, "ы"c, "а"c, "о"c, "э"c, "я"c, "и"c, "ю"c}
+		Private ReadOnly Vowels() As Char = VowelsHalf.Concat(VowelsHalf.AsEnumerable.Select(Function(x) Char.ToUpperInvariant(x))).ToArray
 
 		<Extension>
 		Public Sub VowelsBegone(cont As Control)

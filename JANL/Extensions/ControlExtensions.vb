@@ -2,7 +2,9 @@
 Imports System.Runtime.CompilerServices
 
 Namespace Extensions
-
+	''' <summary>
+	''' Extensions for Types inheriting Control
+	''' </summary>
 	Module ControlExtensions
 
 		Private ReadOnly CTR As New HashSet(Of Type) From {GetType(Button), GetType(ComboBox), GetType(NumericUpDown), GetType(DateTimePicker), GetType(TextBox)}
@@ -96,6 +98,37 @@ Namespace Extensions
 				CB.SelectedValue = CInt(value)
 			End If
 		End Sub
+
+		''' <summary>
+		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>
+		''' </summary>
+		''' <typeparam name="T">Тип формы</typeparam>
+		''' <param name="F">Экземпляр формы</param>
+		''' <returns></returns>
+		<Extension>
+		Public Function IsOpen(Of T As {Form})(F As T) As Boolean
+			Return IsOpen(Of T)(False)
+		End Function
+
+		''' <summary>
+		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>, с возможность её активации
+		''' </summary>
+		''' <typeparam name="T">Тип формы</typeparam>
+		''' <param name="F">Экземпляр формы</param>
+		''' <param name="Activate">Активировать ли форму</param>
+		''' <returns></returns>
+		<Extension>
+		Public Function IsOpen(Of T As {Form})(F As T, Activate As Boolean) As Boolean
+			Return IsOpen(Of T)(Activate)
+		End Function
+
+		Private Function IsOpen(Of T As {Form})(Activate As Boolean) As Boolean
+			Dim Result = Application.OpenForms.OfType(Of T).Count > 0
+			If Activate AndAlso Result Then
+				Application.OpenForms.OfType(Of T).First.Activate()
+			End If
+			Return Result
+		End Function
 
 	End Module
 End Namespace

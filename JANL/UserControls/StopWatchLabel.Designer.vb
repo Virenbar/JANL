@@ -36,6 +36,7 @@ Partial Class StopWatchLabel
 		'PB_Image
 		'
 		Me.PB_Image.Anchor = System.Windows.Forms.AnchorStyles.None
+		Me.PB_Image.BackColor = System.Drawing.Color.Transparent
 		Me.PB_Image.Image = CType(resources.GetObject("PB_Image.Image"), System.Drawing.Image)
 		Me.PB_Image.InitialImage = CType(resources.GetObject("PB_Image.InitialImage"), System.Drawing.Image)
 		Me.PB_Image.Location = New System.Drawing.Point(0, 35)

@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports System.Threading
 
 Namespace Extensions
 	Module TypeExtensions
@@ -33,6 +34,30 @@ Namespace Extensions
 		Public Function Truncate(value As String, maxLength As Integer) As String
 			If (String.IsNullOrEmpty(value)) Then Return value
 			Return If(value.Length <= maxLength, value, value.Substring(0, maxLength))
+		End Function
+
+		<Extension>
+		Public Function PreINC(ByRef x As Integer) As Integer
+			Return Interlocked.Increment(x)
+		End Function
+
+		<Extension>
+		Public Function PostINC(ByRef x As Integer) As Integer
+			Dim tmp = x
+			Interlocked.Increment(x)
+			Return tmp
+		End Function
+
+		<Extension>
+		Public Function PreDEC(ByRef x As Integer) As Integer
+			Return Interlocked.Decrement(x)
+		End Function
+
+		<Extension>
+		Public Function PostDEC(ByRef x As Integer) As Integer
+			Dim tmp = x
+			Interlocked.Decrement(x)
+			Return tmp
 		End Function
 
 	End Module
