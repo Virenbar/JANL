@@ -88,7 +88,7 @@
     <Compile Include="ExtendedControls\TextBoxEx.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helpers\Excel.vb" />
+    <Compile Include="Helpers\XLS.vb" />
     <Compile Include="Forms\ExceptionBox.Designer.vb">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </Compile>
