@@ -48,6 +48,7 @@ namespace DGVTemplateEditor.Types
 				AutoSizeMode = AutoSizeMode,
 				Visible = Visible,
 				ForeColor = ColorTranslator.ToHtml(ForeColor)
+				//,Font = Font
 			};
 		}
 
@@ -57,7 +58,7 @@ namespace DGVTemplateEditor.Types
 		[Description("Заголовок столбца")]
 		public string Header { get; set; }
 
-		[Description("Ширина столбца")]
+		[Description("Ширина столбца"), DefaultValue(100)]
 		public int Width { get; set; }
 
 		[Description("Способ регулирования ширины столбца"), DefaultValue(typeof(DataGridViewAutoSizeColumnMode), "NotSet")]
@@ -66,7 +67,10 @@ namespace DGVTemplateEditor.Types
 		[Description("Видимость столбца"), DefaultValue(true)]
 		public bool Visible { get; set; }
 
-		[Description("Цвет текста"), DefaultValue(typeof(Color), "0x000000")]
+		[Description("Цвет текста"), DefaultValue(typeof(Color), "0x000000"), Category("Х")]
 		public Color ForeColor { get; set; }
+
+		[Description("Шрифт текста"), DefaultValue(typeof(Color), "0x000000"), Category("У")]
+		public Font Font { get; set; }
 	}
 }

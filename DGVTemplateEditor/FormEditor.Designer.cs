@@ -35,8 +35,8 @@
 			this.B_Export = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.PG_Column = new System.Windows.Forms.PropertyGrid();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.CMS_PG = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.TSMI_Reset = new System.Windows.Forms.ToolStripMenuItem();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.B_MoveLeft = new System.Windows.Forms.Button();
 			this.B_MoveRight = new System.Windows.Forms.Button();
@@ -57,9 +57,15 @@
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.BS_Design = new System.Windows.Forms.BindingSource(this.components);
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.PG_Design = new System.Windows.Forms.PropertyGrid();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Template)).BeginInit();
 			this.groupBox1.SuspendLayout();
-			this.contextMenuStrip1.SuspendLayout();
+			this.CMS_PG.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BS_Columns)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BN_Columns)).BeginInit();
@@ -68,6 +74,8 @@
 			this.flowLayoutPanel2.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).BeginInit();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// DGV_Template
@@ -115,37 +123,38 @@
 			this.groupBox1.Controls.Add(this.flowLayoutPanel1);
 			this.groupBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BS_Columns, "Header", true));
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.groupBox1.Location = new System.Drawing.Point(6, 6);
+			this.groupBox1.Location = new System.Drawing.Point(237, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(394, 438);
+			this.groupBox1.Size = new System.Drawing.Size(285, 438);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "groupBox1";
 			// 
 			// PG_Column
 			// 
-			this.PG_Column.ContextMenuStrip = this.contextMenuStrip1;
+			this.PG_Column.ContextMenuStrip = this.CMS_PG;
 			this.PG_Column.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PG_Column.Location = new System.Drawing.Point(3, 45);
 			this.PG_Column.Name = "PG_Column";
 			this.PG_Column.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-			this.PG_Column.Size = new System.Drawing.Size(388, 390);
+			this.PG_Column.Size = new System.Drawing.Size(279, 390);
 			this.PG_Column.TabIndex = 7;
 			this.PG_Column.Leave += new System.EventHandler(this.PG_Column_Leave);
 			this.PG_Column.Validated += new System.EventHandler(this.PG_Column_Validated);
 			// 
-			// contextMenuStrip1
+			// CMS_PG
 			// 
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetToolStripMenuItem});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(103, 26);
+			this.CMS_PG.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Reset});
+			this.CMS_PG.Name = "contextMenuStrip1";
+			this.CMS_PG.Size = new System.Drawing.Size(103, 26);
 			// 
-			// resetToolStripMenuItem
+			// TSMI_Reset
 			// 
-			this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-			this.resetToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-			this.resetToolStripMenuItem.Text = "Reset";
+			this.TSMI_Reset.Name = "TSMI_Reset";
+			this.TSMI_Reset.Size = new System.Drawing.Size(102, 22);
+			this.TSMI_Reset.Text = "Reset";
+			this.TSMI_Reset.Click += new System.EventHandler(this.TSMI_Reset_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -155,7 +164,7 @@
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(388, 29);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(279, 29);
 			this.flowLayoutPanel1.TabIndex = 8;
 			// 
 			// B_MoveLeft
@@ -202,7 +211,10 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bindingNavigatorDeleteItem,
+            this.toolStripSeparator1,
+            this.toolStripButton1,
+            this.toolStripButton2});
 			this.BN_Columns.Location = new System.Drawing.Point(0, 0);
 			this.BN_Columns.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
 			this.BN_Columns.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -312,7 +324,7 @@
         '\"',
         '\'',
         '\''};
-			this.FCTB_Template.AutoScrollMinSize = new System.Drawing.Size(179, 14);
+			this.FCTB_Template.AutoScrollMinSize = new System.Drawing.Size(27, 14);
 			this.FCTB_Template.BackBrush = null;
 			this.FCTB_Template.CharHeight = 14;
 			this.FCTB_Template.CharWidth = 8;
@@ -325,9 +337,8 @@
 			this.FCTB_Template.Paddings = new System.Windows.Forms.Padding(0);
 			this.FCTB_Template.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
 			this.FCTB_Template.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("FCTB_Template.ServiceColors")));
-			this.FCTB_Template.Size = new System.Drawing.Size(710, 390);
+			this.FCTB_Template.Size = new System.Drawing.Size(588, 390);
 			this.FCTB_Template.TabIndex = 7;
-			this.FCTB_Template.Text = "fastColoredTextBox1";
 			this.FCTB_Template.Zoom = 100;
 			this.FCTB_Template.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.FCTB_Template_TextChanged);
 			// 
@@ -340,7 +351,7 @@
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 16);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(710, 29);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(588, 29);
 			this.flowLayoutPanel2.TabIndex = 8;
 			// 
 			// groupBox2
@@ -348,20 +359,22 @@
 			this.groupBox2.Controls.Add(this.FCTB_Template);
 			this.groupBox2.Controls.Add(this.flowLayoutPanel2);
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox2.Location = new System.Drawing.Point(406, 6);
+			this.groupBox2.Location = new System.Drawing.Point(528, 6);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(716, 438);
+			this.groupBox2.Size = new System.Drawing.Size(594, 438);
 			this.groupBox2.TabIndex = 9;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Import/Export";
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnCount = 3;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
+			this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 113);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -370,6 +383,54 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1128, 450);
 			this.tableLayoutPanel1.TabIndex = 10;
+			// 
+			// BS_Design
+			// 
+			this.BS_Design.DataSource = typeof(DGVTemplateEditor.Types.Design);
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.PG_Design);
+			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+			this.groupBox3.Location = new System.Drawing.Point(6, 6);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(225, 438);
+			this.groupBox3.TabIndex = 10;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "DGV";
+			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton1.Text = "toolStripButton1";
+			// 
+			// toolStripButton2
+			// 
+			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton2.Name = "toolStripButton2";
+			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton2.Text = "toolStripButton2";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// PG_Design
+			// 
+			this.PG_Design.ContextMenuStrip = this.CMS_PG;
+			this.PG_Design.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.PG_Design.Location = new System.Drawing.Point(3, 16);
+			this.PG_Design.Name = "PG_Design";
+			this.PG_Design.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
+			this.PG_Design.Size = new System.Drawing.Size(219, 419);
+			this.PG_Design.TabIndex = 8;
 			// 
 			// FormEditor
 			// 
@@ -384,7 +445,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Template)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			this.contextMenuStrip1.ResumeLayout(false);
+			this.CMS_PG.ResumeLayout(false);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.BS_Columns)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BN_Columns)).EndInit();
@@ -395,6 +456,8 @@
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).EndInit();
+			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -427,8 +490,14 @@
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip CMS_PG;
+		private System.Windows.Forms.ToolStripMenuItem TSMI_Reset;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton toolStripButton2;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.PropertyGrid PG_Design;
+		private System.Windows.Forms.BindingSource BS_Design;
 	}
 }
 

@@ -78,6 +78,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DGVTemplateEditor.Types.Design.datasource" />
+    <None Include="Properties\DataSources\DGVTemplateEditor.Types.DesignColumn.datasource" />
     <None Include="Properties\DataSources\DGVTemplateEditor.Types.DGVTemplate.datasource" />
     <None Include="Properties\DataSources\DGVTemplateEditor.Types.DGVTemplateColumn.datasource" />
     <None Include="Properties\Settings.settings">

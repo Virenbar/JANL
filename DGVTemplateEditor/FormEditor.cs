@@ -37,6 +37,8 @@ namespace DGVTemplateEditor
 			};
 			RefreshDT();
 			RefreshDGV();
+			BS_Design.DataSource = Design;
+			PG_Design.SelectedObject = BS_Design.Current;
 			BS_Columns.DataSource = Design.Columns;
 		}
 
@@ -127,6 +129,7 @@ namespace DGVTemplateEditor
 					SortMode = DataGridViewColumnSortMode.NotSortable
 				};
 				DGVC.DefaultCellStyle.ForeColor = C.ForeColor;
+				DGVC.DefaultCellStyle.Font = C.Font;
 				if (!C.Visible) { DGVC.DefaultCellStyle.BackColor = Color.SlateGray; };
 				DGV_Template.Columns.Add(DGVC);
 			}
@@ -191,6 +194,11 @@ namespace DGVTemplateEditor
 		private void FCTB_Template_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			FCTB_Template.SyntaxHighlighter.XMLSyntaxHighlight(FCTB_Template.Range);
+		}
+
+		private void TSMI_Reset_Click(object sender, EventArgs e)
+		{
+			PG_Column.ResetSelectedProperty();
 		}
 	}
 }
