@@ -3,12 +3,7 @@
 Namespace SQL
 
 	Public Interface ISQLCommand
-
-		Sub Execute()
-
-		Sub Execute(tr As SqlTransaction)
-
-		Sub Execute(conn As SqlConnection)
+		ReadOnly Property Command As SqlCommand
 
 	End Interface
 

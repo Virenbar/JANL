@@ -96,6 +96,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Managers\DGVManager.vb" />
+    <Compile Include="SQL\INonQueryCommand.vb" />
+    <Compile Include="SQL\IScalarCommand.vb" />
+    <Compile Include="SQL\ISelectCommand.vb" />
     <Compile Include="Types\DGVTemplate.vb" />
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
@@ -193,6 +196,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CodeMaps\SQL.dgml" />
     <None Include="JANL.nuspec">
       <SubType>Designer</SubType>
     </None>

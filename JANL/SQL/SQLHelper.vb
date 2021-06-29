@@ -65,7 +65,7 @@ Namespace SQL
 		End Function
 
 		''' <summary>
-		''' Создаёт новую комманду с именем вызывающего метода
+		''' Создаёт новую команду с именем вызывающего метода
 		''' </summary>
 		Public Shared Function NewCommand(<CallerMemberName> Optional name As String = Nothing) As SqlCommand
 			Return New SqlCommand(name) With {.CommandType = CommandType.StoredProcedure, .CommandTimeout = DefaultTimeout}

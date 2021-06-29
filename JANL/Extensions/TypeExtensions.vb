@@ -2,7 +2,7 @@
 Imports System.Threading
 
 Namespace Extensions
-	Module TypeExtensions
+	Public Module TypeExtensions
 		Private ReadOnly Rnd As New Random(Today.Millisecond)
 
 		''' <summary>

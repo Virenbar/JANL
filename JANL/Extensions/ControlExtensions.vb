@@ -5,7 +5,7 @@ Namespace Extensions
 	''' <summary>
 	''' Extensions for Types inheriting Control
 	''' </summary>
-	Module ControlExtensions
+	Public Module ControlExtensions
 
 		Private ReadOnly CTR As New HashSet(Of Type) From {GetType(Button), GetType(ComboBox), GetType(NumericUpDown), GetType(DateTimePicker), GetType(TextBox)}
 

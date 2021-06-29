@@ -1,6 +1,9 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 
+''' <summary>
+''' TextBox with Label
+''' </summary>
 Public Class TextBoxEx
 	Inherits TextBox
 	Private Const LabelPrefix = ChrW(8203) + ChrW(8203)
@@ -21,7 +24,7 @@ Public Class TextBoxEx
 	<Browsable(True), Category("Appearance"), DefaultValue(GetType(Color), "0x000000")>
 	Public Shadows Property ForeColor As Color
 
-	<Browsable(True), Category("Appearance"), DefaultValue(""), Description("Заголовок")>
+	<Browsable(True), Category("Appearance"), DefaultValue(""), Description("Label")>
 	Public Property Label As String
 		Get
 			Return LabelStr.Substring(2)
@@ -33,7 +36,7 @@ Public Class TextBoxEx
 		End Set
 	End Property
 
-	<Browsable(True), Category("Appearance"), DefaultValue(GetType(Color), "0x708090"), Description("Цвет заголовка")>
+	<Browsable(True), Category("Appearance"), DefaultValue(GetType(Color), "0x708090"), Description("Label color")>
 	Public Property LabelColor As Color
 
 	<Browsable(True), Category("Appearance"), DefaultValue("")>
