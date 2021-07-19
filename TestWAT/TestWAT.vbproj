@@ -11,7 +11,7 @@
     <AssemblyName>TestWAT</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -115,11 +115,6 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
-    <Compile Include="Connected Services\Pochta\Reference.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormSelectTest.Designer.vb">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </Compile>
@@ -160,12 +155,6 @@
       <DependentUpon>FormAsync.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAsync.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormPochta.Designer.vb">
-      <DependentUpon>FormPochta.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormPochta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormAddressSuggest.Designer.vb">
@@ -213,9 +202,6 @@
     <EmbeddedResource Include="Forms\FormAsync.resx">
       <DependentUpon>FormAsync.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPochta.resx">
-      <DependentUpon>FormPochta.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSelectTest.resx">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </EmbeddedResource>
@@ -249,55 +235,6 @@
     <Content Include="Config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Connected Services\Pochta\OperationHistory12.wsdl" />
-    <None Include="Connected Services\Pochta\rtm34_xsd1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\rtm34_xsd2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\rtm34_xsd3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\rtm34_xsd4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\rtm34_xsd5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\rtm34_xsd6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.CustomDutyEvent.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.getCustomDutyEventsForMailResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.getLanguagesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.getOperationHistoryResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.getSmsHistoryResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.LanguageDataLanguage.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.OperationHistoryRecord.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.PostalOrderEvent.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.PostalOrderEventsForMailResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Pochta\TestWAT.Pochta.SmsHistoryRecord.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Excel\Header.xlsx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -318,21 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Pochta\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Pochta\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Pochta\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Pochta\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="RingAnimation.xaml">
