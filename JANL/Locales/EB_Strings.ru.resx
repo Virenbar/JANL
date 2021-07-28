@@ -141,4 +141,10 @@
   <data name="EB_Method" xml:space="preserve">
     <value>Метод</value>
   </data>
+  <data name="EB_Text" xml:space="preserve">
+    <value>Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется.</value>
+  </data>
+  <data name="EB_Header" xml:space="preserve">
+    <value>Необработанная ошибка</value>
+  </data>
 </root>

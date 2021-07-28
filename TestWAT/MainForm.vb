@@ -16,10 +16,6 @@
 
 	End Sub
 
-	Private Sub ПочтаToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ПочтаToolStripMenuItem.Click
-		FormPochta.Show()
-	End Sub
-
 	Private Sub HashVSListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HashVSListToolStripMenuItem.Click
 		PerfomanceTests.HashVSList()
 	End Sub

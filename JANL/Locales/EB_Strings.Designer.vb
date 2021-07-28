@@ -101,6 +101,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Unhandled exseption.
+        '''</summary>
+        Friend Shared ReadOnly Property EB_Header() As String
+            Get
+                Return ResourceManager.GetString("EB_Header", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Send by mail.
         '''</summary>
         Friend Shared ReadOnly Property EB_Mail() As String
@@ -124,6 +133,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property EB_Method() As String
             Get
                 Return ResourceManager.GetString("EB_Method", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на An unexpected error has occurred. Stable operation of the application is not guaranteed..
+        '''</summary>
+        Friend Shared ReadOnly Property EB_Text() As String
+            Get
+                Return ResourceManager.GetString("EB_Text", resourceCulture)
             End Get
         End Property
         

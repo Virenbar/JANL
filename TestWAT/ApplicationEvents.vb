@@ -17,9 +17,22 @@ Namespace My
 		Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
 			Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
-			ExceptionBox.MailTo = Config.Current.ExceptionMail
-			ExceptionBox.MailSubject = "Ошибка TestWAT"
-			ExceptionBox.WittyComments = True
+			ExceptionBox.DefaultText = "Произошла непредвиденная ошибка. Отправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
+			ExceptionBox.MailInfo = New ExceptionBox.EMail() With {
+				.[To] = Config.Current.ExceptionMail,
+				.Subject = "Ошибка TestWAT",
+				.Text = $"Примечание:{vbNewLine}<Место для примечания>"
+			}
+			ExceptionBox.WittyComments = {
+				"Ух... Это сделал я?",
+				"Упсс",
+				"Прости, Дейв.",
+				"Почему оно ломается? :(",
+				"Но оно работает на моём компьютере.",
+				"Я просто незнаю что пошло не так.",
+				"Простите :(",
+				"Я подвёл тебя. Прости :(",
+				"Задача провалена успешно"}
 			'ExcelPackage.LicenseContext = LicenseContext.NonCommercial
 			'Await Helpers.Bankrupt.Init()
 		End Sub

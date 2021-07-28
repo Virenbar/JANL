@@ -2,6 +2,7 @@
 
 Public Class ProgressBarEx
 	Private SW As Stopwatch
+	Private _Percent As Double
 
 	Public Sub New()
 		InitializeComponent()
@@ -11,14 +12,16 @@ Public Class ProgressBarEx
 #Region "Properties"
 
 	<Browsable(False)>
-	Public Property Percent() As Integer
+	Public Property Percent() As Double
 		Get
-			Return PB.Value
+			Return _Percent
 		End Get
-		Set(value As Integer)
-			PB.Value = value
+		Set(value As Double)
+			_Percent = value
+			Dim P = CInt(_Percent)
+			PB.Value = P
 			UpdateText()
-			If value = 100 Then [Stop]()
+			If P = 100 Then [Stop]()
 		End Set
 	End Property
 
@@ -33,10 +36,10 @@ Public Class ProgressBarEx
 	End Sub
 
 	Private Sub UpdateText()
-		L_Percent.Text = $"{PB.Value}%"
-		L_Elapsed.Text = SW.Elapsed.ToString(Consts.TimeFormat)
+		L_Percent.Text = $"{_Percent:0.00}%"
+		L_Elapsed.Text = SW.Elapsed.ToString("d\.hh\:mm\:ss")
 		Dim E = If(PB.Value = 0, 0, (SW.ElapsedMilliseconds \ PB.Value) * (100 - PB.Value))
-		L_Estimated.Text = TimeSpan.FromMilliseconds(E).ToString(Consts.TimeFormat)
+		L_Estimated.Text = TimeSpan.FromMilliseconds(E).ToString("d\.hh\:mm\:ss")
 	End Sub
 
 End Class

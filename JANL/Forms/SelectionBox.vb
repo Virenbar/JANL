@@ -52,7 +52,9 @@
 			Return LB_Items.ValueMember
 		End Get
 		Set(value As String)
+			Dim DM = LB_Items.DisplayMember 'Keep DM if its empty
 			LB_Items.ValueMember = value
+			LB_Items.DisplayMember = DM
 		End Set
 	End Property
 

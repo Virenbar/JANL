@@ -1,61 +1,36 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Public Class Msgs
-	Private Shared ReadOnly AppName As String
 
 	Shared Sub New()
-		AppName = Application.ProductName
+		DefaultHeader = Application.ProductName
 	End Sub
 
-	''' <summary>
-	''' Отображает сообщение
-	''' </summary>
-	''' <param name="text">Текст сообщения</param>
-	Public Shared Sub ShowInfo(text As String)
-		MessageBox.Show(text, AppName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-	End Sub
+	Public Shared Property DefaultHeader As String
 
 	''' <summary>
-	''' Отображает сообщение
+	''' Отображает вопрос с Да Нет
 	''' </summary>
-	''' <param name="text">Текст сообщения</param>
-	''' <param name="header">Заголовок окна</param>
-	Public Shared Sub ShowInfo(text As String, header As String)
-		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information)
-	End Sub
+	''' <param name="Text">Текст вопроса</param>
+	Public Shared Function AskYesNo(Text As String) As DialogResult
+		Return MessageBox.Show(Text, DefaultHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+	End Function
 
 	''' <summary>
-	''' Отображает предупреждение
+	''' Отображает ошибку
 	''' </summary>
-	''' <param name="text">Текст предупреждения</param>
-	Public Shared Sub ShowWarning(text As String)
-		MessageBox.Show(text, AppName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-	End Sub
-
-	''' <summary>
-	''' Отображает предупреждение
-	''' </summary>
-	''' <param name="text">Текст предупреждения</param>
-	''' <param name="header">Заголовок окна</param>
-	Public Shared Sub ShowWarning(text As String, header As String)
-		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+	''' <param name="Text">Текст ошибки</param>
+	Public Shared Sub ShowError(Text As String)
+		ShowMessage(Text, DefaultHeader, MessageBoxIcon.Error)
 	End Sub
 
 	''' <summary>
 	''' Отображает ошибку
 	''' </summary>
-	''' <param name="text">Текст ошибки</param>
-	Public Shared Sub ShowError(text As String)
-		MessageBox.Show(text, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error)
-	End Sub
-
-	''' <summary>
-	''' Отображает ошибку
-	''' </summary>
-	''' <param name="text">Текст ошибки</param>
-	''' <param name="header">Заголовок окна</param>
-	Public Shared Sub ShowError(text As String, header As String)
-		MessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	''' <param name="Text">Текст ошибки</param>
+	''' <param name="Header">Заголовок окна</param>
+	Public Shared Sub ShowError(Text As String, Header As String)
+		ShowMessage(Text, Header, MessageBoxIcon.Error)
 	End Sub
 
 	''' <summary>
@@ -64,23 +39,70 @@ Public Class Msgs
 	''' <param name="ex">Объект ошибки</param>
 	''' <param name="prefix">Префикс сообщения (По умолчанию имя метода)</param>
 	Public Shared Sub ShowError(ex As Exception, <CallerMemberName()> Optional prefix As String = Nothing)
-		MessageBox.Show(prefix + ": " + ex.Message + vbNewLine + ex.StackTrace, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+		MessageBox.Show($"{prefix}: {ex.Message}{vbNewLine}StackTrace:{vbNewLine}{ex.StackTrace}", DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	End Sub
+
+	<Obsolete>
+	Public Shared Sub ShowErrorInner(prefix As String, ex As Exception)
+		MessageBox.Show(prefix.Trim + " " + ExRecursive(ex), DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	End Sub
+
+	<Obsolete>
+	Public Shared Sub ShowErrorInner(ex As Exception)
+		MessageBox.Show(ExRecursive(ex), DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error)
 	End Sub
 
 	''' <summary>
-	''' Отображает вопрос с Да Нет
+	''' Отображает ExceptionBox
 	''' </summary>
-	''' <param name="text">Текст вопроса</param>
-	Public Shared Function AskYesNo(text As String) As DialogResult
-		Return MessageBox.Show(text, AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-	End Function
-
-	Public Shared Sub ShowErrorInner(prefix As String, ex As Exception)
-		MessageBox.Show(prefix.Trim + " " + ExRecursive(ex), AppName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	''' <param name="ex">Объект ошибки</param>
+	Public Shared Sub ShowException(ex As Exception)
+		Dim F = New ExceptionBox(ex)
+		F.ShowDialog()
 	End Sub
 
-	Public Shared Sub ShowErrorInner(ex As Exception)
-		MessageBox.Show(ExRecursive(ex), AppName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+	''' <summary>
+	''' Отображает сообщение
+	''' </summary>
+	''' <param name="Text">Текст сообщения</param>
+	Public Shared Sub ShowInfo(Text As String)
+		ShowMessage(Text, DefaultHeader, MessageBoxIcon.Information)
+	End Sub
+
+	''' <summary>
+	''' Отображает сообщение
+	''' </summary>
+	''' <param name="Text">Текст сообщения</param>
+	''' <param name="Header">Заголовок окна</param>
+	Public Shared Sub ShowInfo(Text As String, Header As String)
+		ShowMessage(Text, Header, MessageBoxIcon.Information)
+	End Sub
+
+	''' <summary>
+	''' Отображает предупреждение
+	''' </summary>
+	''' <param name="Text">Текст предупреждения</param>
+	''' <param name="Header">Заголовок окна</param>
+	''' <param name="MBI">Icon</param>
+	Public Shared Sub ShowMessage(Text As String, Header As String, MBI As MessageBoxIcon)
+		MessageBox.Show(Text, Header, MessageBoxButtons.OK, MBI)
+	End Sub
+
+	''' <summary>
+	''' Отображает предупреждение
+	''' </summary>
+	''' <param name="Text">Текст предупреждения</param>
+	Public Shared Sub ShowWarning(Text As String)
+		ShowMessage(Text, DefaultHeader, MessageBoxIcon.Exclamation)
+	End Sub
+
+	''' <summary>
+	''' Отображает предупреждение
+	''' </summary>
+	''' <param name="Text">Текст предупреждения</param>
+	''' <param name="Header">Заголовок окна</param>
+	Public Shared Sub ShowWarning(Text As String, Header As String)
+		ShowMessage(Text, Header, MessageBoxIcon.Exclamation)
 	End Sub
 
 	Private Shared Function ExRecursive(ex As Exception, Optional lvl As Integer = 0) As String

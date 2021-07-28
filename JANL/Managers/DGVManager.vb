@@ -23,13 +23,13 @@ Public Class DGVManager
 		DGV.Columns.Clear()
 		For Each C In TemplatesDict(Name).Columns
 			Dim DGVC = New DataGridViewTextBoxColumn() With {
-					.Name = C.Name,
-					.HeaderText = C.Header,
-					.AutoSizeMode = C.AutoSizeMode,
-					.Width = C.Width,
-					.DataPropertyName = C.Name,
-					.Visible = C.Visible
-				}
+				.Name = C.Name,
+				.HeaderText = C.Header,
+				.AutoSizeMode = C.AutoSizeMode,
+				.Width = C.Width,
+				.DataPropertyName = C.Name,
+				.Visible = C.Visible
+			}
 			DGV.Columns.Add(DGVC)
 		Next
 	End Sub

@@ -41,6 +41,7 @@ Partial Class ProgressBarEx
 		'
 		'TableLayoutPanel1
 		'
+		Me.TableLayoutPanel1.AutoSize = True
 		Me.TableLayoutPanel1.ColumnCount = 3
 		Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
 		Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
@@ -92,12 +93,12 @@ Partial Class ProgressBarEx
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.Controls.Add(Me.TableLayoutPanel1)
-		Me.MinimumSize = New System.Drawing.Size(200, 45)
 		Me.Name = "ProgressBarEx"
 		Me.Size = New System.Drawing.Size(200, 45)
 		Me.TableLayoutPanel1.ResumeLayout(False)
 		Me.TableLayoutPanel1.PerformLayout()
 		Me.ResumeLayout(False)
+		Me.PerformLayout()
 
 	End Sub
 

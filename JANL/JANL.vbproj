@@ -123,6 +123,12 @@
     <Compile Include="ExtendedControls\ToggleButton.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UserControls\TextBoxClear.Designer.vb">
+      <DependentUpon>TextBoxClear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxClear.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ToggleValueBox.Designer.vb">
       <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </Compile>
@@ -162,6 +168,7 @@
     <Compile Include="SQL\SQLHelper.vb" />
     <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
+    <Compile Include="WinAPI.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxClear.resx">
+      <DependentUpon>TextBoxClear.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ToggleValueBox.resx">
       <DependentUpon>ToggleValueBox.vb</DependentUpon>

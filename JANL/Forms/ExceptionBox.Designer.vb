@@ -62,7 +62,7 @@ Partial Class ExceptionBox
 		Me.B_Copy.Location = New System.Drawing.Point(2, 4)
 		Me.B_Copy.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
 		Me.B_Copy.Name = "B_Copy"
-		Me.B_Copy.Size = New System.Drawing.Size(99, 25)
+		Me.B_Copy.Size = New System.Drawing.Size(98, 25)
 		Me.B_Copy.TabIndex = 1
 		Me.B_Copy.Text = "Копировать"
 		Me.B_Copy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -73,12 +73,12 @@ Partial Class ExceptionBox
 		Me.B_MailTo.AutoSize = True
 		Me.B_MailTo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_MailTo.Image = CType(resources.GetObject("B_MailTo.Image"), System.Drawing.Image)
-		Me.B_MailTo.Location = New System.Drawing.Point(105, 4)
+		Me.B_MailTo.Location = New System.Drawing.Point(104, 4)
 		Me.B_MailTo.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
 		Me.B_MailTo.Name = "B_MailTo"
-		Me.B_MailTo.Size = New System.Drawing.Size(64, 25)
+		Me.B_MailTo.Size = New System.Drawing.Size(143, 25)
 		Me.B_MailTo.TabIndex = 2
-		Me.B_MailTo.Text = "почте"
+		Me.B_MailTo.Text = "Отправить по почте"
 		Me.B_MailTo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.B_MailTo.UseVisualStyleBackColor = True
 		'
@@ -88,24 +88,24 @@ Partial Class ExceptionBox
 		Me.L_Message.AutoSize = True
 		Me.L_Message.Location = New System.Drawing.Point(3, 223)
 		Me.L_Message.Name = "L_Message"
-		Me.L_Message.Size = New System.Drawing.Size(71, 15)
+		Me.L_Message.Size = New System.Drawing.Size(73, 15)
 		Me.L_Message.TabIndex = 3
 		Me.L_Message.Text = "Сообщение"
 		'
 		'TB_Message
 		'
 		Me.TB_Message.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_Message.Location = New System.Drawing.Point(80, 226)
+		Me.TB_Message.Location = New System.Drawing.Point(82, 226)
 		Me.TB_Message.Multiline = True
 		Me.TB_Message.Name = "TB_Message"
 		Me.TB_Message.ReadOnly = True
-		Me.TB_Message.Size = New System.Drawing.Size(267, 76)
+		Me.TB_Message.Size = New System.Drawing.Size(267, 160)
 		Me.TB_Message.TabIndex = 4
 		'
 		'TB_Name
 		'
 		Me.TB_Name.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_Name.Location = New System.Drawing.Point(80, 197)
+		Me.TB_Name.Location = New System.Drawing.Point(82, 197)
 		Me.TB_Name.Name = "TB_Name"
 		Me.TB_Name.ReadOnly = True
 		Me.TB_Name.Size = New System.Drawing.Size(267, 23)
@@ -115,9 +115,9 @@ Partial Class ExceptionBox
 		'
 		Me.L_Method.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.L_Method.AutoSize = True
-		Me.L_Method.Location = New System.Drawing.Point(31, 201)
+		Me.L_Method.Location = New System.Drawing.Point(34, 201)
 		Me.L_Method.Name = "L_Method"
-		Me.L_Method.Size = New System.Drawing.Size(43, 15)
+		Me.L_Method.Size = New System.Drawing.Size(42, 15)
 		Me.L_Method.TabIndex = 5
 		Me.L_Method.Text = "Метод"
 		'
@@ -132,7 +132,7 @@ Partial Class ExceptionBox
 		TreeNode2.Name = "Узел0"
 		TreeNode2.Text = "Узел0"
 		Me.TV_Exceptions.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
-		Me.TV_Exceptions.Size = New System.Drawing.Size(344, 159)
+		Me.TV_Exceptions.Size = New System.Drawing.Size(346, 159)
 		Me.TV_Exceptions.TabIndex = 7
 		'
 		'TableLayoutPanel1
@@ -146,11 +146,11 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel2, 0, 0)
 		Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
 		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 369)
+		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 435)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 1
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(784, 33)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(867, 33)
 		Me.TableLayoutPanel1.TabIndex = 10
 		'
 		'FlowLayoutPanel2
@@ -163,7 +163,7 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
 		Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
 		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(171, 33)
+		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(249, 33)
 		Me.FlowLayoutPanel2.TabIndex = 14
 		Me.FlowLayoutPanel2.WrapContents = False
 		'
@@ -174,7 +174,7 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Ignore)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Exit)
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(609, 0)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(692, 0)
 		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
 		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(175, 33)
@@ -203,6 +203,7 @@ Partial Class ExceptionBox
 		Me.B_Exit.Size = New System.Drawing.Size(80, 25)
 		Me.B_Exit.TabIndex = 3
 		Me.B_Exit.Text = "Выход"
+		Me.B_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		Me.B_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.B_Exit.UseVisualStyleBackColor = True
 		'
@@ -210,20 +211,20 @@ Partial Class ExceptionBox
 		'
 		Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.Label3.AutoSize = True
-		Me.Label3.Location = New System.Drawing.Point(358, 49)
+		Me.Label3.Location = New System.Drawing.Point(358, 31)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(65, 15)
+		Me.Label3.Size = New System.Drawing.Size(64, 15)
 		Me.Label3.TabIndex = 8
 		Me.Label3.Text = "StackTrace"
 		'
 		'TB_StackTrace
 		'
 		Me.TB_StackTrace.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_StackTrace.Location = New System.Drawing.Point(358, 67)
+		Me.TB_StackTrace.Location = New System.Drawing.Point(358, 49)
 		Me.TB_StackTrace.Multiline = True
 		Me.TB_StackTrace.Name = "TB_StackTrace"
 		Me.TB_StackTrace.ReadOnly = True
-		Me.TB_StackTrace.Size = New System.Drawing.Size(418, 299)
+		Me.TB_StackTrace.Size = New System.Drawing.Size(501, 383)
 		Me.TB_StackTrace.TabIndex = 9
 		'
 		'TableLayoutPanel3
@@ -239,7 +240,7 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel3.Controls.Add(Me.L_Type, 0, 1)
 		Me.TableLayoutPanel3.Controls.Add(Me.TB_Type, 1, 1)
 		Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 64)
+		Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 46)
 		Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
 		Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
 		Me.TableLayoutPanel3.RowCount = 4
@@ -247,7 +248,7 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel3.Size = New System.Drawing.Size(350, 305)
+		Me.TableLayoutPanel3.Size = New System.Drawing.Size(350, 389)
 		Me.TableLayoutPanel3.TabIndex = 12
 		'
 		'L_Type
@@ -256,14 +257,14 @@ Partial Class ExceptionBox
 		Me.L_Type.AutoSize = True
 		Me.L_Type.Location = New System.Drawing.Point(48, 172)
 		Me.L_Type.Name = "L_Type"
-		Me.L_Type.Size = New System.Drawing.Size(26, 15)
+		Me.L_Type.Size = New System.Drawing.Size(28, 15)
 		Me.L_Type.TabIndex = 5
 		Me.L_Type.Text = "Тип"
 		'
 		'TB_Type
 		'
 		Me.TB_Type.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_Type.Location = New System.Drawing.Point(80, 168)
+		Me.TB_Type.Location = New System.Drawing.Point(82, 168)
 		Me.TB_Type.Name = "TB_Type"
 		Me.TB_Type.ReadOnly = True
 		Me.TB_Type.Size = New System.Drawing.Size(267, 23)
@@ -287,16 +288,16 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel4.Size = New System.Drawing.Size(784, 369)
+		Me.TableLayoutPanel4.Size = New System.Drawing.Size(867, 435)
 		Me.TableLayoutPanel4.TabIndex = 13
 		'
 		'L_Description
 		'
 		Me.L_Description.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.L_Description.AutoSize = True
-		Me.L_Description.Location = New System.Drawing.Point(8, 49)
+		Me.L_Description.Location = New System.Drawing.Point(8, 31)
 		Me.L_Description.Name = "L_Description"
-		Me.L_Description.Size = New System.Drawing.Size(109, 15)
+		Me.L_Description.Size = New System.Drawing.Size(110, 15)
 		Me.L_Description.TabIndex = 13
 		Me.L_Description.Text = "Описание ошибки"
 		'
@@ -308,7 +309,7 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.FlowLayoutPanel3.Location = New System.Drawing.Point(8, 10)
 		Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-		Me.FlowLayoutPanel3.Size = New System.Drawing.Size(768, 36)
+		Me.FlowLayoutPanel3.Size = New System.Drawing.Size(851, 18)
 		Me.FlowLayoutPanel3.TabIndex = 15
 		'
 		'L_Text
@@ -317,19 +318,19 @@ Partial Class ExceptionBox
 		Me.L_Text.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
 		Me.L_Text.Location = New System.Drawing.Point(3, 0)
 		Me.L_Text.Name = "L_Text"
-		Me.L_Text.Size = New System.Drawing.Size(761, 36)
+		Me.L_Text.Size = New System.Drawing.Size(574, 18)
 		Me.L_Text.TabIndex = 14
-		Me.L_Text.Text = "Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется. О" &
-	"тправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
+		Me.L_Text.Text = "Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется."
 		'
 		'ExceptionBox
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(784, 402)
+		Me.BackColor = System.Drawing.SystemColors.Window
+		Me.ClientSize = New System.Drawing.Size(867, 468)
 		Me.Controls.Add(Me.TableLayoutPanel4)
 		Me.Controls.Add(Me.TableLayoutPanel1)
-		Me.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+		Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
 		Me.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
 		Me.MinimumSize = New System.Drawing.Size(800, 440)
 		Me.Name = "ExceptionBox"
