@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.ComponentModel
+Imports System.Reflection
 Imports System.Runtime.CompilerServices
 
 Namespace Extensions
@@ -60,6 +61,53 @@ Namespace Extensions
 			Return If(CB.SelectedIndex > 0, New T?(DirectCast(CB.SelectedValue, T)), Nothing)
 		End Function
 
+		''' <summary>
+		''' Если выбранный индекс больше 0, то возвращает выбранное значение иначе Nothing
+		''' </summary>
+		''' <typeparam name="T"></typeparam>
+		''' <param name="CB"></param>
+		''' <returns></returns>
+		<Extension>
+		Public Function GetValue(Of T As Structure)(CB As ToolStripComboBox) As T?
+			Return If(CB.SelectedIndex > 0, New T?(DirectCast(CB.ComboBox.SelectedValue, T)), Nothing)
+		End Function
+
+		''' <summary>
+		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>
+		''' </summary>
+		''' <typeparam name="T">Тип формы</typeparam>
+		''' <param name="F">Экземпляр формы</param>
+		''' <returns></returns>
+		<Extension, Obsolete>
+		Public Function IsOpen(Of T As {Form})(F As T) As Boolean
+			Return FormHelper.IsOpen(Of T)(False)
+		End Function
+
+		''' <summary>
+		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>, с возможность её активации
+		''' </summary>
+		''' <typeparam name="T">Тип формы</typeparam>
+		''' <param name="F">Экземпляр формы</param>
+		''' <param name="Activate">Активировать ли форму</param>
+		''' <returns></returns>
+		<Extension, Obsolete>
+		Public Function IsOpen(Of T As {Form})(F As T, Activate As Boolean) As Boolean
+			Return FormHelper.IsOpen(Of T)(Activate)
+		End Function
+
+		''' <summary>
+		''' Устанавливает DT в качестве источника c сохранением сортировки.
+		''' DGV должен иметь BindingSource.
+		''' </summary>
+		<Extension>
+		Public Sub SetDataSource(DGV As DataGridView, DT As DataTable)
+			Dim SC = DGV.SortedColumn?.Name
+			Dim LS = If(DGV.SortOrder = SortOrder.Ascending, ListSortDirection.Ascending, ListSortDirection.Descending)
+			Dim BS = DirectCast(DGV.DataSource, BindingSource)
+			BS.DataSource = DT
+			If SC IsNot Nothing Then DGV.Sort(DGV.Columns(SC), LS)
+		End Sub
+
 		Public Sub SetEnableRecursive(cont As Control, state As Boolean)
 			SetEnableRecursive(cont, state, {})
 		End Sub
@@ -98,37 +146,6 @@ Namespace Extensions
 				CB.SelectedValue = CInt(value)
 			End If
 		End Sub
-
-		''' <summary>
-		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>
-		''' </summary>
-		''' <typeparam name="T">Тип формы</typeparam>
-		''' <param name="F">Экземпляр формы</param>
-		''' <returns></returns>
-		<Extension>
-		Public Function IsOpen(Of T As {Form})(F As T) As Boolean
-			Return IsOpen(Of T)(False)
-		End Function
-
-		''' <summary>
-		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>, с возможность её активации
-		''' </summary>
-		''' <typeparam name="T">Тип формы</typeparam>
-		''' <param name="F">Экземпляр формы</param>
-		''' <param name="Activate">Активировать ли форму</param>
-		''' <returns></returns>
-		<Extension>
-		Public Function IsOpen(Of T As {Form})(F As T, Activate As Boolean) As Boolean
-			Return IsOpen(Of T)(Activate)
-		End Function
-
-		Private Function IsOpen(Of T As {Form})(Activate As Boolean) As Boolean
-			Dim Result = Application.OpenForms.OfType(Of T).Count > 0
-			If Activate AndAlso Result Then
-				Application.OpenForms.OfType(Of T).First.Activate()
-			End If
-			Return Result
-		End Function
 
 	End Module
 End Namespace

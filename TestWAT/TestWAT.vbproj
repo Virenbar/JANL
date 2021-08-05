@@ -107,6 +107,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excel\Reestr.vb" />
     <Compile Include="Forms\AddressSuggest.Designer.vb">
       <DependentUpon>AddressSuggest.vb</DependentUpon>
     </Compile>

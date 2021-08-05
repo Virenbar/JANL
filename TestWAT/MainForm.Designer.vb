@@ -37,14 +37,16 @@ Partial Class MainForm
 		Me.ПочтаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ImageViewerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.Button1 = New System.Windows.Forms.Button()
 		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.Button1 = New System.Windows.Forms.Button()
+		Me.АдресаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.ЙЙЙЙToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'MS_Main
 		'
-		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
+		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem, Me.АдресаToolStripMenuItem})
 		Me.MS_Main.Location = New System.Drawing.Point(0, 0)
 		Me.MS_Main.Name = "MS_Main"
 		Me.MS_Main.Size = New System.Drawing.Size(534, 24)
@@ -140,6 +142,12 @@ Partial Class MainForm
 		Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
 		'
+		'SelectTestToolStripMenuItem
+		'
+		Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
+		Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.SelectTestToolStripMenuItem.Text = "SelectTest"
+		'
 		'Button1
 		'
 		Me.Button1.Location = New System.Drawing.Point(447, 87)
@@ -149,11 +157,18 @@ Partial Class MainForm
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
 		'
-		'SelectTestToolStripMenuItem
+		'АдресаToolStripMenuItem
 		'
-		Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
-		Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-		Me.SelectTestToolStripMenuItem.Text = "SelectTest"
+		Me.АдресаToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ЙЙЙЙToolStripMenuItem})
+		Me.АдресаToolStripMenuItem.Name = "АдресаToolStripMenuItem"
+		Me.АдресаToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+		Me.АдресаToolStripMenuItem.Text = "Адреса"
+		'
+		'ЙЙЙЙToolStripMenuItem
+		'
+		Me.ЙЙЙЙToolStripMenuItem.Name = "ЙЙЙЙToolStripMenuItem"
+		Me.ЙЙЙЙToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.ЙЙЙЙToolStripMenuItem.Text = "ЙЙЙЙ"
 		'
 		'MainForm
 		'
@@ -189,4 +204,6 @@ Partial Class MainForm
 	Friend WithEvents TSMI_Address As ToolStripMenuItem
 	Friend WithEvents TSMI_UL As ToolStripMenuItem
 	Friend WithEvents SelectTestToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents АдресаToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents ЙЙЙЙToolStripMenuItem As ToolStripMenuItem
 End Class

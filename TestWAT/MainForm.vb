@@ -42,4 +42,8 @@
 		FormSelectTest.Show()
 	End Sub
 
+	Private Sub ЙЙЙЙToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ЙЙЙЙToolStripMenuItem.Click
+		Reestr.Process()
+	End Sub
+
 End Class

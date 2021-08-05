@@ -294,7 +294,7 @@ Partial Class FormTest
 		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
 		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
 		Me.PBE_Test.Name = "PBE_Test"
-		Me.PBE_Test.Percent = 0
+		Me.PBE_Test.Percent = 0R
 		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
 		Me.PBE_Test.TabIndex = 9
 		'
@@ -316,7 +316,7 @@ Partial Class FormTest
 		Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
 		Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
 		Me.TableLayoutPanel9.Controls.Add(Me.FlowLayoutPanel4, 1, 0)
-		Me.TableLayoutPanel9.Location = New System.Drawing.Point(365, 216)
+		Me.TableLayoutPanel9.Location = New System.Drawing.Point(414, 201)
 		Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
 		Me.TableLayoutPanel9.RowCount = 1
 		Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
