@@ -1,6 +1,15 @@
-﻿Namespace Types
+﻿Imports System.Drawing
 
-	Public Structure DGVTemplateColumn
+Namespace Types
+
+	Public Class DGVTemplateColumn
+
+		Public Sub New()
+			Width = 100
+			AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet
+			Visible = True
+			ForeColor = ColorTranslator.ToHtml(Color.Black)
+		End Sub
 
 		Public Sub New(name As String, header As String, width As Integer, autoSizeMode As DataGridViewAutoSizeColumnMode, visible As Boolean)
 			Me.New()
@@ -16,6 +25,7 @@
 		Public Property Width As Integer
 		Public Property AutoSizeMode As DataGridViewAutoSizeColumnMode
 		Public Property Visible As Boolean
-	End Structure
+		Public Property ForeColor As String
+	End Class
 
 End Namespace

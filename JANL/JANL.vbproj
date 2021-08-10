@@ -100,9 +100,17 @@
     <Compile Include="SQL\INonQueryCommand.vb" />
     <Compile Include="SQL\IScalarCommand.vb" />
     <Compile Include="SQL\ISelectCommand.vb" />
+    <Compile Include="Types\Design.vb" />
+    <Compile Include="Types\DesignColumn.vb" />
     <Compile Include="Types\DGVTemplate.vb" />
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
+    <Compile Include="UserControls\DGVTemplateEditor.Designer.vb">
+      <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DGVTemplateEditor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ProgressBarEx.Designer.vb">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </Compile>
@@ -178,6 +186,9 @@
     <EmbeddedResource Include="Forms\ExceptionBox.ru.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DGVTemplateEditor.resx">
+      <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +226,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\JANL.Types.Design.datasource" />
+    <None Include="My Project\DataSources\JANL.Types.DesignColumn.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

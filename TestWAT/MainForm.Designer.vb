@@ -33,20 +33,20 @@ Partial Class MainForm
 		Me.НаселениеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.РосреестрToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.РазноеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ПочтаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ImageViewerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.DGVTEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Button1 = New System.Windows.Forms.Button()
-		Me.АдресаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.ЙЙЙЙToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'MS_Main
 		'
-		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem, Me.АдресаToolStripMenuItem})
+		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
 		Me.MS_Main.Location = New System.Drawing.Point(0, 0)
 		Me.MS_Main.Name = "MS_Main"
 		Me.MS_Main.Size = New System.Drawing.Size(534, 24)
@@ -106,20 +106,26 @@ Partial Class MainForm
 		'
 		'ToolStripMenuItem1
 		'
-		Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3})
+		Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.РосреестрToolStripMenuItem})
 		Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-		Me.ToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
-		Me.ToolStripMenuItem1.Text = "123"
+		Me.ToolStripMenuItem1.Size = New System.Drawing.Size(45, 20)
+		Me.ToolStripMenuItem1.Text = "Excel"
 		'
 		'ToolStripMenuItem3
 		'
 		Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-		Me.ToolStripMenuItem3.Size = New System.Drawing.Size(92, 22)
-		Me.ToolStripMenuItem3.Text = "123"
+		Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
+		Me.ToolStripMenuItem3.Text = "Сальдо"
+		'
+		'РосреестрToolStripMenuItem
+		'
+		Me.РосреестрToolStripMenuItem.Name = "РосреестрToolStripMenuItem"
+		Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.РосреестрToolStripMenuItem.Text = "Росреестр"
 		'
 		'РазноеToolStripMenuItem
 		'
-		Me.РазноеToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ПочтаToolStripMenuItem, Me.ImageViewerToolStripMenuItem, Me.FormAsyncToolStripMenuItem, Me.SelectTestToolStripMenuItem})
+		Me.РазноеToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ПочтаToolStripMenuItem, Me.ImageViewerToolStripMenuItem, Me.FormAsyncToolStripMenuItem, Me.SelectTestToolStripMenuItem, Me.DGVTEditorToolStripMenuItem})
 		Me.РазноеToolStripMenuItem.Name = "РазноеToolStripMenuItem"
 		Me.РазноеToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
 		Me.РазноеToolStripMenuItem.Text = "Разное"
@@ -148,6 +154,12 @@ Partial Class MainForm
 		Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.SelectTestToolStripMenuItem.Text = "SelectTest"
 		'
+		'DGVTEditorToolStripMenuItem
+		'
+		Me.DGVTEditorToolStripMenuItem.Name = "DGVTEditorToolStripMenuItem"
+		Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+		Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
+		'
 		'Button1
 		'
 		Me.Button1.Location = New System.Drawing.Point(447, 87)
@@ -156,19 +168,6 @@ Partial Class MainForm
 		Me.Button1.TabIndex = 1
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
-		'
-		'АдресаToolStripMenuItem
-		'
-		Me.АдресаToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ЙЙЙЙToolStripMenuItem})
-		Me.АдресаToolStripMenuItem.Name = "АдресаToolStripMenuItem"
-		Me.АдресаToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
-		Me.АдресаToolStripMenuItem.Text = "Адреса"
-		'
-		'ЙЙЙЙToolStripMenuItem
-		'
-		Me.ЙЙЙЙToolStripMenuItem.Name = "ЙЙЙЙToolStripMenuItem"
-		Me.ЙЙЙЙToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-		Me.ЙЙЙЙToolStripMenuItem.Text = "ЙЙЙЙ"
 		'
 		'MainForm
 		'
@@ -204,6 +203,6 @@ Partial Class MainForm
 	Friend WithEvents TSMI_Address As ToolStripMenuItem
 	Friend WithEvents TSMI_UL As ToolStripMenuItem
 	Friend WithEvents SelectTestToolStripMenuItem As ToolStripMenuItem
-	Friend WithEvents АдресаToolStripMenuItem As ToolStripMenuItem
-	Friend WithEvents ЙЙЙЙToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents DGVTEditorToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents РосреестрToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -53,16 +53,14 @@
 			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.FCTB_Template = new FastColoredTextBoxNS.FastColoredTextBox();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.BS_Design = new System.Windows.Forms.BindingSource(this.components);
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.PG_Design = new System.Windows.Forms.PropertyGrid();
+			this.BS_Design = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Template)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.CMS_PG.SuspendLayout();
@@ -74,8 +72,8 @@
 			this.flowLayoutPanel2.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).BeginInit();
 			this.groupBox3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// DGV_Template
@@ -212,9 +210,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.toolStripSeparator1,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripSeparator1});
 			this.BN_Columns.Location = new System.Drawing.Point(0, 0);
 			this.BN_Columns.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
 			this.BN_Columns.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -311,6 +307,11 @@
 			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
 			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
 			// FCTB_Template
 			// 
 			this.FCTB_Template.AutoCompleteBracketsList = new char[] {
@@ -384,10 +385,6 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1128, 450);
 			this.tableLayoutPanel1.TabIndex = 10;
 			// 
-			// BS_Design
-			// 
-			this.BS_Design.DataSource = typeof(DGVTemplateEditor.Types.Design);
-			// 
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.PG_Design);
@@ -399,29 +396,6 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "DGV";
 			// 
-			// toolStripButton1
-			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "toolStripButton1";
-			// 
-			// toolStripButton2
-			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton2.Name = "toolStripButton2";
-			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton2.Text = "toolStripButton2";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
 			// PG_Design
 			// 
 			this.PG_Design.ContextMenuStrip = this.CMS_PG;
@@ -431,6 +405,10 @@
 			this.PG_Design.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
 			this.PG_Design.Size = new System.Drawing.Size(219, 419);
 			this.PG_Design.TabIndex = 8;
+			// 
+			// BS_Design
+			// 
+			this.BS_Design.DataSource = typeof(DGVTemplateEditor.Types.Design);
 			// 
 			// FormEditor
 			// 
@@ -456,8 +434,8 @@
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).EndInit();
 			this.groupBox3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.BS_Design)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -493,8 +471,6 @@
 		private System.Windows.Forms.ContextMenuStrip CMS_PG;
 		private System.Windows.Forms.ToolStripMenuItem TSMI_Reset;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ToolStripButton toolStripButton2;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.PropertyGrid PG_Design;
 		private System.Windows.Forms.BindingSource BS_Design;

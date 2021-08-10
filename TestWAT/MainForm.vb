@@ -42,7 +42,12 @@
 		FormSelectTest.Show()
 	End Sub
 
-	Private Sub ЙЙЙЙToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ЙЙЙЙToolStripMenuItem.Click
+	Private Sub DGVTEditorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DGVTEditorToolStripMenuItem.Click
+		Dim F = New DGVTEdit()
+		F.Show(Me)
+	End Sub
+
+	Private Sub РосреестрToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles РосреестрToolStripMenuItem.Click
 		Reestr.Process()
 	End Sub
 

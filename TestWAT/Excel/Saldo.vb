@@ -2,7 +2,7 @@
 Imports OfficeOpenXml
 
 Module Saldo
-	Dim path As String = "D:\Saldo\Saldo"
+	Dim path As String = "D:\Data\Saldo\Saldo"
 
 	Public Sub MakeGood1()
 		Dim MyFile = New FileInfo(My.Computer.FileSystem.CombinePath(path, "FullList.xlsx"))
