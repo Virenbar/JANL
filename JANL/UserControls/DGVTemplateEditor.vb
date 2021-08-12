@@ -143,4 +143,8 @@ Public Class DGVTemplateEditor
 
 #End Region
 
+	Private Sub TSMI_Reset_Click(sender As Object, e As EventArgs) Handles TSMI_Reset.Click
+		PG_Column.ResetSelectedProperty()
+	End Sub
+
 End Class

@@ -241,8 +241,6 @@
     <Content Include="Icon\JANL.png" />
     <Content Include="Icon\JANL.svg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

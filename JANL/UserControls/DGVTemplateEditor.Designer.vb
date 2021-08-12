@@ -41,6 +41,8 @@ Partial Class DGVTemplateEditor
 		Me.bindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.PG_Column = New System.Windows.Forms.PropertyGrid()
+		Me.CMS_PG = New System.Windows.Forms.ContextMenuStrip(Me.components)
+		Me.TSMI_Reset = New System.Windows.Forms.ToolStripMenuItem()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.TB_XML = New System.Windows.Forms.TextBox()
 		Me.flowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
@@ -55,6 +57,7 @@ Partial Class DGVTemplateEditor
 		CType(Me.BN_Columns, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.BN_Columns.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
+		Me.CMS_PG.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		Me.flowLayoutPanel2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -83,7 +86,7 @@ Partial Class DGVTemplateEditor
 		Me.DGV_Template.Name = "DGV_Template"
 		Me.DGV_Template.ReadOnly = True
 		Me.DGV_Template.RowHeadersVisible = False
-		Me.DGV_Template.Size = New System.Drawing.Size(1194, 88)
+		Me.DGV_Template.Size = New System.Drawing.Size(1194, 67)
 		Me.DGV_Template.TabIndex = 102
 		'
 		'BN_Columns
@@ -195,19 +198,32 @@ Partial Class DGVTemplateEditor
 		Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox2.Location = New System.Drawing.Point(439, 3)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(315, 571)
+		Me.GroupBox2.Size = New System.Drawing.Size(315, 592)
 		Me.GroupBox2.TabIndex = 101
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Свойства столбца"
 		'
 		'PG_Column
 		'
+		Me.PG_Column.ContextMenuStrip = Me.CMS_PG
 		Me.PG_Column.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.PG_Column.Location = New System.Drawing.Point(3, 16)
 		Me.PG_Column.Name = "PG_Column"
 		Me.PG_Column.PropertySort = System.Windows.Forms.PropertySort.Alphabetical
-		Me.PG_Column.Size = New System.Drawing.Size(309, 552)
+		Me.PG_Column.Size = New System.Drawing.Size(309, 573)
 		Me.PG_Column.TabIndex = 7
+		'
+		'CMS_PG
+		'
+		Me.CMS_PG.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Reset})
+		Me.CMS_PG.Name = "contextMenuStrip1"
+		Me.CMS_PG.Size = New System.Drawing.Size(110, 26)
+		'
+		'TSMI_Reset
+		'
+		Me.TSMI_Reset.Name = "TSMI_Reset"
+		Me.TSMI_Reset.Size = New System.Drawing.Size(109, 22)
+		Me.TSMI_Reset.Text = "Сброс"
 		'
 		'GroupBox1
 		'
@@ -216,7 +232,7 @@ Partial Class DGVTemplateEditor
 		Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox1.Location = New System.Drawing.Point(760, 3)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(431, 571)
+		Me.GroupBox1.Size = New System.Drawing.Size(431, 592)
 		Me.GroupBox1.TabIndex = 100
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "XML"
@@ -228,7 +244,7 @@ Partial Class DGVTemplateEditor
 		Me.TB_XML.Margin = New System.Windows.Forms.Padding(10)
 		Me.TB_XML.Multiline = True
 		Me.TB_XML.Name = "TB_XML"
-		Me.TB_XML.Size = New System.Drawing.Size(425, 523)
+		Me.TB_XML.Size = New System.Drawing.Size(425, 544)
 		Me.TB_XML.TabIndex = 0
 		'
 		'flowLayoutPanel2
@@ -276,7 +292,7 @@ Partial Class DGVTemplateEditor
 		Me.ListBox1.FormattingEnabled = True
 		Me.ListBox1.Location = New System.Drawing.Point(3, 41)
 		Me.ListBox1.Name = "ListBox1"
-		Me.ListBox1.Size = New System.Drawing.Size(424, 527)
+		Me.ListBox1.Size = New System.Drawing.Size(424, 548)
 		Me.ListBox1.TabIndex = 104
 		'
 		'GroupBox3
@@ -286,7 +302,7 @@ Partial Class DGVTemplateEditor
 		Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(430, 571)
+		Me.GroupBox3.Size = New System.Drawing.Size(430, 592)
 		Me.GroupBox3.TabIndex = 105
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "Столбцы"
@@ -301,11 +317,11 @@ Partial Class DGVTemplateEditor
 		Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 0, 0)
 		Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 1, 0)
 		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 88)
+		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 67)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 1
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(1194, 577)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(1194, 598)
 		Me.TableLayoutPanel1.TabIndex = 106
 		'
 		'DGVTemplateEditor
@@ -323,6 +339,7 @@ Partial Class DGVTemplateEditor
 		Me.BN_Columns.ResumeLayout(False)
 		Me.BN_Columns.PerformLayout()
 		Me.GroupBox2.ResumeLayout(False)
+		Me.CMS_PG.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
 		Me.flowLayoutPanel2.ResumeLayout(False)
@@ -359,4 +376,6 @@ Partial Class DGVTemplateEditor
 	Friend WithEvents ListBox1 As ListBox
 	Friend WithEvents GroupBox3 As GroupBox
 	Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+	Private WithEvents CMS_PG As ContextMenuStrip
+	Private WithEvents TSMI_Reset As ToolStripMenuItem
 End Class

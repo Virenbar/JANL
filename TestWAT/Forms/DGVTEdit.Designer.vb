@@ -22,28 +22,28 @@ Partial Class DGVTEdit
 	'Не изменяйте ее в редакторе исходного кода.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.DgvTemplateEditor1 = New JANL.DGVTemplateEditor()
+		Me.DGVT = New JANL.DGVTemplateEditor()
 		Me.SuspendLayout()
 		'
-		'DgvTemplateEditor1
+		'DGVT
 		'
-		Me.DgvTemplateEditor1.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.DgvTemplateEditor1.Location = New System.Drawing.Point(0, 0)
-		Me.DgvTemplateEditor1.Name = "DgvTemplateEditor1"
-		Me.DgvTemplateEditor1.Size = New System.Drawing.Size(988, 450)
-		Me.DgvTemplateEditor1.TabIndex = 0
+		Me.DGVT.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.DGVT.Location = New System.Drawing.Point(0, 0)
+		Me.DGVT.Name = "DGVT"
+		Me.DGVT.Size = New System.Drawing.Size(988, 450)
+		Me.DGVT.TabIndex = 0
 		'
 		'DGVTEdit
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(988, 450)
-		Me.Controls.Add(Me.DgvTemplateEditor1)
+		Me.Controls.Add(Me.DGVT)
 		Me.Name = "DGVTEdit"
 		Me.Text = "DGVTEdit"
 		Me.ResumeLayout(False)
 
 	End Sub
 
-	Friend WithEvents DgvTemplateEditor1 As JANL.DGVTemplateEditor
+	Friend WithEvents DGVT As JANL.DGVTemplateEditor
 End Class

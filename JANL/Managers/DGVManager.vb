@@ -54,11 +54,7 @@ Public Class DGVManager
 	End Sub
 
 	Public Shared Function FromXML(XML As String) As DGVTemplate
-		Dim XS As New XmlSerializer(GetType(DGVTemplate))
-		Using SR = New StringReader(XML)
-			Dim T = DirectCast(XS.Deserialize(SR), DGVTemplate)
-			Return T
-		End Using
+		Return DGVTemplate.FromXML(XML)
 	End Function
 
 	<Obsolete("Use Templates property")>
@@ -67,11 +63,7 @@ Public Class DGVManager
 	End Function
 
 	Public Shared Function ToXML(T As DGVTemplate) As String
-		Dim XS = New XmlSerializer(GetType(DGVTemplate))
-		Using SW = New StringWriter()
-			XS.Serialize(SW, T)
-			Return SW.ToString()
-		End Using
+		Return DGVTemplate.ToXML(T)
 	End Function
 
 	<Obsolete>

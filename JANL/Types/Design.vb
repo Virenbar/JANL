@@ -6,7 +6,6 @@
 		End Sub
 
 		Public Sub New(T As DGVTemplate)
-
 			Columns = T.Columns.Select(Function(c) New DesignColumn(c)).ToList()
 		End Sub
 

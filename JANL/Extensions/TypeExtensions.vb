@@ -72,6 +72,16 @@ Namespace Extensions
 			Return If(value.Length <= maxLength, value, value.Substring(0, maxLength))
 		End Function
 
+		<Extension>
+		Public Function IsOverride(M As MethodInfo) As Boolean
+			Return M.GetBaseDefinition().DeclaringType <> M.DeclaringType
+		End Function
+
+		<Extension>
+		Public Function IsOverride(T As Type, Name As String) As Boolean
+			Return T.GetMethod(Name).IsOverride()
+		End Function
+
 #Region "Conversion"
 
 		''' <summary>

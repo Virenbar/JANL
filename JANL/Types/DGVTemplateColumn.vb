@@ -5,6 +5,8 @@ Namespace Types
 	Public Class DGVTemplateColumn
 
 		Public Sub New()
+			Name = "Column"
+			Header = "Header"
 			Width = 100
 			AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet
 			Visible = True

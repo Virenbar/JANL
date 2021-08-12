@@ -17,17 +17,7 @@ Namespace Types
 			Count += 1
 		End Sub
 
-		Public Sub New(Name As String, Header As String, Width As Integer, AutoSizeMode As DataGridViewAutoSizeColumnMode, Visible As Boolean)
-			Me.New()
-			Name = Name
-			Me.Header = Header
-			Me.Width = Width
-			Me.AutoSizeMode = AutoSizeMode
-			Me.Visible = Visible
-		End Sub
-
-		Public Sub New(ByVal C As DGVTemplateColumn)
-			Me.New()
+		Public Sub New(C As DGVTemplateColumn)
 			Name = C.Name
 			Header = C.Header
 			Width = C.Width
@@ -68,7 +58,7 @@ Namespace Types
 		'<Description("Шрифт текста"), DefaultValue(GetType(Color), "0x000000"), Category("У")>
 		'Public Property Font As Font
 		Public Overrides Function ToString() As String
-			Return $"{Name}({Header})"
+			Return $"{Name}({Header}, {Width})"
 		End Function
 
 	End Class
