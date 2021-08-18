@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Virenbar/JANL</projectUrl>
     <repository type="git" url="https://github.com/Virenbar/JANL.git" />
-    <iconUrl>https://github.com/Virenbar/JANL/Icon/JANL.png</iconUrl>
+    <iconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</iconUrl>
     <icon>Icon/JANL.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Just Another .NET Library</description>

@@ -29,6 +29,9 @@ Partial Class FormSelectTest
 		Me.B_String = New System.Windows.Forms.Button()
 		Me.B_Object = New System.Windows.Forms.Button()
 		Me.B_Enum = New System.Windows.Forms.Button()
+		Me.B_FormSelect = New System.Windows.Forms.Button()
+		Me.ItemSelector1 = New JANL.ItemSelector()
+		Me.AutoTextBox1 = New JANL.AutoTextBox()
 		Me.StatusStrip1.SuspendLayout()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.SuspendLayout()
@@ -45,9 +48,9 @@ Partial Class FormSelectTest
 		'StatusStrip1
 		'
 		Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_Result})
-		Me.StatusStrip1.Location = New System.Drawing.Point(0, 255)
+		Me.StatusStrip1.Location = New System.Drawing.Point(0, 305)
 		Me.StatusStrip1.Name = "StatusStrip1"
-		Me.StatusStrip1.Size = New System.Drawing.Size(447, 22)
+		Me.StatusStrip1.Size = New System.Drawing.Size(592, 22)
 		Me.StatusStrip1.TabIndex = 1
 		Me.StatusStrip1.Text = "StatusStrip1"
 		'
@@ -59,6 +62,8 @@ Partial Class FormSelectTest
 		'
 		'FlowLayoutPanel1
 		'
+		Me.FlowLayoutPanel1.AutoSize = True
+		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Date)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_String)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Object)
@@ -66,7 +71,7 @@ Partial Class FormSelectTest
 		Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
 		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(447, 151)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(592, 29)
 		Me.FlowLayoutPanel1.TabIndex = 2
 		'
 		'B_String
@@ -96,11 +101,39 @@ Partial Class FormSelectTest
 		Me.B_Enum.Text = "Enum"
 		Me.B_Enum.UseVisualStyleBackColor = True
 		'
+		'B_FormSelect
+		'
+		Me.B_FormSelect.Location = New System.Drawing.Point(124, 64)
+		Me.B_FormSelect.Name = "B_FormSelect"
+		Me.B_FormSelect.Size = New System.Drawing.Size(75, 23)
+		Me.B_FormSelect.TabIndex = 3
+		Me.B_FormSelect.Text = "Button1"
+		Me.B_FormSelect.UseVisualStyleBackColor = True
+		'
+		'ItemSelector1
+		'
+		Me.ItemSelector1.Key = 2
+		Me.ItemSelector1.Location = New System.Drawing.Point(3, 35)
+		Me.ItemSelector1.Name = "ItemSelector1"
+		Me.ItemSelector1.Size = New System.Drawing.Size(196, 23)
+		Me.ItemSelector1.TabIndex = 4
+		'
+		'AutoTextBox1
+		'
+		Me.AutoTextBox1.Key = 2
+		Me.AutoTextBox1.Location = New System.Drawing.Point(3, 64)
+		Me.AutoTextBox1.Name = "AutoTextBox1"
+		Me.AutoTextBox1.Size = New System.Drawing.Size(100, 20)
+		Me.AutoTextBox1.TabIndex = 5
+		'
 		'FormSelectTest
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(447, 277)
+		Me.ClientSize = New System.Drawing.Size(592, 327)
+		Me.Controls.Add(Me.AutoTextBox1)
+		Me.Controls.Add(Me.ItemSelector1)
+		Me.Controls.Add(Me.B_FormSelect)
 		Me.Controls.Add(Me.FlowLayoutPanel1)
 		Me.Controls.Add(Me.StatusStrip1)
 		Me.Name = "FormSelectTest"
@@ -120,4 +153,7 @@ Partial Class FormSelectTest
 	Friend WithEvents B_String As Button
 	Friend WithEvents B_Object As Button
 	Friend WithEvents B_Enum As Button
+	Friend WithEvents B_FormSelect As Button
+	Friend WithEvents ItemSelector1 As JANL.ItemSelector
+	Friend WithEvents AutoTextBox1 As JANL.AutoTextBox
 End Class

@@ -12,7 +12,7 @@ Public Class DGVManager
 
 	Public Shared Property Templates As New Dictionary(Of String, DGVTemplate)
 
-	Default Public Property Item(Name As String) As DGVTemplate
+	Public Shared Property Item(Name As String) As DGVTemplate
 		Get
 			Name = Name.ToLowerInvariant()
 			If Not Templates.ContainsKey(Name) Then Return Nothing
@@ -33,10 +33,10 @@ Public Class DGVManager
 		DGV.AutoGenerateColumns = False
 		DGV.DoubleBuffered(True)
 		DGV.ReadOnly = True
+		DGV.RowHeadersVisible = False
 		DGV.AllowUserToAddRows = False
 		DGV.AllowUserToDeleteRows = False
 		DGV.AllowUserToOrderColumns = False
-		'DGV.AllowUserToResizeColumns = False
 		DGV.AllowUserToResizeRows = False
 
 		DGV.Columns.Clear()

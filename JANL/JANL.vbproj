@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -79,14 +80,27 @@
     <Compile Include="Colors\Common.vb" />
     <Compile Include="Colors\Status.vb" />
     <Compile Include="Consts.vb" />
+    <Compile Include="Designers\HResizeOnly.vb" />
+    <Compile Include="ExtendedControls\AutoTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExtendedControls\CancelableButton.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ExtendedControls\DateTimePickerEx.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ExtendedControls\DGVFilter.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExtendedControls\TextBoxEx.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSelect.designer.vb">
+      <DependentUpon>FormSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSelect.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Helpers\FormHelper.vb" />
     <Compile Include="Helpers\XLS.vb" />
@@ -100,6 +114,8 @@
     <Compile Include="SQL\INonQueryCommand.vb" />
     <Compile Include="SQL\IScalarCommand.vb" />
     <Compile Include="SQL\ISelectCommand.vb" />
+    <Compile Include="Types\BaseFilter.vb" />
+    <Compile Include="Types\BaseRepository.vb" />
     <Compile Include="Types\Design.vb" />
     <Compile Include="Types\DesignColumn.vb" />
     <Compile Include="Types\DGVTemplate.vb" />
@@ -109,6 +125,12 @@
       <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DGVTemplateEditor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ItemSelector.designer.vb">
+      <DependentUpon>ItemSelector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ItemSelector.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\ProgressBarEx.Designer.vb">
@@ -186,8 +208,14 @@
     <EmbeddedResource Include="Forms\ExceptionBox.ru.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSelect.resx">
+      <DependentUpon>FormSelect.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DGVTemplateEditor.resx">
       <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ItemSelector.resx">
+      <DependentUpon>ItemSelector.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
@@ -241,6 +269,8 @@
     <Content Include="Icon\JANL.png" />
     <Content Include="Icon\JANL.svg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

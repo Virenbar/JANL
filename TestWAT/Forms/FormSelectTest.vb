@@ -73,4 +73,17 @@ Public Class FormSelectTest
 		K4
 	End Enum
 
+	Private Sub B_FormSelect_Click(sender As Object, e As EventArgs) Handles B_FormSelect.Click
+		Dim F = New FormSelect(New TestRepository())
+		F.ShowDialog()
+	End Sub
+
+	Private Sub FormSelectTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		ItemSelector1.Init(New TestRepository, AddressOf TestRepository.GetValue)
+		AutoTextBox1.Init(AddressOf TestRepository.GetValue)
+
+		ItemSelector1.RefreshValue()
+		AutoTextBox1.RefreshValue()
+	End Sub
+
 End Class

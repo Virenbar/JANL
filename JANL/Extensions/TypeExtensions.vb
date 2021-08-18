@@ -2,6 +2,7 @@
 Imports System.Reflection
 Imports System.Runtime.CompilerServices
 Imports System.Threading
+Imports JANL.SQL
 
 Namespace Extensions
 	Public Module TypeExtensions
@@ -72,15 +73,45 @@ Namespace Extensions
 			Return If(value.Length <= maxLength, value, value.Substring(0, maxLength))
 		End Function
 
+#Region "IsOverride"
+
+		''' <summary>
+		''' Переопределён ли метод
+		''' </summary>
 		<Extension>
-		Public Function IsOverride(M As MethodInfo) As Boolean
-			Return M.GetBaseDefinition().DeclaringType <> M.DeclaringType
+		Public Function IsOverride(MI As MethodInfo) As Boolean
+			Return MI.GetBaseDefinition().DeclaringType <> MI.DeclaringType
 		End Function
 
+		''' <summary>
+		''' Переопределёно ли свойство
+		''' </summary>
+		<Extension>
+		Public Function IsOverride(PI As PropertyInfo) As Boolean
+			Return PI.GetMethod.GetBaseDefinition().DeclaringType <> PI.DeclaringType
+		End Function
+
+		''' <summary>
+		''' Переопределён ли метод или свойство
+		''' </summary>
+		''' <param name="T">Тип</param>
+		''' <param name="Name">Имя метода или свойства</param>
 		<Extension>
 		Public Function IsOverride(T As Type, Name As String) As Boolean
-			Return T.GetMethod(Name).IsOverride()
+			Dim Members = T.GetMember(Name)
+			If Members.Count = 0 Then Return False
+			Dim M = Members.First
+			Select Case M.MemberType
+				Case MemberTypes.Method
+					Return IsOverride(DirectCast(M, MethodInfo))
+				Case MemberTypes.Property
+					Return IsOverride(DirectCast(M, PropertyInfo))
+				Case Else
+					Return False
+			End Select
 		End Function
+
+#End Region
 
 #Region "Conversion"
 
