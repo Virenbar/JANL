@@ -1,9 +1,8 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
-Imports OfficeOpenXml
-Imports Newtonsoft.Json
-Imports JANL
+﻿Imports System.Globalization
 Imports System.Threading
-Imports System.Globalization
+Imports JANL
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports Newtonsoft.Json
 
 Namespace My
 	' Для MyApplication имеются следующие события:
@@ -17,6 +16,7 @@ Namespace My
 		Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
 			Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
+
 			ExceptionBox.DefaultText = "Произошла непредвиденная ошибка. Отправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
 			ExceptionBox.MailInfo = New ExceptionBox.EMail() With {
 				.[To] = Config.Current.ExceptionMail,
@@ -33,8 +33,6 @@ Namespace My
 				"Простите :(",
 				"Я подвёл тебя. Прости :(",
 				"Задача провалена успешно"}
-			'ExcelPackage.LicenseContext = LicenseContext.NonCommercial
-			'Await Helpers.Bankrupt.Init()
 		End Sub
 
 		Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException

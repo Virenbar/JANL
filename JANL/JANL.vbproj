@@ -111,6 +111,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Managers\DGVManager.vb" />
+    <Compile Include="Managers\FormManager.vb" />
     <Compile Include="SQL\INonQueryCommand.vb" />
     <Compile Include="SQL\IScalarCommand.vb" />
     <Compile Include="SQL\ISelectCommand.vb" />
