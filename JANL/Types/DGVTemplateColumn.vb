@@ -22,6 +22,14 @@ Namespace Types
 			Me.Visible = visible
 		End Sub
 
+		Public Sub New(name As String, header As String, width As Integer)
+			Me.New(name, header, width, DataGridViewAutoSizeColumnMode.NotSet, True)
+		End Sub
+
+		Public Sub New(name As String, header As String, autoSizeMode As DataGridViewAutoSizeColumnMode)
+			Me.New(name, header, 100, autoSizeMode, True)
+		End Sub
+
 		Public Property Name As String
 		Public Property Header As String
 		Public Property Width As Integer

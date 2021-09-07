@@ -9,6 +9,10 @@ Namespace Types
 			Columns = New List(Of DGVTemplateColumn)
 		End Sub
 
+		Public Sub New(DGVColumns As IEnumerable(Of DGVTemplateColumn))
+			Columns = New List(Of DGVTemplateColumn)(DGVColumns)
+		End Sub
+
 		Public Property Columns As List(Of DGVTemplateColumn)
 
 		Public Shared Function FromXML(XML As String) As DGVTemplate

@@ -105,6 +105,7 @@ Public MustInherit Class BaseRepository
 
 	''' <summary>
 	''' Получить форму для создания
+	''' <remarks>Не вызывать отображение формы!</remarks>
 	''' </summary>
 	Public Overridable Function CreateItem() As Form
 		Throw New NotImplementedException(RepositoryError)
@@ -119,6 +120,7 @@ Public MustInherit Class BaseRepository
 
 	''' <summary>
 	''' Получить форму для редактирования
+	''' <remarks>Не вызывать отображение формы!</remarks>
 	''' </summary>
 	Public Overridable Function EditItem(Key As Integer) As Form
 		Throw New NotImplementedException(RepositoryError)
