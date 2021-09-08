@@ -2,7 +2,6 @@
 Imports System.Reflection
 Imports System.Runtime.CompilerServices
 Imports System.Threading
-Imports JANL.SQL
 
 Namespace Extensions
 	Public Module TypeExtensions
@@ -27,6 +26,25 @@ Namespace Extensions
 			End While
 		End Sub
 
+		''' <summary>
+		''' Первый день месяца
+		''' </summary>
+		<Extension>
+		Public Function FirstDay(D As Date) As Date
+			Return New Date(D.Year, D.Month, 1)
+		End Function
+
+		''' <summary>
+		''' Последний день месяца
+		''' </summary>
+		<Extension>
+		Public Function LastDay(D As Date) As Date
+			Return New Date(D.Year, D.Month, 1).AddMonths(1).AddDays(-1)
+		End Function
+
+		''' <summary>
+		''' Get random item
+		''' </summary>
 		<Extension>
 		Public Function PickRandom(Of T)(L As IEnumerable(Of T)) As T
 			If L.Count = 0 Then Return Nothing

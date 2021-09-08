@@ -27,7 +27,7 @@
 		''' <summary>
 		''' Переводит числовой адрес в строковый
 		''' </summary>
-		''' <param name="row">Индеск строки</param>
+		''' <param name="row">Индекс строки</param>
 		''' <param name="col">Индекс столбца</param>
 		Public Shared Function ToLetter(row As Integer, col As Integer) As String
 			Return ToLetter(col) + row.ToString

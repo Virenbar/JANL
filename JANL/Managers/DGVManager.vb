@@ -18,7 +18,7 @@ Public Class DGVManager
 
 	Public Shared Sub ApplyTemplate(DGV As DataGridView, T As String)
 		EditDGV(DGV)
-		Dim Name = T.ToString.ToLower()
+		Dim Name = T.ToLowerInvariant()
 		If Templates.ContainsKey(Name) Then EditDGVColumns(DGV, Templates(Name))
 	End Sub
 
@@ -36,7 +36,6 @@ Public Class DGVManager
 	End Function
 
 	Private Shared Sub EditDGV(DGV As DataGridView)
-		DGV.AutoGenerateColumns = False
 		DGV.DoubleBuffered(True)
 		DGV.ReadOnly = True
 		DGV.RowHeadersVisible = False
@@ -47,6 +46,7 @@ Public Class DGVManager
 	End Sub
 
 	Private Shared Sub EditDGVColumns(DGV As DataGridView, T As DGVTemplate)
+		DGV.AutoGenerateColumns = False
 		DGV.Columns.Clear()
 		For Each C In T.Columns
 			Dim DGVC = New DataGridViewTextBoxColumn() With {
