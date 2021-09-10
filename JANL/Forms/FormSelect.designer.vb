@@ -22,7 +22,6 @@ Partial Class FormSelect
 	'Не изменяйте ее в редакторе исходного кода.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSelect))
 		Me.B_Cancel = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -37,8 +36,8 @@ Partial Class FormSelect
 		Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
 		Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
 		Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-		Me.BN_Select = New System.Windows.Forms.BindingNavigator(Me.components)
-		Me.BS_Select = New System.Windows.Forms.BindingSource(Me.components)
+		Me.BN_Select = New System.Windows.Forms.BindingNavigator()
+		Me.BS_Select = New System.Windows.Forms.BindingSource()
 		Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
 		Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
 		Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
@@ -50,7 +49,7 @@ Partial Class FormSelect
 		Me.DGV_Select = New System.Windows.Forms.DataGridView()
 		Me.TLP_Filter = New System.Windows.Forms.TableLayoutPanel()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.CMS_Select = New System.Windows.Forms.ContextMenuStrip(Me.components)
+		Me.CMS_Select = New System.Windows.Forms.ContextMenuStrip()
 		Me.TSMI_Refresh = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.TLP_Select.SuspendLayout()
@@ -348,6 +347,7 @@ Partial Class FormSelect
 		Me.Controls.Add(Me.TLP_Filter)
 		Me.KeyPreview = True
 		Me.Name = "FormSelect"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "FormSelect"
 		Me.FlowLayoutPanel1.ResumeLayout(False)
 		Me.FlowLayoutPanel1.PerformLayout()

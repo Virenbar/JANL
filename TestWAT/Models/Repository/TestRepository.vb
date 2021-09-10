@@ -10,12 +10,14 @@
 		DT.Columns.Add("Key", GetType(Integer))
 		DT.Columns.Add("Value", GetType(String))
 		DT.Columns.Add("OtherValue", GetType(String))
+		DT.Columns.Add("Type", GetType(String))
 
 		For i = 1 To 150
 			Dim R = DT.NewRow()
 			R("Key") = i
 			R("Value") = $"Value {i}"
 			R("OtherValue") = $"OtherValue {i}"
+			R("Type") = If(i Mod 2 = 0, "Even", "Odd")
 			DT.Rows.Add(R)
 		Next
 

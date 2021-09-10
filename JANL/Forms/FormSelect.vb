@@ -54,6 +54,7 @@ Public Class FormSelect
 			Msgs.ShowError(ex)
 		Finally
 			UIState = True
+			DGV_Select.PerformLayout()
 		End Try
 	End Function
 

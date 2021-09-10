@@ -186,4 +186,11 @@ Public Class FormTest
 
 #End Region
 
+	Private Sub TB_Number_TextChanged(sender As Object, e As EventArgs) Handles TB_Number.TextChanged
+		Dim I As Numerics.BigInteger = 0
+		If Numerics.BigInteger.TryParse(TB_Number.Text, I) Then
+			TB_NumberText.Text = NumberToText.NumberToText(I, NumberToText.Kind.Male)
+		End If
+	End Sub
+
 End Class
