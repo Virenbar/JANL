@@ -174,10 +174,10 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Ignore)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Exit)
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(692, 0)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(705, 0)
 		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(175, 33)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(162, 33)
 		Me.FlowLayoutPanel1.TabIndex = 14
 		Me.FlowLayoutPanel1.WrapContents = False
 		'
@@ -196,11 +196,12 @@ Partial Class ExceptionBox
 		'B_Exit
 		'
 		Me.B_Exit.AutoSize = True
+		Me.B_Exit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Exit.Image = CType(resources.GetObject("B_Exit.Image"), System.Drawing.Image)
 		Me.B_Exit.Location = New System.Drawing.Point(93, 4)
 		Me.B_Exit.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
 		Me.B_Exit.Name = "B_Exit"
-		Me.B_Exit.Size = New System.Drawing.Size(80, 25)
+		Me.B_Exit.Size = New System.Drawing.Size(67, 25)
 		Me.B_Exit.TabIndex = 3
 		Me.B_Exit.Text = "Выход"
 		Me.B_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight

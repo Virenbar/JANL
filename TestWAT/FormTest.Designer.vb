@@ -27,41 +27,43 @@ Partial Class FormTest
 		Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+		Me.DateTimeS1 = New JANL.DateTimePickerEx()
+		Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.B_DateNull = New System.Windows.Forms.Button()
 		Me.B_Date2000 = New System.Windows.Forms.Button()
+		Me.DateTimeS2 = New JANL.DateTimePickerEx()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.TB_Test = New JANL.ToggleButton()
 		Me.B_Exception = New System.Windows.Forms.Button()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+		Me.CncB_Test = New JANL.CancelableButton()
 		Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
 		Me.TSPB_Test = New System.Windows.Forms.ToolStripProgressBar()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+		Me.SWL_Test = New JANL.StopWatchLabel()
+		Me.CB_SW = New JANL.CancelableButton()
 		Me.GP_PB = New System.Windows.Forms.GroupBox()
+		Me.PBE_Test = New JANL.ProgressBarEx()
 		Me.B_PB = New System.Windows.Forms.Button()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.TextBoxEx1 = New JANL.TextBoxEx()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
 		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.RegexTextBox1 = New JANL.RegexTextBox()
+		Me.RegexTextBox2 = New JANL.RegexTextBox()
+		Me.RegexTextBox3 = New JANL.RegexTextBox()
+		Me.RegexTextBox4 = New JANL.RegexTextBox()
 		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.TB_Number = New System.Windows.Forms.TextBox()
 		Me.TB_NumberText = New System.Windows.Forms.TextBox()
 		Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
-		Me.PBE_Test = New JANL.ProgressBarEx()
-		Me.SWL_Test = New JANL.StopWatchLabel()
-		Me.CB_SW = New JANL.CancelableButton()
-		Me.TB_Test = New JANL.ToggleButton()
-		Me.CncB_Test = New JANL.CancelableButton()
-		Me.DateTimeS1 = New JANL.DateTimePickerEx()
-		Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
-		Me.DateTimeS2 = New JANL.DateTimePickerEx()
-		Me.TextBoxEx1 = New JANL.TextBoxEx()
-		Me.RegexTextBox1 = New JANL.RegexTextBox()
-		Me.RegexTextBox2 = New JANL.RegexTextBox()
-		Me.RegexTextBox3 = New JANL.RegexTextBox()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
+		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -75,7 +77,6 @@ Partial Class FormTest
 		Me.FlowLayoutPanel3.SuspendLayout()
 		Me.FlowLayoutPanel4.SuspendLayout()
 		Me.TB_Numberaga.SuspendLayout()
-		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'ImageList1
@@ -115,6 +116,21 @@ Partial Class FormTest
 		Me.TableLayoutPanel2.Size = New System.Drawing.Size(173, 87)
 		Me.TableLayoutPanel2.TabIndex = 4
 		'
+		'DateTimeS1
+		'
+		Me.DateTimeS1.CustomFormat = "dd.MM.yyyy g"
+		Me.DateTimeS1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.DateTimeS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+		Me.DateTimeS1.Location = New System.Drawing.Point(3, 3)
+		Me.DateTimeS1.Name = "DateTimeS1"
+		Me.DateTimeS1.Size = New System.Drawing.Size(167, 20)
+		Me.DateTimeS1.TabIndex = 0
+		Me.DateTimeS1.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
+		'
+		'BS_TestModel
+		'
+		Me.BS_TestModel.DataSource = GetType(TestWAT.Models.TestModel)
+		'
 		'TableLayoutPanel1
 		'
 		Me.TableLayoutPanel1.AutoSize = True
@@ -149,6 +165,15 @@ Partial Class FormTest
 		Me.B_Date2000.Text = "Set2000"
 		Me.B_Date2000.UseVisualStyleBackColor = True
 		'
+		'DateTimeS2
+		'
+		Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.DateTimeS2.Location = New System.Drawing.Point(3, 64)
+		Me.DateTimeS2.Name = "DateTimeS2"
+		Me.DateTimeS2.Size = New System.Drawing.Size(167, 20)
+		Me.DateTimeS2.TabIndex = 4
+		Me.DateTimeS2.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
+		'
 		'GroupBox2
 		'
 		Me.GroupBox2.AutoSize = True
@@ -160,6 +185,22 @@ Partial Class FormTest
 		Me.GroupBox2.TabIndex = 3
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "ToggleButton"
+		'
+		'TB_Test
+		'
+		Me.TB_Test.AutoSize = True
+		Me.TB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.TB_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.TB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
+		Me.TB_Test.ImageOn = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
+		Me.TB_Test.Location = New System.Drawing.Point(3, 16)
+		Me.TB_Test.Name = "TB_Test"
+		Me.TB_Test.Size = New System.Drawing.Size(82, 23)
+		Me.TB_Test.TabIndex = 1
+		Me.TB_Test.Text = "Обновить"
+		Me.TB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+		Me.TB_Test.TextOn = "Отмена"
+		Me.TB_Test.UseVisualStyleBackColor = True
 		'
 		'B_Exception
 		'
@@ -184,6 +225,22 @@ Partial Class FormTest
 		Me.GroupBox3.TabIndex = 5
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "CancelableButton"
+		'
+		'CncB_Test
+		'
+		Me.CncB_Test.AutoSize = True
+		Me.CncB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.CncB_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.CncB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
+		Me.CncB_Test.ImageCancel = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
+		Me.CncB_Test.ImageCanceled = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
+		Me.CncB_Test.Location = New System.Drawing.Point(3, 16)
+		Me.CncB_Test.Name = "CncB_Test"
+		Me.CncB_Test.Size = New System.Drawing.Size(82, 23)
+		Me.CncB_Test.TabIndex = 6
+		Me.CncB_Test.Text = "Обновить"
+		Me.CncB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+		Me.CncB_Test.UseVisualStyleBackColor = True
 		'
 		'StatusStrip1
 		'
@@ -210,6 +267,30 @@ Partial Class FormTest
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "StopWatch"
 		'
+		'SWL_Test
+		'
+		Me.SWL_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.SWL_Test.ImageRunning = CType(resources.GetObject("SWL_Test.ImageRunning"), System.Drawing.Image)
+		Me.SWL_Test.ImageWaiting = CType(resources.GetObject("SWL_Test.ImageWaiting"), System.Drawing.Image)
+		Me.SWL_Test.Location = New System.Drawing.Point(3, 39)
+		Me.SWL_Test.Name = "SWL_Test"
+		Me.SWL_Test.Size = New System.Drawing.Size(185, 26)
+		Me.SWL_Test.TabIndex = 7
+		'
+		'CB_SW
+		'
+		Me.CB_SW.Dock = System.Windows.Forms.DockStyle.Top
+		Me.CB_SW.ImageCancel = Nothing
+		Me.CB_SW.ImageCanceled = Nothing
+		Me.CB_SW.Location = New System.Drawing.Point(3, 16)
+		Me.CB_SW.Name = "CB_SW"
+		Me.CB_SW.Size = New System.Drawing.Size(185, 23)
+		Me.CB_SW.TabIndex = 8
+		Me.CB_SW.Text = "Start"
+		Me.CB_SW.TextCancel = "Stop"
+		Me.CB_SW.TextCanceled = Nothing
+		Me.CB_SW.UseVisualStyleBackColor = True
+		'
 		'GP_PB
 		'
 		Me.GP_PB.Controls.Add(Me.PBE_Test)
@@ -220,6 +301,16 @@ Partial Class FormTest
 		Me.GP_PB.TabIndex = 10
 		Me.GP_PB.TabStop = False
 		Me.GP_PB.Text = "ProgressBar"
+		'
+		'PBE_Test
+		'
+		Me.PBE_Test.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
+		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
+		Me.PBE_Test.Name = "PBE_Test"
+		Me.PBE_Test.Percent = 0R
+		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
+		Me.PBE_Test.TabIndex = 9
 		'
 		'B_PB
 		'
@@ -255,6 +346,17 @@ Partial Class FormTest
 		Me.FlowLayoutPanel1.TabIndex = 16
 		Me.FlowLayoutPanel1.WrapContents = False
 		'
+		'TextBoxEx1
+		'
+		Me.TextBoxEx1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.TextBoxEx1.ForeColor = System.Drawing.SystemColors.WindowText
+		Me.TextBoxEx1.Label = "TestString"
+		Me.TextBoxEx1.Location = New System.Drawing.Point(3, 29)
+		Me.TextBoxEx1.Name = "TextBoxEx1"
+		Me.TextBoxEx1.Size = New System.Drawing.Size(122, 20)
+		Me.TextBoxEx1.TabIndex = 14
+		Me.TextBoxEx1.Text = "123"
+		'
 		'GroupBox5
 		'
 		Me.GroupBox5.AutoSize = True
@@ -274,7 +376,7 @@ Partial Class FormTest
 		Me.GroupBox6.Controls.Add(Me.FlowLayoutPanel2)
 		Me.GroupBox6.Location = New System.Drawing.Point(3, 192)
 		Me.GroupBox6.Name = "GroupBox6"
-		Me.GroupBox6.Size = New System.Drawing.Size(140, 97)
+		Me.GroupBox6.Size = New System.Drawing.Size(140, 123)
 		Me.GroupBox6.TabIndex = 19
 		Me.GroupBox6.TabStop = False
 		Me.GroupBox6.Text = "RegexTextBox"
@@ -286,13 +388,49 @@ Partial Class FormTest
 		Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox1)
 		Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox2)
 		Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox3)
+		Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox4)
 		Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
 		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 16)
 		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(134, 78)
+		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(134, 104)
 		Me.FlowLayoutPanel2.TabIndex = 0
 		Me.FlowLayoutPanel2.WrapContents = False
+		'
+		'RegexTextBox1
+		'
+		Me.RegexTextBox1.Location = New System.Drawing.Point(3, 3)
+		Me.RegexTextBox1.Message = "Формат 4#########"
+		Me.RegexTextBox1.Name = "RegexTextBox1"
+		Me.RegexTextBox1.Pattern = "^4\d{9}$"
+		Me.RegexTextBox1.Size = New System.Drawing.Size(128, 20)
+		Me.RegexTextBox1.TabIndex = 18
+		'
+		'RegexTextBox2
+		'
+		Me.RegexTextBox2.Location = New System.Drawing.Point(3, 29)
+		Me.RegexTextBox2.Message = "Формат 4#########"
+		Me.RegexTextBox2.Name = "RegexTextBox2"
+		Me.RegexTextBox2.Pattern = "^4\d{9}$"
+		Me.RegexTextBox2.Required = True
+		Me.RegexTextBox2.Size = New System.Drawing.Size(128, 20)
+		Me.RegexTextBox2.TabIndex = 19
+		'
+		'RegexTextBox3
+		'
+		Me.RegexTextBox3.Location = New System.Drawing.Point(3, 55)
+		Me.RegexTextBox3.Name = "RegexTextBox3"
+		Me.RegexTextBox3.Pattern = "^\d{1,10}$"
+		Me.RegexTextBox3.Required = True
+		Me.RegexTextBox3.Size = New System.Drawing.Size(128, 20)
+		Me.RegexTextBox3.TabIndex = 20
+		'
+		'RegexTextBox4
+		'
+		Me.RegexTextBox4.Location = New System.Drawing.Point(3, 81)
+		Me.RegexTextBox4.Name = "RegexTextBox4"
+		Me.RegexTextBox4.Size = New System.Drawing.Size(128, 20)
+		Me.RegexTextBox4.TabIndex = 21
 		'
 		'FlowLayoutPanel3
 		'
@@ -346,133 +484,6 @@ Partial Class FormTest
 		Me.TB_Numberaga.TabStop = False
 		Me.TB_Numberaga.Text = "NumberToText"
 		'
-		'PBE_Test
-		'
-		Me.PBE_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.PBE_Test.Location = New System.Drawing.Point(3, 39)
-		Me.PBE_Test.MinimumSize = New System.Drawing.Size(200, 45)
-		Me.PBE_Test.Name = "PBE_Test"
-		Me.PBE_Test.Percent = 0R
-		Me.PBE_Test.Size = New System.Drawing.Size(213, 58)
-		Me.PBE_Test.TabIndex = 9
-		'
-		'SWL_Test
-		'
-		Me.SWL_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.SWL_Test.ImageRunning = CType(resources.GetObject("SWL_Test.ImageRunning"), System.Drawing.Image)
-		Me.SWL_Test.ImageWaiting = CType(resources.GetObject("SWL_Test.ImageWaiting"), System.Drawing.Image)
-		Me.SWL_Test.Location = New System.Drawing.Point(3, 39)
-		Me.SWL_Test.Name = "SWL_Test"
-		Me.SWL_Test.Size = New System.Drawing.Size(185, 26)
-		Me.SWL_Test.TabIndex = 7
-		'
-		'CB_SW
-		'
-		Me.CB_SW.Dock = System.Windows.Forms.DockStyle.Top
-		Me.CB_SW.ImageCancel = Nothing
-		Me.CB_SW.ImageCanceled = Nothing
-		Me.CB_SW.Location = New System.Drawing.Point(3, 16)
-		Me.CB_SW.Name = "CB_SW"
-		Me.CB_SW.Size = New System.Drawing.Size(185, 23)
-		Me.CB_SW.TabIndex = 8
-		Me.CB_SW.Text = "Start"
-		Me.CB_SW.TextCancel = "Stop"
-		Me.CB_SW.TextCanceled = Nothing
-		Me.CB_SW.UseVisualStyleBackColor = True
-		'
-		'TB_Test
-		'
-		Me.TB_Test.AutoSize = True
-		Me.TB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.TB_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
-		Me.TB_Test.ImageOn = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
-		Me.TB_Test.Location = New System.Drawing.Point(3, 16)
-		Me.TB_Test.Name = "TB_Test"
-		Me.TB_Test.Size = New System.Drawing.Size(82, 23)
-		Me.TB_Test.TabIndex = 1
-		Me.TB_Test.Text = "Обновить"
-		Me.TB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-		Me.TB_Test.TextOn = "Отмена"
-		Me.TB_Test.UseVisualStyleBackColor = True
-		'
-		'CncB_Test
-		'
-		Me.CncB_Test.AutoSize = True
-		Me.CncB_Test.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.CncB_Test.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.CncB_Test.Image = Global.TestWAT.My.Resources.icons8.icons8_Refresh16B
-		Me.CncB_Test.ImageCancel = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
-		Me.CncB_Test.ImageCanceled = Global.TestWAT.My.Resources.icons8.icons8_Cancel16
-		Me.CncB_Test.Location = New System.Drawing.Point(3, 16)
-		Me.CncB_Test.Name = "CncB_Test"
-		Me.CncB_Test.Size = New System.Drawing.Size(82, 23)
-		Me.CncB_Test.TabIndex = 6
-		Me.CncB_Test.Text = "Обновить"
-		Me.CncB_Test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-		Me.CncB_Test.UseVisualStyleBackColor = True
-		'
-		'DateTimeS1
-		'
-		Me.DateTimeS1.CustomFormat = "dd.MM.yyyy g"
-		Me.DateTimeS1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-		Me.DateTimeS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-		Me.DateTimeS1.Location = New System.Drawing.Point(3, 3)
-		Me.DateTimeS1.Name = "DateTimeS1"
-		Me.DateTimeS1.Size = New System.Drawing.Size(167, 20)
-		Me.DateTimeS1.TabIndex = 0
-		Me.DateTimeS1.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
-		'
-		'BS_TestModel
-		'
-		Me.BS_TestModel.DataSource = GetType(TestWAT.Models.TestModel)
-		'
-		'DateTimeS2
-		'
-		Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-		Me.DateTimeS2.Location = New System.Drawing.Point(3, 64)
-		Me.DateTimeS2.Name = "DateTimeS2"
-		Me.DateTimeS2.Size = New System.Drawing.Size(167, 20)
-		Me.DateTimeS2.TabIndex = 4
-		Me.DateTimeS2.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
-		'
-		'TextBoxEx1
-		'
-		Me.TextBoxEx1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-		Me.TextBoxEx1.ForeColor = System.Drawing.SystemColors.WindowText
-		Me.TextBoxEx1.Label = "TestString"
-		Me.TextBoxEx1.Location = New System.Drawing.Point(3, 29)
-		Me.TextBoxEx1.Name = "TextBoxEx1"
-		Me.TextBoxEx1.Size = New System.Drawing.Size(122, 20)
-		Me.TextBoxEx1.TabIndex = 14
-		Me.TextBoxEx1.Text = "123"
-		'
-		'RegexTextBox1
-		'
-		Me.RegexTextBox1.Location = New System.Drawing.Point(3, 3)
-		Me.RegexTextBox1.Message = "Формат 4#########"
-		Me.RegexTextBox1.Name = "RegexTextBox1"
-		Me.RegexTextBox1.Pattern = "^4\d{9}$"
-		Me.RegexTextBox1.Size = New System.Drawing.Size(128, 20)
-		Me.RegexTextBox1.TabIndex = 18
-		'
-		'RegexTextBox2
-		'
-		Me.RegexTextBox2.Location = New System.Drawing.Point(3, 29)
-		Me.RegexTextBox2.Message = "Формат 4#########"
-		Me.RegexTextBox2.Name = "RegexTextBox2"
-		Me.RegexTextBox2.Pattern = "^4\d{9}$"
-		Me.RegexTextBox2.Required = True
-		Me.RegexTextBox2.Size = New System.Drawing.Size(128, 20)
-		Me.RegexTextBox2.TabIndex = 19
-		'
-		'RegexTextBox3
-		'
-		Me.RegexTextBox3.Location = New System.Drawing.Point(3, 55)
-		Me.RegexTextBox3.Name = "RegexTextBox3"
-		Me.RegexTextBox3.Size = New System.Drawing.Size(128, 20)
-		Me.RegexTextBox3.TabIndex = 20
-		'
 		'FormTest
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -490,6 +501,7 @@ Partial Class FormTest
 		Me.GroupBox1.PerformLayout()
 		Me.TableLayoutPanel2.ResumeLayout(False)
 		Me.TableLayoutPanel2.PerformLayout()
+		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.TableLayoutPanel1.ResumeLayout(False)
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()
@@ -514,7 +526,6 @@ Partial Class FormTest
 		Me.FlowLayoutPanel4.PerformLayout()
 		Me.TB_Numberaga.ResumeLayout(False)
 		Me.TB_Numberaga.PerformLayout()
-		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -556,4 +567,5 @@ Partial Class FormTest
 	Friend WithEvents TB_Number As TextBox
 	Friend WithEvents TB_NumberText As TextBox
 	Friend WithEvents TB_Numberaga As GroupBox
+	Friend WithEvents RegexTextBox4 As JANL.RegexTextBox
 End Class

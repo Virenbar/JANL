@@ -188,8 +188,13 @@ Public Class FormTest
 
 	Private Sub TB_Number_TextChanged(sender As Object, e As EventArgs) Handles TB_Number.TextChanged
 		Dim I As Numerics.BigInteger = 0
+		Dim D As Decimal = 0
 		If Numerics.BigInteger.TryParse(TB_Number.Text, I) Then
 			TB_NumberText.Text = NumberToText.NumberToText(I, NumberToText.Kind.Male)
+		ElseIf Decimal.TryParse(TB_Number.Text, D) Then
+			TB_NumberText.Text = NumberToText.RubToText(D)
+		Else
+			TB_NumberText.Text = ""
 		End If
 	End Sub
 

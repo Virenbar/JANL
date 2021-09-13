@@ -15,7 +15,7 @@ Public NotInheritable Class NumberToText
 		If Value.IsZero Then Return "Ноль"
 		Dim Minus = Value.Sign < 0
 		Dim N = BigInteger.Abs(Value)
-		If CInt(BigInteger.Log10(N)) \ 3 > MaxClass Then Return "очень много"
+		If CInt(BigInteger.Log10(N)) \ 3 > MaxClass Then Return N.ToString("E")
 
 		Dim SB = New StringBuilder()
 		InsertClass(SB, CInt(N Mod 1000), Kind)
@@ -36,17 +36,17 @@ Public NotInheritable Class NumberToText
 		End If
 
 		If Minus Then SB.Insert(0, "минус ")
-		Return SB.ToString()
+		Return SB.ToString().Trim(" "c)
 	End Function
 
 	''' <summary>
 	''' Перевод суммы в текст
 	''' </summary>
-	''' <param name="summa">Сумма</param>
+	''' <param name="Summa">Сумма</param>
 	''' <returns>Сумма текстом</returns>
-	Public Shared Function RubToText(summa As Decimal) As String
-		Dim kop As Integer = CInt((summa * 100) Mod 100)
-		Return $"{NumberToText(New BigInteger(summa), Kind.Male)} {CaseForNumber(CInt(summa), "рубль", "рубля", "рублей")} {kop} {CaseForNumber(kop, "копейка", "копейки", "копеек")}"
+	Public Shared Function RubToText(Summa As Decimal) As String
+		Dim kop As Integer = CInt((Summa Mod 1) * 100)
+		Return $"{NumberToText(New BigInteger(Summa), Kind.Male)} {CaseForNumber(CInt(Math.Truncate(Summa) Mod 1000), "рубль", "рубля", "рублей")} {kop} {CaseForNumber(kop, "копейка", "копейки", "копеек")}"
 	End Function
 
 	''' <summary>
@@ -79,11 +79,13 @@ Public NotInheritable Class NumberToText
 	Private Shared Sub InsertClass(SB As StringBuilder, Value As Integer, Kind As Kind)
 		If Value = 0 Then Exit Sub
 
+		Dim C As String
 		If Value Mod 100 < 20 Then
-			SB.Insert(0, GetHundred(Value) + " " + GetFraction20(Value Mod 20, Kind))
+			C = GetHundred(Value) + " " + GetFraction20(Value Mod 20, Kind)
 		Else
-			SB.Insert(0, GetHundred(Value) + " " + GetTen(Value) + " " + GetFraction20(Value Mod 10, Kind))
+			C = GetHundred(Value) + " " + GetTen(Value) + " " + GetFraction20(Value Mod 10, Kind)
 		End If
+		SB.Insert(0, C.Trim(" "c))
 	End Sub
 
 #Region "Numbers and Nouns"
