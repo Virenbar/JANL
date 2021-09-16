@@ -5,7 +5,7 @@
 		MyBase.New("Values", "Key", "Value", {"Value", "OtherValue"})
 	End Sub
 
-	Public Overrides Function GetList() As Task(Of DataTable)
+	Public Overrides Async Function GetList() As Task(Of DataTable)
 		Dim DT = New DataTable()
 		DT.Columns.Add("Key", GetType(Integer))
 		DT.Columns.Add("Value", GetType(String))
@@ -20,8 +20,17 @@
 			R("Type") = If(i Mod 2 = 0, "Even", "Odd")
 			DT.Rows.Add(R)
 		Next
+		Await Task.Delay(1000)
+		Return DT
+	End Function
 
-		Return Task.FromResult(DT)
+	Public Overrides Sub DeleteItem(Key As Integer)
+		JANL.Msgs.ShowInfo($"Удалено {Key}")
+	End Sub
+
+	Public Overrides Function EditItem(Key As Integer) As Form
+		Dim F = New FormDummy($"Редактирование {Key}")
+		Return F
 	End Function
 
 	Public Shared Function GetValue(Key As Integer) As String

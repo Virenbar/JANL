@@ -61,6 +61,7 @@ Partial Class FormTest
 		Me.TB_Number = New System.Windows.Forms.TextBox()
 		Me.TB_NumberText = New System.Windows.Forms.TextBox()
 		Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
+		Me.MonthPicker1 = New JANL.MonthPicker()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -449,6 +450,7 @@ Partial Class FormTest
 		Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox1)
 		Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox5)
 		Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox6)
+		Me.FlowLayoutPanel4.Controls.Add(Me.MonthPicker1)
 		Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left
 		Me.FlowLayoutPanel4.Location = New System.Drawing.Point(0, 0)
 		Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
@@ -483,6 +485,15 @@ Partial Class FormTest
 		Me.TB_Numberaga.TabIndex = 24
 		Me.TB_Numberaga.TabStop = False
 		Me.TB_Numberaga.Text = "NumberToText"
+		'
+		'MonthPicker1
+		'
+		Me.MonthPicker1.AutoSize = True
+		Me.MonthPicker1.Location = New System.Drawing.Point(3, 321)
+		Me.MonthPicker1.MinYear = 2000
+		Me.MonthPicker1.Name = "MonthPicker1"
+		Me.MonthPicker1.Size = New System.Drawing.Size(155, 21)
+		Me.MonthPicker1.TabIndex = 11
 		'
 		'FormTest
 		'
@@ -568,4 +579,5 @@ Partial Class FormTest
 	Friend WithEvents TB_NumberText As TextBox
 	Friend WithEvents TB_Numberaga As GroupBox
 	Friend WithEvents RegexTextBox4 As JANL.RegexTextBox
+	Friend WithEvents MonthPicker1 As JANL.MonthPicker
 End Class

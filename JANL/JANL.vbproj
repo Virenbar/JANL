@@ -206,6 +206,12 @@
     <Compile Include="SQL\SQLHelper.vb" />
     <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
+    <Compile Include="UserControls\MonthPicker.designer.vb">
+      <DependentUpon>MonthPicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MonthPicker.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="WinAPI.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MonthPicker.resx">
+      <DependentUpon>MonthPicker.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

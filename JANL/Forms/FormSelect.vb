@@ -28,16 +28,20 @@ Public Class FormSelect
 			Next
 		End If
 
-		BNB_New.Enabled = Repository.CanCreate
-		BNB_Edit.Enabled = Repository.CanEdit
-		BNB_Delete.Enabled = Repository.CanDelete
+		BNBState()
+	End Sub
+
+	Private Sub BNBState()
+		Dim State = BS_Select.Current IsNot Nothing
+		BNB_New.Enabled = State AndAlso Repository.CanCreate
+		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
+		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
 	End Sub
 
 	Private WriteOnly Property UIState As Boolean
 		Set(value As Boolean)
 			TLP_Filter.Enabled = value
 			BN_Select.Enabled = value
-			DGV_Select.Enabled = value
 			TLP_Select.Enabled = value
 		End Set
 	End Property
@@ -45,6 +49,7 @@ Public Class FormSelect
 	Public Async Function RefreshData() As Task
 		Try
 			UIState = False
+
 			Dim NDT = Await Repository.GetList()
 			DGV_Select.SetDataSource(NDT)
 			If Key > 0 Then
@@ -54,6 +59,7 @@ Public Class FormSelect
 			Msgs.ShowError(ex)
 		Finally
 			UIState = True
+			BNBState()
 			DGV_Select.PerformLayout()
 		End Try
 	End Function
@@ -100,6 +106,7 @@ Public Class FormSelect
 	End Sub
 
 	Private Sub BS_Select_PositionChanged(sender As Object, e As EventArgs) Handles BS_Select.PositionChanged
+		BNBState()
 		Dim R = DirectCast(BS_Select.Current, DataRowView)
 		If R Is Nothing Then Exit Sub
 		CurrentKey = CInt(R(Repository.KeyName))
@@ -118,7 +125,7 @@ Public Class FormSelect
 
 	Private Sub DGV_Select_DoubleClick(sender As Object, e As EventArgs) Handles DGV_Select.DoubleClick
 		If Modal Then
-			B_Select.PerformClick()
+			If B_Select.Enabled Then B_Select.PerformClick()
 		Else
 			If BNB_Edit.Enabled Then BNB_Edit.PerformClick()
 		End If

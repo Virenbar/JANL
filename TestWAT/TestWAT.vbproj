@@ -123,6 +123,18 @@
     <Compile Include="Forms\DGVTEdit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FormDummy.Designer.vb">
+      <DependentUpon>FormDummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMDI.Designer.vb">
+      <DependentUpon>FormMDI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormSelectTest.Designer.vb">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </Compile>
@@ -213,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAsync.resx">
       <DependentUpon>FormAsync.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDummy.resx">
+      <DependentUpon>FormDummy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMDI.resx">
+      <DependentUpon>FormMDI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSelectTest.resx">
       <DependentUpon>FormSelectTest.vb</DependentUpon>

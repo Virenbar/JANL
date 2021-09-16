@@ -51,4 +51,9 @@
 		Reestr.Process()
 	End Sub
 
+	Private Sub FormMDIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormMDIToolStripMenuItem.Click
+		Dim F = New FormMDI()
+		F.Show(Me)
+	End Sub
+
 End Class

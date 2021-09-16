@@ -41,12 +41,13 @@ Partial Class MainForm
 		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.DGVTEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Button1 = New System.Windows.Forms.Button()
+		Me.FormMDIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'MS_Main
 		'
-		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
+		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.FormMDIToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
 		Me.MS_Main.Location = New System.Drawing.Point(0, 0)
 		Me.MS_Main.Name = "MS_Main"
 		Me.MS_Main.Size = New System.Drawing.Size(534, 24)
@@ -101,7 +102,7 @@ Partial Class MainForm
 		'НаселениеToolStripMenuItem
 		'
 		Me.НаселениеToolStripMenuItem.Name = "НаселениеToolStripMenuItem"
-		Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+		Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.НаселениеToolStripMenuItem.Text = "Население"
 		'
 		'ToolStripMenuItem1
@@ -169,6 +170,12 @@ Partial Class MainForm
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
 		'
+		'FormMDIToolStripMenuItem
+		'
+		Me.FormMDIToolStripMenuItem.Name = "FormMDIToolStripMenuItem"
+		Me.FormMDIToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+		Me.FormMDIToolStripMenuItem.Text = "FormMDI"
+		'
 		'MainForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -205,4 +212,5 @@ Partial Class MainForm
 	Friend WithEvents SelectTestToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents DGVTEditorToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents РосреестрToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents FormMDIToolStripMenuItem As ToolStripMenuItem
 End Class
