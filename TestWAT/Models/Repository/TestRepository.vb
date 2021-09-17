@@ -33,7 +33,12 @@
 		Return F
 	End Function
 
-	Public Shared Function GetValue(Key As Integer) As String
+	Public Overrides Function GetValue(Key As Integer) As String
+		Return $"Value {Key}"
+	End Function
+
+	<Obsolete>
+	Public Shared Function GetValueS(Key As Integer) As String
 		Return $"Value {Key}"
 	End Function
 

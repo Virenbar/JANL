@@ -6,6 +6,7 @@ Public Class DateTimePickerEx
 	Public Sub New()
 		MyBase.New()
 		MyBase.ShowCheckBox = True
+		Format = DateTimePickerFormat.Short
 	End Sub
 
 	<Bindable(True), RefreshProperties(RefreshProperties.All)>

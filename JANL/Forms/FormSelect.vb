@@ -31,13 +31,6 @@ Public Class FormSelect
 		BNBState()
 	End Sub
 
-	Private Sub BNBState()
-		Dim State = BS_Select.Current IsNot Nothing
-		BNB_New.Enabled = State AndAlso Repository.CanCreate
-		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
-		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
-	End Sub
-
 	Private WriteOnly Property UIState As Boolean
 		Set(value As Boolean)
 			TLP_Filter.Enabled = value
@@ -63,6 +56,13 @@ Public Class FormSelect
 			DGV_Select.PerformLayout()
 		End Try
 	End Function
+
+	Private Sub BNBState()
+		Dim State = BS_Select.Current IsNot Nothing
+		BNB_New.Enabled = State AndAlso Repository.CanCreate
+		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
+		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
+	End Sub
 
 	Private Async Sub CloseHandler(sender As Object, e As EventArgs)
 		If IsDisposed Then Exit Sub

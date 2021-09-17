@@ -16,19 +16,24 @@ Public Class ItemSelector
 		SetStyle(ControlStyles.FixedHeight, True)
 	End Sub
 
+	Public Sub Init(Repository As BaseRepository)
+		Me.Repository = Repository
+		Me.Source = AddressOf Repository.GetValue
+	End Sub
+
+	<Obsolete>
 	Public Sub Init(Repository As BaseRepository, Source As Func(Of Integer, String))
 		Me.Repository = Repository
 		Me.Source = Source
 	End Sub
 
 	Public Sub RefreshValue()
-		If Key = 0 Then Exit Sub
-		Value = Source(Key)
+		If Key.HasValue Then Value = Source(Key.Value)
 	End Sub
 
+	<Obsolete>
 	Public Async Function RefreshValueAsync() As Task
-		If Key = 0 Then Exit Function
-		Value = Await Task.Run(Function() Source(Key))
+		If Key.HasValue Then Value = Await Task.Run(Function() Source(Key.Value))
 	End Function
 
 	Public Sub SetKey(Key As Integer)
@@ -42,7 +47,7 @@ Public Class ItemSelector
 	End Sub
 
 	Private Sub B_Select_Click(sender As Object, e As EventArgs) Handles B_Select.Click
-		Using FS = New FormSelect(Repository) With {.AutoLoad = True, .Key = Key}
+		Using FS = New FormSelect(Repository) With {.AutoLoad = True, .Key = Key.Value}
 			Dim R = FS.ShowDialog()
 			If R = DialogResult.OK Then
 				Key = FS.Key
@@ -53,15 +58,15 @@ Public Class ItemSelector
 
 #Region "Properties"
 
-	Private _Key As Integer
+	Private _Key As Integer?
 
-	<Bindable(True)>
-	Public Property Key As Integer
+	<Bindable(True), RefreshProperties(RefreshProperties.All), DefaultValue(GetType(Integer?), Nothing)>
+	Public Property Key As Integer?
 		Get
 			Return _Key
 		End Get
-		Set(value As Integer)
-			_Key = value
+		Set
+			_Key = Value
 			NotifyPropertyChanged()
 			OnKeyChanged()
 		End Set
@@ -71,9 +76,9 @@ Public Class ItemSelector
 		Get
 			Return TB_Value.Text
 		End Get
-		Private Set(value As String)
-			TB_Value.Text = value
-			TT_Value.SetToolTip(TB_Value, value)
+		Private Set
+			TB_Value.Text = Value
+			TT_Value.SetToolTip(TB_Value, Value)
 			OnValueChanged()
 		End Set
 	End Property

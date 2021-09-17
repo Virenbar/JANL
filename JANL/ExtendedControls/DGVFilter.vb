@@ -13,6 +13,10 @@ Public Class DGVFilter
 	Private ReadOnly OffText As String = "Фильтр"
 	Private Collumns As IEnumerable(Of String)
 
+	Public Sub New()
+		DefaultLanguage = InputLanguage.FromCulture(New Globalization.CultureInfo("ru-RU"))
+	End Sub
+
 	''' <summary>
 	''' Инициализация
 	''' </summary>
@@ -58,7 +62,14 @@ Public Class DGVFilter
 		End If
 		Dim LF = Collumns.Select(Function(c) String.Format("({0} Like '%" + Text.Trim.Replace(" ", "%' AND {0} Like '%") + "%')", c))
 		BS.Filter = String.Join(" OR ", LF)
+		OnFilterApplied()
 	End Sub
+
+#Region "Properties"
+	Public Property DefaultLanguage As InputLanguage
+#End Region
+
+#Region "UI Events"
 
 	Private Sub DGV_Search_F(sender As Object, e As KeyEventArgs) Handles DGV.KeyDown
 		If e.Control AndAlso e.KeyCode = Keys.F Then
@@ -72,7 +83,7 @@ Public Class DGVFilter
 			ForeColor = Color.Empty
 			Text = ""
 		End If
-		InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(New Globalization.CultureInfo("ru-RU"))
+		InputLanguage.CurrentInputLanguage = DefaultLanguage
 	End Sub
 
 	Private Sub DGV_Search_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -88,11 +99,23 @@ Public Class DGVFilter
 		End If
 	End Sub
 
+#End Region
+
 	'Private Sub DGV_Search_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
-	'	If e.KeyCode = Keys.Back Then isBack = False
+	'	If e.KeyCode = Keys.Back Then isBack = False  Filter Applied
 	'End Sub
 	Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
 		ApplyFilter()
 	End Sub
+
+#Region "Events"
+
+	Protected Sub OnFilterApplied()
+		RaiseEvent FilterApplied()
+	End Sub
+
+	Public Event FilterApplied()
+
+#End Region
 
 End Class

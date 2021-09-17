@@ -7,10 +7,16 @@ Imports System.Drawing
 Public Class TextBoxEx
 	Inherits TextBox
 	Private Const LabelPrefix = ChrW(8203) + ChrW(8203)
+	Friend WithEvents PB_Clear As PictureBox
 	Private LabelStr As String
 
 	Public Sub New()
 		MyBase.New()
+		InitializeComponent()
+
+		PB_Clear.Location = New Point((Height \ 2) - (PB_Clear.Height \ 2), Width - PB_Clear.Width - 2)
+		Controls.Add(PB_Clear)
+
 		MyBase.Text = LabelPrefix
 		ForeColor = Color.Black
 		LabelColor = Color.SlateGray
@@ -83,6 +89,32 @@ Public Class TextBoxEx
 
 	Private Sub UpdateColor()
 		MyBase.ForeColor = If(IsLabel, LabelColor, ForeColor)
+	End Sub
+
+	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TextBoxEx))
+		Me.PB_Clear = New System.Windows.Forms.PictureBox()
+		CType(Me.PB_Clear, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.SuspendLayout()
+		'
+		'PB_Clear
+		'
+		Me.PB_Clear.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.PB_Clear.BackColor = System.Drawing.Color.Transparent
+		Me.PB_Clear.Image = CType(resources.GetObject("PB_Clear.Image"), System.Drawing.Image)
+		Me.PB_Clear.Location = New System.Drawing.Point(0, 0)
+		Me.PB_Clear.Name = "PB_Clear"
+		Me.PB_Clear.Size = New System.Drawing.Size(16, 16)
+		Me.PB_Clear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.PB_Clear.TabIndex = 0
+		Me.PB_Clear.TabStop = False
+		CType(Me.PB_Clear, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.ResumeLayout(False)
+
+	End Sub
+
+	Private Sub PB_Clear_Click(sender As Object, e As EventArgs) Handles PB_Clear.Click
+
 	End Sub
 
 End Class

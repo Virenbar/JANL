@@ -215,6 +215,9 @@
     <Compile Include="WinAPI.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ExtendedControls\TextBoxEx.resx">
+      <DependentUpon>TextBoxEx.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.vb</DependentUpon>
     </EmbeddedResource>

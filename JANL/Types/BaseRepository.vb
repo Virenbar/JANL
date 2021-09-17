@@ -148,6 +148,14 @@ Public MustInherit Class BaseRepository
 		Throw New NotImplementedException(RepositoryError)
 	End Function
 
+	''' <summary>
+	''' Получить текстовое значение для ключа
+	''' </summary>
+	''' <returns></returns>
+	Public Overridable Function GetValue(Key As Integer) As String
+		Return Key.ToString()
+	End Function
+
 #End Region
 
 	Public Class MenuItem

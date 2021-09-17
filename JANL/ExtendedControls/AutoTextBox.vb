@@ -21,13 +21,11 @@ Public Class AutoTextBox
 	End Sub
 
 	Public Sub RefreshValue()
-		If Key = 0 Then Exit Sub
-		Text = Source.Invoke(Key)
+		If Key.HasValue Then Text = Source(Key.Value)
 	End Sub
 
 	Public Async Function RefreshValueAsync() As Task
-		If Key = 0 Then Exit Function
-		Text = Await Task.Run(Function() Source.Invoke(Key))
+		If Key.HasValue Then Text = Await Task.Run(Function() Source(Key.Value))
 	End Function
 
 	Public Sub SetKey(Key As Integer)
@@ -37,7 +35,7 @@ Public Class AutoTextBox
 
 #Region "Properties"
 
-	Private _Key As Integer
+	Private _Key As Integer?
 
 	Public Shadows ReadOnly Property [ReadOnly] As Boolean
 		Get
@@ -45,13 +43,13 @@ Public Class AutoTextBox
 		End Get
 	End Property
 
-	<Bindable(True)>
-	Public Property Key As Integer
+	<Bindable(True), RefreshProperties(RefreshProperties.All), DefaultValue(GetType(Integer?), Nothing)>
+	Public Property Key As Integer?
 		Get
 			Return _Key
 		End Get
-		Set(value As Integer)
-			_Key = value
+		Set
+			_Key = Value
 			NotifyPropertyChanged()
 		End Set
 	End Property
