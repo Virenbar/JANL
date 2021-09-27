@@ -39,25 +39,35 @@ Partial Class SelectionBox(Of T)
 		Me.LB_Items.Location = New System.Drawing.Point(5, 20)
 		Me.LB_Items.Margin = New System.Windows.Forms.Padding(5)
 		Me.LB_Items.Name = "LB_Items"
-		Me.LB_Items.Size = New System.Drawing.Size(319, 110)
+		Me.LB_Items.Size = New System.Drawing.Size(329, 118)
 		Me.LB_Items.TabIndex = 0
 		'
 		'B_Select
 		'
+		Me.B_Select.AutoSize = True
+		Me.B_Select.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.B_Select.Image = Global.JANL.My.Resources.icons8.Ok16
 		Me.B_Select.Location = New System.Drawing.Point(3, 3)
 		Me.B_Select.Name = "B_Select"
-		Me.B_Select.Size = New System.Drawing.Size(75, 23)
+		Me.B_Select.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Select.Size = New System.Drawing.Size(81, 25)
 		Me.B_Select.TabIndex = 1
 		Me.B_Select.Text = "Выбрать"
+		Me.B_Select.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.B_Select.UseVisualStyleBackColor = True
 		'
 		'B_Cancel
 		'
-		Me.B_Cancel.Location = New System.Drawing.Point(84, 3)
+		Me.B_Cancel.AutoSize = True
+		Me.B_Cancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.B_Cancel.Image = Global.JANL.My.Resources.icons8.Cancel16
+		Me.B_Cancel.Location = New System.Drawing.Point(90, 3)
 		Me.B_Cancel.Name = "B_Cancel"
-		Me.B_Cancel.Size = New System.Drawing.Size(75, 23)
+		Me.B_Cancel.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Cancel.Size = New System.Drawing.Size(76, 25)
 		Me.B_Cancel.TabIndex = 2
 		Me.B_Cancel.Text = "Отмена"
+		Me.B_Cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		Me.B_Cancel.UseVisualStyleBackColor = True
 		'
 		'FlowLayoutPanel1
@@ -67,9 +77,9 @@ Partial Class SelectionBox(Of T)
 		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Select)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Cancel)
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(164, 138)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(167, 146)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(162, 29)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(169, 31)
 		Me.FlowLayoutPanel1.TabIndex = 3
 		'
 		'TableLayoutPanel2
@@ -80,13 +90,13 @@ Partial Class SelectionBox(Of T)
 		Me.TableLayoutPanel2.Controls.Add(Me.L_Select, 0, 0)
 		Me.TableLayoutPanel2.Controls.Add(Me.LB_Items, 0, 1)
 		Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 5)
+		Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
 		Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
 		Me.TableLayoutPanel2.RowCount = 3
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-		Me.TableLayoutPanel2.Size = New System.Drawing.Size(329, 170)
+		Me.TableLayoutPanel2.Size = New System.Drawing.Size(339, 180)
 		Me.TableLayoutPanel2.TabIndex = 5
 		'
 		'L_Select
@@ -105,16 +115,18 @@ Partial Class SelectionBox(Of T)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(339, 180)
 		Me.Controls.Add(Me.TableLayoutPanel2)
+		Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.JANL.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.Font = Global.JANL.My.MySettings.Default.Font
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.MinimumSize = New System.Drawing.Size(250, 170)
 		Me.Name = "SelectionBox"
-		Me.Padding = New System.Windows.Forms.Padding(5)
 		Me.ShowIcon = False
 		Me.ShowInTaskbar = False
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "SelectionBox"
 		Me.FlowLayoutPanel1.ResumeLayout(False)
+		Me.FlowLayoutPanel1.PerformLayout()
 		Me.TableLayoutPanel2.ResumeLayout(False)
 		Me.TableLayoutPanel2.PerformLayout()
 		Me.ResumeLayout(False)

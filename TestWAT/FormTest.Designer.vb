@@ -58,10 +58,10 @@ Partial Class FormTest
 		Me.RegexTextBox4 = New JANL.RegexTextBox()
 		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.MonthPicker1 = New JANL.MonthPicker()
 		Me.TB_Number = New System.Windows.Forms.TextBox()
 		Me.TB_NumberText = New System.Windows.Forms.TextBox()
 		Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
-		Me.MonthPicker1 = New JANL.MonthPicker()
 		Me.GroupBox1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,6 +169,7 @@ Partial Class FormTest
 		'DateTimeS2
 		'
 		Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.DateTimeS2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
 		Me.DateTimeS2.Location = New System.Drawing.Point(3, 64)
 		Me.DateTimeS2.Name = "DateTimeS2"
 		Me.DateTimeS2.Size = New System.Drawing.Size(167, 20)
@@ -457,6 +458,15 @@ Partial Class FormTest
 		Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 452)
 		Me.FlowLayoutPanel4.TabIndex = 21
 		'
+		'MonthPicker1
+		'
+		Me.MonthPicker1.AutoSize = True
+		Me.MonthPicker1.Location = New System.Drawing.Point(3, 321)
+		Me.MonthPicker1.MinYear = 2000
+		Me.MonthPicker1.Name = "MonthPicker1"
+		Me.MonthPicker1.Size = New System.Drawing.Size(155, 21)
+		Me.MonthPicker1.TabIndex = 11
+		'
 		'TB_Number
 		'
 		Me.TB_Number.Dock = System.Windows.Forms.DockStyle.Top
@@ -485,15 +495,6 @@ Partial Class FormTest
 		Me.TB_Numberaga.TabIndex = 24
 		Me.TB_Numberaga.TabStop = False
 		Me.TB_Numberaga.Text = "NumberToText"
-		'
-		'MonthPicker1
-		'
-		Me.MonthPicker1.AutoSize = True
-		Me.MonthPicker1.Location = New System.Drawing.Point(3, 321)
-		Me.MonthPicker1.MinYear = 2000
-		Me.MonthPicker1.Name = "MonthPicker1"
-		Me.MonthPicker1.Size = New System.Drawing.Size(155, 21)
-		Me.MonthPicker1.TabIndex = 11
 		'
 		'FormTest
 		'

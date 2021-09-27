@@ -86,4 +86,18 @@ Public Class FormSelectTest
 		AutoTextBox1.RefreshValue()
 	End Sub
 
+	Private Sub B_FTB_Empty_Click(sender As Object, e As EventArgs)
+		Dim F = New FormTextBox("Empty")
+		If F.ShowDialog() = DialogResult.OK Then
+			TSSL_Result.Text = F.Text
+		End If
+	End Sub
+
+	Private Sub B_FTB_Text_Click(sender As Object, e As EventArgs) Handles B_FTB_Text.Click
+		Dim F = New FormTextBox("Empty", "Text")
+		If F.ShowDialog() = DialogResult.OK Then
+			TSSL_Result.Text = F.Text
+		End If
+	End Sub
+
 End Class

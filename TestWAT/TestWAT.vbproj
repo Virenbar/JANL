@@ -170,6 +170,7 @@
     <Compile Include="Models\RGI_Excel\Header.vb" />
     <Compile Include="Models\RGI_Excel\Merge.vb" />
     <Compile Include="Models\RGI_Excel\Row.vb" />
+    <Compile Include="Models\TestLinkss.vb" />
     <Compile Include="Models\TestModel.vb" />
     <Compile Include="Types\Config.vb" />
     <Compile Include="Forms\FormAsync.Designer.vb">

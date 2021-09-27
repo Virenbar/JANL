@@ -24,6 +24,7 @@ Partial Class MainForm
     Private Sub InitializeComponent()
 		Me.MS_Main = New System.Windows.Forms.MenuStrip()
 		Me.TestFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.FormMDIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.PerfTestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.HashVSListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.DaDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,7 +42,6 @@ Partial Class MainForm
 		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.DGVTEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Button1 = New System.Windows.Forms.Button()
-		Me.FormMDIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_Main.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -50,7 +50,7 @@ Partial Class MainForm
 		Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.FormMDIToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
 		Me.MS_Main.Location = New System.Drawing.Point(0, 0)
 		Me.MS_Main.Name = "MS_Main"
-		Me.MS_Main.Size = New System.Drawing.Size(534, 24)
+		Me.MS_Main.Size = New System.Drawing.Size(609, 24)
 		Me.MS_Main.TabIndex = 0
 		Me.MS_Main.Text = "MenuStrip1"
 		'
@@ -59,6 +59,12 @@ Partial Class MainForm
 		Me.TestFormToolStripMenuItem.Name = "TestFormToolStripMenuItem"
 		Me.TestFormToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
 		Me.TestFormToolStripMenuItem.Text = "TestForm"
+		'
+		'FormMDIToolStripMenuItem
+		'
+		Me.FormMDIToolStripMenuItem.Name = "FormMDIToolStripMenuItem"
+		Me.FormMDIToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+		Me.FormMDIToolStripMenuItem.Text = "FormMDI"
 		'
 		'PerfTestsToolStripMenuItem
 		'
@@ -170,17 +176,11 @@ Partial Class MainForm
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
 		'
-		'FormMDIToolStripMenuItem
-		'
-		Me.FormMDIToolStripMenuItem.Name = "FormMDIToolStripMenuItem"
-		Me.FormMDIToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-		Me.FormMDIToolStripMenuItem.Text = "FormMDI"
-		'
 		'MainForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(534, 122)
+		Me.ClientSize = New System.Drawing.Size(609, 122)
 		Me.Controls.Add(Me.Button1)
 		Me.Controls.Add(Me.MS_Main)
 		Me.MainMenuStrip = Me.MS_Main

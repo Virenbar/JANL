@@ -22,6 +22,7 @@ Partial Class FormSelect
 	'Не изменяйте ее в редакторе исходного кода.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSelect))
 		Me.B_Cancel = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -36,8 +37,8 @@ Partial Class FormSelect
 		Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
 		Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
 		Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-		Me.BN_Select = New System.Windows.Forms.BindingNavigator()
-		Me.BS_Select = New System.Windows.Forms.BindingSource()
+		Me.BN_Select = New System.Windows.Forms.BindingNavigator(Me.components)
+		Me.BS_Select = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
 		Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
 		Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
@@ -49,7 +50,7 @@ Partial Class FormSelect
 		Me.DGV_Select = New System.Windows.Forms.DataGridView()
 		Me.TLP_Filter = New System.Windows.Forms.TableLayoutPanel()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.CMS_Select = New System.Windows.Forms.ContextMenuStrip()
+		Me.CMS_Select = New System.Windows.Forms.ContextMenuStrip(Me.components)
 		Me.TSMI_Refresh = New System.Windows.Forms.ToolStripMenuItem()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.TLP_Select.SuspendLayout()
@@ -63,10 +64,13 @@ Partial Class FormSelect
 		'
 		'B_Cancel
 		'
+		Me.B_Cancel.AutoSize = True
+		Me.B_Cancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Cancel.Image = CType(resources.GetObject("B_Cancel.Image"), System.Drawing.Image)
-		Me.B_Cancel.Location = New System.Drawing.Point(205, 3)
+		Me.B_Cancel.Location = New System.Drawing.Point(220, 3)
 		Me.B_Cancel.Name = "B_Cancel"
-		Me.B_Cancel.Size = New System.Drawing.Size(75, 23)
+		Me.B_Cancel.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Cancel.Size = New System.Drawing.Size(76, 25)
 		Me.B_Cancel.TabIndex = 0
 		Me.B_Cancel.Text = "Отмена"
 		Me.B_Cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -81,10 +85,9 @@ Partial Class FormSelect
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Reset)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Select)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Cancel)
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(492, 5)
-		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(5)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(478, 3)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(283, 29)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(299, 31)
 		Me.FlowLayoutPanel1.TabIndex = 3
 		Me.FlowLayoutPanel1.WrapContents = False
 		'
@@ -95,7 +98,8 @@ Partial Class FormSelect
 		Me.B_Reset.Image = CType(resources.GetObject("B_Reset.Image"), System.Drawing.Image)
 		Me.B_Reset.Location = New System.Drawing.Point(3, 3)
 		Me.B_Reset.Name = "B_Reset"
-		Me.B_Reset.Size = New System.Drawing.Size(115, 23)
+		Me.B_Reset.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Reset.Size = New System.Drawing.Size(124, 25)
 		Me.B_Reset.TabIndex = 5
 		Me.B_Reset.Text = "Очистить выбор"
 		Me.B_Reset.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -104,10 +108,13 @@ Partial Class FormSelect
 		'
 		'B_Select
 		'
+		Me.B_Select.AutoSize = True
+		Me.B_Select.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Select.Image = CType(resources.GetObject("B_Select.Image"), System.Drawing.Image)
-		Me.B_Select.Location = New System.Drawing.Point(124, 3)
+		Me.B_Select.Location = New System.Drawing.Point(133, 3)
 		Me.B_Select.Name = "B_Select"
-		Me.B_Select.Size = New System.Drawing.Size(75, 23)
+		Me.B_Select.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Select.Size = New System.Drawing.Size(81, 25)
 		Me.B_Select.TabIndex = 4
 		Me.B_Select.Text = "Выбрать"
 		Me.B_Select.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -122,11 +129,11 @@ Partial Class FormSelect
 		Me.TLP_Select.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
 		Me.TLP_Select.Controls.Add(Me.FlowLayoutPanel2, 0, 0)
 		Me.TLP_Select.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.TLP_Select.Location = New System.Drawing.Point(0, 411)
+		Me.TLP_Select.Location = New System.Drawing.Point(0, 413)
 		Me.TLP_Select.Name = "TLP_Select"
 		Me.TLP_Select.RowCount = 1
 		Me.TLP_Select.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TLP_Select.Size = New System.Drawing.Size(780, 39)
+		Me.TLP_Select.Size = New System.Drawing.Size(780, 37)
 		Me.TLP_Select.TabIndex = 11
 		Me.TLP_Select.Visible = False
 		'
@@ -135,7 +142,7 @@ Partial Class FormSelect
 		Me.FlowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.FlowLayoutPanel2.AutoSize = True
 		Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 19)
+		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 18)
 		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
 		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(0, 0)
 		Me.FlowLayoutPanel2.TabIndex = 4
@@ -291,7 +298,7 @@ Partial Class FormSelect
 		Me.DGV_Select.ReadOnly = True
 		Me.DGV_Select.RowHeadersVisible = False
 		Me.DGV_Select.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DGV_Select.Size = New System.Drawing.Size(780, 363)
+		Me.DGV_Select.Size = New System.Drawing.Size(780, 365)
 		Me.DGV_Select.TabIndex = 9
 		'
 		'TLP_Filter
@@ -315,10 +322,10 @@ Partial Class FormSelect
 		'
 		Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(695, 5)
+		Me.Label1.Location = New System.Drawing.Point(685, 5)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(5)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(80, 13)
+		Me.Label1.Size = New System.Drawing.Size(90, 13)
 		Me.Label1.TabIndex = 1
 		Me.Label1.Text = "<-Place for fliter"
 		Me.Label1.Visible = False
@@ -345,6 +352,8 @@ Partial Class FormSelect
 		Me.Controls.Add(Me.TLP_Select)
 		Me.Controls.Add(Me.BN_Select)
 		Me.Controls.Add(Me.TLP_Filter)
+		Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.JANL.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+		Me.Font = Global.JANL.My.MySettings.Default.Font
 		Me.KeyPreview = True
 		Me.Name = "FormSelect"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

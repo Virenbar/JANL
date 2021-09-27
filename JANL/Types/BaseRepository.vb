@@ -158,6 +158,16 @@ Public MustInherit Class BaseRepository
 
 #End Region
 
+#Region "Events"
+
+	Public Sub OnFilterChanged()
+		RaiseEvent FilterChanged()
+	End Sub
+
+	Public Event FilterChanged()
+
+#End Region
+
 	Public Class MenuItem
 		Public Property Action As Action(Of Integer)
 		Public Property Image As Image

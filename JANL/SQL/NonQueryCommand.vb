@@ -2,6 +2,9 @@
 Imports System.Threading.Tasks
 
 Namespace SQL
+	''' <summary>
+	''' Команда
+	''' </summary>
 	Public Class NonQueryCommand
 		Implements INonQueryCommand
 

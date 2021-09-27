@@ -2,6 +2,9 @@
 Imports System.Threading.Tasks
 
 Namespace SQL
+	''' <summary>
+	''' Команда возвращающая <typeparamref name="T"/>
+	''' </summary>
 	Public Class ScalarCommand(Of T)
 		Implements IScalarCommand(Of T)
 

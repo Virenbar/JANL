@@ -59,7 +59,7 @@ Public Class FormSelect
 
 	Private Sub BNBState()
 		Dim State = BS_Select.Current IsNot Nothing
-		BNB_New.Enabled = State AndAlso Repository.CanCreate
+		BNB_New.Enabled = Repository.CanCreate
 		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
 		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
 	End Sub
@@ -68,6 +68,16 @@ Public Class FormSelect
 		If IsDisposed Then Exit Sub
 		Await RefreshData()
 		Activate()
+	End Sub
+
+	Private Sub ShowForm(F As Form)
+		If Modal Then
+			F.ShowDialog(Me)
+		Else
+			F.MdiParent = MdiParent
+			F.Show()
+		End If
+		AddHandler F.FormClosed, AddressOf CloseHandler
 	End Sub
 
 #Region "Form Events"
@@ -81,31 +91,19 @@ Public Class FormSelect
 
 	Private Sub BNB_Edit_Click(sender As Object, e As EventArgs) Handles BNB_Edit.Click
 		Dim F = Repository.EditItem(CurrentKey)
-		If Modal Then
-			F.ShowDialog(Me)
-		Else
-			F.MdiParent = MdiParent
-			F.Show()
-		End If
-		AddHandler F.FormClosed, AddressOf CloseHandler
+		ShowForm(F)
 	End Sub
 
 	Private Sub BNB_New_Click(sender As Object, e As EventArgs) Handles BNB_New.Click
 		Dim F = Repository.CreateItem()
-		If Modal Then
-			F.ShowDialog(Me)
-		Else
-			F.MdiParent = MdiParent
-			F.Show()
-		End If
-		AddHandler F.FormClosed, AddressOf CloseHandler
+		ShowForm(F)
 	End Sub
 
 	Private Async Sub BNB_Refresh_Click(sender As Object, e As EventArgs) Handles BNB_Refresh.Click
 		Await RefreshData()
 	End Sub
 
-	Private Sub BS_Select_PositionChanged(sender As Object, e As EventArgs) Handles BS_Select.PositionChanged
+	Private Sub BS_Select_CurrentChanged(sender As Object, e As EventArgs) Handles BS_Select.CurrentChanged
 		BNBState()
 		Dim R = DirectCast(BS_Select.Current, DataRowView)
 		If R Is Nothing Then Exit Sub

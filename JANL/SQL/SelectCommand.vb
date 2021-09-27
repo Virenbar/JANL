@@ -2,6 +2,9 @@
 Imports System.Threading.Tasks
 
 Namespace SQL
+	''' <summary>
+	''' Команда возвращающая <see cref="DataTable"/>
+	''' </summary>
 	Public Class SelectCommand
 		Implements ISelectCommand
 

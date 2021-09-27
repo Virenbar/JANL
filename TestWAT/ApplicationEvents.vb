@@ -14,8 +14,9 @@ Namespace My
 	Partial Friend Class MyApplication
 
 		Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
-			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
+			'Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
 			Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
+			'JANL.My.MySettings.Default.Font
 
 			ExceptionBox.DefaultText = "Произошла непредвиденная ошибка. Отправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
 			ExceptionBox.MailInfo = New ExceptionBox.EMail() With {
