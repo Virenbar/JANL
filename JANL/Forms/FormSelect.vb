@@ -12,6 +12,8 @@ Public Class FormSelect
 
 	Public Sub New(BR As BaseRepository)
 		InitializeComponent()
+		DGV_Select.AutoGenerateColumns = True
+		DGV_Select.DoubleBuffered()
 		Repository = BR
 		Name = Repository.GetType.Name + "Form"
 		Icon = Repository.Icon
@@ -27,15 +29,13 @@ Public Class FormSelect
 				CMS_Select.Items.Add(MI.Text, MI.Image, Sub() MI.Action()(CurrentKey))
 			Next
 		End If
-
-		BNBState()
 	End Sub
 
 	Private WriteOnly Property UIState As Boolean
-		Set(value As Boolean)
-			TLP_Filter.Enabled = value
-			BN_Select.Enabled = value
-			TLP_Select.Enabled = value
+		Set
+			TLP_Filter.Enabled = Value
+			BN_Select.Enabled = Value
+			TLP_Select.Enabled = Value
 		End Set
 	End Property
 
@@ -52,22 +52,26 @@ Public Class FormSelect
 			Msgs.ShowError(ex)
 		Finally
 			UIState = True
-			BNBState()
 			DGV_Select.PerformLayout()
 		End Try
 	End Function
-
-	Private Sub BNBState()
-		Dim State = BS_Select.Current IsNot Nothing
-		BNB_New.Enabled = Repository.CanCreate
-		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
-		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
-	End Sub
 
 	Private Async Sub CloseHandler(sender As Object, e As EventArgs)
 		If IsDisposed Then Exit Sub
 		Await RefreshData()
 		Activate()
+	End Sub
+
+	Private Sub RefreshUI()
+		Dim State = BS_Select.Current IsNot Nothing
+		BNB_New.Enabled = Repository.CanCreate
+		BNB_Edit.Enabled = State AndAlso Repository.CanEdit
+		BNB_Delete.Enabled = State AndAlso Repository.CanDelete
+
+		Dim Count = BS_Select.Count
+		Dim CountFull = (DirectCast(BS_Select.DataSource, DataTable)?.Rows.Count).GetValueOrDefault()
+		Dim CountText = If(Count = CountFull, $"({CountFull})", $"({Count}/{CountFull})")
+		Text = $"{If(Modal, "Выбор", "Список")}{CountText} - {Repository.Name}"
 	End Sub
 
 	Private Sub ShowForm(F As Form)
@@ -104,11 +108,15 @@ Public Class FormSelect
 	End Sub
 
 	Private Sub BS_Select_CurrentChanged(sender As Object, e As EventArgs) Handles BS_Select.CurrentChanged
-		BNBState()
+		RefreshUI()
 		Dim R = DirectCast(BS_Select.Current, DataRowView)
 		If R Is Nothing Then Exit Sub
 		CurrentKey = CInt(R(Repository.KeyName))
 		CurrentValue = CStr(R(Repository.ValueName))
+	End Sub
+
+	Private Sub DGV_Filter_FilterApplied() Handles DGV_Filter.FilterApplied
+		RefreshUI()
 	End Sub
 
 	Private Sub DGV_Select_CellContextMenuStripNeeded(sender As Object, e As DataGridViewCellContextMenuStripNeededEventArgs) Handles DGV_Select.CellContextMenuStripNeeded
@@ -139,14 +147,12 @@ Public Class FormSelect
 	Private Async Sub FormSelect_Load(sender As Object, e As EventArgs) Handles Me.Load
 		Try
 			UIState = False
-			DGV_Select.DoubleBuffered()
 			DGV_Filter.Init(DGV_Select, Repository.DGVFilter)
 			DGVManager.ApplyTemplate(DGV_Select, Repository.DGVTemplate)
 
-			Text = $"{If(Modal, "Выбор", "Список")} - {Repository.Name}"
+			RefreshUI()
 			TLP_Select.Visible = Modal
 
-			DGV_Select.DataSource = BS_Select
 			If AutoLoad Then Await RefreshData()
 			UIState = True
 		Catch ex As Exception

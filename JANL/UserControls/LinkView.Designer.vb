@@ -23,36 +23,36 @@ Partial Class LinkView
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
-		Me.DGV_Childs = New System.Windows.Forms.DataGridView()
-		Me.BS_Child = New System.Windows.Forms.BindingSource(Me.components)
+		Me.DGV_Links = New System.Windows.Forms.DataGridView()
+		Me.BS_Links = New System.Windows.Forms.BindingSource(Me.components)
 		Me.TLP_Footer = New System.Windows.Forms.TableLayoutPanel()
 		Me.B_Refresh = New System.Windows.Forms.Button()
 		Me.B_Edit = New System.Windows.Forms.Button()
-		CType(Me.DGV_Childs, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.BS_Child, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.DGV_Links, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BS_Links, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.TLP_Footer.SuspendLayout()
 		Me.SuspendLayout()
 		'
-		'DGV_Childs
+		'DGV_Links
 		'
-		Me.DGV_Childs.AllowUserToAddRows = False
-		Me.DGV_Childs.AllowUserToDeleteRows = False
-		Me.DGV_Childs.AllowUserToResizeRows = False
-		Me.DGV_Childs.AutoGenerateColumns = False
-		Me.DGV_Childs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-		Me.DGV_Childs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-		Me.DGV_Childs.DataSource = Me.BS_Child
-		Me.DGV_Childs.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.DGV_Childs.Location = New System.Drawing.Point(0, 0)
-		Me.DGV_Childs.MultiSelect = False
-		Me.DGV_Childs.Name = "DGV_Childs"
-		Me.DGV_Childs.ReadOnly = True
-		Me.DGV_Childs.RowHeadersVisible = False
-		Me.DGV_Childs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DGV_Childs.Size = New System.Drawing.Size(605, 374)
-		Me.DGV_Childs.TabIndex = 0
+		Me.DGV_Links.AllowUserToAddRows = False
+		Me.DGV_Links.AllowUserToDeleteRows = False
+		Me.DGV_Links.AllowUserToResizeRows = False
+		Me.DGV_Links.AutoGenerateColumns = False
+		Me.DGV_Links.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+		Me.DGV_Links.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+		Me.DGV_Links.DataSource = Me.BS_Links
+		Me.DGV_Links.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.DGV_Links.Location = New System.Drawing.Point(0, 0)
+		Me.DGV_Links.MultiSelect = False
+		Me.DGV_Links.Name = "DGV_Links"
+		Me.DGV_Links.ReadOnly = True
+		Me.DGV_Links.RowHeadersVisible = False
+		Me.DGV_Links.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+		Me.DGV_Links.Size = New System.Drawing.Size(605, 374)
+		Me.DGV_Links.TabIndex = 0
 		'
-		'BS_Child
+		'BS_Links
 		'
 		'
 		'TLP_Footer
@@ -98,16 +98,16 @@ Partial Class LinkView
 		Me.B_Edit.Text = "Редактировать"
 		Me.B_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
 		'
-		'ChildView
+		'LinkView
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.Controls.Add(Me.DGV_Childs)
+		Me.Controls.Add(Me.DGV_Links)
 		Me.Controls.Add(Me.TLP_Footer)
-		Me.Name = "ChildView"
+		Me.Name = "LinkView"
 		Me.Size = New System.Drawing.Size(605, 405)
-		CType(Me.DGV_Childs, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.BS_Child, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.DGV_Links, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BS_Links, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.TLP_Footer.ResumeLayout(False)
 		Me.TLP_Footer.PerformLayout()
 		Me.ResumeLayout(False)
@@ -115,9 +115,9 @@ Partial Class LinkView
 
 	End Sub
 
-	Friend WithEvents DGV_Childs As DataGridView
+	Friend WithEvents DGV_Links As DataGridView
 	Friend WithEvents B_Edit As Button
 	Friend WithEvents TLP_Footer As TableLayoutPanel
-	Friend WithEvents BS_Child As BindingSource
+	Friend WithEvents BS_Links As BindingSource
 	Friend WithEvents B_Refresh As Button
 End Class

@@ -290,7 +290,9 @@ Partial Class FormSelect
 		Me.DGV_Select.AllowUserToAddRows = False
 		Me.DGV_Select.AllowUserToDeleteRows = False
 		Me.DGV_Select.AllowUserToResizeRows = False
+		Me.DGV_Select.AutoGenerateColumns = False
 		Me.DGV_Select.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGV_Select.DataSource = Me.BS_Select
 		Me.DGV_Select.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.DGV_Select.Location = New System.Drawing.Point(0, 48)
 		Me.DGV_Select.MultiSelect = False

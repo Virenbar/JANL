@@ -24,12 +24,13 @@ Partial Class FormMDI
 	Private Sub InitializeComponent()
 		Me.MS_MDI = New System.Windows.Forms.MenuStrip()
 		Me.FormSelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.FormViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MS_MDI.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'MS_MDI
 		'
-		Me.MS_MDI.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormSelectToolStripMenuItem})
+		Me.MS_MDI.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormSelectToolStripMenuItem, Me.FormViewToolStripMenuItem})
 		Me.MS_MDI.Location = New System.Drawing.Point(0, 0)
 		Me.MS_MDI.Name = "MS_MDI"
 		Me.MS_MDI.Size = New System.Drawing.Size(800, 24)
@@ -41,6 +42,12 @@ Partial Class FormMDI
 		Me.FormSelectToolStripMenuItem.Name = "FormSelectToolStripMenuItem"
 		Me.FormSelectToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
 		Me.FormSelectToolStripMenuItem.Text = "FormSelect"
+		'
+		'FormViewToolStripMenuItem
+		'
+		Me.FormViewToolStripMenuItem.Name = "FormViewToolStripMenuItem"
+		Me.FormViewToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
+		Me.FormViewToolStripMenuItem.Text = "FormView"
 		'
 		'FormMDI
 		'
@@ -61,4 +68,5 @@ Partial Class FormMDI
 
 	Friend WithEvents MS_MDI As MenuStrip
 	Friend WithEvents FormSelectToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents FormViewToolStripMenuItem As ToolStripMenuItem
 End Class

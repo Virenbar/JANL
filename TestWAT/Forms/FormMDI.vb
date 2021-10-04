@@ -5,4 +5,9 @@
 		F.Show()
 	End Sub
 
+	Private Sub FormViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormViewToolStripMenuItem.Click
+		Dim F = New FormView() With {.MdiParent = Me}
+		F.Show()
+	End Sub
+
 End Class
