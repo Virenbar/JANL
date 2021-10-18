@@ -240,11 +240,11 @@ Partial Class DGVTemplateEditor
 		'TB_XML
 		'
 		Me.TB_XML.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TB_XML.Location = New System.Drawing.Point(3, 45)
+		Me.TB_XML.Location = New System.Drawing.Point(3, 47)
 		Me.TB_XML.Margin = New System.Windows.Forms.Padding(10)
 		Me.TB_XML.Multiline = True
 		Me.TB_XML.Name = "TB_XML"
-		Me.TB_XML.Size = New System.Drawing.Size(425, 544)
+		Me.TB_XML.Size = New System.Drawing.Size(425, 542)
 		Me.TB_XML.TabIndex = 0
 		'
 		'flowLayoutPanel2
@@ -256,7 +256,7 @@ Partial Class DGVTemplateEditor
 		Me.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
 		Me.flowLayoutPanel2.Location = New System.Drawing.Point(3, 16)
 		Me.flowLayoutPanel2.Name = "flowLayoutPanel2"
-		Me.flowLayoutPanel2.Size = New System.Drawing.Size(425, 29)
+		Me.flowLayoutPanel2.Size = New System.Drawing.Size(425, 31)
 		Me.flowLayoutPanel2.TabIndex = 9
 		'
 		'B_Import
@@ -266,7 +266,8 @@ Partial Class DGVTemplateEditor
 		Me.B_Import.Image = CType(resources.GetObject("B_Import.Image"), System.Drawing.Image)
 		Me.B_Import.Location = New System.Drawing.Point(3, 3)
 		Me.B_Import.Name = "B_Import"
-		Me.B_Import.Size = New System.Drawing.Size(72, 23)
+		Me.B_Import.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Import.Size = New System.Drawing.Size(74, 25)
 		Me.B_Import.TabIndex = 2
 		Me.B_Import.Text = "Импорт"
 		Me.B_Import.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -277,9 +278,10 @@ Partial Class DGVTemplateEditor
 		Me.B_Export.AutoSize = True
 		Me.B_Export.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Export.Image = CType(resources.GetObject("B_Export.Image"), System.Drawing.Image)
-		Me.B_Export.Location = New System.Drawing.Point(81, 3)
+		Me.B_Export.Location = New System.Drawing.Point(83, 3)
 		Me.B_Export.Name = "B_Export"
-		Me.B_Export.Size = New System.Drawing.Size(75, 23)
+		Me.B_Export.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Export.Size = New System.Drawing.Size(77, 25)
 		Me.B_Export.TabIndex = 3
 		Me.B_Export.Text = "Экспорт"
 		Me.B_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText

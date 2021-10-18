@@ -73,29 +73,6 @@ Namespace Extensions
 		End Function
 
 		''' <summary>
-		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>
-		''' </summary>
-		''' <typeparam name="T">Тип формы</typeparam>
-		''' <param name="F">Экземпляр формы</param>
-		''' <returns></returns>
-		<Extension, Obsolete>
-		Public Function IsOpen(Of T As {Form})(F As T) As Boolean
-			Return FormHelper.IsOpen(Of T)(False)
-		End Function
-
-		''' <summary>
-		''' Проверяет есть ли экземпляр формы типа <typeparamref name="T"/>, с возможность её активации
-		''' </summary>
-		''' <typeparam name="T">Тип формы</typeparam>
-		''' <param name="F">Экземпляр формы</param>
-		''' <param name="Activate">Активировать ли форму</param>
-		''' <returns></returns>
-		<Extension, Obsolete>
-		Public Function IsOpen(Of T As {Form})(F As T, Activate As Boolean) As Boolean
-			Return FormHelper.IsOpen(Of T)(Activate)
-		End Function
-
-		''' <summary>
 		''' Устанавливает DT в качестве источника c сохранением сортировки.
 		''' DGV должен иметь BindingSource.
 		''' </summary>

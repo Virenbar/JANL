@@ -36,7 +36,7 @@ Public Class ExceptionBox
 
 		Exception = ex
 		Selected = ex
-		B_MailTo.Visible = MailInfo.To.Length > 0
+		B_MailTo.Visible = MailInfo IsNot Nothing
 		UpdateTree()
 	End Sub
 
@@ -157,23 +157,23 @@ Public Class ExceptionBox
 		End Try
 	End Sub
 
-	Public Structure EMail
+	Public Class EMail
 
 		''' <summary>
 		'''	Получатели письма через ;
 		''' </summary>
-		Public Property [To] As String
+		Public Property [To] As String = ""
 
 		''' <summary>
 		''' Тема письма
 		''' </summary>
-		Public Property Subject As String
+		Public Property Subject As String = ""
 
 		''' <summary>
 		''' Текст письма
 		''' </summary>
-		Public Property Text As String
+		Public Property Text As String = ""
 
-	End Structure
+	End Class
 
 End Class

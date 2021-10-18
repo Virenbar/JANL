@@ -178,6 +178,7 @@
     <Compile Include="Models\RGI_Excel\Row.vb" />
     <Compile Include="Models\TestLinks.vb" />
     <Compile Include="Models\TestModel.vb" />
+    <Compile Include="SQLCommands.vb" />
     <Compile Include="Types\Config.vb" />
     <Compile Include="Forms\FormAsync.Designer.vb">
       <DependentUpon>FormAsync.vb</DependentUpon>

@@ -17,7 +17,8 @@ Namespace My
 			'Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
 			Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
 			'JANL.My.MySettings.Default.Font
-
+			SQL.Defaults.DefaultConnection = "Data Source=PARTSERVER2014;Initial Catalog=wpeople_SPR;Integrated Security=True"
+			'
 			ExceptionBox.DefaultText = "Произошла непредвиденная ошибка. Отправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
 			ExceptionBox.MailInfo = New ExceptionBox.EMail() With {
 				.[To] = Config.Current.ExceptionMail,

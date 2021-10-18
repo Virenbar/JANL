@@ -38,7 +38,7 @@ Partial Class ItemSelector
 		Me.TB_Value.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
 		Me.TB_Value.Name = "TB_Value"
 		Me.TB_Value.ReadOnly = True
-		Me.TB_Value.Size = New System.Drawing.Size(113, 20)
+		Me.TB_Value.Size = New System.Drawing.Size(116, 20)
 		Me.TB_Value.TabIndex = 0
 		'
 		'TableLayoutPanel1
@@ -66,7 +66,7 @@ Partial Class ItemSelector
 		Me.B_Select.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Select.Image = CType(resources.GetObject("B_Select.Image"), System.Drawing.Image)
 		Me.B_Select.Location = New System.Drawing.Point(119, 0)
-		Me.B_Select.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
+		Me.B_Select.Margin = New System.Windows.Forms.Padding(0)
 		Me.B_Select.Name = "B_Select"
 		Me.B_Select.Size = New System.Drawing.Size(77, 23)
 		Me.B_Select.TabIndex = 1

@@ -8,7 +8,7 @@
 		MakeGood1()
 	End Sub
 
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles B_Beep.Click
 		PlayMary()
 	End Sub
 
@@ -54,6 +54,11 @@
 	Private Sub FormMDIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormMDIToolStripMenuItem.Click
 		Dim F = New FormMDI()
 		F.Show(Me)
+	End Sub
+
+	Private Sub B_SQL_Click(sender As Object, e As EventArgs) Handles B_SQL.Click
+		Dim DT = SQLCommands.UP_PEP_DBList().Execute()
+		Dim R = DT.Rows.Count
 	End Sub
 
 End Class

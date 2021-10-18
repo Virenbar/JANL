@@ -41,8 +41,11 @@ Partial Class MainForm
 		Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.DGVTEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.Button1 = New System.Windows.Forms.Button()
+		Me.B_Beep = New System.Windows.Forms.Button()
+		Me.B_SQL = New System.Windows.Forms.Button()
+		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.MS_Main.SuspendLayout()
+		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'MS_Main
@@ -76,7 +79,7 @@ Partial Class MainForm
 		'HashVSListToolStripMenuItem
 		'
 		Me.HashVSListToolStripMenuItem.Name = "HashVSListToolStripMenuItem"
-		Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+		Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.HashVSListToolStripMenuItem.Text = "HashVSList"
 		'
 		'DaDataToolStripMenuItem
@@ -89,13 +92,13 @@ Partial Class MainForm
 		'TSMI_Address
 		'
 		Me.TSMI_Address.Name = "TSMI_Address"
-		Me.TSMI_Address.Size = New System.Drawing.Size(107, 22)
+		Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
 		Me.TSMI_Address.Text = "Адрес"
 		'
 		'TSMI_UL
 		'
 		Me.TSMI_UL.Name = "TSMI_UL"
-		Me.TSMI_UL.Size = New System.Drawing.Size(107, 22)
+		Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
 		Me.TSMI_UL.Text = "ЮЛ"
 		'
 		'НижнийТагилToolStripMenuItem
@@ -167,27 +170,49 @@ Partial Class MainForm
 		Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
 		Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
 		'
-		'Button1
+		'B_Beep
 		'
-		Me.Button1.Location = New System.Drawing.Point(447, 87)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(75, 23)
-		Me.Button1.TabIndex = 1
-		Me.Button1.Text = "Button1"
-		Me.Button1.UseVisualStyleBackColor = True
+		Me.B_Beep.Location = New System.Drawing.Point(84, 3)
+		Me.B_Beep.Name = "B_Beep"
+		Me.B_Beep.Size = New System.Drawing.Size(75, 23)
+		Me.B_Beep.TabIndex = 1
+		Me.B_Beep.Text = "Beep"
+		Me.B_Beep.UseVisualStyleBackColor = True
+		'
+		'B_SQL
+		'
+		Me.B_SQL.Location = New System.Drawing.Point(3, 3)
+		Me.B_SQL.Name = "B_SQL"
+		Me.B_SQL.Size = New System.Drawing.Size(75, 23)
+		Me.B_SQL.TabIndex = 2
+		Me.B_SQL.Text = "SQL"
+		Me.B_SQL.UseVisualStyleBackColor = True
+		'
+		'FlowLayoutPanel1
+		'
+		Me.FlowLayoutPanel1.AutoSize = True
+		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.FlowLayoutPanel1.Controls.Add(Me.B_SQL)
+		Me.FlowLayoutPanel1.Controls.Add(Me.B_Beep)
+		Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 93)
+		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(609, 29)
+		Me.FlowLayoutPanel1.TabIndex = 3
 		'
 		'MainForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(609, 122)
-		Me.Controls.Add(Me.Button1)
+		Me.Controls.Add(Me.FlowLayoutPanel1)
 		Me.Controls.Add(Me.MS_Main)
 		Me.MainMenuStrip = Me.MS_Main
 		Me.Name = "MainForm"
 		Me.Text = "Form1"
 		Me.MS_Main.ResumeLayout(False)
 		Me.MS_Main.PerformLayout()
+		Me.FlowLayoutPanel1.ResumeLayout(False)
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -198,7 +223,7 @@ Partial Class MainForm
     Friend WithEvents НаселениеToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
-    Friend WithEvents Button1 As Button
+    Friend WithEvents B_Beep As Button
     Friend WithEvents DaDataToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents РазноеToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents ПочтаToolStripMenuItem As ToolStripMenuItem
@@ -213,4 +238,6 @@ Partial Class MainForm
 	Friend WithEvents DGVTEditorToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents РосреестрToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents FormMDIToolStripMenuItem As ToolStripMenuItem
+	Friend WithEvents B_SQL As Button
+	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

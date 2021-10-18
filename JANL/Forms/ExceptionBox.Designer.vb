@@ -59,10 +59,10 @@ Partial Class ExceptionBox
 		Me.B_Copy.AutoSize = True
 		Me.B_Copy.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Copy.Image = CType(resources.GetObject("B_Copy.Image"), System.Drawing.Image)
-		Me.B_Copy.Location = New System.Drawing.Point(2, 3)
-		Me.B_Copy.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.B_Copy.Location = New System.Drawing.Point(3, 3)
 		Me.B_Copy.Name = "B_Copy"
-		Me.B_Copy.Size = New System.Drawing.Size(97, 23)
+		Me.B_Copy.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Copy.Size = New System.Drawing.Size(99, 25)
 		Me.B_Copy.TabIndex = 1
 		Me.B_Copy.Text = "Копировать"
 		Me.B_Copy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -73,10 +73,10 @@ Partial Class ExceptionBox
 		Me.B_MailTo.AutoSize = True
 		Me.B_MailTo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_MailTo.Image = CType(resources.GetObject("B_MailTo.Image"), System.Drawing.Image)
-		Me.B_MailTo.Location = New System.Drawing.Point(103, 3)
-		Me.B_MailTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.B_MailTo.Location = New System.Drawing.Point(108, 3)
 		Me.B_MailTo.Name = "B_MailTo"
-		Me.B_MailTo.Size = New System.Drawing.Size(143, 23)
+		Me.B_MailTo.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_MailTo.Size = New System.Drawing.Size(145, 25)
 		Me.B_MailTo.TabIndex = 2
 		Me.B_MailTo.Text = "Отправить по почте"
 		Me.B_MailTo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -99,7 +99,7 @@ Partial Class ExceptionBox
 		Me.TB_Message.Multiline = True
 		Me.TB_Message.Name = "TB_Message"
 		Me.TB_Message.ReadOnly = True
-		Me.TB_Message.Size = New System.Drawing.Size(221, 137)
+		Me.TB_Message.Size = New System.Drawing.Size(221, 135)
 		Me.TB_Message.TabIndex = 4
 		'
 		'TB_Name
@@ -146,11 +146,11 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel2, 0, 0)
 		Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
 		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 385)
+		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 383)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 1
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(788, 29)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(788, 31)
 		Me.TableLayoutPanel1.TabIndex = 10
 		'
 		'FlowLayoutPanel2
@@ -163,7 +163,7 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
 		Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
 		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(248, 29)
+		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(256, 31)
 		Me.FlowLayoutPanel2.TabIndex = 14
 		Me.FlowLayoutPanel2.WrapContents = False
 		'
@@ -174,10 +174,10 @@ Partial Class ExceptionBox
 		Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Ignore)
 		Me.FlowLayoutPanel1.Controls.Add(Me.B_Exit)
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(629, 0)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(621, 0)
 		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(159, 29)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(167, 31)
 		Me.FlowLayoutPanel1.TabIndex = 14
 		Me.FlowLayoutPanel1.WrapContents = False
 		'
@@ -185,10 +185,10 @@ Partial Class ExceptionBox
 		'
 		Me.B_Ignore.AutoSize = True
 		Me.B_Ignore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.B_Ignore.Location = New System.Drawing.Point(2, 3)
-		Me.B_Ignore.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.B_Ignore.Location = New System.Drawing.Point(3, 3)
 		Me.B_Ignore.Name = "B_Ignore"
-		Me.B_Ignore.Size = New System.Drawing.Size(85, 23)
+		Me.B_Ignore.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Ignore.Size = New System.Drawing.Size(87, 25)
 		Me.B_Ignore.TabIndex = 4
 		Me.B_Ignore.Text = "Продолжить"
 		Me.B_Ignore.UseVisualStyleBackColor = True
@@ -198,10 +198,10 @@ Partial Class ExceptionBox
 		Me.B_Exit.AutoSize = True
 		Me.B_Exit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.B_Exit.Image = CType(resources.GetObject("B_Exit.Image"), System.Drawing.Image)
-		Me.B_Exit.Location = New System.Drawing.Point(91, 3)
-		Me.B_Exit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.B_Exit.Location = New System.Drawing.Point(96, 3)
 		Me.B_Exit.Name = "B_Exit"
-		Me.B_Exit.Size = New System.Drawing.Size(66, 23)
+		Me.B_Exit.Padding = New System.Windows.Forms.Padding(1)
+		Me.B_Exit.Size = New System.Drawing.Size(68, 25)
 		Me.B_Exit.TabIndex = 3
 		Me.B_Exit.Text = "Выход"
 		Me.B_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -225,7 +225,7 @@ Partial Class ExceptionBox
 		Me.TB_StackTrace.Multiline = True
 		Me.TB_StackTrace.Name = "TB_StackTrace"
 		Me.TB_StackTrace.ReadOnly = True
-		Me.TB_StackTrace.Size = New System.Drawing.Size(474, 337)
+		Me.TB_StackTrace.Size = New System.Drawing.Size(474, 335)
 		Me.TB_StackTrace.TabIndex = 9
 		'
 		'TableLayoutPanel3
@@ -249,7 +249,7 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel3.Size = New System.Drawing.Size(300, 343)
+		Me.TableLayoutPanel3.Size = New System.Drawing.Size(300, 341)
 		Me.TableLayoutPanel3.TabIndex = 12
 		'
 		'L_Type
@@ -289,7 +289,7 @@ Partial Class ExceptionBox
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
 		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel4.Size = New System.Drawing.Size(788, 385)
+		Me.TableLayoutPanel4.Size = New System.Drawing.Size(788, 383)
 		Me.TableLayoutPanel4.TabIndex = 13
 		'
 		'L_Description
