@@ -67,7 +67,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
@@ -131,9 +130,6 @@
     <Compile Include="Managers\FormManager.vb" />
     <Compile Include="SQL\BaseSQLCommand.vb" />
     <Compile Include="SQL\Defaults.vb" />
-    <Compile Include="SQL\INonQueryCommand.vb" />
-    <Compile Include="SQL\IScalarCommand.vb" />
-    <Compile Include="SQL\ISelectCommand.vb" />
     <Compile Include="SQL\NonQuerySQLCommand.vb" />
     <Compile Include="SQL\ScalarSQLCommand.vb" />
     <Compile Include="SQL\SelectSQLCommand.vb" />
