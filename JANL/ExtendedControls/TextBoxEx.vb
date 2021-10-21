@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
+Imports Microsoft.VisualBasic
 
 ''' <summary>
 ''' TextBox with Label

@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing
+Imports System.Environment
 
 ''' <summary>
 ''' Окно для отображения ошибки
@@ -85,7 +86,7 @@ Public Class ExceptionBox
 			L.Add("With internal exception:")
 			L.Add(EXtoString(ex.InnerException))
 		End If
-		Return String.Join(vbNewLine, L)
+		Return String.Join(NewLine, L)
 	End Function
 
 #Region "UIEvents"
@@ -104,7 +105,7 @@ Public Class ExceptionBox
 
 	Private Sub B_MailTo_Click(sender As Object, e As EventArgs) Handles B_MailTo.Click
 		Dim Body = GetMail()
-		Dim Mail = $"mailto:{MailInfo.To}?subject={MailInfo.Subject}&body={Body.Replace(vbNewLine, "%0A")}"
+		Dim Mail = $"mailto:{MailInfo.To}?subject={MailInfo.Subject}&body={Body.Replace(NewLine, "%0A")}"
 		Process.Start(Mail)
 	End Sub
 
@@ -121,11 +122,11 @@ Public Class ExceptionBox
 #End Region
 
 	Private Function GetMail() As String
-		Return $"{MailInfo.Text}{vbNewLine}{vbNewLine}{GetText()}"
+		Return $"{MailInfo.Text}{NewLine}{NewLine}{GetText()}"
 	End Function
 
 	Private Function GetText() As String
-		Return $"Exception:{vbNewLine}{EXtoString(Exception)}"
+		Return $"Exception:{NewLine}{EXtoString(Exception)}"
 	End Function
 
 	Private Sub UpdateTree()

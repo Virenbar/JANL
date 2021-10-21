@@ -1,4 +1,6 @@
-﻿Namespace Helpers
+﻿Imports Microsoft.VisualBasic
+
+Namespace Helpers
 	Public Class XLS
 
 		''' <summary>

@@ -15,7 +15,7 @@ Public Class DateTimePickerEx
 			Return If(Checked, New Date?(MyBase.Value), Nothing)
 		End Get
 		Set(value As Date?)
-			MyBase.Value = If(value, Now)
+			MyBase.Value = If(value, Date.Now)
 			Checked = value.HasValue
 		End Set
 	End Property

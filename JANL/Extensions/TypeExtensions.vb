@@ -5,7 +5,7 @@ Imports System.Threading
 
 Namespace Extensions
 	Public Module TypeExtensions
-		Private ReadOnly Rnd As New Random(Today.Millisecond)
+		Private ReadOnly Rnd As New Random(Date.Now.Millisecond)
 
 		''' <summary>
 		''' Помечает все строки на удаление

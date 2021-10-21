@@ -11,7 +11,7 @@ Public Class MonthPicker
 	Public Sub New()
 		InitializeComponent()
 
-		Dim T = Today
+		Dim T = Date.Today
 		Months = Enumerable.Range(1, 12).Select(Function(i) New MonthItem(CUShort(i), DateTimeFormatInfo.CurrentInfo.GetMonthName(i))).ToList()
 		CB_Month.DataSource = Months
 		CB_Month.DisplayMember = "Name"
@@ -97,7 +97,7 @@ Public Class MonthPicker
 	End Sub
 
 	Private Sub FillYear()
-		Dim Y = Today.Year
+		Dim Y = Date.Today.Year
 		CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).ToList()
 		If MinYear <= Y Then CB_Year.Text = Y.ToString
 	End Sub

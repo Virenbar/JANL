@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports System.Environment
 
 Public Class Msgs
 
@@ -39,7 +40,7 @@ Public Class Msgs
 	''' <param name="ex">Объект ошибки</param>
 	''' <param name="prefix">Префикс сообщения (По умолчанию имя метода)</param>
 	Public Shared Sub ShowError(ex As Exception, <CallerMemberName()> Optional prefix As String = Nothing)
-		MessageBox.Show($"{prefix}: {ex.Message}{vbNewLine}StackTrace:{vbNewLine}{ex.StackTrace}", DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error)
+		MessageBox.Show($"{prefix}: {ex.Message}{NewLine}StackTrace:{NewLine}{ex.StackTrace}", DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error)
 	End Sub
 
 	<Obsolete>
@@ -106,10 +107,10 @@ Public Class Msgs
 	End Sub
 
 	Private Shared Function ExRecursive(ex As Exception, Optional lvl As Integer = 0) As String
-		If IsNothing(ex.InnerException) Then
+		If ex.InnerException Is Nothing Then
 			Return lvl.ToString + ":" + ex.Message
 		Else
-			Return lvl.ToString + ":" + ex.Message + vbNewLine + ExRecursive(ex.InnerException, lvl + 1)
+			Return lvl.ToString + ":" + ex.Message + NewLine + ExRecursive(ex.InnerException, lvl + 1)
 		End If
 	End Function
 

@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Reflection
 Imports System.Runtime.CompilerServices
+Imports Microsoft.VisualBasic
 
 Namespace Extensions
 	''' <summary>
