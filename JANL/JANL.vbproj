@@ -130,9 +130,14 @@
     <Compile Include="Managers\FormManager.vb" />
     <Compile Include="SQL\BaseSQLCommand.vb" />
     <Compile Include="SQL\Defaults.vb" />
+    <Compile Include="SQL\NonQueryProcedure.vb" />
     <Compile Include="SQL\NonQuerySQLCommand.vb" />
+    <Compile Include="SQL\ScalarProcedure.vb" />
     <Compile Include="SQL\ScalarSQLCommand.vb" />
+    <Compile Include="SQL\SelectProcedure.vb" />
     <Compile Include="SQL\SelectSQLCommand.vb" />
+    <Compile Include="SQL\SQLProcedure.vb" />
+    <Compile Include="SQL\SQLText.vb" />
     <Compile Include="Types\BaseLinkList.vb" />
     <Compile Include="Types\BaseFilter.vb" />
     <Compile Include="Types\BaseRepository.vb" />
@@ -142,6 +147,12 @@
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
     <Compile Include="Types\TaskProgress.vb" />
+    <Compile Include="UserControls\ChildView.Designer.vb">
+      <DependentUpon>ChildView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ChildView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\LinkView.Designer.vb">
       <DependentUpon>LinkView.vb</DependentUpon>
     </Compile>

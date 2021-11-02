@@ -68,7 +68,6 @@ Public Structure TaskProgress
 	''' <summary>
 	''' Максимальное значение
 	''' </summary>
-	''' <returns></returns>
 	Public ReadOnly Property Max As Integer
 
 	''' <summary>
@@ -79,14 +78,21 @@ Public Structure TaskProgress
 	''' <summary>
 	''' Строковый статус
 	''' </summary>
-	''' <returns></returns>
 	Public ReadOnly Property Status As String
 
 	''' <summary>
 	''' Текущие значение
 	''' </summary>
-	''' <returns></returns>
 	Public ReadOnly Property Value As Integer
+
+	''' <summary>
+	''' <see cref="Value"/>/<see cref="Max"/>
+	''' </summary>
+	Public ReadOnly Property Count As String
+		Get
+			Return $"{Value}/{Max}"
+		End Get
+	End Property
 
 #End Region
 

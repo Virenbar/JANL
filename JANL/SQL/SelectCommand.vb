@@ -5,6 +5,7 @@ Namespace SQL
 	''' <summary>
 	''' Команда возвращающая <see cref="DataTable"/>
 	''' </summary>
+	<Obsolete>
 	Public Class SelectCommand
 
 		Public Sub New(comm As SqlCommand)

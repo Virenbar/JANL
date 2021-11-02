@@ -11,8 +11,8 @@ Public Class DGVManager
 			If Not Templates.ContainsKey(Name) Then Return Nothing
 			Return Templates(Name)
 		End Get
-		Set(value As DGVTemplate)
-			Templates(Name.ToLowerInvariant) = value
+		Set
+			Templates(Name.ToLowerInvariant) = Value
 		End Set
 	End Property
 
@@ -61,4 +61,13 @@ Public Class DGVManager
 		Next
 	End Sub
 
+End Class
+
+Public Class DGVSettings
+
+	Public Sub New()
+		AllowRowsResize = False
+	End Sub
+
+	Public Property AllowRowsResize As Boolean
 End Class

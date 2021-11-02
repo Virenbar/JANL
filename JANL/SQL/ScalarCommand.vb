@@ -5,6 +5,7 @@ Namespace SQL
 	''' <summary>
 	''' Команда возвращающая <typeparamref name="T"/>
 	''' </summary>
+	<Obsolete>
 	Public Class ScalarCommand(Of T)
 
 		Public Sub New(comm As SqlCommand)

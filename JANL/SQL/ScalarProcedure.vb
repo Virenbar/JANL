@@ -4,21 +4,21 @@ Imports System.Threading.Tasks
 
 Namespace SQL
 	''' <summary>
-	''' Команда выполняющая процедуру и возвращающая <typeparamref name="T"/>
+	''' Процедура возвращающая <typeparamref name="T"/>
 	''' </summary>
-	<Obsolete>
-	Public Class ScalarSQLCommand(Of T)
-		Inherits BaseSQLCommand(Of T)
+	''' <typeparam name="T">Тип значения возвращаемого процедурой</typeparam>
+	Public Class ScalarProcedure(Of T)
+		Inherits SQLProcedure(Of T)
 
 		''' <summary>
-		''' Создаёт новую команду с именем вызывающего метода
+		''' Создаёт новую процедуру с именем вызывающего метода
 		''' </summary>
 		Public Sub New(<CallerMemberName> Optional Name As String = Nothing)
 			MyBase.New(Name)
 		End Sub
 
 		''' <summary>
-		''' Выполняет команду с указанным соединением
+		''' Выполнить с указанным соединением
 		''' </summary>
 		Public Overrides Function Execute(Connection As SqlConnection) As T
 			SQLCommand.Connection = Connection
@@ -27,7 +27,7 @@ Namespace SQL
 		End Function
 
 		''' <summary>
-		''' Асинхронно выполняет команду с указанным соединением
+		''' Асинхронно выполнить с указанным соединением
 		''' </summary>
 		Public Overrides Async Function ExecuteAsync(Connection As SqlConnection) As Task(Of T)
 			SQLCommand.Connection = Connection

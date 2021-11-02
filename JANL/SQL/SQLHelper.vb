@@ -10,20 +10,10 @@ Namespace SQL
 	Public Class SQLHelper
 
 		''' <summary>
-		''' Соединение по умолчанию
-		''' </summary>
-		Public Shared Property DefaultConn As String
-
-		''' <summary>
-		''' Время ожидания по умолчанию
-		''' </summary>
-		Public Shared Property DefaultTimeout As Integer = 0
-
-		''' <summary>
 		''' Создает и открывает новое соединение по умолчанию
 		''' </summary>
 		Public Shared Function NewConnection() As SqlConnection
-			Return NewConnection(DefaultConn)
+			Return NewConnection(Defaults.DefaultConnection)
 		End Function
 
 		''' <summary>
@@ -39,7 +29,7 @@ Namespace SQL
 		''' Начинает транзакцию используя соединение по умолчанию
 		''' </summary>
 		Public Shared Function NewTransaction() As SqlTransaction
-			Return NewTransaction(DefaultConn, IsolationLevel.ReadCommitted)
+			Return NewTransaction(Defaults.DefaultConnection, IsolationLevel.ReadCommitted)
 		End Function
 
 		''' <summary>
@@ -53,7 +43,7 @@ Namespace SQL
 		''' Начинает транзакцию используя соединение по умолчанию и указанное поведение блокировки
 		''' </summary>
 		Public Shared Function NewTransaction(IL As IsolationLevel) As SqlTransaction
-			Return NewTransaction(DefaultConn, IL)
+			Return NewTransaction(Defaults.DefaultConnection, IL)
 		End Function
 
 		''' <summary>
@@ -68,7 +58,7 @@ Namespace SQL
 		''' Создаёт новую команду с именем вызывающего метода
 		''' </summary>
 		Public Shared Function NewCommand(<CallerMemberName> Optional name As String = Nothing) As SqlCommand
-			Return New SqlCommand(name) With {.CommandType = CommandType.StoredProcedure, .CommandTimeout = DefaultTimeout}
+			Return New SqlCommand(name) With {.CommandType = CommandType.StoredProcedure, .CommandTimeout = Defaults.DefaultTimeout}
 		End Function
 
 #Region "Synchronous"
@@ -188,7 +178,7 @@ Namespace SQL
 		''' </summary>
 		''' <returns></returns>
 		Public Shared Function NewConnectionAsync() As Task(Of SqlConnection)
-			Return NewConnectionAsync(DefaultConn)
+			Return NewConnectionAsync(Defaults.DefaultConnection)
 		End Function
 
 		''' <summary>

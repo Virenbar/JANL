@@ -4,21 +4,20 @@ Imports System.Threading.Tasks
 
 Namespace SQL
 	''' <summary>
-	''' Команда выполняющая процедуру и возвращающая количество задействованных в процедуре строк.
+	''' Процедура возвращающая количество задействованных строк
 	''' </summary>
-	<Obsolete>
-	Public Class NonQuerySQLCommand
-		Inherits BaseSQLCommand(Of Integer)
+	Public Class NonQueryProcedure
+		Inherits SQLProcedure(Of Integer)
 
 		''' <summary>
-		''' Создаёт новую команду с именем вызывающего метода
+		''' Создаёт новую процедуру именем вызывающего метода
 		''' </summary>
 		Public Sub New(<CallerMemberName> Optional Name As String = Nothing)
 			MyBase.New(Name)
 		End Sub
 
 		''' <summary>
-		''' Выполняет команду с указанным соединением
+		''' Выполнить с указанным соединением
 		''' </summary>
 		Public Overrides Function Execute(Connection As SqlConnection) As Integer
 			SQLCommand.Connection = Connection
@@ -27,7 +26,7 @@ Namespace SQL
 		End Function
 
 		''' <summary>
-		''' Асинхронно выполняет команду с указанным соединением
+		''' Асинхронно выполнить с указанным соединением
 		''' </summary>
 		Public Overrides Async Function ExecuteAsync(Connection As SqlConnection) As Task(Of Integer)
 			SQLCommand.Connection = Connection

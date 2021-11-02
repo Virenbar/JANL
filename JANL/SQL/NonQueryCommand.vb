@@ -5,6 +5,7 @@ Namespace SQL
 	''' <summary>
 	''' Команда
 	''' </summary>
+	<Obsolete>
 	Public Class NonQueryCommand
 
 		Public Sub New(comm As SqlCommand)
