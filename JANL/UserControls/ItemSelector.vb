@@ -47,7 +47,7 @@ Public Class ItemSelector
 	End Sub
 
 	Private Sub B_Select_Click(sender As Object, e As EventArgs) Handles B_Select.Click
-		Using FS = New FormSelect(Repository) With {.AutoLoad = True, .Key = Key.Value}
+		Using FS = New FormSelect(Repository) With {.AutoLoad = True, .Key = If(Key, 0)}
 			Dim R = FS.ShowDialog()
 			If R = DialogResult.OK Then
 				Key = FS.Key

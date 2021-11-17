@@ -80,6 +80,7 @@ Public Class FormSelectTest
 
 	Private Sub FormSelectTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		ItemSelector1.Init(New TestRepository)
+		ItemSelector1.Key = Nothing
 		AutoTextBox1.Init(AddressOf TestRepository.GetValueS)
 
 		ItemSelector1.RefreshValue()
