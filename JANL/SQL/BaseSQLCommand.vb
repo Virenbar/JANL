@@ -17,11 +17,6 @@ Namespace SQL
 			ConnectionString = DefaultConnection
 		End Sub
 
-		<Obsolete>
-		Public Sub New(Name As String)
-			Me.New(Name, CommandType.StoredProcedure)
-		End Sub
-
 		Public Sub Prepare()
 			SQLCommand.Prepare()
 		End Sub

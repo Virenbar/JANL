@@ -131,11 +131,8 @@
     <Compile Include="SQL\BaseSQLCommand.vb" />
     <Compile Include="SQL\Defaults.vb" />
     <Compile Include="SQL\NonQueryProcedure.vb" />
-    <Compile Include="SQL\NonQuerySQLCommand.vb" />
     <Compile Include="SQL\ScalarProcedure.vb" />
-    <Compile Include="SQL\ScalarSQLCommand.vb" />
     <Compile Include="SQL\SelectProcedure.vb" />
-    <Compile Include="SQL\SelectSQLCommand.vb" />
     <Compile Include="SQL\SQLProcedure.vb" />
     <Compile Include="SQL\SQLText.vb" />
     <Compile Include="Types\BaseLinkList.vb" />
@@ -231,9 +228,6 @@
     </Compile>
     <Compile Include="Prmtrs.vb" />
     <Compile Include="SQL\ISQLCommand.vb" />
-    <Compile Include="SQL\NonQueryCommand.vb" />
-    <Compile Include="SQL\ScalarCommand.vb" />
-    <Compile Include="SQL\SelectCommand.vb" />
     <Compile Include="SQL\SQLHelper.vb" />
     <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
