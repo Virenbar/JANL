@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JANL.CS\JANL.CS.csproj" />
+    <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj" />
+  </ItemGroup>
+</Project>

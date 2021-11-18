@@ -7,7 +7,7 @@
     <ProjectGuid>{5121D0BE-ADE2-426F-892B-4377962A85CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>JANL</RootNamespace>
-    <AssemblyName>JANL</AssemblyName>
+    <AssemblyName>JANL.VB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>JANL.xml</DocumentationFile>
+    <DocumentationFile>JANL.VB.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>JANL.xml</DocumentationFile>
+    <DocumentationFile>JANL.VB.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
