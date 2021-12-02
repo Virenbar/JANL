@@ -1,11 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
     <LangVersion>latest</LangVersion>
+    <Authors>Virenbar</Authors>
+    <PackageId>Virenbar.JANL</PackageId>
+    <PackageProjectUrl>https://github.com/Virenbar/JANL</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Virenbar/JANL.git</RepositoryUrl>
+    <Description>Just Another .NET Library</Description>
+    <PackageReleaseNotes>See GitHub.</PackageReleaseNotes>
+    <Copyright>Virenbar</Copyright>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net452'">
     <ProjectReference Include="..\JANL.CS\JANL.CS.csproj" />
     <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj" />
   </ItemGroup>

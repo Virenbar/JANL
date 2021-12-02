@@ -4,6 +4,7 @@ Imports JANL
 
 Public Class FormTest
 	Private TestObject As New TestModel()
+	Private TP As Progress(Of TaskProgress)
 
 	Private Sub FormTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		BS_TestModel.DataSource = TestObject

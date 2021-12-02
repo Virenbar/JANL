@@ -128,13 +128,6 @@
     </Compile>
     <Compile Include="Managers\DGVManager.vb" />
     <Compile Include="Managers\FormManager.vb" />
-    <Compile Include="SQL\BaseSQLCommand.vb" />
-    <Compile Include="SQL\Defaults.vb" />
-    <Compile Include="SQL\NonQueryProcedure.vb" />
-    <Compile Include="SQL\ScalarProcedure.vb" />
-    <Compile Include="SQL\SelectProcedure.vb" />
-    <Compile Include="SQL\SQLProcedure.vb" />
-    <Compile Include="SQL\SQLText.vb" />
     <Compile Include="Types\BaseLinkList.vb" />
     <Compile Include="Types\BaseFilter.vb" />
     <Compile Include="Types\BaseRepository.vb" />
@@ -143,7 +136,6 @@
     <Compile Include="Types\DGVTemplate.vb" />
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
-    <Compile Include="Types\TaskProgress.vb" />
     <Compile Include="UserControls\ChildView.Designer.vb">
       <DependentUpon>ChildView.vb</DependentUpon>
     </Compile>
@@ -227,9 +219,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Prmtrs.vb" />
-    <Compile Include="SQL\ISQLCommand.vb" />
-    <Compile Include="SQL\SQLHelper.vb" />
-    <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
     <Compile Include="UserControls\MonthPicker.designer.vb">
       <DependentUpon>MonthPicker.vb</DependentUpon>
@@ -341,8 +330,6 @@
     <Content Include="Resources\icons8\Synchronize16.png" />
     <None Include="Resources\icons8\Add16.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
