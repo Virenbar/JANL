@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,10 +44,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animated\AnimatedImage.cs" />
+    <Compile Include="Animated\Blocker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Animated\Blocker.designer.cs">
+      <DependentUpon>Blocker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animated\RotatingImage.cs" />
+    <Compile Include="Animated\UC_Loader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Animated\UC_Loader.designer.cs">
+      <DependentUpon>UC_Loader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Animators\ImageAnimator.cs" />
     <Compile Include="Animators\ImageRotator.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SQL\BaseSQLCommand.cs" />
     <Compile Include="SQL\Defaults.cs" />
     <Compile Include="SQL\ISQLCommand.cs" />
@@ -58,6 +78,17 @@
     <Compile Include="SQL\SQLText.cs" />
     <Compile Include="DataReaders\XMLDataReader.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Animated\UC_Loader.resx">
+      <DependentUpon>UC_Loader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\partner64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
