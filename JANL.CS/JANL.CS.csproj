@@ -45,7 +45,19 @@
   <ItemGroup>
     <Compile Include="Animators\ImageAnimator.cs" />
     <Compile Include="Animators\ImageRotator.cs" />
+    <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL\BaseSQLCommand.cs" />
+    <Compile Include="SQL\Defaults.cs" />
+    <Compile Include="SQL\ISQLCommand.cs" />
+    <Compile Include="SQL\SelectProcedure.cs" />
+    <Compile Include="SQL\ScalarProcedure.cs" />
+    <Compile Include="SQL\NonQueryProcedure.cs" />
+    <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="SQL\SQLProcedure.cs" />
+    <Compile Include="SQL\SQLText.cs" />
+    <Compile Include="DataReaders\XMLDataReader.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
