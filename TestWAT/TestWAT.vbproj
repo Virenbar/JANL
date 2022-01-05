@@ -375,16 +375,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JANL.CS\JANL.CS.csproj">
-      <Project>{6eaf970d-b09f-41cc-b855-a5221757a9ae}</Project>
-      <Name>JANL.CS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj">
       <Project>{5121d0be-ade2-426f-892b-4377962a85cc}</Project>
       <Name>JANL.VB</Name>
     </ProjectReference>
     <ProjectReference Include="..\JANL\JANL.csproj">
-      <Project>{35159c95-1073-4aa1-b1b5-4c0f72201343}</Project>
+      <Project>{6eaf970d-b09f-41cc-b855-a5221757a9ae}</Project>
       <Name>JANL</Name>
     </ProjectReference>
   </ItemGroup>
