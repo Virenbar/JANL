@@ -22,7 +22,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
-    <DocumentationFile>bin\Debug\JANL.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>embedded</DebugType>
@@ -66,6 +67,12 @@
     <Compile Include="Animators\ImageRotator.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
+    <Compile Include="ExtendedControls\RegexTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExtendedControls\TextBoxLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Generic\FixedQueue.cs" />
     <Compile Include="Forms\FormManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

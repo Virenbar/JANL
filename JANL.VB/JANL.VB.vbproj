@@ -93,9 +93,6 @@
     <Compile Include="ExtendedControls\DGVFilter.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\RegexTextBox.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ExtendedControls\TextBoxEx.vb">
       <SubType>Component</SubType>
     </Compile>

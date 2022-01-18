@@ -10,7 +10,7 @@ namespace JANL.SQL
     {
         protected readonly SqlCommand SQLCommand;
 
-        public BaseSQLCommand(string CommandText, CommandType Type)
+        protected BaseSQLCommand(string CommandText, CommandType Type)
         {
             SQLCommand = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = DefaultTimeout };
             ConnectionString = DefaultConnection;
@@ -142,7 +142,7 @@ namespace JANL.SQL
         #endregion Asynchronous
 
         #region IDisposable Support
-        private bool disposedValue = false;
+        private bool disposedValue;
 
         public void Dispose() => Dispose(true);
 

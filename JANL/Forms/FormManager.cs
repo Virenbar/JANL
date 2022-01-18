@@ -6,8 +6,8 @@ namespace JANL.Forms
 {
     public static class FormManager
     {
-        public static ToolStripMenuItem Root;
-        public static Dictionary<Form, ToolStripMenuItem> TSMIs;
+        private static ToolStripMenuItem Root;
+        private static Dictionary<Form, ToolStripMenuItem> TSMIs;
 
         public static void Add(Form form)
         {
@@ -17,7 +17,7 @@ namespace JANL.Forms
                 Text = form.Text,
                 Image = form.Icon.ToBitmap()
             };
-            TSMI.Click += (sender, e) => { form.Activate(); };
+            TSMI.Click += (_, e) => { form.Activate(); };
             form.TextChanged += TextChanged;
             form.FormClosed += FormClosed;
 
@@ -41,7 +41,7 @@ namespace JANL.Forms
             ChangeVisibility();
         }
 
-        private static void ChangeVisibility() => Root.Visible = !(Root.DropDownItems.Count == 0);
+        private static void ChangeVisibility() => Root.Visible = Root.DropDownItems.Count != 0;
 
         private static void FormClosed(object sender, FormClosedEventArgs e) => Remove((Form)sender);
 

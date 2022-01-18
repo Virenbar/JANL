@@ -9,85 +9,85 @@ using System.Windows.Forms;
 
 namespace JANL.Animators
 {
-	public abstract class AnimatedImage
-	{
-		protected int Delay;
-		protected int Framerate;
+    public abstract class AnimatedImage
+    {
+        protected int Delay;
+        protected int Framerate;
 
-		private readonly Control Parent;
-		private bool Animated;
+        private readonly Control Parent;
+        private bool Animated;
 
-		public AnimatedImage(Control Parent) : this(Parent, new Bitmap(16, 16)) { }
+        protected AnimatedImage(Control Parent) : this(Parent, new Bitmap(16, 16)) { }
 
-		public AnimatedImage(Control Parent, Image Image)
-		{
-			Framerate = 30;
-			Delay = 1000 / Framerate;
-			this.Parent = Parent;
-			this.Parent.Paint += Parent_Paint;
-			this.Image = Image;
-			Size = Image.Size;
-		}
+        protected AnimatedImage(Control Parent, Image Image)
+        {
+            Framerate = 30;
+            Delay = 1000 / Framerate;
+            this.Parent = Parent;
+            this.Parent.Paint += Parent_Paint;
+            this.Image = Image;
+            Size = Image.Size;
+        }
 
-		public abstract void ResetAnimation();
+        public abstract void ResetAnimation();
 
-		public virtual void SetFramerate(int Framerate)
+        public virtual void SetFramerate(int Framerate)
 
-		{
-			Delay = 1000 / Framerate;
-			this.Framerate = Framerate;
-		}
+        {
+            Delay = 1000 / Framerate;
+            this.Framerate = Framerate;
+        }
 
-		public void StartAnimation()
-		{
-			if (Animated) { return; }
-			Animated = true;
-			_ = AnimationLoop();
-		}
+        public void StartAnimation()
+        {
+            if (Animated) { return; }
+            Animated = true;
+            _ = AnimationLoop();
+        }
 
-		public void StopAnimation() => Animated = false;
+        public void StopAnimation() => Animated = false;
 
-		protected abstract void PaintFrame(Graphics G);
+        protected abstract void PaintFrame(Graphics G);
 
-		protected abstract void PrepareFrame();
+        protected abstract void PrepareFrame();
 
-		private async Task AnimationLoop()
-		{
-			while (Animated)
-			{
-				await Task.Delay(Delay);
-				PrepareFrame();
-				//Region R = new Region(new Rectangle(Parent.Width / 2, 0, Parent.Width, Parent.Height));
-				//Parent.SetBounds(Parent.Left, Parent.Top, Parent.Width, Parent.Height, BoundsSpecified.None);
-				//Parent.Invalidate(R, true);
-				OnFramePrepared();
-			}
-		}
+        private async Task AnimationLoop()
+        {
+            while (Animated)
+            {
+                await Task.Delay(Delay).ConfigureAwait(false);
+                PrepareFrame();
+                //Region R = new Region(new Rectangle(Parent.Width / 2, 0, Parent.Width, Parent.Height));
+                //Parent.SetBounds(Parent.Left, Parent.Top, Parent.Width, Parent.Height, BoundsSpecified.None);
+                //Parent.Invalidate(R, true);
+                OnFramePrepared();
+            }
+        }
 
-		public void Paint(Graphics G) => PaintFrame(G);
+        public void Paint(Graphics G) => PaintFrame(G);
 
-		private void Parent_Paint(object sender, PaintEventArgs e)
-		{
-			//PaintFrame(e.Graphics);
-		}
+        private void Parent_Paint(object sender, PaintEventArgs e)
+        {
+            //PaintFrame(e.Graphics);
+        }
 
-		#region Properties
-		protected int Height => Parent.Height;
-		public Image Image { get; set; }
-		protected int Width => Parent.Width;
-		public Size Size { get; protected set; }
+        #region Properties
+        protected int Height => Parent.Height;
+        public Image Image { get; set; }
+        protected int Width => Parent.Width;
+        public Size Size { get; protected set; }
 
-		public Rectangle Bounds => new Rectangle(Position, Size);
-		public Point Position { get; set; }
+        public Rectangle Bounds => new Rectangle(Position, Size);
+        public Point Position { get; set; }
 
-		#endregion Properties
+        #endregion Properties
 
-		#region Events
+        #region Events
 
-		protected void OnFramePrepared() => FramePrepared?.Invoke(this, EventArgs.Empty);
+        protected void OnFramePrepared() => FramePrepared?.Invoke(this, EventArgs.Empty);
 
-		public event EventHandler FramePrepared;
+        public event EventHandler FramePrepared;
 
-		#endregion Events
-	}
+        #endregion Events
+    }
 }

@@ -9,32 +9,32 @@ using System.Windows.Forms;
 
 namespace JANL
 {
-	public partial class Blocker : Component
-	{
-		public Control Parent { get; set; }
-		private UC_Loader L = new UC_Loader();
+    public partial class Blocker : Component
+    {
+        public Control Parent { get; set; }
+        private UC_Loader L = new UC_Loader();
 
-		public void Show()
-		{
-			if (Parent == null) { return; }
-			Parent.Controls.Add(L);
-		}
+        public void Show()
+        {
+            if (Parent == null) { return; }
+            Parent.Controls.Add(L);
+        }
 
-		public void Hide()
-		{
-			if (Parent == null) { return; }
-			Parent.Controls.Remove(L);
-		}
+        public void Hide()
+        {
+            if (Parent == null) { return; }
+            Parent.Controls.Remove(L);
+        }
 
-		public Blocker()
-		{
-			InitializeComponent();
-		}
+        public Blocker()
+        {
+            InitializeComponent();
+        }
 
-		public Blocker(IContainer container)
-		{
-			container.Add(this);
-			InitializeComponent();
-		}
-	}
+        public Blocker(IContainer container)
+        {
+            container.Add(this);
+            InitializeComponent();
+        }
+    }
 }
