@@ -7,7 +7,7 @@
     <ProjectGuid>{5121D0BE-ADE2-426F-892B-4377962A85CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>JANL</RootNamespace>
-    <AssemblyName>JANL</AssemblyName>
+    <AssemblyName>JANL.VB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>JANL.xml</DocumentationFile>
+    <DocumentationFile>JANL.VB.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>JANL.xml</DocumentationFile>
+    <DocumentationFile>JANL.VB.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -127,14 +127,6 @@
       <DependentUpon>icons8.resx</DependentUpon>
     </Compile>
     <Compile Include="Managers\DGVManager.vb" />
-    <Compile Include="Managers\FormManager.vb" />
-    <Compile Include="SQL\BaseSQLCommand.vb" />
-    <Compile Include="SQL\Defaults.vb" />
-    <Compile Include="SQL\NonQueryProcedure.vb" />
-    <Compile Include="SQL\ScalarProcedure.vb" />
-    <Compile Include="SQL\SelectProcedure.vb" />
-    <Compile Include="SQL\SQLProcedure.vb" />
-    <Compile Include="SQL\SQLText.vb" />
     <Compile Include="Types\BaseLinkList.vb" />
     <Compile Include="Types\BaseFilter.vb" />
     <Compile Include="Types\BaseRepository.vb" />
@@ -143,7 +135,6 @@
     <Compile Include="Types\DGVTemplate.vb" />
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
-    <Compile Include="Types\TaskProgress.vb" />
     <Compile Include="UserControls\ChildView.Designer.vb">
       <DependentUpon>ChildView.vb</DependentUpon>
     </Compile>
@@ -227,9 +218,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Prmtrs.vb" />
-    <Compile Include="SQL\ISQLCommand.vb" />
-    <Compile Include="SQL\SQLHelper.vb" />
-    <Compile Include="Types\FixedQueue.vb" />
     <Compile Include="Types\ToggleValue.vb" />
     <Compile Include="UserControls\MonthPicker.designer.vb">
       <DependentUpon>MonthPicker.vb</DependentUpon>
@@ -303,9 +291,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="CodeMaps\SQL.dgml" />
-    <None Include="JANL.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -341,8 +326,6 @@
     <Content Include="Resources\icons8\Synchronize16.png" />
     <None Include="Resources\icons8\Add16.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

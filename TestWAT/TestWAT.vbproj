@@ -337,12 +337,6 @@
     <Content Include="Resources\icons8\icons8_Word16.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JANL\JANL.vbproj">
-      <Project>{5121D0BE-ADE2-426F-892B-4377962A85CC}</Project>
-      <Name>JANL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Dadata">
       <Version>21.3.0</Version>
     </PackageReference>
@@ -379,6 +373,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj">
+      <Project>{5121d0be-ade2-426f-892b-4377962a85cc}</Project>
+      <Name>JANL.VB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JANL\JANL.csproj">
+      <Project>{6eaf970d-b09f-41cc-b855-a5221757a9ae}</Project>
+      <Name>JANL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <ProjectExtensions>
