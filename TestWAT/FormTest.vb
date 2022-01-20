@@ -1,6 +1,8 @@
 ﻿Imports System.Threading
 Imports TestWAT.Models
 Imports JANL
+Imports System.IO
+Imports JANL.Forms
 
 Public Class FormTest
     Private TestObject As New TestModel()
@@ -197,6 +199,13 @@ Public Class FormTest
         Else
             TB_NumberText.Text = ""
         End If
+    End Sub
+
+    Private Sub B_EditFile_Click(sender As Object, e As EventArgs) Handles B_EditFile.Click
+        Dim T = Path.GetTempFileName + ".txt"
+        File.WriteAllText(T, "Test text")
+        Dim F = New FormFileEdit(T)
+        F.ShowDialog(Me)
     End Sub
 
 End Class

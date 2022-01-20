@@ -31,7 +31,7 @@ namespace JANL
         protected override void OnValidating(CancelEventArgs e)
         {
             IsValid = Validate();
-            if (!IsValid && Message.Length > 0 && Text.Length > 0)
+            if (!IsValid && Message?.Length > 0 && Text.Length > 0)
             {
                 e.Cancel = true;
                 Msgs.ShowWarning(Message);

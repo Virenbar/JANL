@@ -40,7 +40,7 @@ namespace JANL
         [Browsable(true), Category("Appearance"), DefaultValue(typeof(Color), "0x708090"), Description("Цвет заголовка")]
         public Color LabelColor { get; set; }
 
-        [Browsable(true), Category("Appearance"), DefaultValue("")]
+        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("Текст")]
         public new string Text
         {
             get => TextValue;

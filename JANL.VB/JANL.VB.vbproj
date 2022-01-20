@@ -242,7 +242,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="icons8.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>icons8.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LinkView.resx">

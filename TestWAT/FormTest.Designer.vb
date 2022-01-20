@@ -63,6 +63,8 @@ Partial Class FormTest
         Me.TB_Number = New System.Windows.Forms.TextBox()
         Me.TB_NumberText = New System.Windows.Forms.TextBox()
         Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.B_EditFile = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,6 +81,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.TB_Numberaga.SuspendLayout()
+        Me.FlowLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -210,7 +213,7 @@ Partial Class FormTest
         Me.B_Exception.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.B_Exception.AutoSize = True
         Me.B_Exception.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_Exception.Location = New System.Drawing.Point(740, 426)
+        Me.B_Exception.Location = New System.Drawing.Point(909, 549)
         Me.B_Exception.Name = "B_Exception"
         Me.B_Exception.Size = New System.Drawing.Size(91, 23)
         Me.B_Exception.TabIndex = 4
@@ -248,9 +251,9 @@ Partial Class FormTest
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPB_Test})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 452)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 575)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(831, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1000, 22)
         Me.StatusStrip1.TabIndex = 6
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -457,7 +460,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(205, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 452)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 575)
         Me.FlowLayoutPanel3.TabIndex = 20
         '
         'FlowLayoutPanel4
@@ -469,7 +472,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 452)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 575)
         Me.FlowLayoutPanel4.TabIndex = 21
         '
         'MonthPicker1
@@ -501,21 +504,44 @@ Partial Class FormTest
         '
         'TB_Numberaga
         '
+        Me.TB_Numberaga.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TB_Numberaga.Controls.Add(Me.TB_NumberText)
         Me.TB_Numberaga.Controls.Add(Me.TB_Number)
-        Me.TB_Numberaga.Location = New System.Drawing.Point(566, 3)
+        Me.TB_Numberaga.Location = New System.Drawing.Point(723, 12)
         Me.TB_Numberaga.Name = "TB_Numberaga"
         Me.TB_Numberaga.Size = New System.Drawing.Size(265, 417)
         Me.TB_Numberaga.TabIndex = 24
         Me.TB_Numberaga.TabStop = False
         Me.TB_Numberaga.Text = "NumberToText"
         '
+        'FlowLayoutPanel5
+        '
+        Me.FlowLayoutPanel5.Controls.Add(Me.B_EditFile)
+        Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(442, 0)
+        Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
+        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(233, 575)
+        Me.FlowLayoutPanel5.TabIndex = 25
+        '
+        'B_EditFile
+        '
+        Me.B_EditFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.B_EditFile.AutoSize = True
+        Me.B_EditFile.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.B_EditFile.Location = New System.Drawing.Point(3, 3)
+        Me.B_EditFile.Name = "B_EditFile"
+        Me.B_EditFile.Size = New System.Drawing.Size(90, 23)
+        Me.B_EditFile.TabIndex = 4
+        Me.B_EditFile.Text = "Открыть файл"
+        Me.B_EditFile.UseVisualStyleBackColor = True
+        '
         'FormTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(831, 474)
+        Me.ClientSize = New System.Drawing.Size(1000, 597)
+        Me.Controls.Add(Me.FlowLayoutPanel5)
         Me.Controls.Add(Me.TB_Numberaga)
         Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.FlowLayoutPanel4)
@@ -552,6 +578,8 @@ Partial Class FormTest
         Me.FlowLayoutPanel4.PerformLayout()
         Me.TB_Numberaga.ResumeLayout(False)
         Me.TB_Numberaga.PerformLayout()
+        Me.FlowLayoutPanel5.ResumeLayout(False)
+        Me.FlowLayoutPanel5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -596,4 +624,6 @@ Partial Class FormTest
 	Friend WithEvents RegexTextBox4 As JANL.RegexTextBox
 	Friend WithEvents MonthPicker1 As JANL.MonthPicker
     Friend WithEvents TextBoxLabel1 As JANL.TextBoxLabel
+    Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
+    Friend WithEvents B_EditFile As Button
 End Class

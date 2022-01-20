@@ -73,8 +73,19 @@
     <Compile Include="ExtendedControls\TextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\FormFileEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFileEdit.Designer.cs">
+      <DependentUpon>FormFileEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generic\FixedQueue.cs" />
     <Compile Include="Forms\FormManager.cs" />
+    <Compile Include="icons8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>icons8.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,6 +109,14 @@
     <EmbeddedResource Include="Animated\UC_Loader.resx">
       <DependentUpon>UC_Loader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFileEdit.resx">
+      <DependentUpon>FormFileEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="icons8.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>icons8.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -118,6 +137,21 @@
   <ItemGroup>
     <Content Include="Icon\JANL.png" />
     <Content Include="Icon\JANL.svg" />
+    <Content Include="Resources\icons8\Cancel16.png" />
+    <Content Include="Resources\icons8\Checked16.png" />
+    <Content Include="Resources\icons8\DeleteBin16.png" />
+    <Content Include="Resources\icons8\Info16.png" />
+    <Content Include="Resources\icons8\Minus16.png" />
+    <Content Include="Resources\icons8\Ok16.png" />
+    <Content Include="Resources\icons8\OpenedFolder16.png" />
+    <Content Include="Resources\icons8\PencilDrawing16.png" />
+    <Content Include="Resources\icons8\Refresh16.png" />
+    <Content Include="Resources\icons8\Save16.png" />
+    <Content Include="Resources\icons8\SaveAs16.png" />
+    <Content Include="Resources\icons8\SaveClose16.png" />
+    <Content Include="Resources\icons8\Search16.png" />
+    <Content Include="Resources\icons8\Synchronize16.png" />
+    <None Include="Resources\icons8\Add16.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Managers\" />
