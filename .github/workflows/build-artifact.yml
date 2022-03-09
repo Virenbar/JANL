@@ -9,8 +9,7 @@ on:
     outputs:
       version: 
         description: "Version builded"
-        value: ${{ jobs.build.outputs.version }}
-        
+        value: ${{ jobs.build.outputs.version }}    
 jobs:
   build:
     name: Build
@@ -22,10 +21,13 @@ jobs:
       DOTNET_NOLOGO: true
       SolutionName: JANL.sln
       Configuration: ${{ matrix.configuration }}
-      
+    outputs:
+      version: ${{steps.version.outputs.version}}      
     steps:
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     
     - name: Install .NET Core
       uses: actions/setup-dotnet@v1
