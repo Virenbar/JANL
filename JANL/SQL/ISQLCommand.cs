@@ -3,26 +3,29 @@ using System.Threading.Tasks;
 
 namespace JANL.SQL
 {
-	public interface ISQLCommand<T>
-	{
-		SqlParameterCollection Parameters { get; }
+    public interface ISQLCommand<T> : ISQLCommand
+    {
+        T Execute();
 
-		int Timeout { get; set; }
+        T Execute(SqlConnection Connection);
 
-		T Execute();
+        T Execute(string ConnectionString);
 
-		T Execute(SqlConnection Connection);
+        T Execute(SqlTransaction Transaction);
 
-		T Execute(string ConnectionString);
+        Task<T> ExecuteAsync();
 
-		T Execute(SqlTransaction Transaction);
+        Task<T> ExecuteAsync(SqlConnection Connection);
 
-		Task<T> ExecuteAsync();
+        Task<T> ExecuteAsync(string ConnectionString);
 
-		Task<T> ExecuteAsync(SqlConnection Connection);
+        Task<T> ExecuteAsync(SqlTransaction Transaction);
+    }
 
-		Task<T> ExecuteAsync(string ConnectionString);
+    public interface ISQLCommand
+    {
+        SqlParameterCollection Parameters { get; }
 
-		Task<T> ExecuteAsync(SqlTransaction Transaction);
-	}
+        int Timeout { get; set; }
+    }
 }

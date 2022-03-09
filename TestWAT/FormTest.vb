@@ -1,8 +1,8 @@
-﻿Imports System.Threading
-Imports TestWAT.Models
+﻿Imports System.IO
+Imports System.Threading
 Imports JANL
-Imports System.IO
 Imports JANL.Forms
+Imports TestWAT.Models
 
 Public Class FormTest
     Private TestObject As New TestModel()
