@@ -54,7 +54,7 @@ jobs:
       run: msbuild $env:SolutionName /t:Build /p:Configuration=$env:Configuration
 
     - name: Pack NuGet
-      run: nuget pack .\JANL\JANL.nuspec -Version ${{ env.VERSION }}
+      run: nuget pack .\JANL\JANL.nuspec -Version $env:VERSION
       
     - name: Upload artifact
       if: matrix.configuration == 'Release'
