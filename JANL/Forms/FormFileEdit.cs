@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -7,9 +8,9 @@ namespace JANL.Forms
 {
     public partial class FormFileEdit : Form
     {
+        private readonly FileInfo File;
         private Process Editor;
         private SyncEvent Event;
-        private FileInfo File;
         private FileSystemWatcher FSW;
         private DateTime LastWrite;
 
@@ -62,7 +63,7 @@ namespace JANL.Forms
         private void RefreshUI()
         {
             File.Refresh();
-            L_Date.Text = File.LastWriteTime.ToString();
+            L_Date.Text = File.LastWriteTime.ToString(CultureInfo.InvariantCulture);
             if (File.LastWriteTime > LastWrite)
             {
                 IsChanged = true;
@@ -74,10 +75,12 @@ namespace JANL.Forms
 
         private void B_Cancel_Click(object sender, EventArgs e)
         {
+            //DialogResult OK
         }
 
         private void B_OK_Click(object sender, EventArgs e)
         {
+            //DialogResult Cancel
         }
 
         private void B_Open_Click(object sender, EventArgs e) => OpenFile();

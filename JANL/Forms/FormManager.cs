@@ -7,7 +7,7 @@ namespace JANL.Forms
     public static class FormManager
     {
         private static ToolStripMenuItem Root;
-        private static Dictionary<Form, ToolStripMenuItem> TSMIs;
+        private static Dictionary<Form, ToolStripMenuItem> TSMIs = new Dictionary<Form, ToolStripMenuItem>();
 
         public static void Add(Form form)
         {

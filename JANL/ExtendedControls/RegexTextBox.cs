@@ -11,7 +11,7 @@ namespace JANL
     /// </summary>
     public class RegexTextBox : TextBox
     {
-        public RegexTextBox() : base()
+        public RegexTextBox()
         {
             BackColor = Color.White;
             ValidColor = Colors.Common.Good;

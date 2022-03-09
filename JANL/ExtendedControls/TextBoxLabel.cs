@@ -7,7 +7,7 @@ namespace JANL
 {
     public class TextBoxLabel : TextBox
     {
-        public TextBoxLabel() : base()
+        public TextBoxLabel()
         {
             ForeColor = Color.Black;
             LabelColor = Color.SlateGray;
