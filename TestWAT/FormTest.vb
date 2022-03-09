@@ -1,6 +1,8 @@
-﻿Imports System.Threading
-Imports TestWAT.Models
+﻿Imports System.IO
+Imports System.Threading
 Imports JANL
+Imports JANL.Forms
+Imports TestWAT.Models
 
 Public Class FormTest
     Private TestObject As New TestModel()
@@ -8,7 +10,7 @@ Public Class FormTest
 
     Private Sub FormTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BS_TestModel.DataSource = TestObject
-        TestObject.TestString = "123"
+        TestObject.TestString = "123456"
     End Sub
 
 #Region "Date"
@@ -197,6 +199,13 @@ Public Class FormTest
         Else
             TB_NumberText.Text = ""
         End If
+    End Sub
+
+    Private Sub B_EditFile_Click(sender As Object, e As EventArgs) Handles B_EditFile.Click
+        Dim T = Path.GetTempFileName + ".txt"
+        File.WriteAllText(T, "Test text")
+        Dim F = New FormFileEdit(T)
+        F.ShowDialog(Me)
     End Sub
 
 End Class

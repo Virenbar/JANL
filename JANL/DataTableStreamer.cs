@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace JANL
 {
@@ -22,7 +18,7 @@ namespace JANL
         public DataTableStreamer(string source, string target, string sourceTable, string targetTable, IProgress<long> progress) : this(source, target, sourceTable, targetTable)
         {
             Progress = progress;
-            SBC.SqlRowsCopied += (object sender, SqlRowsCopiedEventArgs e) => Progress.Report(e.RowsCopied);
+            SBC.SqlRowsCopied += (object _, SqlRowsCopiedEventArgs e) => Progress.Report(e.RowsCopied);
         }
 
         public DataTableStreamer(string source, string target, string table) : this(source, target, table, table) { }
@@ -55,11 +51,11 @@ namespace JANL
         }
 
         #region IDisposable Support
-        private bool disposedValue = false; // Для определения избыточных вызовов
+        private bool disposedValue;
 
         void IDisposable.Dispose() => Dispose(true);
 
-        protected virtual void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (!disposedValue)
             {

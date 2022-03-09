@@ -20,7 +20,7 @@ namespace JANL.SQL
         /// </summary>
         public override DataTable Execute(SqlConnection Connection)
         {
-            var Result = new DataTable() { Locale = System.Globalization.CultureInfo.CurrentCulture };
+            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
             SQLCommand.Connection = Connection;
             using (var R = SQLCommand.ExecuteReader())
             {
@@ -34,11 +34,11 @@ namespace JANL.SQL
         /// </summary>
         public override async Task<DataTable> ExecuteAsync(SqlConnection Connection)
         {
-            var Result = new DataTable() { Locale = System.Globalization.CultureInfo.CurrentCulture };
+            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
             SQLCommand.Connection = Connection;
             using (var R = await SQLCommand.ExecuteReaderAsync())
             {
-                await Task.Run(() => Result.Load(R));
+                await Task.Run(() => Result.Load(R)).ConfigureAwait(false);
             }
             return Result;
         }
@@ -58,7 +58,7 @@ namespace JANL.SQL
         /// </summary>
         public override T Execute(SqlConnection Connection)
         {
-            var Result = new DataTable() { Locale = System.Globalization.CultureInfo.CurrentCulture };
+            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
             SQLCommand.Connection = Connection;
             using (var R = SQLCommand.ExecuteReader())
             {
@@ -72,7 +72,7 @@ namespace JANL.SQL
         /// </summary>
         public override async Task<T> ExecuteAsync(SqlConnection Connection)
         {
-            var Result = new DataTable() { Locale = System.Globalization.CultureInfo.CurrentCulture };
+            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
             SQLCommand.Connection = Connection;
             using (var R = await SQLCommand.ExecuteReaderAsync())
             {
