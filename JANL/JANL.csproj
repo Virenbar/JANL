@@ -95,6 +95,7 @@
     <Compile Include="SQL\BaseSQLCommand.cs" />
     <Compile Include="SQL\Defaults.cs" />
     <Compile Include="SQL\ISQLCommand.cs" />
+    <Compile Include="SQL\ScalarFunction.cs" />
     <Compile Include="SQL\SelectProcedure.cs" />
     <Compile Include="SQL\ScalarProcedure.cs" />
     <Compile Include="SQL\NonQueryProcedure.cs" />

@@ -22,9 +22,10 @@ namespace JANL.SQL
         {
             var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
             SQLCommand.Connection = Connection;
-            using (var R = SQLCommand.ExecuteReader())
+            //TODO Replace with Reader (Blocked by RGI)
+            using (var A = new SqlDataAdapter(SQLCommand))
             {
-                Result.Load(R);
+                A.Fill(Result);
             }
             return Result;
         }
