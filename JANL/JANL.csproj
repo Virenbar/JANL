@@ -67,18 +67,30 @@
     <Compile Include="Animators\ImageRotator.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
+    <Compile Include="Defaults.cs" />
     <Compile Include="ExtendedControls\RegexTextBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExtendedControls\StoreViewHeader.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ExtendedControls\TextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Forms\FormFileEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormFileEdit.Designer.cs">
       <DependentUpon>FormFileEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormStoreView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormStoreView.Designer.cs">
+      <DependentUpon>FormStoreView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generic\BaseStoreView.cs" />
     <Compile Include="Generic\FixedQueue.cs" />
     <Compile Include="Forms\FormManager.cs" />
     <Compile Include="icons8.Designer.cs">
@@ -91,6 +103,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SQL\BaseSQLCommand.cs" />
     <Compile Include="SQL\Defaults.cs" />
@@ -113,6 +130,9 @@
     <EmbeddedResource Include="Forms\FormFileEdit.resx">
       <DependentUpon>FormFileEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormStoreView.resx">
+      <DependentUpon>FormStoreView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="icons8.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>icons8.Designer.cs</LastGenOutput>
@@ -124,8 +144,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="JANL.nuspec">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\partner64.png" />
   </ItemGroup>
