@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace JANL.Forms
 {
-    public partial class FormStoreView<K> : Form where K : struct
+    public partial class FormStoreView : Form
     {
-        private BaseStoreView<K> StoreView;
+        private BaseStoreView StoreView;
         private UserControl Header;
+        private UserControl Footer;
 
-        public FormStoreView(BaseStoreView<K> SV) : this() { StoreView = SV; }
+        public FormStoreView(BaseStoreView SV) : this() { StoreView = SV; }
 
         protected FormStoreView()
         {

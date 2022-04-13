@@ -36,5 +36,11 @@ namespace JANL
         /// По умолчанию используется значение 30 секунд.
         /// </summary>
         public static int Timeout { get; set; } = 30;
+
+        public static class Icons
+        {
+            public static Icon OK { get; set; }
+            public static Icon Cancel { get; set; }
+        }
     }
 }

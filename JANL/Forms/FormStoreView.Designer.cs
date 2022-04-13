@@ -1,6 +1,6 @@
 ﻿namespace JANL.Forms
 {
-    partial class FormStoreView<K>
+    partial class FormStoreView
     {
         /// <summary>
         /// Required designer variable.

@@ -77,6 +77,7 @@
     <Compile Include="ExtendedControls\TextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Forms\FormFileEdit.cs">
       <SubType>Form</SubType>
     </Compile>
