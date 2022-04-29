@@ -108,19 +108,20 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\PersonType.vb" />
     <Compile Include="Excel\Reestr.vb" />
-    <Compile Include="Forms\AddressSuggest.Designer.vb">
-      <DependentUpon>AddressSuggest.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddressSuggest.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
-    <Compile Include="Forms\DGVTEdit.Designer.vb">
+    <Compile Include="Forms\Lists\FormPersonList.Designer.vb">
+      <DependentUpon>FormPersonList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lists\FormPersonList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\DGVTEdit.Designer.vb">
       <DependentUpon>DGVTEdit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DGVTEdit.vb">
+    <Compile Include="Forms\Tests\DGVTEdit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormDummy.Designer.vb">
@@ -135,22 +136,22 @@
     <Compile Include="Forms\FormMDI.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSelectTest.Designer.vb">
+    <Compile Include="Forms\Tests\FormSelectTest.Designer.vb">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSelectTest.vb">
+    <Compile Include="Forms\Tests\FormSelectTest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormULCheck.Designer.vb">
+    <Compile Include="Forms\Tests\FormULCheck.Designer.vb">
       <DependentUpon>FormULCheck.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormULCheck.vb">
+    <Compile Include="Forms\Tests\FormULCheck.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormView.Designer.vb">
+    <Compile Include="Forms\Tests\FormView.Designer.vb">
       <DependentUpon>FormView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormView.vb">
+    <Compile Include="Forms\Tests\FormView.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTest.Designer.vb">
@@ -169,7 +170,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>icons8GIF.resx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\TestModelData.vb" />
+    <Compile Include="Models\DTSources\PersonList.vb" />
     <Compile Include="Models\Repository\TestRepository.vb" />
     <Compile Include="Models\RGI_Excel\Cell.vb" />
     <Compile Include="Models\RGI_Excel\Footer.vb" />
@@ -180,10 +181,10 @@
     <Compile Include="Models\TestModel.vb" />
     <Compile Include="SQLCommands.vb" />
     <Compile Include="Types\Config.vb" />
-    <Compile Include="Forms\FormAsync.Designer.vb">
+    <Compile Include="Forms\Tests\FormAsync.Designer.vb">
       <DependentUpon>FormAsync.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAsync.vb">
+    <Compile Include="Forms\Tests\FormAsync.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormAddressSuggest.Designer.vb">
@@ -220,18 +221,21 @@
     <Compile Include="RingAnimation.xaml.vb">
       <DependentUpon>RingAnimation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CB_PersonType.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\AddressSuggest.resx">
-      <DependentUpon>AddressSuggest.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Lists\FormPersonList.resx">
+      <DependentUpon>FormPersonList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DGVTEdit.resx">
+    <EmbeddedResource Include="Forms\Tests\DGVTEdit.resx">
       <DependentUpon>DGVTEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddressSuggest.resx">
       <DependentUpon>FormAddressSuggest.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAsync.resx">
+    <EmbeddedResource Include="Forms\Tests\FormAsync.resx">
       <DependentUpon>FormAsync.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDummy.resx">
@@ -240,13 +244,13 @@
     <EmbeddedResource Include="Forms\FormMDI.resx">
       <DependentUpon>FormMDI.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSelectTest.resx">
+    <EmbeddedResource Include="Forms\Tests\FormSelectTest.resx">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormULCheck.resx">
+    <EmbeddedResource Include="Forms\Tests\FormULCheck.resx">
       <DependentUpon>FormULCheck.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormView.resx">
+    <EmbeddedResource Include="Forms\Tests\FormView.resx">
       <DependentUpon>FormView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTest.resx">
@@ -383,6 +387,9 @@
       <Project>{6eaf970d-b09f-41cc-b855-a5221757a9ae}</Project>
       <Name>JANL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Editor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <ProjectExtensions>

@@ -87,7 +87,7 @@ Public Class FormSelect
 #Region "Form Events"
 
     Private Async Sub BNB_Delete_Click(sender As Object, e As EventArgs) Handles BNB_Delete.Click
-        If Msgs.AskYesNo($"Удалить {CurrentValue}({CurrentKey})?") = DialogResult.Yes Then
+        If Msgs.AskYesNo($"Удалить {Repository.Name.ToLowerInvariant()}: {CurrentValue}({CurrentKey})?") = DialogResult.Yes Then
             Repository.DeleteItem(CurrentKey)
             Await RefreshData()
         End If

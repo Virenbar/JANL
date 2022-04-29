@@ -120,7 +120,7 @@ namespace JANL.SQL
         {
             using (var Connection = await NewConnectionAsync(ConnectionString))
             {
-                return Execute(Connection);
+                return await ExecuteAsync(Connection);
             }
         }
 

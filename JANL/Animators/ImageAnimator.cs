@@ -8,10 +8,7 @@ namespace JANL.Animators
 {
     public abstract class ImageAnimator
     {
-        protected int Delay;
-        protected int Framerate;
         private readonly Image SourceImage;
-        private bool Animated;
 
         protected ImageAnimator(Image Image)
         {
@@ -20,6 +17,21 @@ namespace JANL.Animators
             SourceImage = Image;
             this.Image = new Bitmap(Image);
         }
+
+        /// <summary>
+        /// Активна ли анимация
+        /// </summary>
+        public bool Animated { get; private set; }
+
+        /// <summary>
+        /// Частота новых кадров
+        /// </summary>
+        public int Framerate { get; private set; }
+
+        /// <summary>
+        /// Задержка между кадрами
+        /// </summary>
+        protected int Delay { get; private set; }
 
         [DllImport("user32.dll")]
         public extern static bool DestroyIcon(IntPtr handle);
@@ -32,6 +44,7 @@ namespace JANL.Animators
             this.Framerate = Framerate;
         }
 
+        //public void SetSourceImage(Image Image)=
         public void StartAnimation()
         {
             Animated = true;
@@ -63,7 +76,12 @@ namespace JANL.Animators
 
         #region Properties
         protected int Height => SourceImage.Height;
+
+        /// <summary>
+        /// Текущий кадр
+        /// </summary>
         public Bitmap Image { get; private set; }
+
         protected int Width => SourceImage.Width;
         #endregion Properties
 

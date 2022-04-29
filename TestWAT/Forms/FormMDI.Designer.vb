@@ -22,51 +22,68 @@ Partial Class FormMDI
 	'Не изменяйте ее в редакторе исходного кода.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.MS_MDI = New System.Windows.Forms.MenuStrip()
-		Me.FormSelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.FormViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.MS_MDI.SuspendLayout()
-		Me.SuspendLayout()
-		'
-		'MS_MDI
-		'
-		Me.MS_MDI.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormSelectToolStripMenuItem, Me.FormViewToolStripMenuItem})
-		Me.MS_MDI.Location = New System.Drawing.Point(0, 0)
-		Me.MS_MDI.Name = "MS_MDI"
-		Me.MS_MDI.Size = New System.Drawing.Size(800, 24)
-		Me.MS_MDI.TabIndex = 1
-		Me.MS_MDI.Text = "MenuStrip1"
-		'
-		'FormSelectToolStripMenuItem
-		'
-		Me.FormSelectToolStripMenuItem.Name = "FormSelectToolStripMenuItem"
-		Me.FormSelectToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
-		Me.FormSelectToolStripMenuItem.Text = "FormSelect"
-		'
-		'FormViewToolStripMenuItem
-		'
-		Me.FormViewToolStripMenuItem.Name = "FormViewToolStripMenuItem"
-		Me.FormViewToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
-		Me.FormViewToolStripMenuItem.Text = "FormView"
-		'
-		'FormMDI
-		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(800, 450)
-		Me.Controls.Add(Me.MS_MDI)
-		Me.IsMdiContainer = True
-		Me.MainMenuStrip = Me.MS_MDI
-		Me.Name = "FormMDI"
-		Me.Text = "FormMDI"
-		Me.MS_MDI.ResumeLayout(False)
-		Me.MS_MDI.PerformLayout()
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
+        Me.MS_MDI = New System.Windows.Forms.MenuStrip()
+        Me.FormSelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormPersonListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MS_MDI.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'MS_MDI
+        '
+        Me.MS_MDI.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormSelectToolStripMenuItem, Me.FormViewToolStripMenuItem, Me.ListsToolStripMenuItem})
+        Me.MS_MDI.Location = New System.Drawing.Point(0, 0)
+        Me.MS_MDI.Name = "MS_MDI"
+        Me.MS_MDI.Size = New System.Drawing.Size(800, 24)
+        Me.MS_MDI.TabIndex = 1
+        Me.MS_MDI.Text = "MenuStrip1"
+        '
+        'FormSelectToolStripMenuItem
+        '
+        Me.FormSelectToolStripMenuItem.Name = "FormSelectToolStripMenuItem"
+        Me.FormSelectToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
+        Me.FormSelectToolStripMenuItem.Text = "FormSelect"
+        '
+        'FormViewToolStripMenuItem
+        '
+        Me.FormViewToolStripMenuItem.Name = "FormViewToolStripMenuItem"
+        Me.FormViewToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
+        Me.FormViewToolStripMenuItem.Text = "FormView"
+        '
+        'ListsToolStripMenuItem
+        '
+        Me.ListsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormPersonListToolStripMenuItem})
+        Me.ListsToolStripMenuItem.Name = "ListsToolStripMenuItem"
+        Me.ListsToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
+        Me.ListsToolStripMenuItem.Text = "Lists"
+        '
+        'FormPersonListToolStripMenuItem
+        '
+        Me.FormPersonListToolStripMenuItem.Name = "FormPersonListToolStripMenuItem"
+        Me.FormPersonListToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormPersonListToolStripMenuItem.Text = "FormPersonList"
+        '
+        'FormMDI
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.MS_MDI)
+        Me.IsMdiContainer = True
+        Me.MainMenuStrip = Me.MS_MDI
+        Me.Name = "FormMDI"
+        Me.Text = "FormMDI"
+        Me.MS_MDI.ResumeLayout(False)
+        Me.MS_MDI.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-	End Sub
+    End Sub
 
-	Friend WithEvents MS_MDI As MenuStrip
+    Friend WithEvents MS_MDI As MenuStrip
 	Friend WithEvents FormSelectToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents FormViewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ListsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FormPersonListToolStripMenuItem As ToolStripMenuItem
 End Class
