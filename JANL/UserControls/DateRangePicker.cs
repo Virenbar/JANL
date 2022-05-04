@@ -46,8 +46,8 @@ namespace JANL.UserControls
         [Browsable(false)]
         public DateTime DateEnd
         {
-            get => DTP_Begin.Value;
-            set => DTP_Begin.Value = value;
+            get => DTP_End.Value;
+            set => DTP_End.Value = value;
         }
 
         [Browsable(true), Category("DateRangePicker"), DefaultValue("От")]
