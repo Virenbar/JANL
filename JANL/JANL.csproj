@@ -139,6 +139,12 @@
     <Compile Include="UserControls\DataTableView.Designer.cs">
       <DependentUpon>DataTableView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DateRangePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DateRangePicker.Designer.cs">
+      <DependentUpon>DateRangePicker.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Animated\UC_Loader.resx">
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataTableView.resx">
       <DependentUpon>DataTableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DateRangePicker.resx">
+      <DependentUpon>DateRangePicker.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

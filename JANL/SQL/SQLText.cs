@@ -2,12 +2,12 @@
 
 namespace JANL.SQL
 {
-	public abstract class SQLText<T> : BaseSQLCommand<T>
-	{
-		public SQLText() : this("") { }
+    public abstract class SQLText<T> : BaseSQLCommand<T>
+    {
+        protected SQLText() : this("") { }
 
-		public SQLText(string text) : base(text, CommandType.Text) { }
+        protected SQLText(string text) : base(text, CommandType.Text) { }
 
-		public string Text => SQLCommand.CommandText;
-	}
+        public string Text => SQLCommand.CommandText;
+    }
 }

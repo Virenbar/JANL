@@ -13,10 +13,6 @@ namespace JANL.Forms
             Text = "Окно выбора";
         }
 
-        private new void Show() { }
-
-        private new void Show(IWin32Window _) { }
-
         #region Properties
 
         public string DisplayMember

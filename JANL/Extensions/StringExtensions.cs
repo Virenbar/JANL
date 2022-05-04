@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JANL.Extensions
+﻿namespace JANL.Extensions
 {
     public static class StringExtensions
 
@@ -14,11 +8,11 @@ namespace JANL.Extensions
         static StringExtensions()
         {
             ValidChars = new bool[65536];
-            for (char c = '0'; c <= '9'; c++) ValidChars[c] = true;
-            for (char c = 'A'; c <= 'Z'; c++) ValidChars[c] = true;
-            for (char c = 'a'; c <= 'z'; c++) ValidChars[c] = true;
-            for (char c = 'А'; c <= 'Я'; c++) ValidChars[c] = true;
-            for (char c = 'а'; c <= 'я'; c++) ValidChars[c] = true;
+            for (char c = '0'; c <= '9'; c++) { ValidChars[c] = true; }
+            for (char c = 'A'; c <= 'Z'; c++) { ValidChars[c] = true; }
+            for (char c = 'a'; c <= 'z'; c++) { ValidChars[c] = true; }
+            for (char c = 'А'; c <= 'Я'; c++) { ValidChars[c] = true; }
+            for (char c = 'а'; c <= 'я'; c++) { ValidChars[c] = true; }
             ValidChars['ё'] = true;
             ValidChars['Ё'] = true;
             ValidChars[' '] = true;

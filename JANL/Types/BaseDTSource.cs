@@ -7,11 +7,11 @@ namespace JANL.Types
 {
     public abstract class BaseDTSource : IDTSource
     {
-        public BaseDTSource(string keyName) : this(keyName, keyName, new[] { keyName }) { }
+        protected BaseDTSource(string keyName) : this(keyName, keyName, new[] { keyName }) { }
 
-        public BaseDTSource(string keyName, string valueName) : this(keyName, valueName, new[] { keyName, valueName }) { }
+        protected BaseDTSource(string keyName, string valueName) : this(keyName, valueName, new[] { keyName, valueName }) { }
 
-        public BaseDTSource(string keyName, string valueName, IEnumerable<string> collumns)
+        protected BaseDTSource(string keyName, string valueName, IEnumerable<string> collumns)
         {
             KeyName = keyName;
             ValueName = valueName;

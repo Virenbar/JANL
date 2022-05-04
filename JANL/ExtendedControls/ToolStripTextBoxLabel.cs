@@ -43,9 +43,6 @@ namespace JANL
         [Browsable(true), Category("TextBoxLabel"), DefaultValue(typeof(Color), "0x000000")]
         public new Color ForeColor { get; set; }
 
-        //[Browsable(true), Category("Appearance"), DefaultValue(false)]
-        //public bool RealTime { get; set; }
-
         [Browsable(true), Category("TextBoxLabel"), DefaultValue(""), Description("Заголовок")]
         public string Label
         {
@@ -98,7 +95,7 @@ namespace JANL
                     return true;
 
                 default: return base.ProcessCmdKey(ref m, keyData);
-            };
+            }
         }
 
         protected override void OnGotFocus(EventArgs e)

@@ -41,12 +41,12 @@
             this.BindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.BindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.BindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.BNB_New = new System.Windows.Forms.ToolStripButton();
-            this.BNB_Edit = new System.Windows.Forms.ToolStripButton();
-            this.BNB_Delete = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BNB_Refresh = new System.Windows.Forms.ToolStripButton();
+            this.BNS1 = new System.Windows.Forms.ToolStripSeparator();
+            this.B_Create = new System.Windows.Forms.ToolStripButton();
+            this.B_Edit = new System.Windows.Forms.ToolStripButton();
+            this.B_Delete = new System.Windows.Forms.ToolStripButton();
+            this.BNS2 = new System.Windows.Forms.ToolStripSeparator();
+            this.B_Refresh = new System.Windows.Forms.ToolStripButton();
             this.TB_Filter = new JANL.ToolStripTextBoxLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BN_View)).BeginInit();
@@ -88,12 +88,12 @@
             this.BindingNavigatorSeparator1,
             this.BindingNavigatorMoveNextItem,
             this.BindingNavigatorMoveLastItem,
-            this.BindingNavigatorSeparator2,
-            this.BNB_New,
-            this.BNB_Edit,
-            this.BNB_Delete,
-            this.ToolStripSeparator1,
-            this.BNB_Refresh,
+            this.BNS1,
+            this.B_Create,
+            this.B_Edit,
+            this.B_Delete,
+            this.BNS2,
+            this.B_Refresh,
             this.TB_Filter});
             this.BN_View.Location = new System.Drawing.Point(0, 0);
             this.BN_View.MoveFirstItem = this.BindingNavigatorMoveFirstItem;
@@ -172,57 +172,57 @@
             this.BindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.BindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
-            // BindingNavigatorSeparator2
+            // BNS1
             // 
-            this.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2";
-            this.BindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.BNS1.Name = "BNS1";
+            this.BNS1.Size = new System.Drawing.Size(6, 25);
             // 
-            // BNB_New
+            // B_Create
             // 
-            this.BNB_New.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BNB_New.Enabled = false;
-            this.BNB_New.Image = ((System.Drawing.Image)(resources.GetObject("BNB_New.Image")));
-            this.BNB_New.Name = "BNB_New";
-            this.BNB_New.RightToLeftAutoMirrorImage = true;
-            this.BNB_New.Size = new System.Drawing.Size(23, 22);
-            this.BNB_New.Text = "Добавить";
-            this.BNB_New.Click += new System.EventHandler(this.BNB_New_Click);
+            this.B_Create.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.B_Create.Enabled = false;
+            this.B_Create.Image = ((System.Drawing.Image)(resources.GetObject("B_Create.Image")));
+            this.B_Create.Name = "B_Create";
+            this.B_Create.RightToLeftAutoMirrorImage = true;
+            this.B_Create.Size = new System.Drawing.Size(23, 22);
+            this.B_Create.Text = "Добавить";
+            this.B_Create.Click += new System.EventHandler(this.BNB_New_Click);
             // 
-            // BNB_Edit
+            // B_Edit
             // 
-            this.BNB_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BNB_Edit.Enabled = false;
-            this.BNB_Edit.Image = ((System.Drawing.Image)(resources.GetObject("BNB_Edit.Image")));
-            this.BNB_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BNB_Edit.Name = "BNB_Edit";
-            this.BNB_Edit.Size = new System.Drawing.Size(23, 22);
-            this.BNB_Edit.Text = "Редактировать";
-            this.BNB_Edit.Click += new System.EventHandler(this.BNB_Edit_Click);
+            this.B_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.B_Edit.Enabled = false;
+            this.B_Edit.Image = ((System.Drawing.Image)(resources.GetObject("B_Edit.Image")));
+            this.B_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.B_Edit.Name = "B_Edit";
+            this.B_Edit.Size = new System.Drawing.Size(23, 22);
+            this.B_Edit.Text = "Редактировать";
+            this.B_Edit.Click += new System.EventHandler(this.BNB_Edit_Click);
             // 
-            // BNB_Delete
+            // B_Delete
             // 
-            this.BNB_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BNB_Delete.Enabled = false;
-            this.BNB_Delete.Image = ((System.Drawing.Image)(resources.GetObject("BNB_Delete.Image")));
-            this.BNB_Delete.Name = "BNB_Delete";
-            this.BNB_Delete.RightToLeftAutoMirrorImage = true;
-            this.BNB_Delete.Size = new System.Drawing.Size(23, 22);
-            this.BNB_Delete.Text = "Удалить";
-            this.BNB_Delete.Click += new System.EventHandler(this.BNB_Delete_Click);
+            this.B_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.B_Delete.Enabled = false;
+            this.B_Delete.Image = ((System.Drawing.Image)(resources.GetObject("B_Delete.Image")));
+            this.B_Delete.Name = "B_Delete";
+            this.B_Delete.RightToLeftAutoMirrorImage = true;
+            this.B_Delete.Size = new System.Drawing.Size(23, 22);
+            this.B_Delete.Text = "Удалить";
+            this.B_Delete.Click += new System.EventHandler(this.BNB_Delete_Click);
             // 
-            // ToolStripSeparator1
+            // BNS2
             // 
-            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
-            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.BNS2.Name = "BNS2";
+            this.BNS2.Size = new System.Drawing.Size(6, 25);
             // 
-            // BNB_Refresh
+            // B_Refresh
             // 
-            this.BNB_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("BNB_Refresh.Image")));
-            this.BNB_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BNB_Refresh.Name = "BNB_Refresh";
-            this.BNB_Refresh.Size = new System.Drawing.Size(81, 22);
-            this.BNB_Refresh.Text = "Обновить";
-            this.BNB_Refresh.Click += new System.EventHandler(this.BNB_Refresh_Click);
+            this.B_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("B_Refresh.Image")));
+            this.B_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.B_Refresh.Name = "B_Refresh";
+            this.B_Refresh.Size = new System.Drawing.Size(81, 22);
+            this.B_Refresh.Text = "Обновить";
+            this.B_Refresh.Click += new System.EventHandler(this.BNB_Refresh_Click);
             // 
             // TB_Filter
             // 
@@ -264,12 +264,12 @@
         internal System.Windows.Forms.ToolStripSeparator BindingNavigatorSeparator1;
         internal System.Windows.Forms.ToolStripButton BindingNavigatorMoveNextItem;
         internal System.Windows.Forms.ToolStripButton BindingNavigatorMoveLastItem;
-        internal System.Windows.Forms.ToolStripSeparator BindingNavigatorSeparator2;
-        internal System.Windows.Forms.ToolStripButton BNB_New;
-        internal System.Windows.Forms.ToolStripButton BNB_Edit;
-        internal System.Windows.Forms.ToolStripButton BNB_Delete;
-        internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator1;
-        internal System.Windows.Forms.ToolStripButton BNB_Refresh;
+        internal System.Windows.Forms.ToolStripSeparator BNS1;
+        internal System.Windows.Forms.ToolStripButton B_Create;
+        internal System.Windows.Forms.ToolStripButton B_Edit;
+        internal System.Windows.Forms.ToolStripButton B_Delete;
+        internal System.Windows.Forms.ToolStripSeparator BNS2;
+        internal System.Windows.Forms.ToolStripButton B_Refresh;
         private ToolStripTextBoxLabel TB_Filter;
         private System.Windows.Forms.BindingSource BS_View;
     }

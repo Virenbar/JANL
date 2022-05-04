@@ -15,7 +15,6 @@ namespace JANL.UserControls
         private IEnumerable<string> Collumns;
         private DataTable DT;
         private IDTSource DTSource;
-        //private bool SuppressEvents;
 
         public DataTableView()
         {
@@ -38,7 +37,6 @@ namespace JANL.UserControls
             if (DTSource == null) { return; }
             try
             {
-                //SuppressEvents = true;
                 var OldDT = DT;
                 var OldKey = CurrentKey;
                 DT = await DTSource.GetDataTable();
@@ -53,13 +51,12 @@ namespace JANL.UserControls
             finally
             {
                 DGV.PerformLayout();
-                //SuppressEvents = false;
             }
         }
 
         public void RefreshUI()
         {
-            BNB_Refresh.Visible = DTSource != null;
+            B_Refresh.Enabled = DTSource != null;
             TB_Filter.Enabled = Collumns.Count() > 0;
         }
 
@@ -67,6 +64,8 @@ namespace JANL.UserControls
         {
             DTSource = null;
             Collumns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName);
+            this.DT = DT;
+            DGV.SetDataSource(DT);
             RefreshUI();
         }
 
@@ -101,6 +100,12 @@ namespace JANL.UserControls
                 BS_View.Filter = string.Join(" OR ", CollumnsFilters);
             }
             if (OldKey != null) { BS_View.Position = BS_View.Find(DTSource.KeyName, OldKey); }
+        }
+
+        private void RefreshBN()
+        {
+            BNS1.Visible = B_Create.Visible || B_Edit.Visible || B_Delete.Visible;
+            BNS2.Visible = B_Refresh.Visible;
         }
 
         #region Properties
@@ -145,39 +150,66 @@ namespace JANL.UserControls
         [Browsable(true), Category("DataTableView"), Description("Кнопка создать"), DefaultValue(false)]
         public bool CreateVisible
         {
-            get => BNB_New.Visible;
-            set => BNB_New.Visible = value;
+            get => B_Create.Visible;
+            set
+            {
+                B_Create.Visible = value;
+                RefreshBN();
+            }
         }
 
         [Browsable(true), Category("DataTableView"), Description("Кнопка удалить"), DefaultValue(false)]
         public bool DeleteVisible
         {
-            get => BNB_Delete.Visible;
-            set => BNB_Delete.Visible = value;
+            get => B_Delete.Visible;
+            set
+            {
+                B_Delete.Visible = value;
+                RefreshBN();
+            }
         }
 
-        [Browsable(true), Category("DataTableView"), Description("Кнопка изменить"), DefaultValue(false)]
+        [Browsable(true), Category("DataTableView"), Description("Кнопка изменить"), DefaultValue(true)]
         public bool EditVisible
         {
-            get => BNB_Edit.Visible;
-            set => BNB_Edit.Visible = value;
+            get => B_Edit.Visible;
+            set
+            {
+                B_Edit.Visible = value;
+                RefreshBN();
+            }
         }
-
-        //[Browsable(true), Category("DataTableView"), Description("Фильтровать сразу после изменения фильтра"), DefaultValue(false)]
-        //public bool RealTimeFilter
-        //{
-        //    get => TB_Filter.RealTime;
-        //    set => TB_Filter.RealTime = value;
-        //}
 
         /// <summary>
         /// Фильтровать по объединенным столбцам
         /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Фильтровать по объединенным столбцам"), DefaultValue(false)]
-        public bool FilterByMergedRow { get; set; } = false;
+        public bool FilterByMergedRow { get; set; }
+
+        [Browsable(true), Category("DataTableView"), Description("Фильтр строк"), DefaultValue(true)]
+        public bool FilterVisible
+        {
+            get => TB_Filter.Visible;
+            set
+            {
+                TB_Filter.Visible = value;
+                RefreshBN();
+            }
+        }
+
+        [Browsable(true), Category("DataTableView"), Description("Фильтр строк"), DefaultValue(true)]
+        public bool RefreshVisible
+        {
+            get => B_Refresh.Visible;
+            set
+            {
+                B_Refresh.Visible = value;
+                RefreshBN();
+            }
+        }
 
         /// <summary>
-        /// Фильтровать по объединенным столбцам
+        /// Время ожидания следующего нажатия
         /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Время ожидания следующего нажатия"), DefaultValue(1000)]
         public int WaitTime
@@ -200,14 +232,13 @@ namespace JANL.UserControls
 
         private async void BNB_Refresh_Click(object sender, EventArgs e)
         {
-            BNB_Refresh.Enabled = false;
+            B_Refresh.Enabled = false;
             await RefreshDT();
-            BNB_Refresh.Enabled = true;
+            B_Refresh.Enabled = true;
         }
 
         private void BS_View_CurrentChanged(object sender, EventArgs e)
         {
-            //if (SuppressEvents) { return; }
             var R = CurrentRow;
             if (R == null || DTSource == null) { return; }
 
