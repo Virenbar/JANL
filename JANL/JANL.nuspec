@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-  <metadata>
-    <id>Virenbar.JANL</id>
-    <version>1.0.0</version>
-    <title>JANL</title>
-    <authors>Virenbar</authors>
-    <owners>Virenbar</owners>
-    <license type="expression">MIT</license>
-    <projectUrl>https://github.com/Virenbar/JANL</projectUrl>
-    <repository type="git" url="https://github.com/Virenbar/JANL.git" />
-    <iconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</iconUrl>
-    <icon>Icon/JANL.png</icon>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Just Another .NET Library</description>
-    <summary>Just Another .NET Library</summary>
-    <releaseNotes>See GitHub.</releaseNotes>
-    <copyright>Virenbar</copyright>
-    <dependencies>
-      <group targetFramework=".NETFramework4.5.2" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="bin\Release\*.dll" target="lib\net452" />
-    <file src="bin\Release\*.xml" target="lib\net452" />
-    <file src="bin\Release\ru\*.*" target="lib\net452\ru" />
-    <file src="Icon\JANL.png" target="Icon\JANL.png" />
-  </files>
+	<metadata>
+		<id>Virenbar.JANL</id>
+		<version>1.0.0</version>
+		<title>JANL</title>
+		<authors>Virenbar</authors>
+		<owners>Virenbar</owners>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/Virenbar/JANL</projectUrl>
+		<repository type="git" url="https://github.com/Virenbar/JANL.git" />
+		<iconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</iconUrl>
+		<icon>images/JANL.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Just Another .NET Library</description>
+		<readme>docs\README.md</readme>
+		<summary>Just Another .NET Library</summary>
+		<copyright>Virenbar</copyright>
+		<dependencies>
+			<group targetFramework=".NETFramework4.5.2" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\*.dll" target="lib\net452" />
+		<file src="bin\Release\*.xml" target="lib\net452" />
+		<file src="bin\Release\ru\*.*" target="lib\net452\ru" />
+		<file src="Icon\JANL.png" target="images\" />
+		<file src="..\README.md" target="docs\" />
+	</files>
 </package>

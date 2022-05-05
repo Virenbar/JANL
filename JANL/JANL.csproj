@@ -77,9 +77,6 @@
     <Compile Include="ExtendedControls\RegexTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\StoreViewHeader.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ExtendedControls\TextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -145,6 +142,7 @@
     <Compile Include="UserControls\DateRangePicker.Designer.cs">
       <DependentUpon>DateRangePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FilterHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Animated\UC_Loader.resx">

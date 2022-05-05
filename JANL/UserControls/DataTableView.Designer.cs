@@ -70,6 +70,8 @@
             this.DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DGV.Size = new System.Drawing.Size(819, 544);
             this.DGV.TabIndex = 15;
+ 
+            this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
             // 
             // BN_View
             // 
@@ -180,7 +182,6 @@
             // B_Create
             // 
             this.B_Create.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.B_Create.Enabled = false;
             this.B_Create.Image = ((System.Drawing.Image)(resources.GetObject("B_Create.Image")));
             this.B_Create.Name = "B_Create";
             this.B_Create.RightToLeftAutoMirrorImage = true;
@@ -191,7 +192,6 @@
             // B_Edit
             // 
             this.B_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.B_Edit.Enabled = false;
             this.B_Edit.Image = ((System.Drawing.Image)(resources.GetObject("B_Edit.Image")));
             this.B_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.B_Edit.Name = "B_Edit";
@@ -202,7 +202,6 @@
             // B_Delete
             // 
             this.B_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.B_Delete.Enabled = false;
             this.B_Delete.Image = ((System.Drawing.Image)(resources.GetObject("B_Delete.Image")));
             this.B_Delete.Name = "B_Delete";
             this.B_Delete.RightToLeftAutoMirrorImage = true;

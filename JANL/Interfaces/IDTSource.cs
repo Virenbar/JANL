@@ -8,7 +8,7 @@ namespace JANL.Interfaces
     {
         Task<DataTable> GetDataTable();
 
-        IEnumerable<string> FilterCollumns { get; }
+        IEnumerable<string> FilterColumns { get; }
         string KeyName { get; }
         string ValueName { get; }
     }

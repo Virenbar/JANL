@@ -24,10 +24,10 @@ Partial Class FormPersonList
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.CB_PersonType = New TestWAT.CB_PersonType()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DataTableView1 = New JANL.UserControls.DataTableView()
-        Me.CB_PersonType = New TestWAT.CB_PersonType()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,8 +39,18 @@ Partial Class FormPersonList
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(690, 156)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(690, 27)
         Me.FlowLayoutPanel1.TabIndex = 1
+        '
+        'CB_PersonType
+        '
+        Me.CB_PersonType.AddEmptyRow = False
+        Me.CB_PersonType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_PersonType.FormattingEnabled = True
+        Me.CB_PersonType.Location = New System.Drawing.Point(3, 3)
+        Me.CB_PersonType.Name = "CB_PersonType"
+        Me.CB_PersonType.Size = New System.Drawing.Size(121, 21)
+        Me.CB_PersonType.TabIndex = 2
         '
         'TableLayoutPanel1
         '
@@ -62,26 +72,15 @@ Partial Class FormPersonList
         '
         'DataTableView1
         '
-        Me.DataTableView1.CreateVisible = True
         Me.DataTableView1.CurrentKey = Nothing
-        Me.DataTableView1.DeleteVisible = True
         Me.DataTableView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataTableView1.EditVisible = True
-        Me.DataTableView1.Location = New System.Drawing.Point(0, 156)
+        Me.DataTableView1.KeyName = Nothing
+        Me.DataTableView1.Location = New System.Drawing.Point(0, 27)
         Me.DataTableView1.Menu = Nothing
         Me.DataTableView1.Name = "DataTableView1"
-        Me.DataTableView1.Size = New System.Drawing.Size(690, 361)
+        Me.DataTableView1.Size = New System.Drawing.Size(690, 490)
         Me.DataTableView1.TabIndex = 0
-        '
-        'CB_PersonType
-        '
-        Me.CB_PersonType.AddEmptyRow = False
-        Me.CB_PersonType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_PersonType.FormattingEnabled = True
-        Me.CB_PersonType.Location = New System.Drawing.Point(3, 3)
-        Me.CB_PersonType.Name = "CB_PersonType"
-        Me.CB_PersonType.Size = New System.Drawing.Size(121, 21)
-        Me.CB_PersonType.TabIndex = 2
+        Me.DataTableView1.ValueName = Nothing
         '
         'FormPersonList
         '

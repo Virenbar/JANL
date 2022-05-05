@@ -19,6 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL", "JANL\JANL.csproj", 
 		{5121D0BE-ADE2-426F-892B-4377962A85CC} = {5121D0BE-ADE2-426F-892B-4377962A85CC}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL.Test", "JANL.Test\JANL.Test.csproj", "{DBBDE0A1-5503-4991-ABE6-84E6002AE0B2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EAF970D-B09F-41CC-B855-A5221757A9AE} = {6EAF970D-B09F-41CC-B855-A5221757A9AE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +41,10 @@ Global
 		{6EAF970D-B09F-41CC-B855-A5221757A9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EAF970D-B09F-41CC-B855-A5221757A9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EAF970D-B09F-41CC-B855-A5221757A9AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBDE0A1-5503-4991-ABE6-84E6002AE0B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBDE0A1-5503-4991-ABE6-84E6002AE0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBDE0A1-5503-4991-ABE6-84E6002AE0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBDE0A1-5503-4991-ABE6-84E6002AE0B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

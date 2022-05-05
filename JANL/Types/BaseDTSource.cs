@@ -11,14 +11,14 @@ namespace JANL.Types
 
         protected BaseDTSource(string keyName, string valueName) : this(keyName, valueName, new[] { keyName, valueName }) { }
 
-        protected BaseDTSource(string keyName, string valueName, IEnumerable<string> collumns)
+        protected BaseDTSource(string keyName, string valueName, IEnumerable<string> columns)
         {
             KeyName = keyName;
             ValueName = valueName;
-            FilterCollumns = collumns;
+            FilterColumns = columns;
         }
 
-        public IEnumerable<string> FilterCollumns { get; protected set; }
+        public IEnumerable<string> FilterColumns { get; protected set; }
 
         public string KeyName { get; private set; }
 

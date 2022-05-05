@@ -1,4 +1,5 @@
 ﻿using JANL.Extensions;
+using JANL.Helpers;
 using JANL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace JANL.UserControls
 {
     public partial class DataTableView : UserControl
     {
-        private IEnumerable<string> Collumns;
+        private IEnumerable<string> Columns;
         private DataTable DT;
         private IDTSource DTSource;
 
@@ -42,7 +43,7 @@ namespace JANL.UserControls
                 DT = await DTSource.GetDataTable();
                 DGV.SetDataSource(DT);
                 OldDT?.Dispose();
-                if (OldKey != null) { BS_View.Position = BS_View.Find(DTSource.KeyName, OldKey); }
+                if (OldKey != null) { BS_View.Position = BS_View.Find(KeyName, OldKey); }
             }
             catch (Exception E)
             {
@@ -57,14 +58,23 @@ namespace JANL.UserControls
         public void RefreshUI()
         {
             B_Refresh.Enabled = DTSource != null;
-            TB_Filter.Enabled = Collumns.Count() > 0;
+            TB_Filter.Enabled = Columns.Count() > 0;
+        }
+
+        public void SetDataTable(DataTable DT, string keyName, string valueName)
+        {
+            KeyName = keyName;
+            ValueName = valueName;
+            SetDataTable(DT);
         }
 
         public void SetDataTable(DataTable DT)
         {
             DTSource = null;
-            Collumns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName);
             this.DT = DT;
+            Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName);
+            if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
+            if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
             DGV.SetDataSource(DT);
             RefreshUI();
         }
@@ -72,34 +82,30 @@ namespace JANL.UserControls
         public void SetDTSource(IDTSource DTS)
         {
             DTSource = DTS;
-            Collumns = DTS.FilterCollumns;
+            Columns = DTS.FilterColumns;
+            KeyName = DTS.KeyName;
+            ValueName = DTS.ValueName;
             RefreshUI();
         }
 
+        /// <summary>
+        /// Apply template from <see cref="DGVManager"/>
+        /// </summary>
+        /// <param name="Template"></param>
         public void SetTemplate(string Template) => DGVManager.ApplyTemplate(DGV, Template);
 
         private void ApplyFilter()
         {
             var Filter = TB_Filter.Text.Trim().RemoveSpecialCharacters();
-            if (string.IsNullOrWhiteSpace(Filter) || Collumns.Count() == 0)
+            if (string.IsNullOrWhiteSpace(Filter) || Columns.Count() == 0)
             {
                 BS_View.Filter = "";
                 return;
             }
 
             var OldKey = CurrentKey;
-            if (FilterByMergedRow)
-            {
-                var MergedRow = string.Join("+' '+", Collumns.Select(C => $"Convert({C},'System.String')"));
-                var Terms = Filter.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                BS_View.Filter = string.Join(" AND ", Terms.Select(T => $"{MergedRow} LIKE '%{T}%'"));
-            }
-            else
-            {
-                var CollumnsFilters = Collumns.Select(C => string.Format("({0} LIKE '%" + Filter.Replace(" ", "%' AND {0} LIKE '%") + "%')", $"Convert( {C}, 'System.String')"));
-                BS_View.Filter = string.Join(" OR ", CollumnsFilters);
-            }
-            if (OldKey != null) { BS_View.Position = BS_View.Find(DTSource.KeyName, OldKey); }
+            BS_View.Filter = FilterByMergedRow ? FilterHelper.RowFilterByRow(Columns, Filter) : FilterHelper.RowFilterByColumns(Columns, Filter);
+            if (OldKey != null) { BS_View.Position = BS_View.Find(KeyName, OldKey); }
         }
 
         private void RefreshBN()
@@ -197,7 +203,10 @@ namespace JANL.UserControls
             }
         }
 
-        [Browsable(true), Category("DataTableView"), Description("Фильтр строк"), DefaultValue(true)]
+        [Browsable(true), Category("DataTableView"), Description("Наименование ключа"), DefaultValue("")]
+        public string KeyName { get; set; }
+
+        [Browsable(true), Category("DataTableView"), Description("Кнопка обновить"), DefaultValue(true)]
         public bool RefreshVisible
         {
             get => B_Refresh.Visible;
@@ -207,6 +216,9 @@ namespace JANL.UserControls
                 RefreshBN();
             }
         }
+
+        [Browsable(true), Category("DataTableView"), Description("Наименование значения"), DefaultValue("")]
+        public string ValueName { get; set; }
 
         /// <summary>
         /// Время ожидания следующего нажатия
@@ -234,16 +246,25 @@ namespace JANL.UserControls
         {
             B_Refresh.Enabled = false;
             await RefreshDT();
+            OnRefreshClick(EventArgs.Empty);
             B_Refresh.Enabled = true;
         }
 
         private void BS_View_CurrentChanged(object sender, EventArgs e)
         {
             var R = CurrentRow;
-            if (R == null || DTSource == null) { return; }
+            if (R != null)
+            {
+                CurrentKey = R.Field<object>(KeyName);
+                CurrentValue = R.Field<string>(ValueName);
+            }
+            OnCurrentRowChanged(EventArgs.Empty);
+        }
 
-            CurrentKey = R.Field<object>(DTSource.KeyName);
-            CurrentValue = R.Field<string>(DTSource.ValueName);
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex < 0 || e.RowIndex < 0) { return; }
+            OnRowDoubleClick(EventArgs.Empty);
         }
 
         private void TB_Filter_InputDone(object sender, EventArgs e)
@@ -257,15 +278,27 @@ namespace JANL.UserControls
 
         protected void OnCreateClick(EventArgs args) => CreateClick?.Invoke(this, args);
 
+        protected void OnCurrentRowChanged(EventArgs args) => CurrentRowChanged?.Invoke(this, args);
+
         protected void OnDeleteClick(EventArgs args) => DeleteClick?.Invoke(this, args);
 
         protected void OnEditClick(EventArgs args) => EditClick?.Invoke(this, args);
 
+        protected void OnRefreshClick(EventArgs args) => RefreshClick?.Invoke(this, args);
+
+        protected void OnRowDoubleClick(EventArgs args) => RowDoubleClick?.Invoke(this, args);
+
         public event EventHandler CreateClick;
+
+        public event EventHandler CurrentRowChanged;
 
         public event EventHandler DeleteClick;
 
         public event EventHandler EditClick;
+
+        public event EventHandler RefreshClick;
+
+        public event EventHandler RowDoubleClick;
 
         #endregion Events
     }
