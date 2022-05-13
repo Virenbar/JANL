@@ -6,12 +6,12 @@ namespace JANL.ExtendedControls
 {
     internal class DataGridViewExtended : DataGridView
     {
-        private BindingSource BS;
+        private readonly BindingSource BS;
 
         public DataGridViewExtended()
         {
             BS = new BindingSource();
-            base.DataSource = BS;
+            DataSource = BS;
         }
 
         protected override void OnSelectionChanged(EventArgs e)
@@ -32,7 +32,7 @@ namespace JANL.ExtendedControls
 
         public T Field<T>(string Name)
         {
-            if (Current is null) { return default; }
+            if (Current == null || !Current.Table.Columns.Contains(Name)) { return default; }
             return Current.Field<T>(Name);
         }
     }

@@ -70,7 +70,6 @@
             this.DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DGV.Size = new System.Drawing.Size(819, 544);
             this.DGV.TabIndex = 15;
- 
             this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
             // 
             // BN_View
@@ -136,6 +135,7 @@
             this.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.BindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.BindingNavigatorMovePreviousItem.Text = "Переместить назад";
+            this.BindingNavigatorMovePreviousItem.Visible = false;
             // 
             // BindingNavigatorSeparator
             // 
@@ -164,6 +164,7 @@
             this.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.BindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.BindingNavigatorMoveNextItem.Text = "Переместить вперед";
+            this.BindingNavigatorMoveNextItem.Visible = false;
             // 
             // BindingNavigatorMoveLastItem
             // 
@@ -187,13 +188,13 @@
             this.B_Create.RightToLeftAutoMirrorImage = true;
             this.B_Create.Size = new System.Drawing.Size(23, 22);
             this.B_Create.Text = "Добавить";
+            this.B_Create.Visible = false;
             this.B_Create.Click += new System.EventHandler(this.BNB_New_Click);
             // 
             // B_Edit
             // 
             this.B_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.B_Edit.Image = ((System.Drawing.Image)(resources.GetObject("B_Edit.Image")));
-            this.B_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.B_Edit.Name = "B_Edit";
             this.B_Edit.Size = new System.Drawing.Size(23, 22);
             this.B_Edit.Text = "Редактировать";
@@ -207,6 +208,7 @@
             this.B_Delete.RightToLeftAutoMirrorImage = true;
             this.B_Delete.Size = new System.Drawing.Size(23, 22);
             this.B_Delete.Text = "Удалить";
+            this.B_Delete.Visible = false;
             this.B_Delete.Click += new System.EventHandler(this.BNB_Delete_Click);
             // 
             // BNS2

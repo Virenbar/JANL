@@ -1,10 +1,12 @@
 ﻿using JANL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
 namespace JANL.Types
 {
+    [Obsolete]
     public abstract class BaseDTSource : IDTSource
     {
         protected BaseDTSource(string keyName) : this(keyName, keyName, new[] { keyName }) { }

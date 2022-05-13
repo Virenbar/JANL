@@ -27,7 +27,7 @@ Partial Class FormPersonList
         Me.CB_PersonType = New TestWAT.CB_PersonType()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.DataTableView1 = New JANL.UserControls.DataTableView()
+        Me.DTV_Person = New JANL.UserControls.DataTableView()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,24 +70,24 @@ Partial Class FormPersonList
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'DataTableView1
+        'DTV_Person
         '
-        Me.DataTableView1.CurrentKey = Nothing
-        Me.DataTableView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataTableView1.KeyName = Nothing
-        Me.DataTableView1.Location = New System.Drawing.Point(0, 27)
-        Me.DataTableView1.Menu = Nothing
-        Me.DataTableView1.Name = "DataTableView1"
-        Me.DataTableView1.Size = New System.Drawing.Size(690, 490)
-        Me.DataTableView1.TabIndex = 0
-        Me.DataTableView1.ValueName = Nothing
+        Me.DTV_Person.CurrentKey = Nothing
+        Me.DTV_Person.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DTV_Person.KeyName = Nothing
+        Me.DTV_Person.Location = New System.Drawing.Point(0, 27)
+        Me.DTV_Person.Menu = Nothing
+        Me.DTV_Person.Name = "DTV_Person"
+        Me.DTV_Person.Size = New System.Drawing.Size(690, 490)
+        Me.DTV_Person.TabIndex = 0
+        Me.DTV_Person.ValueName = Nothing
         '
         'FormPersonList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(690, 552)
-        Me.Controls.Add(Me.DataTableView1)
+        Me.Controls.Add(Me.DTV_Person)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "FormPersonList"
@@ -98,7 +98,7 @@ Partial Class FormPersonList
 
     End Sub
 
-    Friend WithEvents DataTableView1 As JANL.UserControls.DataTableView
+    Friend WithEvents DTV_Person As JANL.UserControls.DataTableView
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip

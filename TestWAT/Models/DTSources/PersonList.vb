@@ -1,17 +1,23 @@
-﻿Imports JANL.Types
-Imports TestWAT.Enums
+﻿Imports TestWAT.Enums
+Imports TestWAT.Models.Filters
 
-Public Class PersonList
-    Inherits BaseDTSource
+Public Class PersonStore
 
     Public Sub New()
-        MyBase.New("Key", "Value", {"Key", "Value", "Type", "TypeString"})
-        Filter = New PersonFilter()
+        KeyName = "Key"
+        ValueName = "Value"
+        FilterColumns = New List(Of String)({"Key", "Value", "Type", "TypeString"})
     End Sub
 
-    Public Property Filter As PersonFilter
+    Public ReadOnly Property KeyName As String
+    Public ReadOnly Property ValueName As String
+    Public ReadOnly Property FilterColumns As List(Of String)
 
-    Public Overrides Async Function GetDataTable() As Task(Of DataTable)
+    Public Function GetDataTable() As Task(Of DataTable)
+        Return GetDataTable(New PersonFilter())
+    End Function
+
+    Public Async Function GetDataTable(Filter As PersonFilter) As Task(Of DataTable)
         Dim DT = New DataTable()
         DT.Columns.Add("Key", GetType(Integer))
         DT.Columns.Add("Value", GetType(String))
@@ -32,11 +38,5 @@ Public Class PersonList
         Await Task.Delay(1000)
         Return DT
     End Function
-
-    Public Class PersonFilter
-
-        Public Property Type As PersonType?
-
-    End Class
 
 End Class

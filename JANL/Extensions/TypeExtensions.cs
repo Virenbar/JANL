@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JANL.SQL;
+using System;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 
@@ -47,5 +49,19 @@ namespace JANL.Extensions
         }
 
         #endregion IsOverride
+
+        /// <summary>
+        /// Получить тип SQL
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
+
+        /// <summary>
+        /// Получить тип CRL
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
     }
 }

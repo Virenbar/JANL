@@ -12,7 +12,7 @@ namespace JANL.Test.Generic
         public void Dequeue()
         {
             for (int i = 0; i < Limit + 5; i++) { Queue.Enqueue(0); }
-            var _ = Queue.Dequeue();
+            Queue.Dequeue();
             Assert.AreEqual(Limit - 1, Queue.Count);
         }
 

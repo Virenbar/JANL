@@ -1,12 +1,10 @@
 ﻿using JANL.Extensions;
 using JANL.Helpers;
-using JANL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JANL.UserControls
@@ -15,7 +13,7 @@ namespace JANL.UserControls
     {
         private IEnumerable<string> Columns;
         private DataTable DT;
-        private IDTSource DTSource;
+        //private IDTSource DTSource;
 
         public DataTableView()
         {
@@ -29,18 +27,22 @@ namespace JANL.UserControls
 
         public T Field<T>(string name)
         {
-            if (CurrentRow == null) { return default; }
+            if (CurrentRow == null || !CurrentRow.Table.Columns.Contains(name)) { return default; }
             return CurrentRow.Field<T>(name);
         }
 
-        public async Task RefreshDT()
+        public void SetDataTable(DataTable DT)
         {
-            if (DTSource == null) { return; }
+            if (IsDisposed) { return; }
             try
             {
-                var OldDT = DT;
+                if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
+                if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
+                if (Columns.Count() == 0) { Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName); }
+
+                var OldDT = this.DT;
                 var OldKey = CurrentKey;
-                DT = await DTSource.GetDataTable();
+                this.DT = DT;
                 DGV.SetDataSource(DT);
                 OldDT?.Dispose();
                 if (OldKey != null) { BS_View.Position = BS_View.Find(KeyName, OldKey); }
@@ -53,38 +55,12 @@ namespace JANL.UserControls
             {
                 DGV.PerformLayout();
             }
-        }
-
-        public void RefreshUI()
-        {
-            B_Refresh.Enabled = DTSource != null;
-            TB_Filter.Enabled = Columns.Count() > 0;
-        }
-
-        public void SetDataTable(DataTable DT, string keyName, string valueName)
-        {
-            KeyName = keyName;
-            ValueName = valueName;
-            SetDataTable(DT);
-        }
-
-        public void SetDataTable(DataTable DT)
-        {
-            DTSource = null;
-            this.DT = DT;
-            Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName);
-            if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
-            if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
-            DGV.SetDataSource(DT);
             RefreshUI();
         }
 
-        public void SetDTSource(IDTSource DTS)
+        public void SetFilterColumns(IEnumerable<string> columns)
         {
-            DTSource = DTS;
-            Columns = DTS.FilterColumns;
-            KeyName = DTS.KeyName;
-            ValueName = DTS.ValueName;
+            Columns = columns;
             RefreshUI();
         }
 
@@ -112,6 +88,11 @@ namespace JANL.UserControls
         {
             BNS1.Visible = B_Create.Visible || B_Edit.Visible || B_Delete.Visible;
             BNS2.Visible = B_Refresh.Visible;
+        }
+
+        private void RefreshUI()
+        {
+            TB_Filter.Enabled = Columns.Count() > 0;
         }
 
         #region Properties
@@ -242,13 +223,7 @@ namespace JANL.UserControls
 
         private void BNB_New_Click(object sender, EventArgs e) => OnCreateClick(EventArgs.Empty);
 
-        private async void BNB_Refresh_Click(object sender, EventArgs e)
-        {
-            B_Refresh.Enabled = false;
-            await RefreshDT();
-            OnRefreshClick(EventArgs.Empty);
-            B_Refresh.Enabled = true;
-        }
+        private void BNB_Refresh_Click(object sender, EventArgs e) => OnRefreshClick(EventArgs.Empty);
 
         private void BS_View_CurrentChanged(object sender, EventArgs e)
         {

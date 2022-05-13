@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using static JANL.SQL.Defaults;
 
 namespace JANL.SQL
 {
@@ -12,8 +11,8 @@ namespace JANL.SQL
 
         protected BaseSQLCommand(string CommandText, CommandType Type)
         {
-            SQLCommand = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = DefaultTimeout };
-            ConnectionString = DefaultConnection;
+            SQLCommand = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = JANL.Defaults.Timeout };
+            ConnectionString = JANL.Defaults.Connection;
         }
 
         public void Prepare() => SQLCommand.Prepare();
@@ -98,9 +97,9 @@ namespace JANL.SQL
         /// </summary>
         public async Task<T> ExecuteAsync()
         {
-            using (var Connection = await NewConnectionAsync(ConnectionString))
+            using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
             {
-                return await ExecuteAsync(Connection);
+                return await ExecuteAsync(Connection).ConfigureAwait(false);
             }
         }
 
@@ -118,9 +117,9 @@ namespace JANL.SQL
         /// </summary>
         public async Task<T> ExecuteAsync(string ConnectionString)
         {
-            using (var Connection = await NewConnectionAsync(ConnectionString))
+            using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
             {
-                return await ExecuteAsync(Connection);
+                return await ExecuteAsync(Connection).ConfigureAwait(false);
             }
         }
 

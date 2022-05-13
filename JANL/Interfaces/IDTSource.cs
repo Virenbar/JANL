@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
 namespace JANL.Interfaces
 {
+    [Obsolete]
     public interface IDTSource
     {
         Task<DataTable> GetDataTable();

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JANL.SQL
@@ -14,6 +11,74 @@ namespace JANL.SQL
     /// </summary>
     public static class SQLHelper
     {
+        public static Type GetCRLType(SqlDbType type)
+        {
+            switch (type)
+            {
+                case SqlDbType.BigInt:
+                    return typeof(long);
+
+                case SqlDbType.Image:
+                case SqlDbType.Binary:
+                    return typeof(byte[]);
+
+                case SqlDbType.Bit:
+                    return typeof(bool);
+
+                case SqlDbType.SmallDateTime:
+                case SqlDbType.DateTime:
+                case SqlDbType.Date:
+                case SqlDbType.DateTime2:
+                    return typeof(DateTime);
+
+                case SqlDbType.Float:
+                    return typeof(double);
+
+                case SqlDbType.Int:
+                    return typeof(int);
+
+                case SqlDbType.Decimal:
+                case SqlDbType.SmallMoney:
+                case SqlDbType.Money:
+                    return typeof(decimal);
+
+                case SqlDbType.VarChar:
+                case SqlDbType.Char:
+                case SqlDbType.NChar:
+                case SqlDbType.Text:
+                case SqlDbType.NText:
+                case SqlDbType.NVarChar:
+                    return typeof(string);
+
+                case SqlDbType.Real:
+                    return typeof(float);
+
+                case SqlDbType.UniqueIdentifier:
+                    return typeof(Guid);
+
+                case SqlDbType.SmallInt:
+                    return typeof(short);
+
+                case SqlDbType.Timestamp:
+                    return typeof(byte[]);
+
+                case SqlDbType.TinyInt:
+                    return typeof(byte);
+
+                case SqlDbType.VarBinary:
+                    return typeof(byte[]);
+
+                case SqlDbType.Time:
+                    return typeof(TimeSpan);
+
+                case SqlDbType.DateTimeOffset:
+                    return typeof(DateTimeOffset);
+
+                default:
+                    throw new ArgumentException($"Unsupported type: {type}");
+            }
+        }
+
         public static SqlDbType GetDBType(Type type)
         {
             type = Nullable.GetUnderlyingType(type) ?? type;
