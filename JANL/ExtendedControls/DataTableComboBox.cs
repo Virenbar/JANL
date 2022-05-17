@@ -6,8 +6,8 @@ namespace JANL
 {
     public abstract class DataTableComboBox : ComboBox
     {
-        protected readonly string KeyName;
-        protected readonly string ValueName;
+        protected string KeyName;
+        protected string ValueName;
         protected BindingSource BS;
         private static readonly DataSet DataTableCache = new DataSet("ComboBoxCache");
         private bool SuppressEvents = true;
@@ -53,6 +53,7 @@ namespace JANL
             DataSource = BS;
             ValueMember = KeyName;
             DisplayMember = ValueName;
+            if (string.IsNullOrWhiteSpace(ValueMember)) { ValueMember = DT.Columns[0].ColumnName; }
 
             SuppressEvents = false;
         }
