@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Animators\ImageAnimator.cs" />
     <Compile Include="Animators\ImageRotator.cs" />
+    <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
     <Compile Include="Defaults.cs" />
