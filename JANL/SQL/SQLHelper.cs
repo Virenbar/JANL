@@ -111,7 +111,7 @@ namespace JANL.SQL
         /// Создает и открывает новое соединение по умолчанию
         /// </summary>
         /// <returns></returns>
-        public static SqlConnection NewConnection() => NewConnection(Defaults.DefaultConnection);
+        public static SqlConnection NewConnection() => NewConnection(JANL.Defaults.Connection);
 
         /// <summary>
         /// Создает и открывает новое соединение
@@ -129,7 +129,7 @@ namespace JANL.SQL
         /// Создает и открывает новое соединение по умолчанию
         /// </summary>
         /// <returns></returns>
-        public static Task<SqlConnection> NewConnectionAsync() => NewConnectionAsync(Defaults.DefaultConnection);
+        public static Task<SqlConnection> NewConnectionAsync() => NewConnectionAsync(JANL.Defaults.Connection);
 
         /// <summary>
         /// Создает и открывает новое соединение
@@ -146,7 +146,7 @@ namespace JANL.SQL
         /// <summary>
         /// Начинает транзакцию используя соединение по умолчанию
         /// </summary>
-        public static SqlTransaction NewTransaction() => NewTransaction(Defaults.DefaultConnection);
+        public static SqlTransaction NewTransaction() => NewTransaction(JANL.Defaults.Connection);
 
         /// <summary>
         /// Начинает транзакцию используя соединение
@@ -156,7 +156,7 @@ namespace JANL.SQL
         /// <summary>
         /// Начинает транзакцию используя соединение по умолчанию и указанное поведение блокировки
         /// </summary>
-        public static SqlTransaction NewTransaction(IsolationLevel IL) => NewTransaction(Defaults.DefaultConnection, IsolationLevel.ReadCommitted);
+        public static SqlTransaction NewTransaction(IsolationLevel IL) => NewTransaction(JANL.Defaults.Connection, IsolationLevel.ReadCommitted);
 
         /// <summary>
         /// Начинает транзакцию используя соединение и указанное поведение блокировки

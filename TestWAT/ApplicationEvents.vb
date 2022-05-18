@@ -1,9 +1,7 @@
-﻿Imports System.Globalization
-Imports System.Threading
-Imports JANL
+﻿Imports JANL
+Imports JANL.Forms
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Newtonsoft.Json
-Imports JANL.Forms
 
 Namespace My
     ' Для MyApplication имеются следующие события:
@@ -18,7 +16,7 @@ Namespace My
             'Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
             Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
             'JANL.My.MySettings.Default.Font
-            SQL.Defaults.DefaultConnection = "Data Source=PARTSERVER2014;Initial Catalog=wpeople_SPR;Integrated Security=True"
+            Defaults.Connection = "Data Source=PARTSERVER2014;Initial Catalog=wpeople_SPR;Integrated Security=True"
             '
             ExceptionBox.DefaultText = "Произошла непредвиденная ошибка. Отправьте ошибку по почте, либо скопируйте и отправьте другим доступным способом"
             ExceptionBox.MailInfo = New ExceptionBox.EMail() With {

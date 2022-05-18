@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace JANL.SQL
 {
+    /// <summary>
+    /// Базовая оболочка для <see cref="SqlCommand"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class BaseSQLCommand<T> : ISQLCommand<T>, IDisposable
     {
         protected readonly SqlCommand SQLCommand;
@@ -50,7 +54,7 @@ namespace JANL.SQL
         public T Execute()
         {
             using (var Connection = NewConnection(ConnectionString))
-            { return Execute(Connection); }
+                return Execute(Connection);
         }
 
         /// <summary>
@@ -68,9 +72,7 @@ namespace JANL.SQL
         public T Execute(string ConnectionString)
         {
             using (var Connection = NewConnection(ConnectionString))
-            {
                 return Execute(Connection);
-            }
         }
 
         /// <summary>
@@ -98,9 +100,7 @@ namespace JANL.SQL
         public async Task<T> ExecuteAsync()
         {
             using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
-            {
                 return await ExecuteAsync(Connection).ConfigureAwait(false);
-            }
         }
 
         /// <summary>
@@ -118,9 +118,7 @@ namespace JANL.SQL
         public async Task<T> ExecuteAsync(string ConnectionString)
         {
             using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
-            {
                 return await ExecuteAsync(Connection).ConfigureAwait(false);
-            }
         }
 
         /// <summary>

@@ -14,15 +14,27 @@ namespace JANL.SQL
             get => _schema;
             set
             {
-                if (!string.IsNullOrWhiteSpace(_schema)) { SQLCommand.CommandText = SQLCommand.CommandText.Replace($"{_schema}.", ""); }
-                if (!SQLCommand.CommandText.StartsWith($"{value}.")) { SQLCommand.CommandText = $"{value}.{SQLCommand.CommandText}"; }
                 _schema = value;
+                if (SQLCommand.CommandText.Contains("."))
+                {
+                    var S = SQLCommand.CommandText.Split(new char[] { '.' }, 2);
+                    SQLCommand.CommandText = S[1];
+                }
+                if (string.IsNullOrWhiteSpace(value)) { return; }
+                SQLCommand.CommandText = $"{value}.{SQLCommand.CommandText}";
             }
         }
 
         /// <summary>
         /// Создаёт новую процедуру с именем вызывающего метода
         /// </summary>
-        protected SQLProcedure(string Name) : base(Name, CommandType.StoredProcedure) { }
+        protected SQLProcedure(string Name) : base(Name, CommandType.StoredProcedure)
+        {
+            if (Name.Contains("."))
+            {
+                var S = Name.Split(new char[] { '.' }, 2, System.StringSplitOptions.RemoveEmptyEntries);
+                Schema = S[0];
+            }
+        }
     }
 }

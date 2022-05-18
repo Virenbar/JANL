@@ -1,5 +1,8 @@
-﻿namespace JANL.SQL
+﻿using System;
+
+namespace JANL.SQL
 {
+    [Obsolete("Use JANL.Defaults")]
     public static class Defaults
     {
         /// <summary>
