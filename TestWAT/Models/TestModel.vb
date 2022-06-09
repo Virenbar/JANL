@@ -1,4 +1,4 @@
-﻿Imports JANL.Types
+﻿Imports JANL
 
 Namespace Models
 

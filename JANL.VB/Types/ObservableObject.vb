@@ -2,15 +2,15 @@
 Imports System.Runtime.CompilerServices
 
 Namespace Types
+    <Obsolete>
+    Public Class ObservableObject
+        Implements INotifyPropertyChanged
 
-	Public Class ObservableObject
-		Implements INotifyPropertyChanged
+        Protected Sub NotifyPropertyChanged(<CallerMemberName()> Optional propertyName As String = Nothing)
+            RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+        End Sub
 
-		Protected Sub NotifyPropertyChanged(<CallerMemberName()> Optional propertyName As String = Nothing)
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End Sub
+        Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
-		Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
-
-	End Class
+    End Class
 End Namespace

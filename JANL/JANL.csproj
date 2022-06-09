@@ -36,6 +36,9 @@
     <DocumentationFile>bin\Release\JANL.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseDebug|AnyCPU'">
+    <OutputPath>bin\ReleaseDebug\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,22 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animated\AnimatedImage.cs" />
-    <Compile Include="Animated\Blocker.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Animated\Blocker.designer.cs">
-      <DependentUpon>Blocker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Animated\RotatingImage.cs" />
-    <Compile Include="Animated\UC_Loader.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Animated\UC_Loader.designer.cs">
-      <DependentUpon>UC_Loader.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Animators\ImageAnimator.cs" />
-    <Compile Include="Animators\ImageRotator.cs" />
+    <Compile Include="Animators\BaseAnimator.cs" />
+    <Compile Include="Animators\Breather.cs" />
+    <Compile Include="Animators\Rotator.cs" />
+    <Compile Include="Colors\Common.cs" />
+    <Compile Include="Colors\Status.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
@@ -111,12 +103,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>icons8.resx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAnimator.cs" />
     <Compile Include="Interfaces\IDTSource.cs" />
     <Compile Include="Locales\EB_Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EB_Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -132,6 +126,7 @@
     <Compile Include="SQL\Defaults.cs" />
     <Compile Include="SQL\ISQLCommand.cs" />
     <Compile Include="SQL\ScalarFunction.cs" />
+    <Compile Include="SQL\ScalarText.cs" />
     <Compile Include="SQL\SelectProcedure.cs" />
     <Compile Include="SQL\ScalarProcedure.cs" />
     <Compile Include="SQL\NonQueryProcedure.cs" />
@@ -142,6 +137,9 @@
     <Compile Include="SyncEvent.cs" />
     <Compile Include="TaskProgress.cs" />
     <Compile Include="Types\BaseDTSource.cs" />
+    <Compile Include="ExtendedControls\AnimatedPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\DataTableView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,9 +155,6 @@
     <Compile Include="Helpers\FilterHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Animated\UC_Loader.resx">
-      <DependentUpon>UC_Loader.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +222,7 @@
     <None Include="Resources\icons8\Add16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Managers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

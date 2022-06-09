@@ -68,6 +68,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseDebug|AnyCPU'">
+    <OutputPath>bin\ReleaseDebug\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -112,6 +115,12 @@
     <Compile Include="Excel\Reestr.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
+    <Compile Include="Forms\FormAnimation.Designer.vb">
+      <DependentUpon>FormAnimation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAnimation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Lists\FormPersonList.Designer.vb">
       <DependentUpon>FormPersonList.vb</DependentUpon>
     </Compile>
@@ -227,6 +236,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FormAnimation.resx">
+      <DependentUpon>FormAnimation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lists\FormPersonList.resx">
       <DependentUpon>FormPersonList.vb</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +293,9 @@
     <Content Include="Config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="My Project\DataSources\JANL.Interfaces.IAnimator.datasource" />
+    <None Include="Resources\partner64.png" />
+    <None Include="Resources\shrek.ico" />
     <None Include="Excel\Header.xlsx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
