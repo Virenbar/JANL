@@ -99,6 +99,15 @@ namespace JANL.SQL
                 case Type _ when type == typeof(string):
                     return SqlDbType.VarChar;
 
+                case Type _ when type == typeof(TimeSpan):
+                    return SqlDbType.Time;
+
+                case Type _ when type == typeof(DateTime):
+                    return SqlDbType.DateTime;
+
+                case Type _ when type == typeof(DateTimeOffset):
+                    return SqlDbType.DateTimeOffset;
+
                 case Type _ when type == typeof(Guid):
                     return SqlDbType.UniqueIdentifier;
 
