@@ -1,5 +1,6 @@
 ﻿using JANL.SQL;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -8,6 +9,37 @@ namespace JANL.Extensions
 {
     public static class TypeExtensions
     {
+        private static readonly Random rnd = new Random();
+
+        /// <summary>
+        /// Первый день месяца
+        /// </summary>
+        public static DateTime FirstDay(this DateTime date) => new DateTime(date.Year, date.Month, 1);
+
+        /// <summary>
+        /// Последний день месяца
+        /// </summary>
+        public static DateTime LastDay(this DateTime date) => new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
+
+        /// <summary>
+        /// Случайный элемент из перечисления
+        /// </summary>
+        public static T PickRandom<T>(this IEnumerable<T> list) => list.Count() == 0 ? default : list.ElementAt(rnd.Next(list.Count()));
+
+        /// <summary>
+        /// Получить тип SQL
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
+
+        /// <summary>
+        /// Получить тип CRL
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
+
         #region IsOverride
 
         /// <summary>
@@ -49,19 +81,5 @@ namespace JANL.Extensions
         }
 
         #endregion IsOverride
-
-        /// <summary>
-        /// Получить тип SQL
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
-
-        /// <summary>
-        /// Получить тип CRL
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
     }
 }

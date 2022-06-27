@@ -33,7 +33,11 @@ namespace JANL.Animators
         /// <summary>
         /// Сброс состояния анимации
         /// </summary>
-        public virtual void ResetAnimation() { }
+        public virtual void ResetAnimation()
+        {
+            CurrentImage = Transform(SourceImage, CurrentImage);
+            OnCurrentImageChanged(EventArgs.Empty);
+        }
 
         /// <summary>
         /// Запуск анимации

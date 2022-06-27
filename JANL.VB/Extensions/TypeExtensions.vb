@@ -27,26 +27,10 @@ Namespace Extensions
         End Sub
 
         ''' <summary>
-        ''' Первый день месяца
-        ''' </summary>
-        <Extension>
-        Public Function FirstDay(D As Date) As Date
-            Return New Date(D.Year, D.Month, 1)
-        End Function
-
-        ''' <summary>
-        ''' Последний день месяца
-        ''' </summary>
-        <Extension>
-        Public Function LastDay(D As Date) As Date
-            Return New Date(D.Year, D.Month, 1).AddMonths(1).AddDays(-1)
-        End Function
-
-        ''' <summary>
         ''' Get random item
         ''' </summary>
         <Extension>
-        Public Function PickRandom(Of T)(L As IEnumerable(Of T)) As T
+        Friend Function PickRandom(Of T)(L As IEnumerable(Of T)) As T
             If L.Count = 0 Then Return Nothing
             Return L(Rnd.Next(L.Count))
         End Function
@@ -89,6 +73,22 @@ Namespace Extensions
         Public Function Truncate(value As String, maxLength As Integer) As String
             If (String.IsNullOrEmpty(value)) Then Return value
             Return If(value.Length <= maxLength, value, value.Substring(0, maxLength))
+        End Function
+
+        ''' <summary>
+        ''' Первый день месяца
+        ''' </summary>
+        <Extension>
+        Friend Function FirstDay(D As Date) As Date
+            Return New Date(D.Year, D.Month, 1)
+        End Function
+
+        ''' <summary>
+        ''' Последний день месяца
+        ''' </summary>
+        <Extension>
+        Friend Function LastDay(D As Date) As Date
+            Return New Date(D.Year, D.Month, 1).AddMonths(1).AddDays(-1)
         End Function
 
 #Region "IsOverride"

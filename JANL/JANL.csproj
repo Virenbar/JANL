@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Animators\BaseAnimator.cs" />
     <Compile Include="Animators\Breather.cs" />
     <Compile Include="Animators\Rotator.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="SQL\ISQLCommand.cs" />
     <Compile Include="SQL\ScalarFunction.cs" />
     <Compile Include="SQL\ScalarText.cs" />
+    <Compile Include="SQL\SelectReader.cs" />
     <Compile Include="SQL\SelectProcedure.cs" />
     <Compile Include="SQL\ScalarProcedure.cs" />
     <Compile Include="SQL\NonQueryProcedure.cs" />

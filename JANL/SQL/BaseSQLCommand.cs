@@ -11,37 +11,45 @@ namespace JANL.SQL
     /// <typeparam name="T"></typeparam>
     public abstract class BaseSQLCommand<T> : ISQLCommand<T>, IDisposable
     {
-        protected readonly SqlCommand SQLCommand;
+        protected readonly SqlCommand Command;
+        protected readonly SqlConnection Connection;
+        protected bool AutoClose = true;
 
         protected BaseSQLCommand(string CommandText, CommandType Type)
         {
-            SQLCommand = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = JANL.Defaults.Timeout };
-            ConnectionString = JANL.Defaults.Connection;
+            Command = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = JANL.Defaults.Timeout };
+            Connection = new SqlConnection(JANL.Defaults.Connection);
         }
 
-        public void Prepare() => SQLCommand.Prepare();
+        public SqlCommand SQLCommand => Command;
+
+        public void Prepare() => Command.Prepare();
 
         #region Properties
 
         /// <summary>
         /// Соединение для команды
-        /// <para>По умолчанию используется значение <see cref="DefaultConnection"/></para>
+        /// <para>По умолчанию используется значение <see cref="JANL.Defaults.Connection"/></para>
         /// </summary>
-        public string ConnectionString { get; set; }
+        public string ConnectionString
+        {
+            get => Connection.ConnectionString;
+            set => Connection.ConnectionString = value;
+        }
 
         /// <summary>
         /// Параметры команды
         /// </summary>
-        public SqlParameterCollection Parameters => SQLCommand.Parameters;
+        public SqlParameterCollection Parameters => Command.Parameters;
 
         /// <summary>
         /// Время ожидания выполнения команды (в секундах)
-        /// <para>По умолчанию используется значение <see cref="DefaultTimeout"/></para>
+        /// <para>По умолчанию используется значение <see cref="JANL.Defaults.Timeout"/></para>
         /// </summary>
         public int Timeout
         {
-            get => SQLCommand.CommandTimeout;
-            set => SQLCommand.CommandTimeout = value;
+            get => Command.CommandTimeout;
+            set => Command.CommandTimeout = value;
         }
 
         #endregion Properties
@@ -53,8 +61,10 @@ namespace JANL.SQL
         /// </summary>
         public T Execute()
         {
-            using (var Connection = NewConnection(ConnectionString))
-                return Execute(Connection);
+            Connection.Open();
+            var Result = Execute(Connection);
+            if (AutoClose) { Connection.Close(); }
+            return Result;
         }
 
         /// <summary>
@@ -62,7 +72,7 @@ namespace JANL.SQL
         /// </summary>
         public T Execute(SqlTransaction Transaction)
         {
-            SQLCommand.Transaction = Transaction;
+            Command.Transaction = Transaction;
             return Execute(Transaction.Connection);
         }
 
@@ -71,24 +81,17 @@ namespace JANL.SQL
         /// </summary>
         public T Execute(string ConnectionString)
         {
-            using (var Connection = NewConnection(ConnectionString))
+            using (var Connection = new SqlConnection(ConnectionString))
+            {
+                Connection.Open();
                 return Execute(Connection);
+            }
         }
 
         /// <summary>
         /// Выполняет команду с указанным соединением
         /// </summary>
         public abstract T Execute(SqlConnection Connection);
-
-        /// <summary>
-        /// Создает и открывает новое соединение
-        /// </summary>
-        protected static SqlConnection NewConnection(string ConnectionString)
-        {
-            var Connection = new SqlConnection(ConnectionString);
-            if (Connection.State != ConnectionState.Open) { Connection.Open(); }
-            return Connection;
-        }
 
         #endregion Synchronous
 
@@ -99,8 +102,10 @@ namespace JANL.SQL
         /// </summary>
         public async Task<T> ExecuteAsync()
         {
-            using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
-                return await ExecuteAsync(Connection).ConfigureAwait(false);
+            await Connection.OpenAsync();
+            var Result = await ExecuteAsync(Connection).ConfigureAwait(false);
+            if (AutoClose) { Connection.Close(); }
+            return Result;
         }
 
         /// <summary>
@@ -108,7 +113,7 @@ namespace JANL.SQL
         /// </summary>
         public Task<T> ExecuteAsync(SqlTransaction Transaction)
         {
-            SQLCommand.Transaction = Transaction;
+            Command.Transaction = Transaction;
             return ExecuteAsync(Transaction.Connection);
         }
 
@@ -117,24 +122,17 @@ namespace JANL.SQL
         /// </summary>
         public async Task<T> ExecuteAsync(string ConnectionString)
         {
-            using (var Connection = await NewConnectionAsync(ConnectionString).ConfigureAwait(false))
+            using (var Connection = new SqlConnection(ConnectionString))
+            {
+                await Connection.OpenAsync();
                 return await ExecuteAsync(Connection).ConfigureAwait(false);
+            }
         }
 
         /// <summary>
         /// Асинхронно выполняет команду с указанным соединением
         /// </summary>
         public abstract Task<T> ExecuteAsync(SqlConnection Connection);
-
-        /// <summary>
-        /// Создает и открывает новое соединение
-        /// </summary>
-        protected static async Task<SqlConnection> NewConnectionAsync(string ConnectionString)
-        {
-            var Connection = new SqlConnection(ConnectionString);
-            if (Connection.State != ConnectionState.Open) { await Connection.OpenAsync(); }
-            return Connection;
-        }
 
         #endregion Asynchronous
 
@@ -147,7 +145,11 @@ namespace JANL.SQL
         {
             if (!disposedValue)
             {
-                if (disposing) { SQLCommand.Dispose(); }
+                if (disposing)
+                {
+                    Command.Dispose();
+                    Connection.Dispose();
+                }
                 disposedValue = true;
             }
         }

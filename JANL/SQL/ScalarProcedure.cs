@@ -20,8 +20,8 @@ namespace JANL.SQL
 		/// </summary>
 		public override T Execute(SqlConnection Connection)
 		{
-			SQLCommand.Connection = Connection;
-			var Result = (T)SQLCommand.ExecuteScalar();
+			Command.Connection = Connection;
+			var Result = (T)Command.ExecuteScalar();
 			return Result;
 		}
 
@@ -30,8 +30,8 @@ namespace JANL.SQL
 		/// </summary>
 		public override async Task<T> ExecuteAsync(SqlConnection Connection)
 		{
-			SQLCommand.Connection = Connection;
-			var Result = (T)await SQLCommand.ExecuteScalarAsync();
+			Command.Connection = Connection;
+			var Result = (T)await Command.ExecuteScalarAsync();
 			return Result;
 		}
 	}

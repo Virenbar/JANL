@@ -8,6 +8,6 @@ namespace JANL.SQL
 
         protected SQLText(string text) : base(text, CommandType.Text) { }
 
-        public string Text => SQLCommand.CommandText;
+        public string Text => Command.CommandText;
     }
 }

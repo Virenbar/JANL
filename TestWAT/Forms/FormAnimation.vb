@@ -3,49 +3,51 @@ Imports JANL.Interfaces
 
 Public Class FormAnimation
 
-    Private Animator As IAnimator
+    'Private Animator As IAnimator
+    Private Animators As UnionAnimator
+
     Private Breather As New Breather(0.1F)
     Private Rotator As New Rotator()
-    Private Animators As New List(Of IAnimator)({Rotator, Breather})
 
     Protected Overrides Sub OnLoad(e As EventArgs)
-        'Animator = New ImageRotator(100, PB_Image.Image)
-        'AddHandler Animator.CurrentImageChanged, Sub() PB_Image.Image = Animator.CurrentImage
-        'Animator.StartAnimation()
-        'PB_Image.SizeMode = If(PB_Image.Image.Width > PB_Image.Width Or PB_Image.Image.Height > PB_Image.Height, PictureBoxSizeMode.Zoom, PictureBoxSizeMode.CenterImage)
+        Animators = New UnionAnimator() With {.Items = New List(Of IAnimator)({Rotator, Breather})}
+        BS_Animator.DataSource = DirectCast(Animators, IAnimator)
 
-        Animator = Rotator
-        APB_Image.Animator = Animator
-        APB_Image.StartAnimation()
+        APB_1.Animator = Rotator
+        APB_2.Animator = Breather
 
-        BS_Animator.DataSource = Animator
+        Animators.StartAnimation()
         MyBase.OnLoad(e)
     End Sub
 
     Private Sub B_Reset_Click(sender As Object, e As EventArgs) Handles B_Reset.Click
-        Animator.ResetAnimation()
+        Animators.ResetAnimation()
     End Sub
 
     Private Sub B_Start_Click(sender As Object, e As EventArgs) Handles B_Start.Click
-        Animator.StartAnimation()
+        Animators.StartAnimation()
     End Sub
 
     Private Sub B_Stop_Click(sender As Object, e As EventArgs) Handles B_Stop.Click
-        Animator.StopAnimation()
+        Animators.StopAnimation()
     End Sub
 
     Private Sub CB_Direction_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Direction.CheckedChanged
-        If TypeOf Animator Is Rotator Then
-            Dim R = DirectCast(Animator, Rotator)
-            R.Direction = If(CB_Direction.Checked, Rotator.DirectionType.Counterclockwise, Rotator.DirectionType.Clockwise)
-        End If
+        Rotator.Direction = If(CB_Direction.Checked, Rotator.DirectionType.Counterclockwise, Rotator.DirectionType.Clockwise)
     End Sub
 
     Private Sub NUD_Scale_ValueChanged(sender As Object, e As EventArgs) Handles NUD_Scale.ValueChanged
-        If TypeOf Animator Is Breather Then
-            Dim B = DirectCast(Animator, Breather)
-            B.MinimalScale = NUD_Scale.Value
-        End If
+        Breather.MinimalScale = NUD_Scale.Value
     End Sub
+
+    Private Sub BS_Animator_CurrentItemChanged(sender As Object, e As EventArgs) Handles BS_Animator.CurrentItemChanged
+
+    End Sub
+
+    Private Class Animation
+        Public Property Framerate As Integer
+        Public Property Duration As Integer
+
+    End Class
 
 End Class

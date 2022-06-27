@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -20,10 +21,10 @@ namespace JANL.SQL
         /// </summary>
         public override DataTable Execute(SqlConnection Connection)
         {
-            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
-            SQLCommand.Connection = Connection;
+            var Result = new DataTable { Locale = CultureInfo.CurrentCulture };
+            Command.Connection = Connection;
             //TODO Replace with Reader (Blocked by RGI)
-            using (var A = new SqlDataAdapter(SQLCommand))
+            using (var A = new SqlDataAdapter(Command))
             {
                 A.Fill(Result);
             }
@@ -35,13 +36,33 @@ namespace JANL.SQL
         /// </summary>
         public override async Task<DataTable> ExecuteAsync(SqlConnection Connection)
         {
-            var Result = new DataTable { Locale = System.Globalization.CultureInfo.CurrentCulture };
-            SQLCommand.Connection = Connection;
-            using (var R = await SQLCommand.ExecuteReaderAsync().ConfigureAwait(false))
+            var Result = new DataTable { Locale = CultureInfo.CurrentCulture };
+            Command.Connection = Connection;
+            using (var R = await Command.ExecuteReaderAsync().ConfigureAwait(false))
             {
                 await Task.Run(() => Result.Load(R)).ConfigureAwait(false);
             }
             return Result;
+        }
+
+        /// <summary>
+        /// Создать Reader
+        /// </summary>
+        public SqlDataReader ExecuteReader()
+        {
+            Connection.Open();
+            Command.Connection = Connection;
+            return Command.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Создать Reader
+        /// </summary>
+        public async Task<SqlDataReader> ExecuteReaderAsync()
+        {
+            await Connection.OpenAsync();
+            Command.Connection = Connection;
+            return await Command.ExecuteReaderAsync();
         }
     }
 }

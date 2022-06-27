@@ -16,7 +16,11 @@ namespace JANL.Animators
 
         public Rotator(int duration, Image image) : base(30, duration, image) { }
 
-        public override void ResetAnimation() { _angle = 0; }
+        public override void ResetAnimation()
+        {
+            _angle = 0;
+            base.ResetAnimation();
+        }
 
         protected override Image Transform(Image SourceImage, Image CurrentImage)
         {
@@ -30,6 +34,7 @@ namespace JANL.Animators
                 G.TranslateTransform(-(float)SourceImage.Width / 2, -(float)SourceImage.Height / 2);
                 G.DrawImage(SourceImage, new Point(0, 0));
             }
+
             return B;
         }
 

@@ -15,13 +15,13 @@ namespace JANL.SQL
             set
             {
                 _schema = value;
-                if (SQLCommand.CommandText.Contains("."))
+                if (Command.CommandText.Contains("."))
                 {
-                    var S = SQLCommand.CommandText.Split(new char[] { '.' }, 2);
-                    SQLCommand.CommandText = S[1];
+                    var S = Command.CommandText.Split(new char[] { '.' }, 2);
+                    Command.CommandText = S[1];
                 }
                 if (string.IsNullOrWhiteSpace(value)) { return; }
-                SQLCommand.CommandText = $"{value}.{SQLCommand.CommandText}";
+                Command.CommandText = $"{value}.{Command.CommandText}";
             }
         }
 

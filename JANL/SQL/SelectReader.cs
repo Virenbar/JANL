@@ -1,37 +1,38 @@
 ﻿using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace JANL.SQL
 {
     /// <summary>
-    /// SQL код <typeparamref name="T"/>
+    /// Процедура возвращающая <see cref="SqlDataReader"/>
     /// </summary>
-    /// <typeparam name="T">Тип значения возвращаемого процедурой</typeparam>
-    public class ScalarText<T> : SQLText<T>
+    public class SelectReader : SQLProcedure<SqlDataReader>
     {
         /// <summary>
         /// Создаёт новую процедуру именем вызывающего метода
         /// </summary>
-        public ScalarText(string Text) : base(Text) { }
+        public SelectReader([CallerMemberName] string Name = null) : base(Name)
+        {
+            AutoClose = false;
+        }
 
         /// <summary>
         /// Выполнить с указанным соединением
         /// </summary>
-        public override T Execute(SqlConnection Connection)
+        public override SqlDataReader Execute(SqlConnection Connection)
         {
             Command.Connection = Connection;
-            var Result = (T)Command.ExecuteScalar();
-            return Result;
+            return Command.ExecuteReader();
         }
 
         /// <summary>
         /// Асинхронно выполнить с указанным соединением
         /// </summary>
-        public override async Task<T> ExecuteAsync(SqlConnection Connection)
+        public override Task<SqlDataReader> ExecuteAsync(SqlConnection Connection)
         {
             Command.Connection = Connection;
-            var Result = (T)await Command.ExecuteScalarAsync();
-            return Result;
+            return Command.ExecuteReaderAsync();
         }
     }
 }

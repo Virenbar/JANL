@@ -19,8 +19,8 @@ namespace JANL.SQL
 		/// </summary>
 		public override int Execute(SqlConnection Connection)
 		{
-			SQLCommand.Connection = Connection;
-			var Result = SQLCommand.ExecuteNonQuery();
+			Command.Connection = Connection;
+			var Result = Command.ExecuteNonQuery();
 			return Result;
 		}
 
@@ -29,8 +29,8 @@ namespace JANL.SQL
 		/// </summary>
 		public override async Task<int> ExecuteAsync(SqlConnection Connection)
 		{
-			SQLCommand.Connection = Connection;
-			var Result = await SQLCommand.ExecuteNonQueryAsync();
+			Command.Connection = Connection;
+			var Result = await Command.ExecuteNonQueryAsync();
 			return Result;
 		}
 	}
