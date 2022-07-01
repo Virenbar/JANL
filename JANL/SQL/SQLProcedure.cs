@@ -17,7 +17,7 @@ namespace JANL.SQL
                 _schema = value;
                 if (Command.CommandText.Contains("."))
                 {
-                    var S = Command.CommandText.Split(new char[] { '.' }, 2);
+                    var S = Command.CommandText.Split(new[] { '.' }, 2);
                     Command.CommandText = S[1];
                 }
                 if (string.IsNullOrWhiteSpace(value)) { return; }
@@ -32,7 +32,7 @@ namespace JANL.SQL
         {
             if (Name.Contains("."))
             {
-                var S = Name.Split(new char[] { '.' }, 2, System.StringSplitOptions.RemoveEmptyEntries);
+                var S = Name.Split(new[] { '.' }, 2, System.StringSplitOptions.RemoveEmptyEntries);
                 Schema = S[0];
             }
         }

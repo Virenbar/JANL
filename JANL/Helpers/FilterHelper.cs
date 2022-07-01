@@ -31,7 +31,6 @@ namespace JANL.Helpers
 
             var Terms = Filter.Split(new[] { splitChar }, StringSplitOptions.RemoveEmptyEntries);
             var CollumnsFilters = columns.Select(C => $"({string.Join(" AND ", Terms.Select(T => $"{AsString(C)} LIKE '%{T}%'"))})");
-            //var CollumnsFilters = columns.Select(C => string.Format("({0} LIKE '%" + Filter.Replace(splitChar.ToString(), "%' AND {0} LIKE '%") + "%')", AsString(C)));
             return string.Join(" OR ", CollumnsFilters);
         }
 

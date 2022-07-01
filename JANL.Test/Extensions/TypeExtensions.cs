@@ -9,7 +9,7 @@ namespace JANL.Test.Extensions
         [Test]
         public void PickRandom()
         {
-            var E = new int[] { 1, 2, 3 };
+            var E = new[] { 1, 2, 3 };
             var R = E.PickRandom();
             Assert.Contains(R, E);
         }

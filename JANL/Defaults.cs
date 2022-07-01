@@ -29,6 +29,11 @@ namespace JANL
         /// </summary>
         public static Color ForeColor => Settings.Default.ForeColor;
 
+        /// <summary>
+        /// Заголовок окон
+        /// </summary>
+        public static string Header { get; set; } = Application.ProductName;
+
         public static InputLanguage Language => InputLanguage.FromCulture(Culture);
 
         /// <summary>
@@ -38,9 +43,10 @@ namespace JANL
         public static int Timeout { get; set; } = 30;
 
         public static class Icons
+
         {
-            public static Icon OK { get; set; }
             public static Icon Cancel { get; set; }
+            public static Icon OK { get; set; }
         }
     }
 }

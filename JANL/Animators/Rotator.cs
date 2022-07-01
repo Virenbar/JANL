@@ -10,7 +10,7 @@ namespace JANL.Animators
         private float _angle;
         private float AngleStep;
 
-        public Rotator() : base() { }
+        public Rotator() { }
 
         public Rotator(int duration) : base(30, duration) { }
 

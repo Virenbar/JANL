@@ -12,7 +12,7 @@ namespace JANL.Animators
 
         public Breather() : this(0.5f) { }
 
-        public Breather(float minimalScale) : base() { MinimalScale = minimalScale; }
+        public Breather(float minimalScale) { MinimalScale = minimalScale; }
 
         protected override void OnDurationChanged(EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace JANL.Animators
         {
             _scale += _scaleStep * (down ? -1 : 1);
             _scale = Math.Min(Math.Max(_minScale, _scale), 1);
-            if (_scale == _minScale || _scale == 1) { down = !down; }
+            if (_scale <= _minScale || _scale >= 1) { down = !down; }
 
             Image B = new Bitmap(Width, Height);
             using (Graphics G = Graphics.FromImage(B))

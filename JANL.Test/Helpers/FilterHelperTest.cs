@@ -20,8 +20,5 @@ namespace JANL.Test.Helpers
             var F = FilterHelper.RowFilterByRow(new[] { "C1", "C2" }, "V1 V2");
             Assert.AreEqual(Filter, F);
         }
-
-        [SetUp]
-        public void Setup() { }
     }
 }

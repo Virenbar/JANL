@@ -30,9 +30,8 @@ Partial Class FormSelectTest
 		Me.B_String = New System.Windows.Forms.Button()
 		Me.B_Object = New System.Windows.Forms.Button()
 		Me.B_Enum = New System.Windows.Forms.Button()
-		Me.B_FormSelect = New System.Windows.Forms.Button()
-		Me.ItemSelector1 = New JANL.ItemSelector()
-		Me.AutoTextBox1 = New JANL.AutoTextBox()
+        Me.B_FormSelect = New System.Windows.Forms.Button()
+        Me.AutoTextBox1 = New JANL.AutoTextBox()
 		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.B_FTB_Text = New System.Windows.Forms.Button()
 		B_FTB_Empty = New System.Windows.Forms.Button()
@@ -114,18 +113,11 @@ Partial Class FormSelectTest
 		Me.B_FormSelect.TabIndex = 3
 		Me.B_FormSelect.Text = "Button1"
 		Me.B_FormSelect.UseVisualStyleBackColor = True
-		'
-		'ItemSelector1
-		'
-		Me.ItemSelector1.Key = 2
-		Me.ItemSelector1.Location = New System.Drawing.Point(3, 35)
-		Me.ItemSelector1.Name = "ItemSelector1"
-		Me.ItemSelector1.Size = New System.Drawing.Size(196, 23)
-		Me.ItemSelector1.TabIndex = 4
-		'
-		'AutoTextBox1
-		'
-		Me.AutoTextBox1.Key = 2
+
+        '
+        'AutoTextBox1
+        '
+        Me.AutoTextBox1.Key = 2
 		Me.AutoTextBox1.Location = New System.Drawing.Point(3, 64)
 		Me.AutoTextBox1.Name = "AutoTextBox1"
 		Me.AutoTextBox1.Size = New System.Drawing.Size(100, 20)
@@ -172,9 +164,8 @@ Partial Class FormSelectTest
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(592, 327)
 		Me.Controls.Add(Me.FlowLayoutPanel2)
-		Me.Controls.Add(Me.AutoTextBox1)
-		Me.Controls.Add(Me.ItemSelector1)
-		Me.Controls.Add(Me.B_FormSelect)
+        Me.Controls.Add(Me.AutoTextBox1)
+        Me.Controls.Add(Me.B_FormSelect)
 		Me.Controls.Add(Me.FlowLayoutPanel1)
 		Me.Controls.Add(Me.StatusStrip1)
 		Me.Name = "FormSelectTest"
@@ -196,9 +187,8 @@ Partial Class FormSelectTest
 	Friend WithEvents B_String As Button
 	Friend WithEvents B_Object As Button
 	Friend WithEvents B_Enum As Button
-	Friend WithEvents B_FormSelect As Button
-	Friend WithEvents ItemSelector1 As JANL.ItemSelector
-	Friend WithEvents AutoTextBox1 As JANL.AutoTextBox
+    Friend WithEvents B_FormSelect As Button
+    Friend WithEvents AutoTextBox1 As JANL.AutoTextBox
 	Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
 	Friend WithEvents B_FTB_Text As Button
 End Class

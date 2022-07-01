@@ -24,7 +24,7 @@ namespace JANL.SQL
         public override T Execute(SqlConnection Connection)
         {
             Command.Connection = Connection;
-            var Result = Command.ExecuteNonQuery();
+            Command.ExecuteNonQuery();
             if (ReturnParameter.Value == DBNull.Value) { return default; }
             return (T)ReturnParameter.Value;
         }
@@ -32,7 +32,7 @@ namespace JANL.SQL
         public async override Task<T> ExecuteAsync(SqlConnection Connection)
         {
             Command.Connection = Connection;
-            var Result = await Command.ExecuteNonQueryAsync();
+            await Command.ExecuteNonQueryAsync();
             if (ReturnParameter.Value == DBNull.Value) { return default; }
             return (T)ReturnParameter.Value;
         }

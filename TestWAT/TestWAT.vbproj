@@ -157,12 +157,6 @@
     <Compile Include="Forms\Tests\FormULCheck.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tests\FormView.Designer.vb">
-      <DependentUpon>FormView.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\FormView.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormTest.Designer.vb">
       <DependentUpon>FormTest.vb</DependentUpon>
     </Compile>
@@ -262,9 +256,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\FormULCheck.resx">
       <DependentUpon>FormULCheck.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\FormView.resx">
-      <DependentUpon>FormView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTest.resx">
       <DependentUpon>FormTest.vb</DependentUpon>

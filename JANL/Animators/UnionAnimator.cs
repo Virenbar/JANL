@@ -14,13 +14,13 @@ namespace JANL.Animators
         public int Duration
         {
             get => Items.FirstOrDefault().Duration;
-            set { foreach (var item in Items) { item.Duration = value; }; }
+            set { foreach (var item in Items) { item.Duration = value; } }
         }
 
         public int Framerate
         {
             get => Items.FirstOrDefault().Framerate;
-            set { foreach (var item in Items) { item.Framerate = value; }; }
+            set { foreach (var item in Items) { item.Framerate = value; } }
         }
 
         public int Height => Items.Max(I => I.Height);
@@ -30,7 +30,7 @@ namespace JANL.Animators
         public Image SourceImage
         {
             get => Items.FirstOrDefault().SourceImage;
-            set { foreach (var item in Items) { item.SourceImage = value; }; }
+            set { foreach (var item in Items) { item.SourceImage = value; } }
         }
 
         public int Width => Items.Max(I => I.Width);

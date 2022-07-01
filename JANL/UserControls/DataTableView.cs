@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
+    [DefaultEvent(nameof(RowDoubleClick))]
     public partial class DataTableView : UserControl
     {
         private IEnumerable<string> Columns;
@@ -23,6 +24,12 @@ namespace JANL.UserControls
             DGV.DoubleBuffered();
 
             DGV.DataSource = BS_View;
+        }
+
+        public T CurrentKeyCast<T>()
+        {
+            if (CurrentKey == null) { return default; }
+            return (T)CurrentKey;
         }
 
         public T Field<T>(string name)
@@ -93,6 +100,8 @@ namespace JANL.UserControls
         private void RefreshUI()
         {
             TB_Filter.Enabled = Columns.Count() > 0;
+            B_Edit.Enabled = Count > 0;
+            B_Delete.Enabled = Count > 0;
         }
 
         #region Properties
@@ -108,7 +117,7 @@ namespace JANL.UserControls
         public int CountFull => (((DataTable)BS_View.DataSource)?.Rows.Count).GetValueOrDefault();
 
         /// <summary>
-        ///
+        /// Кол-во строк
         /// </summary>
         public string CountText => Count == CountFull ? $"{CountFull}" : $"{Count}/{CountFull}";
 
@@ -228,11 +237,9 @@ namespace JANL.UserControls
         private void BS_View_CurrentChanged(object sender, EventArgs e)
         {
             var R = CurrentRow;
-            if (R != null)
-            {
-                CurrentKey = R.Field<object>(KeyName);
-                CurrentValue = R.Field<string>(ValueName);
-            }
+            CurrentKey = R?.Field<object>(KeyName);
+            CurrentValue = R?.Field<string>(ValueName);
+
             OnCurrentRowChanged(EventArgs.Empty);
         }
 
@@ -245,6 +252,7 @@ namespace JANL.UserControls
         private void TB_Filter_InputDone(object sender, EventArgs e)
         {
             ApplyFilter();
+            RefreshUI();
         }
 
         #endregion UI Events
@@ -263,16 +271,22 @@ namespace JANL.UserControls
 
         protected void OnRowDoubleClick(EventArgs args) => RowDoubleClick?.Invoke(this, args);
 
+        [Category("DataTableView")]
         public event EventHandler CreateClick;
 
+        [Category("DataTableView")]
         public event EventHandler CurrentRowChanged;
 
+        [Category("DataTableView")]
         public event EventHandler DeleteClick;
 
+        [Category("DataTableView")]
         public event EventHandler EditClick;
 
+        [Category("DataTableView")]
         public event EventHandler RefreshClick;
 
+        [Category("DataTableView")]
         public event EventHandler RowDoubleClick;
 
         #endregion Events

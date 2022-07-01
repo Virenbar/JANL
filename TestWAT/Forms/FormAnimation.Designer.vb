@@ -224,7 +224,6 @@ Partial Class FormAnimation
         '
         Me.APB_1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.APB_1.Animator = Nothing
-        Me.APB_1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.APB_1.Image = Global.TestWAT.My.Resources.Resources.partner64
         Me.APB_1.Location = New System.Drawing.Point(151, 3)
         Me.APB_1.Name = "APB_1"
@@ -237,7 +236,6 @@ Partial Class FormAnimation
         '
         Me.APB_2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.APB_2.Animator = Nothing
-        Me.APB_2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.APB_2.Image = Global.TestWAT.My.Resources.Resources.partner64
         Me.APB_2.Location = New System.Drawing.Point(572, 3)
         Me.APB_2.Name = "APB_2"

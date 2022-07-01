@@ -58,6 +58,7 @@
     <Compile Include="Animators\Rotator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
@@ -111,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EB_Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Msgs.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

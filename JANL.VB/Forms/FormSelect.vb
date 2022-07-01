@@ -6,6 +6,7 @@ Imports JANL.Extensions
 ''' <summary>
 ''' One form to rule them all
 ''' </summary>
+<Obsolete>
 Public Class FormSelect
     Private ReadOnly Repository As BaseRepository
     Private FilterControl As UserControl

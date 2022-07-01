@@ -80,9 +80,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Colors\Common.vb" />
-    <Compile Include="Colors\Status.vb" />
-    <Compile Include="Consts.vb" />
     <Compile Include="Designers\HResizeOnly.vb" />
     <Compile Include="ExtendedControls\AutoTextBox.vb">
       <SubType>Component</SubType>
@@ -135,28 +132,10 @@
     <Compile Include="Types\DGVTemplate.vb" />
     <Compile Include="Types\DGVTemplateColumn.vb" />
     <Compile Include="Types\ObservableObject.vb" />
-    <Compile Include="UserControls\ChildView.Designer.vb">
-      <DependentUpon>ChildView.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ChildView.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\LinkView.Designer.vb">
-      <DependentUpon>LinkView.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\LinkView.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="UserControls\DGVTemplateEditor.Designer.vb">
       <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DGVTemplateEditor.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ItemSelector.designer.vb">
-      <DependentUpon>ItemSelector.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ItemSelector.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\ProgressBarEx.Designer.vb">
@@ -179,18 +158,6 @@
     </Compile>
     <Compile Include="ExtendedControls\ToggleButton.vb">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserControls\TextBoxClear.Designer.vb">
-      <DependentUpon>TextBoxClear.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\TextBoxClear.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ToggleValueBox.Designer.vb">
-      <DependentUpon>ToggleValueBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ToggleValueBox.vb">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extensions\ControlExtensions.vb" />
     <Compile Include="Extensions\IDK\VowelsBegone.vb" />
@@ -217,8 +184,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Prmtrs.vb" />
-    <Compile Include="Types\ToggleValue.vb" />
     <Compile Include="UserControls\MonthPicker.designer.vb">
       <DependentUpon>MonthPicker.vb</DependentUpon>
     </Compile>
@@ -248,14 +213,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>icons8.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\LinkView.resx">
-      <DependentUpon>LinkView.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DGVTemplateEditor.resx">
       <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ItemSelector.resx">
-      <DependentUpon>ItemSelector.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
@@ -265,12 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\TextBoxClear.resx">
-      <DependentUpon>TextBoxClear.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ToggleValueBox.resx">
-      <DependentUpon>ToggleValueBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Locales\EB_Strings.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -290,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="CodeMaps\SQL.dgml" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
