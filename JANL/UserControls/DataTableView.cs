@@ -43,9 +43,9 @@ namespace JANL.UserControls
             if (IsDisposed) { return; }
             try
             {
+                if (Columns.Count() == 0) { Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName); }
                 if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
                 if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
-                if (Columns.Count() == 0) { Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName); }
 
                 var OldDT = this.DT;
                 var OldKey = CurrentKey;
