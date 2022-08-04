@@ -52,10 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animators\UnionAnimator.cs" />
-    <Compile Include="Animators\BaseAnimator.cs" />
-    <Compile Include="Animators\Breather.cs" />
-    <Compile Include="Animators\Rotator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
     <Compile Include="Constants.cs" />
@@ -78,8 +74,10 @@
     <Compile Include="ExtendedControls\ToolStripTextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\WAT.cs" />
     <Compile Include="Forms\ExceptionBox.cs">
       <SubType>Form</SubType>
     </Compile>

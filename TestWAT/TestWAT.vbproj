@@ -81,6 +81,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -389,6 +390,10 @@
     <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj">
       <Project>{5121d0be-ade2-426f-892b-4377962a85cc}</Project>
       <Name>JANL.VB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JANL.WinForms\JANL.WinForms.csproj">
+      <Project>{f4510244-5445-40a6-8d3a-dbc0228443f2}</Project>
+      <Name>JANL.WinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\JANL\JANL.csproj">
       <Project>{6eaf970d-b09f-41cc-b855-a5221757a9ae}</Project>

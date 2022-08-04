@@ -117,38 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="B_Copy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAGYktHRAD/AP8A/6C9p5MAAADgSURBVDhPY8AFuhetE5u4ZP3uCUvX7Zq0apUoVBg3CA0NZXaL
-        TmlxjUpdVTtx9uOmaQtft85afAKEm6YveAUSA8m5RCU3g9RCtSGAc2SyR2ZV0/+DJ07/n7R0/f8JS9ah
-        YJAYSC6jsvE/SC1UGwK4RiWHNk+c8R8Enr16+//Wwyco+Nnrt2A5kBqQWqg2BEA2AB8gygDmlV8w8OpH
-        v8Fy9HFB2NEfGPjEm79gOaIMADkXGSMD+hhAsRfQNSMDogzAB3AagJyU8WGcSRmUQVyjUppAGQYvjk5t
-        xJqZyAMMDAAvGeloshpXiQAAAABJRU5ErkJggg==
-</value>
+  <data name="EB_Continue" xml:space="preserve">
+    <value>Продолжить</value>
   </data>
-  <data name="B_MailTo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAGYktHRAD/AP8A/6C9p5MAAAFTSURBVDhPzZJdS8JQGMcHfZCY9SWC7ruwy/YBgi67D/oMUhRt
-        1kUgib1MUivBzAYmlq/TscRjzAVCFIUXNXf/tOc0ZcnJ2l0P/GDn2f/3Pxcb9z9GI+ai1jHXfOE4VD5I
-        K0K+pkGz0/UFOuhySqW+shVLgHx1Aw1GcBzMYBYddLlmxxBweZLNw3YsBSW9zRSRsk5g5ygF0fQ1NIjh
-        7AyBFgwDSqUBoUgcMsXqNxHJ3tXpu1xJ9ezHCpBa6wHC8gXsJy9BbRv0JrxROj6DSot45B8KhiSUImxE
-        Tyn4zMpMLEAKqk7x7lRies6/FLA4LPdg9fzV/WJOgUaMBVZwSLzaA7HwNGI98wK8NIDl5Bvc3ptBTgaY
-        cpo2m6SbY7Ek959RYBGQ7DT9GycNL1ohXrIfR4QHbqFtB6SPoBv7+wREa94p6E/vWnPuyt/M7r3PIF8n
-        jvsEoC1SssFf0BEAAAAASUVORK5CYII=
-</value>
+  <data name="EB_Copy" xml:space="preserve">
+    <value>Копировать</value>
   </data>
-  <data name="B_Exit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAGYktHRAD/AP8A/6C9p5MAAAETSURBVDhPpZPfSoRAFMZ9AF9HDVpiUGuXdqGCnmutV4jafYL+
-        scTWjTDSjfgWBns1cyPKaeaMoqNjWF18oOd838+Z44yVE2KzwLsVoix0PydJegPnRmYt+cACF/6k0IkE
-        QNIMzUnyqKWW1Bb59QL4inRMtebHwM5P9JrIagB+eQpVlkEVxzpEhMuXJyg/3nVIH8BCD4rNHcDXASpK
-        gV/4Kvz8iLVy9yreZz8A+pAkwZAxjF4TABsCsr3HIIb3b8Mw+sYAnWU3K8Ht9H1GQG/PxfZBQZqZdL0D
-        gGlgpsGOAfjVGVRpir9MwlqjgqitBOMAKQnRwo3CI+BL00H6/1F2InNzgnx3XV9neSN/eZ3Fh3NC7G/b
-        G4qQb0Y1nwAAAABJRU5ErkJggg==
-</value>
+  <data name="EB_ErrDesc" xml:space="preserve">
+    <value>Описание ошибки</value>
+  </data>
+  <data name="EB_Exit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="EB_Header" xml:space="preserve">
+    <value>Необработанная ошибка</value>
+  </data>
+  <data name="EB_Mail" xml:space="preserve">
+    <value>Отправить по почте</value>
+  </data>
+  <data name="EB_Message" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="EB_Method" xml:space="preserve">
+    <value>Метод</value>
+  </data>
+  <data name="EB_Text" xml:space="preserve">
+    <value>Произошла непредвиденная ошибка. Стабильная работа приложения не гарантируется.</value>
+  </data>
+  <data name="EB_Type" xml:space="preserve">
+    <value>Тип</value>
   </data>
 </root>

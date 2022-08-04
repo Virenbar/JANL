@@ -6,9 +6,9 @@ namespace JANL
 {
     public abstract class DataTableComboBox : ComboBox
     {
+        protected DataView DV;
         protected string KeyName;
         protected string ValueName;
-        protected BindingSource BS;
         private static readonly DataSet DataTableCache = new DataSet("ComboBoxCache");
         private bool SuppressEvents = true;
 
@@ -49,8 +49,8 @@ namespace JANL
                     DataTableCache.Tables.Add(DT);
                 }
             }
-            BS = new BindingSource(DT, null);
-            DataSource = BS;
+            DV = new DataView(DT);
+            DataSource = DV;
             ValueMember = KeyName;
             DisplayMember = ValueName;
             if (string.IsNullOrWhiteSpace(ValueMember)) { ValueMember = DT.Columns[0].ColumnName; }
@@ -60,7 +60,7 @@ namespace JANL
 
         protected override void Dispose(bool disposing)
         {
-            BS?.Dispose();
+            DV?.Dispose();
             base.Dispose(disposing);
         }
 
@@ -81,14 +81,29 @@ namespace JANL
         /// </summary>
         public bool AddEmptyRow { get; set; }
 
+        /// <summary>
+        /// Ключ выбранного значения
+        /// </summary>
         public object CurrentKey => SelectedValue;
 
+        /// <summary>
+        /// Выбранное значение
+        /// </summary>
         public string CurrentValue => GetItemText(SelectedItem);
 
         /// <summary>
         /// Выбранная строка
         /// </summary>
         protected DataRow CurrentRow => ((DataRowView)SelectedItem)?.Row;
+
+        /// <summary>
+        /// Фильтр строк
+        /// </summary>
+        protected string Filter
+        {
+            get => DV.RowFilter;
+            set => DV.RowFilter = value;
+        }
 
         /// <summary>
         /// Добавлять таблицу в кэш

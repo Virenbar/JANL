@@ -4,7 +4,7 @@ Imports System.Runtime.CompilerServices
 Imports System.Threading
 
 Namespace Extensions
-    Public Module TypeExtensions
+    Friend Module TypeExtensions
         Private ReadOnly Rnd As New Random(Date.Now.Millisecond)
 
         ''' <summary>

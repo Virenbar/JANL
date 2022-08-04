@@ -96,12 +96,6 @@
     <Compile Include="ExtendedControls\TextBoxEx.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\FormSelect.designer.vb">
-      <DependentUpon>FormSelect.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormSelect.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\FormTextBox.Designer.vb">
       <DependentUpon>FormTextBox.vb</DependentUpon>
     </Compile>
@@ -112,12 +106,6 @@
     <Compile Include="Helpers\NumberToText.vb" />
     <Compile Include="Helpers\Strings.vb" />
     <Compile Include="Helpers\XLS.vb" />
-    <Compile Include="Forms\ExceptionBox.Designer.vb">
-      <DependentUpon>ExceptionBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ExceptionBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="icons8.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,12 +132,6 @@
     <Compile Include="UserControls\ProgressBarEx.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\SelectionBox.Designer.vb">
-      <DependentUpon>SelectionBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SelectionBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UserControls\StopWatchLabel.Designer.vb">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>
     </Compile>
@@ -160,7 +142,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\ControlExtensions.vb" />
-    <Compile Include="Extensions\IDK\VowelsBegone.vb" />
     <Compile Include="Extensions\TypeExtensions.vb" />
     <Compile Include="Helpers\FS.vb" />
     <Compile Include="Locales\EB_Strings.Designer.vb">
@@ -196,15 +177,6 @@
     <EmbeddedResource Include="ExtendedControls\TextBoxEx.resx">
       <DependentUpon>TextBoxEx.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ExceptionBox.resx">
-      <DependentUpon>ExceptionBox.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ExceptionBox.ru.resx">
-      <DependentUpon>ExceptionBox.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSelect.resx">
-      <DependentUpon>FormSelect.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTextBox.resx">
       <DependentUpon>FormTextBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -218,9 +190,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectionBox.resx">
-      <DependentUpon>SelectionBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.vb</DependentUpon>

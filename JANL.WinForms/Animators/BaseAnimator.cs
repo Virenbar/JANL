@@ -2,33 +2,32 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JANL.Animators
 {
     public abstract class BaseAnimator : ObservableObject, IAnimator
     {
         private readonly Stopwatch Stopwatch = new Stopwatch();
+        private readonly Timer Timer = new Timer();
         private int _duration;
         private int _framerate;
-        private Task AnimationTask;
+        //private Task AnimationTask;
 
         protected BaseAnimator(int framerate, int duration)
         {
             Framerate = framerate;
             Duration = duration;
+            Timer.Tick += Timer_Tick;
         }
+
+        private void Timer_Tick(object sender, EventArgs e) => Animate();
 
         protected BaseAnimator(int framerate, int duration, Image image) : this(framerate, duration) { SourceImage = image; }
 
         protected BaseAnimator() : this(30, 5 * 1000) { }
 
         protected BaseAnimator(Image image) : this() { SourceImage = image; }
-
-        [DllImport("user32.dll")]
-        public extern static bool DestroyIcon(IntPtr handle);
 
         /// <summary>
         /// Сброс состояния анимации
@@ -45,14 +44,14 @@ namespace JANL.Animators
         public void StartAnimation()
         {
             if (SourceImage is null || IsAnimated) { return; }
-            IsAnimated = true;
-            AnimationTask = AnimationLoop();
+            Timer.Interval = Delay;
+            Timer.Start();
         }
 
         /// <summary>
         /// Остановка анимации
         /// </summary>
-        public void StopAnimation() => IsAnimated = false;
+        public void StopAnimation() => Timer.Stop();
 
         protected abstract Image Transform(Image SourceImage, Image CurrentImage);
 
@@ -60,28 +59,29 @@ namespace JANL.Animators
         {
             Stopwatch.Restart();
             CurrentImage = Transform(SourceImage, CurrentImage);
+            OnCurrentImageChanged(EventArgs.Empty);
             Stopwatch.Stop();
-            Thread.Sleep(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
+            Timer.Interval = Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0);
         }
 
-        private async Task AnimationLoop()
-        {
-            await Task.Delay(Delay);
-            //var t = new doubleanimation()
-            while (IsAnimated)
-            {
-                //await Task.Run(Animate).ConfigureAwait(false);
-                await Task.Run(() =>
-                {
-                    Stopwatch.Restart();
-                    CurrentImage = Transform(SourceImage, CurrentImage);
-                    Stopwatch.Stop();
-                    //Thread.Sleep(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
-                }).ConfigureAwait(false);
-                OnCurrentImageChanged(EventArgs.Empty);
-                await Task.Delay(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
-            }
-        }
+        //private async Task AnimationLoop()
+        //{
+        //    await Task.Delay(Delay);
+        //    //var t = new doubleanimation()
+        //    while (IsAnimated)
+        //    {
+        //        //await Task.Run(Animate).ConfigureAwait(false);
+        //        await Task.Run(() =>
+        //        {
+        //            Stopwatch.Restart();
+        //            CurrentImage = Transform(SourceImage, CurrentImage);
+        //            Stopwatch.Stop();
+        //            //Thread.Sleep(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
+        //        }).ConfigureAwait(false);
+        //        OnCurrentImageChanged(EventArgs.Empty);
+        //        await Task.Delay(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
+        //    }
+        //}
 
         #region Properties
 
@@ -129,7 +129,7 @@ namespace JANL.Animators
         /// <summary>
         /// Активна ли анимация
         /// </summary>
-        public bool IsAnimated { get; private set; }
+        public bool IsAnimated => Timer.Enabled;
 
         /// <summary>
         /// Исходное изображение

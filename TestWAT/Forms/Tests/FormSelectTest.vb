@@ -75,15 +75,15 @@ Public Class FormSelectTest
     End Enum
 
     Private Sub B_FormSelect_Click(sender As Object, e As EventArgs) Handles B_FormSelect.Click
-        Dim F = New FormSelect(New TestRepository())
-        F.ShowDialog()
+        'Dim F = New FormSelect(New TestRepository())
+        'F.ShowDialog()
     End Sub
 
     Private Sub FormSelectTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        AutoTextBox1.Init(AddressOf TestRepository.GetValueS)
+        'AutoTextBox1.Init(AddressOf TestRepository.GetValueS)
 
-        AutoTextBox1.RefreshValue()
+        'AutoTextBox1.RefreshValue()
     End Sub
 
     Private Sub B_FTB_Empty_Click(sender As Object, e As EventArgs)

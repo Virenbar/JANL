@@ -11,6 +11,8 @@ namespace JANL.SQL
     /// </summary>
     public static class SQLHelper
     {
+        #region Converters
+
         public static Type GetCRLType(SqlDbType type)
         {
             switch (type)
@@ -115,6 +117,8 @@ namespace JANL.SQL
                     throw new ArgumentException($"Unsupported type: {type.Name}");
             }
         }
+
+        #endregion Converters
 
         /// <summary>
         /// Создает и открывает новое соединение по умолчанию

@@ -1,4 +1,5 @@
-﻿Imports JANL.Animators
+﻿Imports System.Management
+Imports JANL.Animators
 
 Public Class MainForm
 
@@ -67,6 +68,14 @@ Public Class MainForm
     Private Sub B_Animations_Click(sender As Object, e As EventArgs) Handles B_Animations.Click
         Dim F = New FormAnimation()
         F.Show(Me)
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim Q = "SELECT * FROM Win32_PnPEntity"
+        Dim R = New ManagementObjectSearcher(Q).Get()
+        Dim R1 = R.Cast(Of ManagementObject)().ToList()
+        Dim R2 = R1.Select(Function(P) P.Properties("Name").Value.ToString()).ToList()
+        Console.WriteLine("")
     End Sub
 
 End Class

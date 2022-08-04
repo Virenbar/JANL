@@ -54,15 +54,6 @@ Friend Class Msgs
     End Sub
 
     ''' <summary>
-    ''' Отображает ExceptionBox
-    ''' </summary>
-    ''' <param name="ex">Объект ошибки</param>
-    Public Shared Sub ShowException(ex As Exception)
-        Dim F = New ExceptionBox(ex)
-        F.ShowDialog()
-    End Sub
-
-    ''' <summary>
     ''' Отображает сообщение
     ''' </summary>
     ''' <param name="Text">Текст сообщения</param>
