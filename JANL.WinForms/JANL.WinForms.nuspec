@@ -13,7 +13,7 @@
 		<icon>icon/JANL.png</icon>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Just Another .NET Library</description>
-		<!--<readme>docs\README.md</readme>-->
+		<readme>docs\README.md</readme>
 		<summary>Just Another .NET Library</summary>
 		<copyright>Virenbar</copyright>
 		<dependencies>

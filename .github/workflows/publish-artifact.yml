@@ -12,15 +12,14 @@ jobs:
     steps:
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.1
-        
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: JANL
-        
+
       - name: LS
         run: ls -R
-        
+
       - name: Push NuGet
         run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGETKEY}}
-          

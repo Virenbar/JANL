@@ -84,7 +84,7 @@
             this.TableLayoutPanel1.Name = "TableLayoutPanel1";
             this.TableLayoutPanel1.RowCount = 1;
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableLayoutPanel1.Size = new System.Drawing.Size(1202, 662);
+            this.TableLayoutPanel1.Size = new System.Drawing.Size(1193, 516);
             this.TableLayoutPanel1.TabIndex = 108;
             // 
             // GroupBox1
@@ -92,9 +92,9 @@
             this.GroupBox1.Controls.Add(this.TB_XML);
             this.GroupBox1.Controls.Add(this.flowLayoutPanel2);
             this.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GroupBox1.Location = new System.Drawing.Point(764, 3);
+            this.GroupBox1.Location = new System.Drawing.Point(760, 3);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(435, 656);
+            this.GroupBox1.Size = new System.Drawing.Size(430, 510);
             this.GroupBox1.TabIndex = 100;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "XML";
@@ -106,7 +106,7 @@
             this.TB_XML.Margin = new System.Windows.Forms.Padding(10);
             this.TB_XML.Multiline = true;
             this.TB_XML.Name = "TB_XML";
-            this.TB_XML.Size = new System.Drawing.Size(429, 606);
+            this.TB_XML.Size = new System.Drawing.Size(424, 460);
             this.TB_XML.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -118,7 +118,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(429, 31);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(424, 31);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
             // B_Import
@@ -158,7 +158,7 @@
             this.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GroupBox3.Location = new System.Drawing.Point(3, 3);
             this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Size = new System.Drawing.Size(434, 656);
+            this.GroupBox3.Size = new System.Drawing.Size(430, 510);
             this.GroupBox3.TabIndex = 105;
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Столбцы";
@@ -170,7 +170,7 @@
             this.ListBox1.FormattingEnabled = true;
             this.ListBox1.Location = new System.Drawing.Point(3, 41);
             this.ListBox1.Name = "ListBox1";
-            this.ListBox1.Size = new System.Drawing.Size(428, 612);
+            this.ListBox1.Size = new System.Drawing.Size(424, 466);
             this.ListBox1.TabIndex = 104;
             // 
             // BS_Columns
@@ -206,7 +206,7 @@
             this.BN_Columns.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.BN_Columns.Name = "BN_Columns";
             this.BN_Columns.PositionItem = this.bindingNavigatorPositionItem;
-            this.BN_Columns.Size = new System.Drawing.Size(428, 25);
+            this.BN_Columns.Size = new System.Drawing.Size(424, 25);
             this.BN_Columns.TabIndex = 103;
             this.BN_Columns.Text = "bindingNavigator1";
             // 
@@ -299,9 +299,9 @@
             // 
             this.GroupBox2.Controls.Add(this.PG_Column);
             this.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GroupBox2.Location = new System.Drawing.Point(443, 3);
+            this.GroupBox2.Location = new System.Drawing.Point(439, 3);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(315, 656);
+            this.GroupBox2.Size = new System.Drawing.Size(315, 510);
             this.GroupBox2.TabIndex = 101;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Свойства столбца";
@@ -313,7 +313,7 @@
             this.PG_Column.Location = new System.Drawing.Point(3, 16);
             this.PG_Column.Name = "PG_Column";
             this.PG_Column.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.PG_Column.Size = new System.Drawing.Size(309, 637);
+            this.PG_Column.Size = new System.Drawing.Size(309, 491);
             this.PG_Column.TabIndex = 7;
             // 
             // CMS_PG
@@ -344,7 +344,7 @@
             this.DGV_Template.Name = "DGV_Template";
             this.DGV_Template.ReadOnly = true;
             this.DGV_Template.RowHeadersVisible = false;
-            this.DGV_Template.Size = new System.Drawing.Size(1202, 67);
+            this.DGV_Template.Size = new System.Drawing.Size(1193, 67);
             this.DGV_Template.TabIndex = 107;
             this.DGV_Template.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Template_CellMouseClick);
             this.DGV_Template.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Template_CellMouseDown);
@@ -363,7 +363,7 @@
             this.Controls.Add(this.TableLayoutPanel1);
             this.Controls.Add(this.DGV_Template);
             this.Name = "DGVTemplateEditor";
-            this.Size = new System.Drawing.Size(1202, 729);
+            this.Size = new System.Drawing.Size(1193, 583);
             this.Load += new System.EventHandler(this.DGVTemplateEditor_Load);
             this.TableLayoutPanel1.ResumeLayout(false);
             this.GroupBox1.ResumeLayout(false);

@@ -100,24 +100,26 @@ namespace JANL
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextBoxEx));
             this.PB_Clear = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)this.PB_Clear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Clear)).BeginInit();
             this.SuspendLayout();
             //
             // PB_Clear
             //
             this.PB_Clear.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PB_Clear.BackColor = System.Drawing.Color.Transparent;
-            this.PB_Clear.Image = (System.Drawing.Image)resources.GetObject("PB_Clear.Image");
+            this.PB_Clear.Image = ((System.Drawing.Image)(resources.GetObject("PB_Clear.Image")));
             this.PB_Clear.Location = new System.Drawing.Point(0, 0);
             this.PB_Clear.Name = "PB_Clear";
             this.PB_Clear.Size = new System.Drawing.Size(16, 16);
             this.PB_Clear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB_Clear.TabIndex = 0;
             this.PB_Clear.TabStop = false;
-            ((System.ComponentModel.ISupportInitialize)this.PB_Clear).EndInit();
+            //
+            // TextBoxEx
+            //
+            this.Controls.Add(this.PB_Clear);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Clear)).EndInit();
             this.ResumeLayout(false);
-
-            Controls.Add(PB_Clear);
         }
 
         private void PB_Clear_Click(object sender, EventArgs e)

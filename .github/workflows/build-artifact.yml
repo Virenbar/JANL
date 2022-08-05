@@ -2,14 +2,14 @@ name: Build artifact
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_call:
     outputs:
-      version: 
+      version:
         description: "Version builded"
-        value: ${{ jobs.build.outputs.version }}    
+        value: ${{ jobs.build.outputs.version }}
 jobs:
   build:
     name: Build
@@ -22,47 +22,47 @@ jobs:
       SolutionName: JANL.sln
       Configuration: ${{ matrix.configuration }}
     outputs:
-      version: ${{steps.version.outputs.version}}      
+      version: ${{steps.version.outputs.version}}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.x
-    
-    - name: Set VERSION
-      id: version
-      run: |
-        dotnet tool install -g minver-cli --version 2.5.0
-        $version = minver -t v -d preview
-        $number = $version.Split('-')[0]
-        echo "VERSION=$version"
-        echo "VERSION=$version" >> $env:GITHUB_ENV
-        echo "::set-output name=version::$version"
-    
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.1
-    
-    - name: Restore solution
-      run: msbuild $env:SolutionName /t:Restore /p:Configuration=$env:Configuration
-        
-    - name: Build solution
-      run: msbuild $env:SolutionName /t:Build /p:Configuration=$env:Configuration
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - name: Pack NuGet
-      if: matrix.configuration == 'Release'
-      run: |
-        nuget pack .\JANL\JANL.nuspec -Version $env:VERSION
-        nuget pack .\JANL.WinForms\JANL.WinForms.nuspec -Version $env:VERSION    
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
 
-    - name: Upload artifact
-      if: matrix.configuration == 'Release'
-      uses: actions/upload-artifact@v3
-      with:
-        name: JANL
-        path: '**\*.nupkg'
-        if-no-files-found: error
+      - name: Set VERSION
+        id: version
+        run: |
+          dotnet tool install -g minver-cli --version 2.5.0
+          $version = minver -t v -d preview
+          $number = $version.Split('-')[0]
+          echo "VERSION=$version"
+          echo "VERSION=$version" >> $env:GITHUB_ENV
+          echo "::set-output name=version::$version"
+
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Restore solution
+        run: msbuild $env:SolutionName /t:Restore /p:Configuration=$env:Configuration
+
+      - name: Build solution
+        run: msbuild $env:SolutionName /t:Build /p:Configuration=$env:Configuration
+
+      - name: Pack NuGet
+        if: matrix.configuration == 'Release'
+        run: |
+          nuget pack .\JANL\JANL.nuspec -Version $env:VERSION
+          nuget pack .\JANL.WinForms\JANL.WinForms.nuspec -Version $env:VERSION
+
+      - name: Upload artifact
+        if: matrix.configuration == 'Release'
+        uses: actions/upload-artifact@v3
+        with:
+          name: JANL
+          path: '**\*.nupkg'
+          if-no-files-found: error

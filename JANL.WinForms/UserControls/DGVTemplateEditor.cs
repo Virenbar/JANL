@@ -13,7 +13,13 @@ namespace JANL.UserControls
     public partial class DGVTemplateEditor : UserControl
     {
         private Design Design;
+
         private bool SkipDGVEvent;
+
+        public DGVTemplateEditor()
+        {
+            InitializeComponent();
+        }
 
         public DGVTemplate GetTemplate() => Design.ToTemplate();
 

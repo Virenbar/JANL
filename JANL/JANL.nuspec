@@ -10,10 +10,10 @@
 		<projectUrl>https://github.com/Virenbar/JANL</projectUrl>
 		<repository type="git" url="https://github.com/Virenbar/JANL.git" />
 		<iconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</iconUrl>
-		<icon>images/JANL.png</icon>
+		<icon>icon/JANL.png</icon>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Just Another .NET Library</description>
-		<!--<readme>docs\README.md</readme>-->
+		<readme>docs\README.md</readme>
 		<summary>Just Another .NET Library</summary>
 		<copyright>Virenbar</copyright>
 		<dependencies>
@@ -22,9 +22,9 @@
 	</metadata>
 	<files>
 		<file src="bin\Release\*.dll" target="lib\net452" />
+		<file src="bin\Release\*.dll.config" target="lib\net452" />
 		<file src="bin\Release\*.xml" target="lib\net452" />
-		<file src="bin\Release\ru\*.*" target="lib\net452\ru" />
-		<file src="Icon\JANL.png" target="images\" />
+		<file src="..\Icon\JANL.png" target="icon\" />
 		<file src="..\README.md" target="docs\" />
 	</files>
 </package>

@@ -14,7 +14,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -23,13 +23,14 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,6 +52,8 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Types\BaseRepository.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
     <Compile Include="ExtendedControls\AnimatedPictureBox.cs">
@@ -175,6 +178,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ExtendedControls\TextBoxEx.resx">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.cs</DependentUpon>
     </EmbeddedResource>
