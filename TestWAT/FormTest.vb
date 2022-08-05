@@ -3,6 +3,7 @@ Imports System.Threading
 Imports JANL
 Imports JANL.Forms
 Imports TestWAT.Models
+Imports JANL.Helpers.StringHelper
 
 Public Class FormTest
     Private TestObject As New TestModel()
@@ -193,9 +194,9 @@ Public Class FormTest
         Dim I As Numerics.BigInteger = 0
         Dim D As Decimal = 0
         If Numerics.BigInteger.TryParse(TB_Number.Text, I) Then
-            TB_NumberText.Text = NumberToText.NumberToText(I, NumberToText.Kind.Male)
+            TB_NumberText.Text = NumberToText(I, Kind.Male)
         ElseIf Decimal.TryParse(TB_Number.Text, D) Then
-            TB_NumberText.Text = NumberToText.RubToText(D)
+            TB_NumberText.Text = RubToText(D)
         Else
             TB_NumberText.Text = ""
         End If

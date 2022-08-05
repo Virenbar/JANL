@@ -27,6 +27,17 @@ namespace JANL.Extensions
         public static T PickRandom<T>(this IEnumerable<T> list) => list.Count() == 0 ? default : list.ElementAt(rnd.Next(list.Count()));
 
         /// <summary>
+        ///
+        /// </summary>
+        public static string Truncate(string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) { return value; }
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+        }
+
+        #region SQL
+
+        /// <summary>
         /// Получить тип SQL
         /// </summary>
         /// <param name="type"></param>
@@ -39,6 +50,8 @@ namespace JANL.Extensions
         /// <param name="type"></param>
         /// <returns></returns>
         public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
+
+        #endregion SQL
 
         #region IsOverride
 
@@ -81,5 +94,52 @@ namespace JANL.Extensions
         }
 
         #endregion IsOverride
+
+        #region Conversion
+
+        /// <summary>
+        /// Преобразует DataTable в список объектов типа Т
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="DT"></param>
+        public static List<T> ToObject<T>(DataTable DT) where T : class, new()
+        {
+            Dictionary<string, string> D = DT.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => v.ColumnName);
+            var Props = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList();
+            var Items = new List<T>();
+            foreach (DataRow R in DT.Rows)
+            {
+                var item = new T();
+                foreach (var prop in Props)
+                {
+                    if (!D.ContainsKey(prop.Name.ToLower())) { continue; }
+                    var Collumn = D[prop.Name.ToLower()];
+                    if (!R.IsNull(Collumn)) { prop.SetValue(item, R[Collumn], null); }
+                }
+                Items.Add(item);
+            }
+            return Items;
+        }
+
+        /// <summary>
+        /// Преобразует DataRow в объект типа <typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="R"></param>
+        public static T ToObject<T>(DataRow R) where T : class, new()
+        {
+            Dictionary<string, string> D = R.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => v.ColumnName);
+            var Props = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList();
+            var Item = new T();
+            foreach (var prop in Props)
+            {
+                if (!D.ContainsKey(prop.Name.ToLower())) { continue; }
+                var Collumn = D[prop.Name.ToLower()];
+                if (!R.IsNull(Collumn)) { prop.SetValue(Item, R[Collumn], null); }
+            }
+            return Item;
+        }
+
+        #endregion Conversion
     }
 }

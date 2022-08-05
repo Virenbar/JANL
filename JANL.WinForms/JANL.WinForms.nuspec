@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
-		<id>Virenbar.JANL</id>
+		<id>Virenbar.JANL.WinForms</id>
 		<version>1.0.0</version>
-		<title>JANL</title>
+		<title>JANL.WinForms</title>
 		<authors>Virenbar</authors>
 		<owners>Virenbar</owners>
 		<license type="expression">MIT</license>
 		<projectUrl>https://github.com/Virenbar/JANL</projectUrl>
 		<repository type="git" url="https://github.com/Virenbar/JANL.git" />
 		<iconUrl>https://github.com/Virenbar/JANL/raw/master/JANL/Icon/JANL.png</iconUrl>
-		<icon>images/JANL.png</icon>
+		<icon>icon/JANL.png</icon>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Just Another .NET Library</description>
 		<!--<readme>docs\README.md</readme>-->
@@ -22,9 +22,10 @@
 	</metadata>
 	<files>
 		<file src="bin\Release\*.dll" target="lib\net452" />
+		<file src="bin\Release\*.dll.config" target="lib\net452" />
 		<file src="bin\Release\*.xml" target="lib\net452" />
 		<file src="bin\Release\ru\*.*" target="lib\net452\ru" />
-		<file src="Icon\JANL.png" target="images\" />
+		<file src="..\Icon\JANL.png" target="icon\" />
 		<file src="..\README.md" target="docs\" />
 	</files>
 </package>

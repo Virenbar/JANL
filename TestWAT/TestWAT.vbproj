@@ -387,10 +387,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JANL.VB\JANL.VB.vbproj">
-      <Project>{5121d0be-ade2-426f-892b-4377962a85cc}</Project>
-      <Name>JANL.VB</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JANL.WinForms\JANL.WinForms.csproj">
       <Project>{f4510244-5445-40a6-8d3a-dbc0228443f2}</Project>
       <Name>JANL.WinForms</Name>

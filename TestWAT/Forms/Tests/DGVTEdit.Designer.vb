@@ -22,8 +22,8 @@ Partial Class DGVTEdit
 	'Не изменяйте ее в редакторе исходного кода.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.DGVT = New JANL.DGVTemplateEditor()
-		Me.SuspendLayout()
+        Me.DGVT = New JANL.UserControls.DGVTemplateEditor()
+        Me.SuspendLayout()
 		'
 		'DGVT
 		'
@@ -45,5 +45,5 @@ Partial Class DGVTEdit
 
 	End Sub
 
-	Friend WithEvents DGVT As JANL.DGVTemplateEditor
+    Friend WithEvents DGVT As JANL.UserControls.DGVTemplateEditor
 End Class

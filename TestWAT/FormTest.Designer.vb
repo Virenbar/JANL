@@ -41,10 +41,10 @@ Partial Class FormTest
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.TSPB_Test = New System.Windows.Forms.ToolStripProgressBar()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.SWL_Test = New JANL.StopWatchLabel()
+        Me.SWL_Test = New JANL.UserControls.StopWatchLabel()
         Me.CB_SW = New JANL.CancelableButton()
         Me.GP_PB = New System.Windows.Forms.GroupBox()
-        Me.PBE_Test = New JANL.ProgressBarEx()
+        Me.PBE_Test = New JANL.UserControls.ProgressBarEx()
         Me.B_PB = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -59,7 +59,7 @@ Partial Class FormTest
         Me.RegexTextBox4 = New JANL.RegexTextBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.MonthPicker1 = New JANL.MonthPicker()
+        Me.MonthPicker1 = New JANL.UserControls.MonthPicker()
         Me.TB_Number = New System.Windows.Forms.TextBox()
         Me.TB_NumberText = New System.Windows.Forms.TextBox()
         Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
@@ -601,11 +601,11 @@ Partial Class FormTest
 	Friend WithEvents CncB_Test As JANL.CancelableButton
 	Friend WithEvents StatusStrip1 As StatusStrip
 	Friend WithEvents TSPB_Test As ToolStripProgressBar
-	Friend WithEvents SWL_Test As JANL.StopWatchLabel
-	Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents SWL_Test As JANL.UserControls.StopWatchLabel
+    Friend WithEvents GroupBox4 As GroupBox
 	Friend WithEvents CB_SW As JANL.CancelableButton
-	Friend WithEvents PBE_Test As JANL.ProgressBarEx
-	Friend WithEvents GP_PB As GroupBox
+    Friend WithEvents PBE_Test As JANL.UserControls.ProgressBarEx
+    Friend WithEvents GP_PB As GroupBox
 	Friend WithEvents B_PB As Button
 	Friend WithEvents TextBoxEx1 As JANL.TextBoxEx
 	Friend WithEvents TextBox1 As TextBox
@@ -622,7 +622,7 @@ Partial Class FormTest
 	Friend WithEvents TB_NumberText As TextBox
 	Friend WithEvents TB_Numberaga As GroupBox
 	Friend WithEvents RegexTextBox4 As JANL.RegexTextBox
-	Friend WithEvents MonthPicker1 As JANL.MonthPicker
+    Friend WithEvents MonthPicker1 As JANL.UserControls.MonthPicker
     Friend WithEvents TextBoxLabel1 As JANL.TextBoxLabel
     Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
     Friend WithEvents B_EditFile As Button

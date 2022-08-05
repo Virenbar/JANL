@@ -80,76 +80,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Designers\HResizeOnly.vb" />
-    <Compile Include="ExtendedControls\AutoTextBox.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ExtendedControls\CancelableButton.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ExtendedControls\DateTimePickerEx.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ExtendedControls\DGVFilter.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ExtendedControls\TextBoxEx.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\FormTextBox.Designer.vb">
-      <DependentUpon>FormTextBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormTextBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\FormHelper.vb" />
-    <Compile Include="Helpers\NumberToText.vb" />
-    <Compile Include="Helpers\Strings.vb" />
-    <Compile Include="Helpers\XLS.vb" />
     <Compile Include="icons8.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>icons8.resx</DependentUpon>
     </Compile>
-    <Compile Include="Managers\DGVManager.vb" />
-    <Compile Include="Types\BaseLinkList.vb" />
-    <Compile Include="Types\BaseFilter.vb" />
-    <Compile Include="Types\BaseRepository.vb" />
-    <Compile Include="Types\Design.vb" />
-    <Compile Include="Types\DesignColumn.vb" />
-    <Compile Include="Types\DGVTemplate.vb" />
-    <Compile Include="Types\DGVTemplateColumn.vb" />
-    <Compile Include="Types\ObservableObject.vb" />
-    <Compile Include="UserControls\DGVTemplateEditor.Designer.vb">
-      <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\DGVTemplateEditor.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ProgressBarEx.Designer.vb">
-      <DependentUpon>ProgressBarEx.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ProgressBarEx.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\StopWatchLabel.Designer.vb">
-      <DependentUpon>StopWatchLabel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\StopWatchLabel.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ExtendedControls\ToggleButton.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Extensions\ControlExtensions.vb" />
-    <Compile Include="Extensions\TypeExtensions.vb" />
-    <Compile Include="Helpers\FS.vb" />
-    <Compile Include="Locales\EB_Strings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EB_Strings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Msgs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -165,49 +100,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserControls\MonthPicker.designer.vb">
-      <DependentUpon>MonthPicker.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\MonthPicker.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinAPI.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ExtendedControls\TextBoxEx.resx">
-      <DependentUpon>TextBoxEx.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormTextBox.resx">
-      <DependentUpon>FormTextBox.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="icons8.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>icons8.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DGVTemplateEditor.resx">
-      <DependentUpon>DGVTemplateEditor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
-      <DependentUpon>ProgressBarEx.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
-      <DependentUpon>StopWatchLabel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locales\EB_Strings.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EB_Strings.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locales\EB_Strings.ru.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\MonthPicker.resx">
-      <DependentUpon>MonthPicker.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -229,8 +133,6 @@
     <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon\JANL.png" />
-    <Content Include="Icon\JANL.svg" />
     <Content Include="Resources\icons8\Cancel16.png" />
     <Content Include="Resources\icons8\Checked16.png" />
     <Content Include="Resources\icons8\DeleteBin16.png" />
