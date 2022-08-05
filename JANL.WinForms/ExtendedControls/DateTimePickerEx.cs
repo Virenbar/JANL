@@ -6,7 +6,7 @@ namespace JANL
 {
     public class DateTimePickerEx : DateTimePicker
     {
-        public DateTimePickerEx() : base()
+        public DateTimePickerEx()
         {
             base.ShowCheckBox = true;
             Format = DateTimePickerFormat.Short;
@@ -22,7 +22,7 @@ namespace JANL
             get => Checked ? new DateTime?(base.Value) : null;
             set
             {
-                base.Value = Value ?? DateTime.Now;
+                base.Value = value ?? DateTime.Now;
                 Checked = Value.HasValue;
             }
         }

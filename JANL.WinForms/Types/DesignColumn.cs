@@ -6,7 +6,7 @@ namespace JANL.Types
 {
     internal class DesignColumn
     {
-        private static int Count = 0;
+        private static int Count;
 
         public DesignColumn()
         {
@@ -16,7 +16,7 @@ namespace JANL.Types
             AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
             Visible = true;
             ForeColor = Color.Black;
-            Count += 1;
+            Count++;
         }
 
         public DesignColumn(DGVTemplateColumn C)

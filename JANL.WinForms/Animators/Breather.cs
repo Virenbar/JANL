@@ -5,14 +5,20 @@ namespace JANL.Animators
 {
     public class Breather : BaseAnimator
     {
+        private float _minScale = 0.5f;
         private float _scale = 1;
         private float _scaleStep;
-        private bool down = false;
-        private float _minScale = 0.5f;
+        private bool down;
 
         public Breather() : this(0.5f) { }
 
         public Breather(float minimalScale) { MinimalScale = minimalScale; }
+
+        public override void ResetAnimation()
+        {
+            _scale = 1;
+            base.ResetAnimation();
+        }
 
         protected override void OnDurationChanged(EventArgs e)
         {
@@ -24,18 +30,6 @@ namespace JANL.Animators
         {
             UpdateScaleStep();
             base.OnFramerateChanged(e);
-        }
-
-        public override void ResetAnimation()
-        {
-            _scale = 1;
-            base.ResetAnimation();
-        }
-
-        private void UpdateScaleStep()
-        {
-            var diff = 1 - _minScale;
-            _scaleStep = diff / ((float)Duration / Delay);
         }
 
         protected override Image Transform(Image SourceImage, Image CurrentImage)
@@ -54,6 +48,12 @@ namespace JANL.Animators
                 G.DrawImage(SourceImage, new Point(0, 0));
             }
             return B;
+        }
+
+        private void UpdateScaleStep()
+        {
+            var diff = 1 - _minScale;
+            _scaleStep = diff / ((float)Duration / Delay);
         }
 
         #region Properties

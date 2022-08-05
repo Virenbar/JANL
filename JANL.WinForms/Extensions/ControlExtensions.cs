@@ -12,16 +12,21 @@ namespace JANL.Extensions
     /// </summary>
     public static class ControlExtensions
     {
-        private readonly static HashSet<Type> CTR = new HashSet<Type>() { typeof(Button), typeof(ComboBox), typeof(NumericUpDown), typeof(DateTimePicker), typeof(TextBox) };
+        private readonly static HashSet<Type> CTR = new HashSet<Type> { typeof(Button), typeof(ComboBox), typeof(NumericUpDown), typeof(DateTimePicker), typeof(TextBox) };
 
         /// <summary>
         /// Включает двойную буферизацию
         /// </summary>
-        public static void DoubleBuffered(this Control Ctrl, bool setting = true)
+        public static void DoubleBuffered(this Control control) => DoubleBuffered(control, true);
+
+        /// <summary>
+        /// Включает двойную буферизацию
+        /// </summary>
+        public static void DoubleBuffered(this Control control, bool setting)
         {
-            Type CtrlType = Ctrl.GetType();
+            Type CtrlType = control.GetType();
             PropertyInfo propInfo = CtrlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-            propInfo.SetValue(Ctrl, setting, null);
+            propInfo.SetValue(control, setting, null);
         }
 
         /// <summary>
@@ -102,22 +107,24 @@ namespace JANL.Extensions
                 {
                     SetEnableRecursive(C, state, excl);
                 }
-                else if (!excl.Contains(C) & CTR.Contains(C.GetType()))
+                else if (!excl.Contains(C) && CTR.Contains(C.GetType()))
                 {
                     C.Enabled = state;
                 }
             }
         }
 
-        public static void SetIntegerValue(this ComboBox CB, object value, int def = -1)
+        public static void SetIntegerValue(this ComboBox CB, object value) => SetIntegerValue(CB, value, -1);
+
+        public static void SetIntegerValue(this ComboBox CB, object value, int def)
         {
-            if (value == DBNull.Value | value == null)
+            if (value == DBNull.Value || value == null)
             {
                 CB.SelectedValue = def;
             }
             else
             {
-                CB.SelectedValue = System.Convert.ToInt32(value);
+                CB.SelectedValue = (int)value;
             }
         }
     }

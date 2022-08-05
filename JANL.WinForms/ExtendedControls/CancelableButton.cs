@@ -17,7 +17,7 @@ namespace JANL
         private Image DefaultImage;
         private string DefaultText;
 
-        public CancelableButton() : base()
+        public CancelableButton()
         {
             TextCancel = "Отменить";
             TextCanceled = "Отмена";
@@ -69,7 +69,7 @@ namespace JANL
             if (!IsPressed)
             {
                 SetPressed();
-                OnRun(new RunEventArgs() { CTS = CTS });
+                OnRun(new RunEventArgs { CTS = CTS });
             }
             else if (!IsCanceled)
             {
@@ -143,5 +143,11 @@ namespace JANL
         public event EventHandler<RunEventArgs> Run;
 
         #endregion Events
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            CTS.Dispose();
+        }
     }
 }

@@ -89,8 +89,7 @@ namespace JANL.Helpers
 
         private static string GetFraction20(int Value, Kind Kind)
         {
-            if (Value == 0)
-                return "";
+            if (Value == 0) { return ""; }
             if (Value < 3)
             {
                 string[] F = { };
@@ -110,9 +109,11 @@ namespace JANL.Helpers
 
                     case Kind.Middle:
                         {
-                            F = new string[] { "одно", "два" };
+                            F = new[] { "одно", "два" };
                             break;
                         }
+                    default:
+                        throw new InvalidOperationException("Invalid Kind");
                 }
                 return F[Value - 1];
             }

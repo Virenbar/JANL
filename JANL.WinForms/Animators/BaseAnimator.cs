@@ -12,7 +12,6 @@ namespace JANL.Animators
         private readonly Timer Timer = new Timer();
         private int _duration;
         private int _framerate;
-        //private Task AnimationTask;
 
         protected BaseAnimator(int framerate, int duration)
         {
@@ -63,25 +62,6 @@ namespace JANL.Animators
             Stopwatch.Stop();
             Timer.Interval = Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0);
         }
-
-        //private async Task AnimationLoop()
-        //{
-        //    await Task.Delay(Delay);
-        //    //var t = new doubleanimation()
-        //    while (IsAnimated)
-        //    {
-        //        //await Task.Run(Animate).ConfigureAwait(false);
-        //        await Task.Run(() =>
-        //        {
-        //            Stopwatch.Restart();
-        //            CurrentImage = Transform(SourceImage, CurrentImage);
-        //            Stopwatch.Stop();
-        //            //Thread.Sleep(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
-        //        }).ConfigureAwait(false);
-        //        OnCurrentImageChanged(EventArgs.Empty);
-        //        await Task.Delay(Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0));
-        //    }
-        //}
 
         #region Properties
 

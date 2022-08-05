@@ -19,7 +19,7 @@ namespace JANL.Forms
     {
         private static List<string> Comments = new List<string>();
         private static Random Rnd = new Random();
-        private Exception Exception;
+        private readonly Exception Exception;
         private Exception Selected;
 
         public ExceptionBox(Exception ex)
