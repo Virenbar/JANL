@@ -22,4 +22,7 @@ jobs:
         run: ls -R
 
       - name: Push NuGet
-        run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGETKEY}}
+        run: nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGETKEY}} --skip-duplicate
+
+      - name: Push GitHub
+        run: nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
