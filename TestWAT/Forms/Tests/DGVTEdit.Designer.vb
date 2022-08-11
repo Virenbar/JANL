@@ -27,10 +27,10 @@ Partial Class DGVTEdit
         '
         'DGVT
         '
-        Me.DGVT.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DGVT.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVT.Location = New System.Drawing.Point(0, 0)
         Me.DGVT.Name = "DGVT"
-        Me.DGVT.Size = New System.Drawing.Size(988, 302)
+        Me.DGVT.Size = New System.Drawing.Size(988, 450)
         Me.DGVT.TabIndex = 0
         '
         'DGVTEdit

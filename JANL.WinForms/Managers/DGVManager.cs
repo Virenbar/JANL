@@ -1,18 +1,26 @@
 ﻿using JANL.Extensions;
 using JANL.Types;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 public static class DGVManager
 {
     public static Dictionary<string, DGVTemplate> Templates { get; set; } = new Dictionary<string, DGVTemplate>();
 
+    /// <summary>
+    /// Apply Template to DGV
+    /// </summary>
+    /// <param name="DGV"></param>
+    /// <param name="T">Template Name</param>
     public static void ApplyTemplate(DataGridView DGV, string T)
     {
         EditDGV(DGV);
         var Name = T.ToLowerInvariant();
         if (Templates.ContainsKey(Name))
+        {
             EditDGVColumns(DGV, Templates[Name]);
+        }
     }
 
     public static void ApplyTemplate(DataGridView DGV, DGVTemplate T)
@@ -60,6 +68,8 @@ public static class DGVManager
                 DataPropertyName = C.Name,
                 Visible = C.Visible
             };
+            DGVC.DefaultCellStyle.Font = (Font)new FontConverter().ConvertFromInvariantString(C.Font);
+            DGVC.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(C.ForeColor);
             DGV.Columns.Add(DGVC);
         }
     }

@@ -17,8 +17,8 @@ namespace JANL.SQL
 
         protected BaseSQLCommand(string CommandText, CommandType Type)
         {
-            Command = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = JANL.Defaults.Timeout };
-            Connection = new SqlConnection(JANL.Defaults.Connection);
+            Command = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = Defaults.Timeout };
+            Connection = new SqlConnection(Defaults.Connection);
         }
 
         public SqlCommand SQLCommand => Command;
@@ -29,7 +29,7 @@ namespace JANL.SQL
 
         /// <summary>
         /// Соединение для команды
-        /// <para>По умолчанию используется значение <see cref="JANL.Defaults.Connection"/></para>
+        /// <para>По умолчанию используется значение <see cref="Defaults.Connection"/></para>
         /// </summary>
         public string ConnectionString
         {
@@ -44,7 +44,7 @@ namespace JANL.SQL
 
         /// <summary>
         /// Время ожидания выполнения команды (в секундах)
-        /// <para>По умолчанию используется значение <see cref="JANL.Defaults.Timeout"/></para>
+        /// <para>По умолчанию используется значение <see cref="Defaults.Timeout"/></para>
         /// </summary>
         public int Timeout
         {

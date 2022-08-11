@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using JANL.Properties;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace JANL.Types
             AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
             Visible = true;
             ForeColor = Color.Black;
+            Font = Settings.Default.Font;
             Count++;
         }
 
@@ -27,7 +29,10 @@ namespace JANL.Types
             AutoSizeMode = C.AutoSizeMode;
             Visible = C.Visible;
             ForeColor = ColorTranslator.FromHtml(C.ForeColor);
+            Font = (Font)new FontConverter().ConvertFromInvariantString(C.Font);
         }
+
+        public override string ToString() => $"{Name}({Header}, {Width})";
 
         public DGVTemplateColumn ToTemplate()
         {
@@ -38,34 +43,39 @@ namespace JANL.Types
                 Width = Width,
                 AutoSizeMode = AutoSizeMode,
                 Visible = Visible,
-                ForeColor = ColorTranslator.ToHtml(ForeColor)
+                ForeColor = ColorTranslator.ToHtml(ForeColor),
+                Font = new FontConverter().ConvertToInvariantString(Font)
             };
         }
 
-        [Description("Имя столбца")]
-        public string Name { get; set; }
-
-        [Description("Заголовок столбца")]
-        public string Header { get; set; }
-
-        [Description("Ширина столбца")]
-        [DefaultValue(100)]
-        public int Width { get; set; }
+        #region Properties
 
         [Description("Способ регулирования ширины столбца")]
         [DefaultValue(typeof(DataGridViewAutoSizeColumnMode), "NotSet")]
         public DataGridViewAutoSizeColumnMode AutoSizeMode { get; set; }
 
-        [Description("Видимость столбца")]
-        [DefaultValue(true)]
-        public bool Visible { get; set; }
+        [Description("Шрифт текста")]
+        [DefaultValue(typeof(Font), "Segoe UI, 8.25pt")]
+        public Font Font { get; set; }
 
         [Description("Цвет текста")]
         [DefaultValue(typeof(Color), "0x000000")]
         public Color ForeColor { get; set; }
 
-        // <Description("Шрифт текста"), DefaultValue(GetType(Color), "0x000000"), Category("У")>
-        // Public Property Font As Font
-        public override string ToString() => $"{Name}({Header}, {Width})";
+        [Description("Заголовок столбца")]
+        public string Header { get; set; }
+
+        [Description("Имя столбца")]
+        public string Name { get; set; }
+
+        [Description("Видимость столбца")]
+        [DefaultValue(true)]
+        public bool Visible { get; set; }
+
+        [Description("Ширина столбца")]
+        [DefaultValue(100)]
+        public int Width { get; set; }
+
+        #endregion Properties
     }
 }

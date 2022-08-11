@@ -147,7 +147,7 @@ namespace JANL
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            CTS.Dispose();
+            CTS?.Dispose();
         }
     }
 }

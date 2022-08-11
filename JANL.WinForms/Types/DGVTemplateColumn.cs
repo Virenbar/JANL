@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using JANL.Properties;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace JANL.Types
@@ -13,6 +14,7 @@ namespace JANL.Types
             AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
             Visible = true;
             ForeColor = ColorTranslator.ToHtml(Color.Black);
+            Font = new FontConverter().ConvertToInvariantString(Settings.Default.Font);
         }
 
         public DGVTemplateColumn(string name, string header, int width, DataGridViewAutoSizeColumnMode autoSizeMode, bool visible) : this()
@@ -28,11 +30,14 @@ namespace JANL.Types
 
         public DGVTemplateColumn(string name, string header, DataGridViewAutoSizeColumnMode autoSizeMode) : this(name, header, 100, autoSizeMode, true) { }
 
+        #region Properties
         public DataGridViewAutoSizeColumnMode AutoSizeMode { get; set; }
+        public string Font { get; set; }
         public string ForeColor { get; set; }
         public string Header { get; set; }
         public string Name { get; set; }
         public bool Visible { get; set; }
         public int Width { get; set; }
+        #endregion Properties
     }
 }

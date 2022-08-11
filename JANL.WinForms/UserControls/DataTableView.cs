@@ -74,7 +74,7 @@ namespace JANL.UserControls
         /// <summary>
         /// Apply template from <see cref="DGVManager"/>
         /// </summary>
-        /// <param name="Template"></param>
+        /// <param name="Template">Template Name</param>
         public void SetTemplate(string Template) => DGVManager.ApplyTemplate(DGV, Template);
 
         private void ApplyFilter()

@@ -14,9 +14,6 @@ namespace JANL.Types
             Columns = T.Columns.Select(c => new DesignColumn(c)).ToList();
         }
 
-        // <Description("Ширина столбца")>
-        // Public Font Font { Get; Set; }
-
         public static Design FromTemplate(DGVTemplate T) => new Design(T);
 
         public DGVTemplate ToTemplate() => new DGVTemplate() { Columns = Columns.Select(c => c.ToTemplate()).ToList() };

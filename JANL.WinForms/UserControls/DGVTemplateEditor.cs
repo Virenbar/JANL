@@ -32,13 +32,13 @@ namespace JANL.UserControls
             BS_Columns.DataSource = Design.Columns;
         }
 
-        private void B_Export_Click(object sender, EventArgs e) => TB_XML.Text = DGVManager.ToXML(GetTemplate());
+        private void B_Export_Click(object sender, EventArgs e) => TB_XML.Text = DGVTemplate.ToXML(GetTemplate());
 
         private void B_Import_Click(object sender, EventArgs e)
         {
             try
             {
-                var T = DGVManager.FromXML(TB_XML.Text);
+                var T = DGVTemplate.FromXML(TB_XML.Text);
                 SetTemplate(T);
             }
             catch (Exception ex)
@@ -88,15 +88,15 @@ namespace JANL.UserControls
 
             foreach (DataGridViewTextBoxColumn C in DGV_Template.Columns)
             {
+                C.SortMode = DataGridViewColumnSortMode.NotSortable;
                 var DC = (DesignColumn)C.Tag;
                 C.HeaderText = DC.Header;
                 C.AutoSizeMode = DC.AutoSizeMode;
                 C.Width = DC.Width;
                 C.DataPropertyName = DC.Name;
-                C.SortMode = DataGridViewColumnSortMode.NotSortable;
                 C.DefaultCellStyle.ForeColor = DC.ForeColor;
                 C.DefaultCellStyle.BackColor = DC.Visible ? Color.White : Color.SlateGray;
-                //C.DefaultCellStyle.Font = C.Font;
+                C.DefaultCellStyle.Font = DC.Font;
             }
 
             var DT = new DataTable();
