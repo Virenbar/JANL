@@ -4,27 +4,6 @@ using System.IO;
 
 namespace JANL.Helpers
 {
-    [Obsolete("Use IOHelper")]
-    public static class FS
-    {
-        /// <summary>
-		/// Creates and opens folder
-		/// </summary>
-		/// <param name="path"></param>
-        public static void OpenFolder(string path) => IOHelper.OpenFolder(path);
-
-        /// <summary>
-		/// Opens folder and selects file
-		/// </summary>
-		/// <param name="file"></param>
-        public static void OpenFolderSelect(string file) => IOHelper.OpenFolderSelect(file);
-
-        /// <summary>
-        /// Opens folder and selects file
-        /// </summary>
-        /// <param name="file"></param>
-        public static void OpenFolderSelect(FileInfo file) => IOHelper.OpenFolderSelect(file.FullName);
-    }
     public static class IOHelper
     {
         /// <summary>

@@ -64,7 +64,6 @@
     <Compile Include="Helpers\FS.cs" />
     <Compile Include="Helpers\NumberToText.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="Interfaces\IDTSource.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -92,7 +91,6 @@
     <Compile Include="DataReaders\XMLDataReader.cs" />
     <Compile Include="SyncEvent.cs" />
     <Compile Include="TaskProgress.cs" />
-    <Compile Include="Types\BaseDTSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -111,11 +109,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon\JANL.png" />
-    <Content Include="Icon\JANL.svg" />
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="Interfaces\" />
     <Folder Include="Managers\" />
+    <Folder Include="Types\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -176,7 +176,6 @@
     </Compile>
     <Compile Include="Models\Filters\PersonFilter.vb" />
     <Compile Include="Models\DTSources\PersonList.vb" />
-    <Compile Include="Models\Repository\TestRepository.vb" />
     <Compile Include="Models\RGI_Excel\Cell.vb" />
     <Compile Include="Models\RGI_Excel\Footer.vb" />
     <Compile Include="Models\RGI_Excel\Header.vb" />

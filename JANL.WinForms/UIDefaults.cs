@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace JANL
 {
+    /// <summary>
+    /// Default values for Forms
+    /// </summary>
     public static class UIDefaults
     {
         /// <summary>
@@ -12,6 +15,9 @@ namespace JANL
         /// </summary>
         public static Color BackColor => Settings.Default.BackColor;
 
+        /// <summary>
+        /// Default Culture
+        /// </summary>
         public static CultureInfo Culture { get; set; } = new CultureInfo("ru-RU");
 
         /// <summary>
@@ -29,10 +35,24 @@ namespace JANL
         /// </summary>
         public static string Header { get; set; } = Application.ProductName;
 
+        /// <summary>
+        /// Default Language
+        /// </summary>
         public static InputLanguage Language => InputLanguage.FromCulture(Culture);
+
+        /// <summary>
+        /// Icon Overrides
+        /// </summary>
         public static class Icons
         {
+            /// <summary>
+            /// Cancel button
+            /// </summary>
             public static Icon Cancel { get; set; }
+
+            /// <summary>
+            /// OK button
+            /// </summary>
             public static Icon OK { get; set; }
         }
     }

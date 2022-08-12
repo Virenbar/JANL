@@ -6,6 +6,9 @@ using static System.Environment;
 
 namespace JANL
 {
+    /// <summary>
+    /// Message box wrapper
+    /// </summary>
     public static class Msgs
     {
         private static string DefaultHeader => UIDefaults.Header;
