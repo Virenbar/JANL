@@ -2,11 +2,11 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("JANL.WinForms")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Just Another .NET Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IT Organization")]
-[assembly: AssemblyProduct("JANL.WinForms")]
-[assembly: AssemblyCopyright("Copyright © IT Organization 2022")]
+[assembly: AssemblyCompany("Virenbar")]
+[assembly: AssemblyProduct("JANL")]
+[assembly: AssemblyCopyright("Copyright © Virenbar 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 //

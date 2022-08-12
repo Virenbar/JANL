@@ -44,6 +44,11 @@ jobs:
           echo "VERSION=$version" >> $env:GITHUB_ENV
           echo "::set-output name=version::$version"
 
+          $Path = '.\JANL.WinForms\JANL.WinForms.nuspec'
+          $File = Get-Content $Path
+          $File = $File.Replace('id="Virenbar.JANL" version="2.0.0"', "id=`"Virenbar.JANL`" version=`"${version}`"")
+          Set-Content $Path $File
+
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.1
 

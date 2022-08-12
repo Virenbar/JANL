@@ -10,8 +10,10 @@ jobs:
     runs-on: windows-latest
     needs: build
     steps:
-      - name: Setup MSBuild.exe
-        uses: microsoft/setup-msbuild@v1.1
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
 
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -22,7 +24,7 @@ jobs:
         run: ls -R
 
       - name: Push NuGet
-        run: nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGETKEY}} --skip-duplicate
+        run: dotnet nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGETKEY}} --skip-duplicate
 
       - name: Push GitHub
-        run: nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
+        run: dotnet nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
