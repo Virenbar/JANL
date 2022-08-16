@@ -1,4 +1,4 @@
-name: Build artifact
+name: Build Artifact
 
 on:
   push:
@@ -60,14 +60,12 @@ jobs:
 
       - name: Pack NuGet
         if: matrix.configuration == 'Release'
-        run: |
-          nuget pack .\JANL\JANL.nuspec -Version $env:VERSION
-          nuget pack .\JANL.WinForms\JANL.WinForms.nuspec -Version $env:VERSION
+        run: .\.github\scripts\pack.ps1
 
       - name: Upload artifact
         if: matrix.configuration == 'Release'
         uses: actions/upload-artifact@v3
         with:
           name: JANL
-          path: '**\*.nupkg'
+          path: '**\*.*nupkg'
           if-no-files-found: error
