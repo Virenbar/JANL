@@ -22,7 +22,6 @@ namespace JANL.UserControls
             TB_Filter.InputDone += TB_Filter_InputDone;
             DGV.AutoGenerateColumns = true;
             DGV.DoubleBuffered();
-
             DGV.DataSource = BS_View;
         }
 
@@ -238,7 +237,7 @@ namespace JANL.UserControls
         {
             var R = CurrentRow;
             CurrentKey = R?.Field<object>(KeyName);
-            CurrentValue = R?.Field<string>(ValueName);
+            CurrentValue = R?.Field<object>(ValueName).ToString();
 
             OnCurrentRowChanged(EventArgs.Empty);
         }

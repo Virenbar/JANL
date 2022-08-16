@@ -44,4 +44,9 @@ Public Class FormPersonList
         Await RefreshDT()
     End Sub
 
+    Private Sub DTV_Person_CurrentRowChanged(sender As Object, e As EventArgs) Handles DTV_Person.CurrentRowChanged
+        Dim Key = DTV_Person.CurrentKey
+        Text = $"{DTV_Person.CountText}"
+    End Sub
+
 End Class
