@@ -13,7 +13,7 @@ namespace JANL.Helpers
         /// <summary>
         /// Convert column to string
         /// </summary>
-        /// <param name="collumn">Name</param>
+        /// <param name="column">Name</param>
         public static string AsString(string column) => $"Convert({column},'System.String')";
 
         /// <summary>

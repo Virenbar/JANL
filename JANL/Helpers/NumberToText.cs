@@ -58,24 +58,24 @@ namespace JANL.Helpers
         /// <summary>
         /// Выбор правильного падежного окончания существительного
         /// </summary>
-        /// <param name="Value">Число</param>
+        /// <param name="value">Число</param>
         /// <param name="one">Форма существительного в единственном числе</param>
         /// <param name="two">Форма существительного от двух до четырёх</param>
         /// <param name="five">Форма существительного от пяти и больше</param>
         /// <returns>Возвращает существительное с падежным окончанием, которое соответствует числу</returns>
-        private static string CaseForNumber(int Value, string One, string Two, string Five)
+        private static string CaseForNumber(int value, string one, string two, string five)
         {
-            int t = Value % 100 > 20 ? Value % 10 : Value % 20;
+            int t = value % 100 > 20 ? value % 10 : value % 20;
             switch (t)
             {
                 case 1:
-                    return One;
+                    return one;
 
                 case object _ when 2 <= t && t <= 4:
-                    return Two;
+                    return two;
 
                 default:
-                    return Five;
+                    return five;
             }
         }
 

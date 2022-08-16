@@ -1,7 +1,9 @@
-﻿namespace JANL
+﻿using System;
+
+namespace JANL
 {
     /// <summary>
-    /// Структура для использования в <see cref="Progress<T>"/>
+    /// Структура для использования в <see cref="Progress{T}"/>
     /// </summary>
     public struct TaskProgress
     {

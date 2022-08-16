@@ -5,13 +5,14 @@ jobs:
   build:
     name: Build
     uses: Virenbar/JANL/.github/workflows/build-artifact.yml@master
+
   publish:
     name: Publish
     runs-on: windows-latest
     needs: build
     steps:
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2.1.0
         with:
           dotnet-version: 6.0.x
 
@@ -23,8 +24,8 @@ jobs:
       - name: LS
         run: ls -R
 
-      - name: Push NuGet
+      - name: Push - NuGet
         run: dotnet nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGETKEY}} --skip-duplicate
 
-      - name: Push GitHub
+      - name: Push - GitHub
         run: dotnet nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
