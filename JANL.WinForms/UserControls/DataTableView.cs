@@ -1,5 +1,6 @@
 ﻿using JANL.Extensions;
 using JANL.Helpers;
+using JANL.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,6 +76,12 @@ namespace JANL.UserControls
         /// </summary>
         /// <param name="Template">Template Name</param>
         public void SetTemplate(string Template) => DGVManager.ApplyTemplate(DGV, Template);
+
+        /// <summary>
+        /// Apply template
+        /// </summary>
+        /// <param name="Template">Template</param>
+        public void SetTemplate(DGVTemplate Template) => DGVManager.ApplyTemplate(DGV, Template);
 
         private void ApplyFilter()
         {

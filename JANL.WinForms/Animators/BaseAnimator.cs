@@ -60,7 +60,7 @@ namespace JANL.Animators
             CurrentImage = Transform(SourceImage, CurrentImage);
             OnCurrentImageChanged(EventArgs.Empty);
             Stopwatch.Stop();
-            Timer.Interval = Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 0);
+            Timer.Interval = Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 10);
         }
 
         #region Properties

@@ -52,7 +52,7 @@ namespace JANL.SQL
         {
             Connection.Open();
             Command.Connection = Connection;
-            return Command.ExecuteReader();
+            return Command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace JANL.SQL
         {
             await Connection.OpenAsync();
             Command.Connection = Connection;
-            return await Command.ExecuteReaderAsync();
+            return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection);
         }
     }
 }

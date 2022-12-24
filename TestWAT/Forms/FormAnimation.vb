@@ -10,7 +10,7 @@ Public Class FormAnimation
     Private Rotator As New Rotator()
 
     Protected Overrides Sub OnLoad(e As EventArgs)
-        Animators = New UnionAnimator() With {.Items = New List(Of IAnimator)({Rotator, Breather})}
+        Animators = New UnionAnimator(New List(Of IAnimator)({Rotator, Breather}))
         BS_Animator.DataSource = DirectCast(Animators, IAnimator)
 
         APB_1.Animator = Rotator
