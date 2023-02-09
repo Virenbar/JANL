@@ -1,6 +1,8 @@
 ﻿using JANL.Properties;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace JANL.Types
 {
@@ -39,5 +41,25 @@ namespace JANL.Types
         public bool Visible { get; set; }
         public int Width { get; set; }
         #endregion Properties
+
+        public static DGVTemplateColumn FromXML(string XML)
+        {
+            XmlSerializer XS = new XmlSerializer(typeof(DGVTemplateColumn));
+            using (var SR = new StringReader(XML))
+            {
+                var T = (DGVTemplateColumn)XS.Deserialize(SR);
+                return T;
+            }
+        }
+
+        public static string ToXML(DGVTemplateColumn T)
+        {
+            var XS = new XmlSerializer(typeof(DGVTemplateColumn));
+            using (var SW = new StringWriter())
+            {
+                XS.Serialize(SW, T);
+                return SW.ToString();
+            }
+        }
     }
 }

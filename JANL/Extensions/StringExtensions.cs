@@ -1,4 +1,7 @@
-﻿namespace JANL.Extensions
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace JANL.Extensions
 {
     public static class StringExtensions
 
@@ -19,6 +22,24 @@
             ValidChars['.'] = true;
             ValidChars['_'] = true;
         }
+
+        /// <summary>
+        /// Join string with separator
+        /// </summary>
+        /// <param name="strings"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static string JoinStrings(this IEnumerable<string> strings, string separator)
+        {
+            return string.Join(separator, strings.Where(S => !string.IsNullOrWhiteSpace(S)));
+        }
+
+        /// <summary>
+        /// Join string with ", "
+        /// </summary>
+        /// <param name="strings"></param>
+        /// <returns></returns>
+        public static string JoinStrings(this IEnumerable<string> strings) => JoinStrings(strings, ", ");
 
         /// <summary>
         /// Удаляет все символы кроме [0-9a-zA-Zа-яА-ЯёЁ _.]

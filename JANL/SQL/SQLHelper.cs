@@ -124,7 +124,7 @@ namespace JANL.SQL
         /// Создает и открывает новое соединение по умолчанию
         /// </summary>
         /// <returns></returns>
-        public static SqlConnection NewConnection() => NewConnection(JANL.Defaults.Connection);
+        public static SqlConnection NewConnection() => NewConnection(Defaults.Connection);
 
         /// <summary>
         /// Создает и открывает новое соединение
@@ -169,7 +169,7 @@ namespace JANL.SQL
         /// <summary>
         /// Начинает транзакцию используя соединение по умолчанию и указанное поведение блокировки
         /// </summary>
-        public static SqlTransaction NewTransaction(IsolationLevel IL) => NewTransaction(JANL.Defaults.Connection, IsolationLevel.ReadCommitted);
+        public static SqlTransaction NewTransaction(IsolationLevel IL) => NewTransaction(Defaults.Connection, IsolationLevel.ReadCommitted);
 
         /// <summary>
         /// Начинает транзакцию используя соединение и указанное поведение блокировки
