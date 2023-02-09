@@ -12,13 +12,12 @@ namespace JANL.SQL
     public abstract class BaseSQLCommand<T> : ISQLCommand<T>, IDisposable
     {
         protected readonly SqlCommand Command;
-        protected readonly SqlConnection Connection;
         protected bool AutoClose = true;
 
         protected BaseSQLCommand(string CommandText, CommandType Type)
         {
             Command = new SqlCommand(CommandText) { CommandType = Type, CommandTimeout = Defaults.Timeout };
-            Connection = new SqlConnection(Defaults.Connection);
+            ConnectionString = Defaults.Connection;
         }
 
         public SqlCommand SQLCommand => Command;
@@ -31,11 +30,7 @@ namespace JANL.SQL
         /// Соединение для команды
         /// <para>По умолчанию используется значение <see cref="Defaults.Connection"/></para>
         /// </summary>
-        public string ConnectionString
-        {
-            get => Connection.ConnectionString;
-            set => Connection.ConnectionString = value;
-        }
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// Параметры команды
@@ -61,10 +56,12 @@ namespace JANL.SQL
         /// </summary>
         public T Execute()
         {
-            Connection.Open();
-            var Result = Execute(Connection);
-            if (AutoClose) { Connection.Close(); }
-            return Result;
+            using (var Connection = new SqlConnection(ConnectionString))
+            {
+                Connection.Open();
+                var Result = Execute(Connection);
+                return Result;
+            }
         }
 
         /// <summary>
@@ -79,9 +76,9 @@ namespace JANL.SQL
         /// <summary>
         /// Выполняет команду с указанным соединением
         /// </summary>
-        public T Execute(string ConnectionString)
+        public T Execute(string connection)
         {
-            using (var Connection = new SqlConnection(ConnectionString))
+            using (var Connection = new SqlConnection(connection))
             {
                 Connection.Open();
                 return Execute(Connection);
@@ -102,10 +99,12 @@ namespace JANL.SQL
         /// </summary>
         public async Task<T> ExecuteAsync()
         {
-            await Connection.OpenAsync();
-            var Result = await ExecuteAsync(Connection).ConfigureAwait(false);
-            if (AutoClose) { Connection.Close(); }
-            return Result;
+            using (var Connection = new SqlConnection(ConnectionString))
+            {
+                await Connection.OpenAsync();
+                var Result = await ExecuteAsync(Connection).ConfigureAwait(false);
+                return Result;
+            }
         }
 
         /// <summary>
@@ -120,9 +119,9 @@ namespace JANL.SQL
         /// <summary>
         /// Асинхронно выполняет команду с указанным соединением
         /// </summary>
-        public async Task<T> ExecuteAsync(string ConnectionString)
+        public async Task<T> ExecuteAsync(string connection)
         {
-            using (var Connection = new SqlConnection(ConnectionString))
+            using (var Connection = new SqlConnection(connection))
             {
                 await Connection.OpenAsync();
                 return await ExecuteAsync(Connection).ConfigureAwait(false);
@@ -137,21 +136,10 @@ namespace JANL.SQL
         #endregion Asynchronous
 
         #region IDisposable Support
-        private bool disposedValue;
 
-        public void Dispose() => Dispose(true);
-
-        protected virtual void Dispose(bool disposing)
+        public void Dispose()
         {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    Command.Dispose();
-                    Connection.Dispose();
-                }
-                disposedValue = true;
-            }
+            Command.Dispose();
         }
 
         #endregion IDisposable Support

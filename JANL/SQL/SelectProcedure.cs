@@ -50,6 +50,7 @@ namespace JANL.SQL
         /// </summary>
         public SqlDataReader ExecuteReader()
         {
+            var Connection = new SqlConnection(ConnectionString);
             Connection.Open();
             Command.Connection = Connection;
             return Command.ExecuteReader(CommandBehavior.CloseConnection);
@@ -60,6 +61,7 @@ namespace JANL.SQL
         /// </summary>
         public async Task<SqlDataReader> ExecuteReaderAsync()
         {
+            var Connection = new SqlConnection(ConnectionString);
             await Connection.OpenAsync();
             Command.Connection = Connection;
             return await Command.ExecuteReaderAsync(CommandBehavior.CloseConnection);
