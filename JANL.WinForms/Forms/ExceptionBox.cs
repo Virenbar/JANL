@@ -22,7 +22,7 @@ namespace JANL.Forms
         private readonly Exception Exception;
         private Exception Selected;
 
-        public ExceptionBox(Exception ex)
+        public ExceptionBox(Exception exception)
         {
             InitializeComponent();
 
@@ -43,8 +43,8 @@ namespace JANL.Forms
             if (string.IsNullOrWhiteSpace(DefaultText)) { L_Text.Text = DefaultText; }
             if (WittyComments != null) { Text += $" - {GetComment()}"; }
             StartPosition = FormStartPosition.CenterScreen;
-            Exception = ex;
-            Selected = ex;
+            Exception = exception;
+            Selected = exception;
             B_MailTo.Visible = MailInfo != null;
             UpdateTree();
         }
@@ -94,11 +94,11 @@ namespace JANL.Forms
             {
                 //TV_Exceptions.BeginUpdate();
                 TV_Exceptions.Nodes.Clear();
-                var EX = Exception;
+                var E = Exception;
                 TreeNode ParentNode = null, ChildNode = null;
-                while (EX != null)
+                while (E != null)
                 {
-                    ChildNode = new TreeNode(EX.GetType().FullName) { Tag = EX };
+                    ChildNode = new TreeNode(E.GetType().FullName) { Tag = E };
                     if (ParentNode == null)
                     {
                         TV_Exceptions.Nodes.Add(ChildNode);
@@ -108,7 +108,7 @@ namespace JANL.Forms
                         ParentNode.Nodes.Add(ChildNode);
                     }
                     ParentNode = ChildNode;
-                    EX = EX.InnerException;
+                    E = E.InnerException;
                 }
                 TV_Exceptions.ExpandAll();
                 TV_Exceptions.SelectedNode = ChildNode;
@@ -160,9 +160,10 @@ namespace JANL.Forms
             {
                 Selected = (Exception)TV_Exceptions.SelectedNode.Tag;
                 TB_Type.Text = Selected.GetType().ToString();
-                TB_Name.Text = Selected.TargetSite.DeclaringType.FullName + "." + Selected.TargetSite.Name;
                 TB_Message.Text = Selected.Message;
-                TB_StackTrace.Text = Selected.StackTrace;
+
+                TB_Name.Text = Selected.TargetSite is null ? "" : $"{Selected.TargetSite.DeclaringType.FullName}.{Selected.TargetSite.Name}";
+                TB_StackTrace.Text = Selected.StackTrace ?? "";
             }
         }
 
