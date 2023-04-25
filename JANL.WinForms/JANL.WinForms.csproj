@@ -58,6 +58,7 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="Forms\FormFileEdit.Designer.cs">
       <DependentUpon>FormFileEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormManager.cs" />
+    <Compile Include="Managers\FormManager.cs" />
     <Compile Include="Forms\FormTextBox.cs">
       <SubType>Form</SubType>
     </Compile>

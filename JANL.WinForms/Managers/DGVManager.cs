@@ -5,155 +5,158 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-public static class DGVManager
+namespace JANL.Managers
 {
-    /// <summary>
-    /// Formats for DGV columns by name(lowercase)
-    /// </summary>
-    public static Dictionary<string, DGVTemplateColumn> Columns { get; set; } = new Dictionary<string, DGVTemplateColumn>();
-
-    /// <summary>
-    /// Templates for DGV by name(lowercase)
-    /// </summary>
-    public static Dictionary<string, DGVTemplate> Templates { get; set; } = new Dictionary<string, DGVTemplate>();
-
-    /// <summary>
-    /// Apply Template to DGV
-    /// </summary>
-    /// <param name="dgv"></param>
-    /// <param name="template">Template Name</param>
-    public static void ApplyTemplate(DataGridView dgv, string template, DGVSettings settings)
+    public static class DGVManager
     {
-        EditDGV(dgv, settings);
-        var Name = template.ToLowerInvariant();
-        if (Templates.ContainsKey(Name))
+        /// <summary>
+        /// Formats for DGV columns by name(lowercase)
+        /// </summary>
+        public static Dictionary<string, DGVTemplateColumn> Columns { get; set; } = new Dictionary<string, DGVTemplateColumn>();
+
+        /// <summary>
+        /// Templates for DGV by name(lowercase)
+        /// </summary>
+        public static Dictionary<string, DGVTemplate> Templates { get; set; } = new Dictionary<string, DGVTemplate>();
+
+        /// <summary>
+        /// Apply Template to DGV
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="template">Template Name</param>
+        public static void ApplyTemplate(DataGridView dgv, string template, DGVSettings settings)
         {
-            EditDGVColumns(dgv, Templates[Name]);
-        }
-    }
-
-    /// <summary>
-    /// Apply Template to DGV
-    /// </summary>
-    /// <param name="dgv"></param>
-    /// <param name="template">Template Name</param>
-    public static void ApplyTemplate(DataGridView dgv, string template) => ApplyTemplate(dgv, template, new DGVSettings());
-
-    /// <summary>
-    /// Apply Template to DGV
-    /// </summary>
-    /// <param name="dgv"></param>
-    /// <param name="template">Template</param>
-    public static void ApplyTemplate(DataGridView dgv, DGVTemplate template, DGVSettings settings)
-    {
-        EditDGV(dgv, settings);
-        EditDGVColumns(dgv, template);
-    }
-
-    /// <summary>
-    /// Apply Template to DGV
-    /// </summary>
-    /// <param name="dgv"></param>
-    /// <param name="template">Template</param>
-    public static void ApplyTemplate(DataGridView dgv, DGVTemplate template) => ApplyTemplate(dgv, template, new DGVSettings());
-
-    public static DGVTemplateColumn ColumnFromXML(string XML) => DGVTemplateColumn.FromXML(XML);
-
-    /// <summary>
-    /// Format columns using <see cref="Columns"/>
-    /// </summary>
-    /// <param name="dgv"></param>
-    public static void FormatColumns(DataGridView dgv, DGVSettings settings)
-    {
-        EditDGV(dgv, settings);
-        EditDGVColumns(dgv);
-    }
-
-    /// <summary>
-    /// Format columns using <see cref="Columns"/>
-    /// </summary>
-    /// <param name="dgv"></param>
-    public static void FormatColumns(DataGridView dgv) => FormatColumns(dgv, new DGVSettings());
-
-    [Obsolete("Use TemplateFromXML()")]
-    public static DGVTemplate FromXML(string XML) => TemplateFromXML(XML);
-
-    public static DGVTemplate GetItem(string Name)
-    {
-        Name = Name.ToLowerInvariant();
-        if (!Templates.ContainsKey(Name)) return null;
-        return Templates[Name];
-    }
-
-    public static void SetItem(string Name, DGVTemplate Template) => Templates[Name.ToLowerInvariant()] = Template;
-
-    public static DGVTemplate TemplateFromXML(string XML) => DGVTemplate.FromXML(XML);
-
-    public static string ToXML(DGVTemplate T) => DGVTemplate.ToXML(T);
-
-    public static string ToXML(DGVTemplateColumn T) => DGVTemplateColumn.ToXML(T);
-
-    private static void EditDGV(DataGridView dgv, DGVSettings settings)
-    {
-        dgv.DoubleBuffered(true);
-        dgv.ReadOnly = true;
-        dgv.RowHeadersVisible = false;
-        dgv.AllowUserToAddRows = false;
-        dgv.AllowUserToDeleteRows = false;
-        dgv.AllowUserToResizeRows = settings.AllowRowsResize;
-        dgv.AllowUserToOrderColumns = settings.AllowUserToOrderColumns;
-    }
-
-    private static void EditDGVColumns(DataGridView dgv, DGVTemplate T)
-    {
-        dgv.AutoGenerateColumns = false;
-        dgv.Columns.Clear();
-        foreach (var C in T.Columns)
-        {
-            var DGVC = new DataGridViewTextBoxColumn()
+            EditDGV(dgv, settings);
+            var Name = template.ToLowerInvariant();
+            if (Templates.ContainsKey(Name))
             {
-                Name = C.Name,
-                HeaderText = C.Header,
-                AutoSizeMode = C.AutoSizeMode,
-                Width = C.Width,
-                DataPropertyName = C.Name,
-                Visible = C.Visible
-            };
-            DGVC.DefaultCellStyle.Font = (Font)new FontConverter().ConvertFromInvariantString(C.Font);
-            DGVC.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(C.ForeColor);
-            dgv.Columns.Add(DGVC);
+                EditDGVColumns(dgv, Templates[Name]);
+            }
         }
-    }
 
-    private static void EditDGVColumns(DataGridView DGV)
-    {
-        DGV.AutoGenerateColumns = false;
-        foreach (DataGridViewColumn C in DGV.Columns)
+        /// <summary>
+        /// Apply Template to DGV
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="template">Template Name</param>
+        public static void ApplyTemplate(DataGridView dgv, string template) => ApplyTemplate(dgv, template, new DGVSettings());
+
+        /// <summary>
+        /// Apply Template to DGV
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="template">Template</param>
+        public static void ApplyTemplate(DataGridView dgv, DGVTemplate template, DGVSettings settings)
         {
-            var Name = C.Name.ToLowerInvariant();
-            if (Columns.ContainsKey(Name))
+            EditDGV(dgv, settings);
+            EditDGVColumns(dgv, template);
+        }
+
+        /// <summary>
+        /// Apply Template to DGV
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="template">Template</param>
+        public static void ApplyTemplate(DataGridView dgv, DGVTemplate template) => ApplyTemplate(dgv, template, new DGVSettings());
+
+        public static DGVTemplateColumn ColumnFromXML(string XML) => DGVTemplateColumn.FromXML(XML);
+
+        /// <summary>
+        /// Format columns using <see cref="Columns"/>
+        /// </summary>
+        /// <param name="dgv"></param>
+        public static void FormatColumns(DataGridView dgv, DGVSettings settings)
+        {
+            EditDGV(dgv, settings);
+            EditDGVColumns(dgv);
+        }
+
+        /// <summary>
+        /// Format columns using <see cref="Columns"/>
+        /// </summary>
+        /// <param name="dgv"></param>
+        public static void FormatColumns(DataGridView dgv) => FormatColumns(dgv, new DGVSettings());
+
+        [Obsolete("Use TemplateFromXML()")]
+        public static DGVTemplate FromXML(string XML) => TemplateFromXML(XML);
+
+        public static DGVTemplate GetItem(string Name)
+        {
+            Name = Name.ToLowerInvariant();
+            if (!Templates.ContainsKey(Name)) return null;
+            return Templates[Name];
+        }
+
+        public static void SetItem(string Name, DGVTemplate Template) => Templates[Name.ToLowerInvariant()] = Template;
+
+        public static DGVTemplate TemplateFromXML(string XML) => DGVTemplate.FromXML(XML);
+
+        public static string ToXML(DGVTemplate T) => DGVTemplate.ToXML(T);
+
+        public static string ToXML(DGVTemplateColumn T) => DGVTemplateColumn.ToXML(T);
+
+        private static void EditDGV(DataGridView dgv, DGVSettings settings)
+        {
+            dgv.DoubleBuffered(true);
+            dgv.ReadOnly = true;
+            dgv.RowHeadersVisible = false;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = settings.AllowRowsResize;
+            dgv.AllowUserToOrderColumns = settings.AllowUserToOrderColumns;
+        }
+
+        private static void EditDGVColumns(DataGridView dgv, DGVTemplate T)
+        {
+            dgv.AutoGenerateColumns = false;
+            dgv.Columns.Clear();
+            foreach (var C in T.Columns)
             {
-                var Column = Columns[Name];
-                C.HeaderText = Column.Header;
-                C.AutoSizeMode = Column.AutoSizeMode;
-                C.Width = Column.Width;
-                C.DataPropertyName = Column.Name;
-                C.Visible = Column.Visible;
-                C.DefaultCellStyle.Font = (Font)new FontConverter().ConvertFromInvariantString(Column.Font);
-                C.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(Column.ForeColor);
+                var DGVC = new DataGridViewTextBoxColumn()
+                {
+                    Name = C.Name,
+                    HeaderText = C.Header,
+                    AutoSizeMode = C.AutoSizeMode,
+                    Width = C.Width,
+                    DataPropertyName = C.Name,
+                    Visible = C.Visible
+                };
+                DGVC.DefaultCellStyle.Font = (Font)new FontConverter().ConvertFromInvariantString(C.Font);
+                DGVC.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(C.ForeColor);
+                dgv.Columns.Add(DGVC);
+            }
+        }
+
+        private static void EditDGVColumns(DataGridView DGV)
+        {
+            DGV.AutoGenerateColumns = false;
+            foreach (DataGridViewColumn C in DGV.Columns)
+            {
+                var Name = C.Name.ToLowerInvariant();
+                if (Columns.ContainsKey(Name))
+                {
+                    var Column = Columns[Name];
+                    C.HeaderText = Column.Header;
+                    C.AutoSizeMode = Column.AutoSizeMode;
+                    C.Width = Column.Width;
+                    C.DataPropertyName = Column.Name;
+                    C.Visible = Column.Visible;
+                    C.DefaultCellStyle.Font = (Font)new FontConverter().ConvertFromInvariantString(Column.Font);
+                    C.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(Column.ForeColor);
+                }
             }
         }
     }
-}
 
-public class DGVSettings
-{
-    public DGVSettings()
+    public class DGVSettings
     {
-        AllowUserToOrderColumns = false;
-        AllowRowsResize = false;
-    }
+        public DGVSettings()
+        {
+            AllowUserToOrderColumns = false;
+            AllowRowsResize = false;
+        }
 
-    public bool AllowRowsResize { get; set; }
-    public bool AllowUserToOrderColumns { get; set; }
+        public bool AllowRowsResize { get; set; }
+        public bool AllowUserToOrderColumns { get; set; }
+    }
 }

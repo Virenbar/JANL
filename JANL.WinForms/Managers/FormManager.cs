@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace JANL.Forms
+namespace JANL.Managers
 {
     public static class FormManager
     {
+        private static Dictionary<Form, ToolStripMenuItem> Items = new Dictionary<Form, ToolStripMenuItem>();
         private static ToolStripMenuItem Root;
-        private static Dictionary<Form, ToolStripMenuItem> TSMIs = new Dictionary<Form, ToolStripMenuItem>();
 
         public static void Add(Form form)
         {
-            if (TSMIs.ContainsKey(form)) { return; }
+            if (Items.ContainsKey(form)) { return; }
             var TSMI = new ToolStripMenuItem
             {
                 Text = form.Text,
@@ -23,14 +23,14 @@ namespace JANL.Forms
 
             Root.DropDownItems.Add(TSMI);
             Root.Visible = true;
-            TSMIs.Add(form, TSMI);
+            Items.Add(form, TSMI);
         }
 
         public static void SetMenu(ToolStripMenuItem TSMI)
         {
             if (Root != null)
             {
-                foreach (var KV in TSMIs)
+                foreach (var KV in Items)
                 {
                     Root.DropDownItems.Remove(KV.Value);
                     TSMI.DropDownItems.Add(KV.Value);
@@ -47,13 +47,13 @@ namespace JANL.Forms
 
         private static void Remove(Form form)
         {
-            if (!TSMIs.ContainsKey(form)) { return; }
-            var TSMI = TSMIs[form];
+            if (!Items.ContainsKey(form)) { return; }
+            var TSMI = Items[form];
             form.TextChanged -= TextChanged;
             form.FormClosed -= FormClosed;
 
             Root.DropDownItems.Remove(TSMI);
-            TSMIs.Remove(form);
+            Items.Remove(form);
             TSMI.Dispose();
             ChangeVisibility();
         }
@@ -61,7 +61,7 @@ namespace JANL.Forms
         private static void TextChanged(object sender, EventArgs e)
         {
             var Form = (Form)sender;
-            TSMIs[Form].Text = Form.Text;
+            Items[Form].Text = Form.Text;
         }
     }
 }
