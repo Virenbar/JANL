@@ -92,7 +92,7 @@ namespace JANL.Helpers
             if (Value == 0) { return ""; }
             if (Value < 3)
             {
-                string[] F = { };
+                string[] F;
                 switch (Kind)
                 {
                     case Kind.Male:

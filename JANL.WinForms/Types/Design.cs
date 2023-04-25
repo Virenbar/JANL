@@ -16,6 +16,6 @@ namespace JANL.Types
 
         public static Design FromTemplate(DGVTemplate T) => new Design(T);
 
-        public DGVTemplate ToTemplate() => new DGVTemplate() { Columns = Columns.Select(c => c.ToTemplate()).ToList() };
+        public DGVTemplate ToTemplate() => new DGVTemplate { Columns = Columns.Select(c => c.ToTemplate()).ToList() };
     }
 }

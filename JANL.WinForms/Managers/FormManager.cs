@@ -17,7 +17,7 @@ namespace JANL.Managers
                 Text = form.Text,
                 Image = form.Icon.ToBitmap()
             };
-            TSMI.Click += (_, e) => { form.Activate(); };
+            TSMI.Click += (_, __) => { form.Activate(); };
             form.TextChanged += TextChanged;
             form.FormClosed += FormClosed;
 

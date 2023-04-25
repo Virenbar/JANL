@@ -12,8 +12,6 @@ namespace JANL.ExtendedControls
         private Image _frame;
         private Image _image;
 
-        public AnimatedPictureBox() : base() { }
-
         public IAnimator Animator
         {
             get => _animator;

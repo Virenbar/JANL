@@ -7,9 +7,14 @@ namespace JANL.Extensions
 {
     public static class WAT
     {
-        private readonly static HashSet<Type> Txt = new HashSet<Type>() { typeof(Button), typeof(Label), typeof(GroupBox), typeof(TabPage), typeof(ToolStripMenuItem), typeof(ToolStripDropDownButton), typeof(CheckBox) };
-        private readonly static char[] Vowels = VowelsHalf.Concat(VowelsHalf.AsEnumerable().Select(x => char.ToUpperInvariant(x))).ToArray();
+        private readonly static HashSet<Type> Txt = new HashSet<Type> { typeof(Button), typeof(Label), typeof(GroupBox), typeof(TabPage), typeof(ToolStripMenuItem), typeof(ToolStripDropDownButton), typeof(CheckBox) };
+        private readonly static char[] Vowels;
         private readonly static char[] VowelsHalf = new[] { 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю' };
+
+        static WAT()
+        {
+            Vowels = VowelsHalf.Concat(VowelsHalf.AsEnumerable().Select(x => char.ToUpperInvariant(x))).ToArray();
+        }
 
         public static void VowelsBegone(this Control cont)
         {

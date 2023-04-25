@@ -34,7 +34,7 @@ namespace JANL.Extensions
         /// </summary>
         /// <param name="ex">Объект ошибки</param>
         /// <param name="prefix">Префикс сообщения (По умолчанию имя метода)</param>
-        public static void ShowError(this Form form, Exception ex, [CallerMemberName()] string prefix = null)
+        public static void ShowError(this Form form, Exception ex, [CallerMemberName] string prefix = null)
         {
             MessageBox.Show(form, $"{prefix}: {ex.Message}{NewLine}StackTrace:{NewLine}{ex.StackTrace}", DefaultHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

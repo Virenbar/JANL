@@ -83,7 +83,7 @@ namespace JANL.Managers
         public static DGVTemplate GetItem(string Name)
         {
             Name = Name.ToLowerInvariant();
-            if (!Templates.ContainsKey(Name)) return null;
+            if (!Templates.ContainsKey(Name)) { return null; }
             return Templates[Name];
         }
 

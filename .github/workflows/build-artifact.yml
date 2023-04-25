@@ -1,5 +1,4 @@
 name: Build Artifact
-
 on:
   push:
     branches: [master]
@@ -13,14 +12,9 @@ on:
 jobs:
   build:
     name: Build
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
-      SolutionName: JANL.sln
-      Configuration: ${{ matrix.configuration }}
     outputs:
       version: ${{steps.version.outputs.version}}
     steps:
@@ -45,19 +39,12 @@ jobs:
         run: nuget restore
 
       - name: Build solution
-        if: matrix.configuration == 'Debug'
-        run: msbuild $env:SolutionName /t:Build /p:Configuration=$env:Configuration
-
-      - name: Build solution
-        if: matrix.configuration == 'Release'
-        run: msbuild $env:SolutionName /t:Build /p:Configuration=$env:Configuration /p:ContinuousIntegrationBuild=true
+        run: msbuild JANL.sln /t:Build /p:Configuration=Release /p:ContinuousIntegrationBuild=true
 
       - name: Pack nupkg
-        if: matrix.configuration == 'Release'
         run: .\.github\scripts\pack.ps1
 
       - name: Upload artifact
-        if: matrix.configuration == 'Release'
         uses: actions/upload-artifact@v3
         with:
           name: JANL

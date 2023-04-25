@@ -16,7 +16,7 @@ namespace JANL.Helpers
             var min = ToNumber(first) + 1;
             var max = ToNumber(last) - 1;
 
-            if (!(min <= max)) { return new List<string>() { first, last }; }
+            if (min > max) { return new List<string>() { first, last }; }
 
             List<string> Items = new List<string> { first };
             for (var i = min; i <= max; i++)
@@ -58,7 +58,7 @@ namespace JANL.Helpers
         /// <param name="index">Строковый индекс</param>
         public static int ToNumber(string index)
         {
-            return index.ToUpper().Aggregate(0, (column, letter) => 26 * column + letter - 'A' + 1);
+            return index.ToUpperInvariant().Aggregate(0, (column, letter) => 26 * column + letter - 'A' + 1);
         }
 
         /// <summary>

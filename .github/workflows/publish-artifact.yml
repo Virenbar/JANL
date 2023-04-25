@@ -4,7 +4,7 @@ on:
 jobs:
   build:
     name: Build
-    uses: Virenbar/JANL/.github/workflows/build-artifact.yml@master
+    uses: ./.github/workflows/build-artifact.yml
 
   publish:
     name: Publish
@@ -21,7 +21,7 @@ jobs:
         with:
           name: JANL
 
-      - name: LS
+      - name: List files
         run: ls -R
 
       - name: Push - NuGet

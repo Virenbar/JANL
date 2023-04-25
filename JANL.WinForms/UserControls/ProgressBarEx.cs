@@ -7,8 +7,8 @@ namespace JANL.UserControls
 {
     public partial class ProgressBarEx : UserControl
     {
+        private readonly Stopwatch SW;
         private double _Percent;
-        private Stopwatch SW;
 
         public ProgressBarEx()
         {

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
@@ -21,7 +16,7 @@ namespace JANL.UserControls
         {
             InitializeComponent();
 
-            Timer = new Timer() { Interval = 100 };
+            Timer = new Timer { Interval = 100 };
             Timer.Tick += Timer_Tick;
             StopWatch = new Stopwatch();
 

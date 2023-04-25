@@ -14,7 +14,7 @@ namespace JANL
         private const string LabelPrefix = "\x200b\x200b";
         private string LabelStr;
 
-        public TextBoxEx() : base()
+        public TextBoxEx()
         {
             InitializeComponent();
 
@@ -85,8 +85,7 @@ namespace JANL
 
         protected override void OnLostFocus(EventArgs e)
         {
-            if (base.Text.Length == 0)
-                base.Text = LabelStr;
+            if (base.Text.Length == 0) { base.Text = LabelStr; }
             base.OnLostFocus(e);
         }
 
@@ -120,10 +119,6 @@ namespace JANL
             this.Controls.Add(this.PB_Clear);
             ((System.ComponentModel.ISupportInitialize)(this.PB_Clear)).EndInit();
             this.ResumeLayout(false);
-        }
-
-        private void PB_Clear_Click(object sender, EventArgs e)
-        {
         }
 
         private void UpdateColor()
