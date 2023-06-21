@@ -66,7 +66,7 @@
     <Compile Include="Generic\FixedQueue.cs" />
     <Compile Include="Helpers\ExcelHelper.cs" />
     <Compile Include="Helpers\FilterHelper.cs" />
-    <Compile Include="Helpers\FS.cs" />
+    <Compile Include="Helpers\IOHelper.cs" />
     <Compile Include="Helpers\NumberToText.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="ObservableObject.cs" />
@@ -83,8 +83,10 @@
     </Compile>
     <Compile Include="SQL\BaseSQLCommand.cs" />
     <Compile Include="SQL\ISQLCommand.cs" />
+    <Compile Include="SQL\NonQueryText.cs" />
     <Compile Include="SQL\ScalarFunction.cs" />
     <Compile Include="SQL\ScalarText.cs" />
+    <Compile Include="SQL\SelectText.cs" />
     <Compile Include="SQL\SelectReader.cs" />
     <Compile Include="SQL\SelectProcedure.cs" />
     <Compile Include="SQL\ScalarProcedure.cs" />

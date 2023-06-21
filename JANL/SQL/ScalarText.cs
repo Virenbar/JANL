@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 namespace JANL.SQL
 {
     /// <summary>
-    /// SQL код <typeparamref name="T"/>
+    /// Скалярная SQL команда
     /// </summary>
-    /// <typeparam name="T">Тип значения возвращаемого процедурой</typeparam>
+    /// <typeparam name="T">Тип значения возвращаемого командой</typeparam>
     public class ScalarText<T> : SQLText<T>
     {
         /// <summary>
-        /// Создаёт новую процедуру именем вызывающего метода
+        /// Создаёт новую команду с указанным текстом
         /// </summary>
-        public ScalarText(string Text) : base(Text) { }
+        public ScalarText(string text) : base(text) { }
 
         /// <summary>
         /// Выполнить с указанным соединением

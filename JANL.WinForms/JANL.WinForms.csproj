@@ -59,7 +59,9 @@
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
     <Compile Include="ExtendedControls\AnimatedPictureBox.cs">

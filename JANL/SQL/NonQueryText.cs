@@ -1,18 +1,17 @@
 ﻿using System.Data.SqlClient;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace JANL.SQL
 {
     /// <summary>
-    /// Процедура возвращающая количество задействованных строк
+    /// Команда без выходных данных
     /// </summary>
-    public class NonQueryProcedure : SQLProcedure<int>
+    internal class NonQueryText : SQLText<int>
     {
         /// <summary>
-        /// Создаёт новую процедуру с именем вызывающего метода
+        /// Создаёт новую команду с указанным текстом
         /// </summary>
-        public NonQueryProcedure([CallerMemberName] string Name = null) : base(Name) { }
+        public NonQueryText(string text) : base(text) { }
 
         /// <summary>
         /// Выполнить с указанным соединением
