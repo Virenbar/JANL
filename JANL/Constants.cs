@@ -1,7 +1,10 @@
-﻿namespace JANL
+﻿using System;
+
+namespace JANL
 {
     public static class Constants
     {
-        public static readonly string TimeFormat = "d.hh:mm:ss";
+        [Obsolete("Use Defaults")]
+        public static string TimeFormat => Defaults.TimespanFormat;
     }
 }
