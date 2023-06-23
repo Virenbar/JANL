@@ -1,62 +1,45 @@
 ﻿using JANL.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 
 namespace JANL.Animators
 {
-    public class UnionAnimator : Collection<IAnimator>, IAnimator
+    public sealed class UnionAnimator : ObservableObject, IAnimator
     {
-        public UnionAnimator() : base() { }
+        private readonly AnimatorCollection Items;
 
-        public UnionAnimator(IList<IAnimator> list) : base(list) { }
-
-        public void ResetAnimation()
+        public UnionAnimator()
         {
-            foreach (var item in Items) { item.ResetAnimation(); }
+            Items = new AnimatorCollection();
         }
 
-        public void StartAnimation()
+        public UnionAnimator(IList<IAnimator> list)
         {
-            foreach (var item in Items) { item.StartAnimation(); }
+            Items = new AnimatorCollection(list);
         }
 
-        public void StopAnimation()
+        public IAnimator this[int index]
         {
-            foreach (var item in Items) { item.StopAnimation(); }
+            get => Items[index];
+            set => Items[index] = value;
         }
 
-        protected override void ClearItems()
-        {
-            foreach (var item in this)
-            {
-                item.CurrentImageChanged -= OnCurrentImageChanged;
-            }
-            base.ClearItems();
-        }
+        public void Add(IAnimator item) => Items.Add(item);
 
-        protected override void InsertItem(int index, IAnimator item)
-        {
-            base.InsertItem(index, item);
-            this[index].CurrentImageChanged += OnCurrentImageChanged;
-        }
+        public void Clear() => Items.Clear();
 
-        protected override void RemoveItem(int index)
-        {
-            this[index].CurrentImageChanged -= OnCurrentImageChanged;
-            base.RemoveItem(index);
-        }
+        public void Remove(IAnimator item) => Items.Remove(item);
 
-        protected override void SetItem(int index, IAnimator item)
-        {
-            this[index].CurrentImageChanged -= OnCurrentImageChanged;
-            base.SetItem(index, item);
-            this[index].CurrentImageChanged += OnCurrentImageChanged;
-        }
+        public void ResetAnimation() => Items.ResetAnimation();
+
+        public void StartAnimation() => Items.StartAnimation();
+
+        public void StopAnimation() => Items.StopAnimation();
 
         #region Properties
+
         public Image CurrentImage => throw new NotImplementedException();
 
         public int Duration
@@ -65,8 +48,11 @@ namespace JANL.Animators
             set
             {
                 foreach (var item in Items) { item.Duration = value; }
+                NotifyPropertyChanged();
             }
         }
+
+        public bool Enabled => Items.Any(I => I.Enabled);
 
         public int Framerate
         {
@@ -74,11 +60,13 @@ namespace JANL.Animators
             set
             {
                 foreach (var item in Items) { item.Framerate = value; }
+                NotifyPropertyChanged();
             }
         }
 
         public int Height => Items.Max(I => I.Height);
 
+        [Obsolete("Use Enable")]
         public bool IsAnimated => Items.Any(I => I.IsAnimated);
 
         public Image SourceImage
@@ -96,11 +84,10 @@ namespace JANL.Animators
 
         #region Events
 
-        protected void OnCurrentImageChanged(object sender, EventArgs e)
-        {
-            CurrentImageChanged?.Invoke(sender, e);
-        }
-
+        /// <summary>
+        /// Никогда не вызывается
+        /// </summary>
+        [Obsolete("Никогда не вызывается")]
         public event EventHandler CurrentImageChanged;
 
         #endregion Events

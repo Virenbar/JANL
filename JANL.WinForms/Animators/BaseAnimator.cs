@@ -10,26 +10,28 @@ namespace JANL.Animators
     {
         private readonly Stopwatch Stopwatch = new Stopwatch();
         private readonly Timer Timer = new Timer();
-        private int _duration;
-        private int _framerate;
 
-        protected BaseAnimator(int framerate, int duration)
+        protected BaseAnimator()
         {
-            Framerate = framerate;
-            Duration = duration;
+            UpdateDelay();
             Timer.Tick += Timer_Tick;
         }
 
-        private void Timer_Tick(object sender, EventArgs e) => Animate();
-
-        protected BaseAnimator(int framerate, int duration, Image image) : this(framerate, duration) { SourceImage = image; }
-
-        protected BaseAnimator() : this(30, 5 * 1000) { }
-
         protected BaseAnimator(Image image) : this() { SourceImage = image; }
+
+        protected BaseAnimator(Image image, int duration) : this(image) { Duration = duration; }
+
+        protected BaseAnimator(Image image, int duration, int framerate) : this(image, framerate) { Framerate = framerate; }
+
+        protected BaseAnimator(int duration) : this(null, duration) { }
+
+        protected BaseAnimator(int duration, int framerate) : this(null, duration, framerate) { }
 
         /// <summary>
         /// Сброс состояния анимации
+        /// <para>
+        /// Создает новый кадр без вызова <see cref="BeforeTransform"/> и <see cref="AfterTransform"/>
+        /// </para>
         /// </summary>
         public virtual void ResetAnimation()
         {
@@ -42,7 +44,7 @@ namespace JANL.Animators
         /// </summary>
         public void StartAnimation()
         {
-            if (SourceImage is null || IsAnimated) { return; }
+            if (SourceImage is null || Enabled) { return; }
             Timer.Interval = Delay;
             Timer.Start();
         }
@@ -50,20 +52,54 @@ namespace JANL.Animators
         /// <summary>
         /// Остановка анимации
         /// </summary>
-        public void StopAnimation() => Timer.Stop();
+        public void StopAnimation() => StopAnimation(false);
 
+        /// <summary>
+        /// Остановка анимации
+        /// </summary>
+        /// <param name="reset">Сбросить состояние анимации</param>
+        public void StopAnimation(bool reset)
+        {
+            Timer.Stop();
+            if (reset) { ResetAnimation(); }
+        }
+
+        /// <summary>
+        /// Вызывается после созданием нового кадра
+        /// </summary>
+        protected virtual void AfterTransform() { }
+
+        /// <summary>
+        /// Вызывается перед созданием нового кадра
+        /// </summary>
+        protected virtual void BeforeTransform() { }
+
+        /// <summary>
+        /// Создает новый кадр
+        /// </summary>
+        /// <param name="SourceImage"></param>
+        /// <param name="CurrentImage"></param>
+        /// <returns>Новый кадр</returns>
         protected abstract Image Transform(Image SourceImage, Image CurrentImage);
 
         private void Animate()
         {
             Stopwatch.Restart();
+            BeforeTransform();
             CurrentImage = Transform(SourceImage, CurrentImage);
+            AfterTransform();
             OnCurrentImageChanged(EventArgs.Empty);
             Stopwatch.Stop();
             Timer.Interval = Math.Max(Delay - (int)Stopwatch.ElapsedMilliseconds, 10);
         }
 
+        private void Timer_Tick(object sender, EventArgs e) => Animate();
+
+        private void UpdateDelay() => Delay = 1000 / Framerate;
+
         #region Properties
+        private int _duration = 5 * 1000;
+        private int _framerate = 30;
 
         /// <summary>
         /// Текущий кадр
@@ -86,6 +122,11 @@ namespace JANL.Animators
         }
 
         /// <summary>
+        /// Активна ли анимация
+        /// </summary>
+        public bool Enabled => Timer.Enabled;
+
+        /// <summary>
         /// Частота кадров
         /// </summary>
         public virtual int Framerate
@@ -95,7 +136,7 @@ namespace JANL.Animators
             {
                 if (_framerate == value) { return; }
                 _framerate = value;
-                Delay = 1000 / _framerate;
+                UpdateDelay();
                 NotifyPropertyChanged();
                 OnFramerateChanged(EventArgs.Empty);
             }
@@ -109,6 +150,7 @@ namespace JANL.Animators
         /// <summary>
         /// Активна ли анимация
         /// </summary>
+        [Obsolete("Use Enabled")]
         public bool IsAnimated => Timer.Enabled;
 
         /// <summary>

@@ -14,8 +14,6 @@ namespace JANL.UserControls
     {
         private Design Design;
 
-        private bool SkipDGVEvent;
-
         public DGVTemplateEditor()
         {
             InitializeComponent();
@@ -74,18 +72,14 @@ namespace JANL.UserControls
 
         private void ReCreateDGV()
         {
-            SkipDGVEvent = true;
             DGV_Template.Columns.Clear();
             Design.Columns.ForEach(C => DGV_Template.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = C.Name, Tag = C }));
 
-            SkipDGVEvent = false;
             RefreshDGV();
         }
 
         private void RefreshDGV()
         {
-            SkipDGVEvent = true;
-
             foreach (DataGridViewTextBoxColumn C in DGV_Template.Columns)
             {
                 C.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -111,8 +105,6 @@ namespace JANL.UserControls
                 DGV_Template.ClearSelection();
                 DGV_Template[BS_Columns.Position, 0].Selected = true;
             }
-
-            SkipDGVEvent = false;
         }
 
         #region BS Events

@@ -23,7 +23,13 @@ namespace JANL.Interfaces
         /// <summary>
         /// Активна ли анимация
         /// </summary>
+        [Obsolete("Use Enabled")]
         bool IsAnimated { get; }
+
+        /// <summary>
+        /// Активна ли анимация
+        /// </summary>
+        bool Enabled { get; }
 
         /// <summary>
         /// Длительность анимации

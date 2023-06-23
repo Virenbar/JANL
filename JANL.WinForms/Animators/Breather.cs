@@ -5,20 +5,75 @@ namespace JANL.Animators
 {
     public class Breather : BaseAnimator
     {
-        private float _minScale = 0.5f;
-        private float _scale = 1;
-        private float _scaleStep;
         private bool down;
+        private float scale = 1;
+        private float scaleStep;
 
-        public Breather() : this(0.5f) { }
+        public Breather()
+        {
+            UpdateScaleStep();
+        }
 
-        public Breather(float minimalScale) { MinimalScale = minimalScale; }
+        public Breather(Image image) : this() { SourceImage = image; }
+
+        public Breather(Image image, float minimalScale) : this(image) { MinimalScale = minimalScale; }
+
+        public Breather(float minimalScale) : this() { MinimalScale = minimalScale; }
 
         public override void ResetAnimation()
         {
-            _scale = 1;
+            scale = 1;
             base.ResetAnimation();
         }
+
+        protected override void BeforeTransform()
+        {
+            scale += scaleStep * (down ? -1 : 1);
+            scale = Math.Min(Math.Max(_minScale, scale), 1);
+            if (scale <= _minScale || scale >= 1) { down = !down; }
+            base.BeforeTransform();
+        }
+
+        protected override Image Transform(Image SourceImage, Image CurrentImage)
+        {
+            Image B = new Bitmap(Width, Height);
+            using (Graphics G = Graphics.FromImage(B))
+            {
+                // Перемещение в центр пространства
+                G.TranslateTransform((float)Width / 2, (float)Height / 2);
+                // Масштабирование пространства
+                G.ScaleTransform(scale, scale);
+                // Перемещение в начало исходного изображения
+                G.TranslateTransform(-(float)SourceImage.Width / 2, -(float)SourceImage.Height / 2);
+                // Рисование исходного изображения
+                G.DrawImage(SourceImage, new Point(0, 0));
+            }
+            return B;
+        }
+
+        private void UpdateScaleStep()
+        {
+            var diff = 1 - _minScale;
+            scaleStep = diff / ((float)Duration / Delay);
+        }
+
+        #region Properties
+        private float _minScale = 0.5f;
+
+        public float MinimalScale
+        {
+            get => _minScale;
+            set
+            {
+                if (_minScale == value) { return; }
+                _minScale = value;
+                UpdateScaleStep();
+            }
+        }
+
+        #endregion Properties
+
+        #region Events
 
         protected override void OnDurationChanged(EventArgs e)
         {
@@ -32,42 +87,6 @@ namespace JANL.Animators
             base.OnFramerateChanged(e);
         }
 
-        protected override Image Transform(Image SourceImage, Image CurrentImage)
-        {
-            _scale += _scaleStep * (down ? -1 : 1);
-            _scale = Math.Min(Math.Max(_minScale, _scale), 1);
-            if (_scale <= _minScale || _scale >= 1) { down = !down; }
-
-            Image B = new Bitmap(Width, Height);
-            using (Graphics G = Graphics.FromImage(B))
-            {
-                G.TranslateTransform((float)Width / 2, (float)Height / 2);
-                G.ScaleTransform(_scale, _scale);
-
-                G.TranslateTransform(-(float)SourceImage.Width / 2, -(float)SourceImage.Height / 2);
-                G.DrawImage(SourceImage, new Point(0, 0));
-            }
-            return B;
-        }
-
-        private void UpdateScaleStep()
-        {
-            var diff = 1 - _minScale;
-            _scaleStep = diff / ((float)Duration / Delay);
-        }
-
-        #region Properties
-
-        public float MinimalScale
-        {
-            get => _minScale;
-            set
-            {
-                _minScale = value;
-                UpdateScaleStep();
-            }
-        }
-
-        #endregion Properties
+        #endregion Events
     }
 }

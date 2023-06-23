@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animators\AnimatorCollection.cs" />
     <Compile Include="Animators\BaseAnimator.cs" />
     <Compile Include="Animators\Breather.cs" />
     <Compile Include="Animators\Rotator.cs" />

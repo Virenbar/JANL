@@ -5,46 +5,86 @@ namespace JANL.Animators
 {
     public class Rotator : BaseAnimator
     {
-        private const double SIN45 = 0.70710678118654757;//SIN45 = Math.Sin(45 * Math.PI / 180);
-        private const int TOTAL = 360;
-        private float _angle;
-        private float AngleStep;
+        /// <summary>
+        /// Максимальный угол
+        /// </summary>
+        private const int MAX_ANGLE = 360;
 
-        public Rotator() { }
+        /// <summary>
+        /// Минимальный угол
+        /// </summary>
+        private const int MIN_ANGLE = 0;
 
-        public Rotator(int duration) : base(30, duration) { }
+        /// <summary>
+        /// Синус угла в 45°
+        /// <para>
+        /// SIN45 = Math.Sin(45 * Math.PI / 180)
+        /// </para>
+        /// </summary>
+        private const double SIN45 = 0.70710678118654757;
 
-        public Rotator(int duration, Image image) : base(30, duration, image) { }
+        private float angle;
+        private float angleStep;
+
+        public Rotator()
+        {
+            UpdateAngleStep();
+        }
+
+        public Rotator(Image image) : this() { SourceImage = image; }
+
+        public Rotator(Image image, int duration) : base(image, duration) { }
+
+        public Rotator(int duration) : base(duration) { }
 
         public override void ResetAnimation()
         {
-            _angle = 0;
+            angle = MIN_ANGLE;
             base.ResetAnimation();
+        }
+
+        protected override void BeforeTransform()
+        {
+            angle += (short)Direction * angleStep;
+            angle %= MAX_ANGLE;
+            base.BeforeTransform();
         }
 
         protected override Image Transform(Image SourceImage, Image CurrentImage)
         {
-            _angle = (_angle + (int)Direction * AngleStep) % TOTAL;
-            Image B = /*CurrentImage ??*/ new Bitmap(Width, Height);
-
+            Image B = new Bitmap(Width, Height);
             using (Graphics G = Graphics.FromImage(B))
             {
+                // Перемещение в центр пространства
                 G.TranslateTransform((float)Width / 2, (float)Height / 2);
-                G.RotateTransform(_angle);
+                // Поворот пространства
+                G.RotateTransform(angle);
+                // Перемещение в начало исходного изображения
                 G.TranslateTransform(-(float)SourceImage.Width / 2, -(float)SourceImage.Height / 2);
+                // Рисование исходного изображения
                 G.DrawImage(SourceImage, new Point(0, 0));
             }
-
             return B;
         }
 
-        private void UpdateAngleStep() => AngleStep = TOTAL / ((float)Duration / Delay);
+        private void UpdateAngleStep() => angleStep = MAX_ANGLE / ((float)Duration / Delay);
 
-        public enum DirectionType : int
+        public enum DirectionType : short
         {
             Clockwise = 1,
             Counterclockwise = -1
         }
+
+        #region Properties
+        public DirectionType Direction { get; set; } = DirectionType.Clockwise;
+
+        public override int Height => (int)Math.Ceiling((base.Height + base.Width) * SIN45);
+
+        public override int Width => (int)Math.Ceiling((base.Width + base.Height) * SIN45);
+
+        #endregion Properties
+
+        #region Events
 
         protected override void OnDurationChanged(EventArgs e)
         {
@@ -58,13 +98,6 @@ namespace JANL.Animators
             base.OnFramerateChanged(e);
         }
 
-        #region Properties
-        public DirectionType Direction { get; set; } = DirectionType.Clockwise;
-
-        public override int Height => (int)Math.Ceiling((base.Height + base.Width) * SIN45);
-
-        public override int Width => (int)Math.Ceiling((base.Width + base.Height) * SIN45);
-
-        #endregion Properties
+        #endregion Events
     }
 }

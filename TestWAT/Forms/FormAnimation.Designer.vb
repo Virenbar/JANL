@@ -26,7 +26,6 @@ Partial Class FormAnimation
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TB_FPS = New System.Windows.Forms.TrackBar()
-        Me.BS_Animator = New System.Windows.Forms.BindingSource(Me.components)
         Me.NUD_FPS = New System.Windows.Forms.NumericUpDown()
         Me.NUD_Duration = New System.Windows.Forms.NumericUpDown()
         Me.TB_Duration = New System.Windows.Forms.TrackBar()
@@ -37,24 +36,25 @@ Partial Class FormAnimation
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.CB_Direction = New System.Windows.Forms.CheckBox()
         Me.NUD_Scale = New System.Windows.Forms.NumericUpDown()
-        Me.APB_1 = New JANL.ExtendedControls.AnimatedPictureBox()
-        Me.APB_2 = New JANL.ExtendedControls.AnimatedPictureBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.APB_1 = New JANL.ExtendedControls.AnimatedPictureBox()
+        Me.APB_2 = New JANL.ExtendedControls.AnimatedPictureBox()
+        Me.BS_Animator = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.TB_FPS, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BS_Animator, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUD_FPS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUD_Duration, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TB_Duration, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         CType(Me.NUD_Scale, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.APB_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.APB_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
+        CType(Me.APB_1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.APB_2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BS_Animator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -100,10 +100,6 @@ Partial Class FormAnimation
         Me.TB_FPS.TabIndex = 9
         Me.TB_FPS.TickFrequency = 5
         Me.TB_FPS.Value = 15
-        '
-        'BS_Animator
-        '
-        Me.BS_Animator.DataSource = GetType(JANL.Interfaces.IAnimator)
         '
         'NUD_FPS
         '
@@ -220,30 +216,6 @@ Partial Class FormAnimation
         Me.NUD_Scale.TabIndex = 10
         Me.NUD_Scale.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
-        'APB_1
-        '
-        Me.APB_1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.APB_1.Animator = Nothing
-        Me.APB_1.Image = Global.TestWAT.My.Resources.Resources.partner64
-        Me.APB_1.Location = New System.Drawing.Point(151, 3)
-        Me.APB_1.Name = "APB_1"
-        Me.APB_1.Size = New System.Drawing.Size(119, 116)
-        Me.APB_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.APB_1.TabIndex = 7
-        Me.APB_1.TabStop = False
-        '
-        'APB_2
-        '
-        Me.APB_2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.APB_2.Animator = Nothing
-        Me.APB_2.Image = Global.TestWAT.My.Resources.Resources.partner64
-        Me.APB_2.Location = New System.Drawing.Point(572, 3)
-        Me.APB_2.Name = "APB_2"
-        Me.APB_2.Size = New System.Drawing.Size(119, 116)
-        Me.APB_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.APB_2.TabIndex = 7
-        Me.APB_2.TabStop = False
-        '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.AutoSize = True
@@ -274,6 +246,34 @@ Partial Class FormAnimation
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(77, 26)
         Me.FlowLayoutPanel1.TabIndex = 8
         '
+        'APB_1
+        '
+        Me.APB_1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.APB_1.Animator = Nothing
+        Me.APB_1.Image = Global.TestWAT.My.Resources.Resources.partner64
+        Me.APB_1.Location = New System.Drawing.Point(151, 3)
+        Me.APB_1.Name = "APB_1"
+        Me.APB_1.Size = New System.Drawing.Size(119, 116)
+        Me.APB_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.APB_1.TabIndex = 7
+        Me.APB_1.TabStop = False
+        '
+        'APB_2
+        '
+        Me.APB_2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.APB_2.Animator = Nothing
+        Me.APB_2.Image = Global.TestWAT.My.Resources.Resources.partner64
+        Me.APB_2.Location = New System.Drawing.Point(572, 3)
+        Me.APB_2.Name = "APB_2"
+        Me.APB_2.Size = New System.Drawing.Size(119, 116)
+        Me.APB_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.APB_2.TabIndex = 7
+        Me.APB_2.TabStop = False
+        '
+        'BS_Animator
+        '
+        Me.BS_Animator.DataSource = GetType(JANL.Interfaces.IAnimator)
+        '
         'FormAnimation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,7 +288,6 @@ Partial Class FormAnimation
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.TB_FPS, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BS_Animator, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUD_FPS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUD_Duration, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TB_Duration, System.ComponentModel.ISupportInitialize).EndInit()
@@ -296,11 +295,12 @@ Partial Class FormAnimation
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
         CType(Me.NUD_Scale, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.APB_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.APB_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        CType(Me.APB_1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.APB_2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BS_Animator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
