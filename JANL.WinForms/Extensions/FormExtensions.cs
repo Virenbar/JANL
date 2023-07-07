@@ -63,7 +63,7 @@ namespace JANL.Extensions
         public static void ShowInfo(this Form form, string text, string header) => ShowMessage(form, text, header, MessageBoxIcon.Information);
 
         /// <summary>
-        /// Отображает предупреждение
+        /// Отображает сообщение
         /// </summary>
         /// <param name="text">Текст предупреждения</param>
         /// <param name="header">Заголовок окна</param>

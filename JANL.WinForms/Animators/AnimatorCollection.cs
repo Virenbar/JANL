@@ -8,7 +8,7 @@ namespace JANL.Animators
 {
     public class AnimatorCollection : Collection<IAnimator>
     {
-        public AnimatorCollection() : base() { }
+        public AnimatorCollection() { }
 
         public AnimatorCollection(IList<IAnimator> list) : base(list) { }
 

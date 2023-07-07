@@ -16,7 +16,6 @@ namespace JANL.UserControls
     {
         private IEnumerable<string> Columns;
         private DataTable DT;
-        //private IDTSource DTSource;
 
         public DataTableView()
         {

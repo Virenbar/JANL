@@ -13,7 +13,7 @@ namespace JANL
     {
         private readonly Color OffColor = Color.Gray;
         private readonly string OffText = "Фильтр";
-        private readonly Timer Timer = new Timer() { Interval = 1000 };
+        private readonly Timer Timer = new Timer { Interval = 1000 };
         private IEnumerable<string> Collumns;
         private DataGridView DGV;
 

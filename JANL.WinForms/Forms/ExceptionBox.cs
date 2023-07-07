@@ -92,7 +92,7 @@ namespace JANL.Forms
             if (Exception == null) { return; }
             try
             {
-                //TV_Exceptions.BeginUpdate();
+                TV_Exceptions.BeginUpdate();
                 TV_Exceptions.Nodes.Clear();
                 var E = Exception;
                 TreeNode ParentNode = null, ChildNode = null;
@@ -116,7 +116,7 @@ namespace JANL.Forms
             }
             finally
             {
-                //TV_Exceptions.EndUpdate();
+                TV_Exceptions.EndUpdate();
             }
         }
 

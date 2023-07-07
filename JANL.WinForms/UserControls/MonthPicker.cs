@@ -12,8 +12,7 @@ namespace JANL.UserControls
     [Designer(typeof(HResizeOnly))]
     public partial class MonthPicker : UserControl
     {
-        private int _MinYear;
-        private List<MonthItem> Months;
+        private readonly List<MonthItem> Months;
 
         public MonthPicker()
         {
@@ -24,11 +23,27 @@ namespace JANL.UserControls
             CB_Month.DataSource = Months;
             CB_Month.DisplayMember = "Name";
             CB_Month.ValueMember = "Index";
-            CB_Month.SelectedValue = System.Convert.ToUInt16(T.Month);
+            CB_Month.SelectedValue = Convert.ToUInt16(T.Month);
 
             _MinYear = 2010;
             FillYear();
         }
+
+        protected void OnDateChanged() => DateChanged?.Invoke(this, EventArgs.Empty);
+
+        private void CB_Month_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
+
+        private void CB_Year_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
+
+        private void FillYear()
+        {
+            var Y = DateTime.Today.Year;
+            CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).ToList();
+            if (MinYear <= Y) { CB_Year.Text = Y.ToString(); }
+        }
+
+        #region Properties
+        private int _MinYear;
 
         /// <summary>
         /// Первый день месяца
@@ -68,20 +83,9 @@ namespace JANL.UserControls
         [Browsable(false)]
         public int Year => (int)CB_Year.SelectedItem;
 
-        protected void OnDateChanged() => DateChanged?.Invoke(this, EventArgs.Empty);
+        #endregion Properties
 
-        private void CB_Month_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
-
-        private void CB_Year_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
-
-        private void FillYear()
-        {
-            var Y = DateTime.Today.Year;
-            CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).ToList();
-            if (MinYear <= Y) { CB_Year.Text = Y.ToString(); }
-        }
-
-        private struct MonthItem
+        private struct MonthItem : IEquatable<MonthItem>
         {
             public MonthItem(ushort I, string N)
             {
@@ -91,6 +95,8 @@ namespace JANL.UserControls
 
             public ushort Index { get; set; }
             public string Name { get; set; }
+
+            public bool Equals(MonthItem other) => Index.Equals(other);
         }
 
         public event EventHandler DateChanged;

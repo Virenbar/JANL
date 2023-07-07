@@ -30,7 +30,6 @@ namespace JANL.Helpers
 
             using (var bitmap = new Bitmap(image))
             {
-                var ptr = bitmap.GetHicon();
                 return Icon.FromHandle(bitmap.GetHicon());
             }
         }

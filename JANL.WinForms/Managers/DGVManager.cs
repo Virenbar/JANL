@@ -112,7 +112,7 @@ namespace JANL.Managers
             dgv.Columns.Clear();
             foreach (var C in T.Columns)
             {
-                var DGVC = new DataGridViewTextBoxColumn()
+                var DGVC = new DataGridViewTextBoxColumn
                 {
                     Name = C.Name,
                     HeaderText = C.Header,

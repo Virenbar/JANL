@@ -36,7 +36,7 @@ namespace JANL.Types
 
         public DGVTemplateColumn ToTemplate()
         {
-            return new DGVTemplateColumn()
+            return new DGVTemplateColumn
             {
                 Name = Name,
                 Header = Header,

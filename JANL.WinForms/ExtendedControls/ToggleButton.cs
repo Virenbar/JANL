@@ -7,13 +7,14 @@ namespace JANL
 {
     public class ToggleButton : Button
     {
-        private bool _toggled = false;
         private Image ImageOff;
         private string TextOff;
 
         #region Properties
 
         #region Designer
+
+        private bool _toggled;
 
         [Localizable(true), Category("ToggleButton")]
         public Image ImageOn { get; set; }
