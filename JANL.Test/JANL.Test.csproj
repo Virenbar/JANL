@@ -1,18 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net472</TargetFramework>
 		<IsPackable>false</IsPackable>
 		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="nunit" Version="3.13.3" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\JANL.Office\JANL.Office.csproj" />
+		<ProjectReference Include="..\JANL.WinForms\JANL.WinForms.csproj" />
 		<ProjectReference Include="..\JANL\JANL.csproj" />
 	</ItemGroup>
 
