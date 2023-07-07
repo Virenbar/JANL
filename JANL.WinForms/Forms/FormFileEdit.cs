@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JANL.Extensions;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -27,18 +28,18 @@ namespace JANL.Forms
         {
             if (!Editor.HasExited) { return; }
             Editor = null;
-            if (InvokeRequired) { Invoke((MethodInvoker)RefreshUI); } else { RefreshUI(); }
+            this.InvokeAction(RefreshUI);
         }
 
         private void FSW_Changed(object sender, FileSystemEventArgs e)
         {
-            if (InvokeRequired) { Invoke((MethodInvoker)RefreshUI); } else { RefreshUI(); }
+            this.InvokeAction(RefreshUI);
         }
 
         private void OpenFile()
         {
             LastWrite = File.LastWriteTime;
-            var PSI = new ProcessStartInfo(File.FullName);
+            var PSI = new ProcessStartInfo(File.FullName) { UseShellExecute = true };
             if (Editor == null)
             {
                 FSW = new FileSystemWatcher(File.DirectoryName, File.Name)
@@ -75,12 +76,12 @@ namespace JANL.Forms
 
         private void B_Cancel_Click(object sender, EventArgs e)
         {
-            //DialogResult OK
+            //DialogResult Cancel
         }
 
         private void B_OK_Click(object sender, EventArgs e)
         {
-            //DialogResult Cancel
+            //DialogResult OK
         }
 
         private void B_Open_Click(object sender, EventArgs e) => OpenFile();

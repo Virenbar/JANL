@@ -59,6 +59,10 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Drawing\DirectBitmap.cs" />
+    <Compile Include="ExtendedControls\PixelPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />

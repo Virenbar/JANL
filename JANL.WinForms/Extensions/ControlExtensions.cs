@@ -127,5 +127,15 @@ namespace JANL.Extensions
                 CB.SelectedValue = (int)value;
             }
         }
+
+        /// <summary>
+        /// Вызывает метод в текущем потоке
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="action">Метод для вызова</param>
+        public static void InvokeAction(this ISynchronizeInvoke control, Action action)
+        {
+            if (control.InvokeRequired) { control.Invoke(action, null); } else { action(); }
+        }
     }
 }

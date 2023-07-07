@@ -2,14 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 
 namespace JANL.Animators
 {
-    public sealed class UnionAnimator : ObservableObject, IAnimator
+    public class UnionAnimator : ObservableObject, IAnimator
     {
-        private readonly AnimatorCollection Items;
-
         public UnionAnimator()
         {
             Items = new AnimatorCollection();
@@ -39,55 +36,54 @@ namespace JANL.Animators
         public void StopAnimation() => Items.StopAnimation();
 
         #region Properties
-
         public Image CurrentImage => throw new NotImplementedException();
 
         public int Duration
         {
-            get => Items.FirstOrDefault().Duration;
+            get => Items.Duration;
             set
             {
-                foreach (var item in Items) { item.Duration = value; }
+                Items.Duration = value;
                 NotifyPropertyChanged();
             }
         }
 
-        public bool Enabled => Items.Any(I => I.Enabled);
+        public bool Enabled => Items.Enabled;
 
         public int Framerate
         {
-            get => Items.FirstOrDefault().Framerate;
+            get => Items.Framerate;
             set
             {
-                foreach (var item in Items) { item.Framerate = value; }
+                Items.Framerate = value;
                 NotifyPropertyChanged();
             }
         }
 
-        public int Height => Items.Max(I => I.Height);
+        public int Height => Items.Height;
 
         [Obsolete("Use Enable")]
-        public bool IsAnimated => Items.Any(I => I.IsAnimated);
+        public bool IsAnimated => Items.Enabled;
+
+        public AnimatorCollection Items { get; }
 
         public Image SourceImage
         {
-            get => Items.FirstOrDefault().SourceImage;
-            set
-            {
-                foreach (var item in Items) { item.SourceImage = value; }
-            }
+            get => Items.SourceImage;
+            set => Items.SourceImage = value;
         }
 
-        public int Width => Items.Max(I => I.Width);
+        public int Width => Items.Width;
 
         #endregion Properties
 
         #region Events
 
+        protected void OnCurrentImageChanged() => CurrentImageChanged?.Invoke(this, EventArgs.Empty);
+
         /// <summary>
         /// Никогда не вызывается
         /// </summary>
-        [Obsolete("Никогда не вызывается")]
         public event EventHandler CurrentImageChanged;
 
         #endregion Events
