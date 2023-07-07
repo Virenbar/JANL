@@ -8,9 +8,14 @@
         public static string Connection { get; set; }
 
         /// <summary>
+        /// Формат даты
+        /// </summary>
+        public static string DateFormat { get; set; } = "yy.MM.dd HH:mm:ss";
+
+        /// <summary>
         /// Формат времени
         /// </summary>
-        public static string TimeFormat { get; set; } = "hh:mm:ss";
+        public static string TimeFormat { get; set; } = "HH:mm:ss";
 
         /// <summary>
         /// Время ожидания выполнения команды (в секундах) по умолчанию.

@@ -1,7 +1,8 @@
 ﻿using System.Data;
 
 namespace JANL.SQL
-{   /// <summary>
+{
+    /// <summary>
     /// Процедура возвращающая <typeparamref name="T"/>
     /// </summary>
     /// <typeparam name="T">Тип значения возвращаемого процедурой</typeparam>
@@ -9,6 +10,21 @@ namespace JANL.SQL
     {
         private string _schema;
 
+        /// <summary>
+        /// Создаёт новую процедуру
+        /// </summary>
+        protected SQLProcedure(string Name) : base(Name, CommandType.StoredProcedure)
+        {
+            if (Name.Contains("."))
+            {
+                var S = Name.Split(new[] { '.' }, 2, System.StringSplitOptions.RemoveEmptyEntries);
+                Schema = S[0];
+            }
+        }
+
+        /// <summary>
+        /// Схема процедуры
+        /// </summary>
         public string Schema
         {
             get => _schema;
@@ -22,18 +38,6 @@ namespace JANL.SQL
                 }
                 if (string.IsNullOrWhiteSpace(value)) { return; }
                 Command.CommandText = $"{value}.{Command.CommandText}";
-            }
-        }
-
-        /// <summary>
-        /// Создаёт новую процедуру с именем вызывающего метода
-        /// </summary>
-        protected SQLProcedure(string Name) : base(Name, CommandType.StoredProcedure)
-        {
-            if (Name.Contains("."))
-            {
-                var S = Name.Split(new[] { '.' }, 2, System.StringSplitOptions.RemoveEmptyEntries);
-                Schema = S[0];
             }
         }
     }

@@ -59,8 +59,7 @@ namespace JANL.SQL
             using (var Connection = new SqlConnection(ConnectionString))
             {
                 Connection.Open();
-                var Result = Execute(Connection);
-                return Result;
+                return Execute(Connection);
             }
         }
 

@@ -5,7 +5,7 @@ namespace JANL
     /// <summary>
     /// Структура для использования в <see cref="Progress{T}"/>
     /// </summary>
-    public struct TaskProgress
+    public struct TaskProgress : IEquatable<TaskProgress>
     {
         #region ctor
 
@@ -96,6 +96,8 @@ namespace JANL
         /// Текущие значение
         /// </summary>
         public int Value { get; }
+
+        public bool Equals(TaskProgress other) => Value == other.Value && Max == other.Max && Status == other.Status;
 
         #endregion Properties
     }

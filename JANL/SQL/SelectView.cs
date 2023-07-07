@@ -31,7 +31,7 @@ namespace JANL.SQL
         }
 
         /// <summary>
-        /// Execute sync with connection
+        /// Execute async with connection
         /// </summary>
         public override async Task<DataTable> ExecuteAsync(SqlConnection Connection)
         {

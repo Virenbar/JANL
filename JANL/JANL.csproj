@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Extensions\BetweenExtensions.cs" />
+    <Compile Include="Extensions\DataExtensions.cs" />
+    <Compile Include="Text\Converters\DateConverter.cs" />
+    <Compile Include="Text\Noun.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
     <Compile Include="DataTableStreamer.cs" />
@@ -67,7 +71,8 @@
     <Compile Include="Helpers\ExcelHelper.cs" />
     <Compile Include="Helpers\FilterHelper.cs" />
     <Compile Include="Helpers\IOHelper.cs" />
-    <Compile Include="Helpers\NumberToText.cs" />
+    <Compile Include="Enums\NounKind.cs" />
+    <Compile Include="Text\Converters\NumberConverter.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,9 +123,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace JANL.Helpers
 {
-    public class XLS
+    public static class ExcelHelper
     {
         /// <summary>
         /// Создаёт список строковых индексов
@@ -37,7 +38,7 @@ namespace JANL.Helpers
             string s = "";
             do
             {
-                c = System.Convert.ToByte((index - 1) % 26);
+                c = Convert.ToByte((index - 1) % 26);
                 s = (char)(c + 'A') + s;
                 index = (index - c) / 26;
             }
@@ -66,6 +67,6 @@ namespace JANL.Helpers
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
-        public double ToOOXMLWidth(double d) => d + 0.7109375;
+        public static double ToOOXMLWidth(double d) => d + 0.7109375;
     }
 }
