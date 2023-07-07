@@ -122,6 +122,12 @@
     <Compile Include="Forms\FormAnimation.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FormAnimationE.Designer.vb">
+      <DependentUpon>FormAnimationE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAnimationE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Lists\FormPersonList.Designer.vb">
       <DependentUpon>FormPersonList.vb</DependentUpon>
     </Compile>
@@ -232,6 +238,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\FormAnimation.resx">
       <DependentUpon>FormAnimation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAnimationE.resx">
+      <DependentUpon>FormAnimationE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lists\FormPersonList.resx">
       <DependentUpon>FormPersonList.vb</DependentUpon>

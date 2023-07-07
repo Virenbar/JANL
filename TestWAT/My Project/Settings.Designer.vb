@@ -53,6 +53,42 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Black")>  _
+        Public Property ForeColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ForeColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ForeColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("250, 250, 250")>  _
+        Public Property BackColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("BackColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("BackColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Segoe UI, 8.25pt")>  _
+        Public Property Font() As Global.System.Drawing.Font
+            Get
+                Return CType(Me("Font"),Global.System.Drawing.Font)
+            End Get
+            Set
+                Me("Font") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

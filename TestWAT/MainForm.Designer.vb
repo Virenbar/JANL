@@ -45,6 +45,7 @@ Partial Class MainForm
         Me.B_SQL = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_Animations = New System.Windows.Forms.Button()
+        Me.B_Animation_E = New System.Windows.Forms.Button()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -173,18 +174,24 @@ Partial Class MainForm
         '
         'B_Beep
         '
-        Me.B_Beep.Location = New System.Drawing.Point(84, 3)
+        Me.B_Beep.AutoSize = True
+        Me.B_Beep.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.B_Beep.Location = New System.Drawing.Point(48, 3)
         Me.B_Beep.Name = "B_Beep"
-        Me.B_Beep.Size = New System.Drawing.Size(75, 23)
+        Me.B_Beep.Padding = New System.Windows.Forms.Padding(1)
+        Me.B_Beep.Size = New System.Drawing.Size(45, 25)
         Me.B_Beep.TabIndex = 1
         Me.B_Beep.Text = "Beep"
         Me.B_Beep.UseVisualStyleBackColor = True
         '
         'B_SQL
         '
+        Me.B_SQL.AutoSize = True
+        Me.B_SQL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.B_SQL.Location = New System.Drawing.Point(3, 3)
         Me.B_SQL.Name = "B_SQL"
-        Me.B_SQL.Size = New System.Drawing.Size(75, 23)
+        Me.B_SQL.Padding = New System.Windows.Forms.Padding(1)
+        Me.B_SQL.Size = New System.Drawing.Size(39, 25)
         Me.B_SQL.TabIndex = 2
         Me.B_SQL.Text = "SQL"
         Me.B_SQL.UseVisualStyleBackColor = True
@@ -196,34 +203,57 @@ Partial Class MainForm
         Me.FlowLayoutPanel1.Controls.Add(Me.B_SQL)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Beep)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Animations)
+        Me.FlowLayoutPanel1.Controls.Add(Me.B_Animation_E)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 385)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 383)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(685, 29)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(685, 31)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'B_Animations
         '
-        Me.B_Animations.Location = New System.Drawing.Point(165, 3)
+        Me.B_Animations.AutoSize = True
+        Me.B_Animations.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.B_Animations.Location = New System.Drawing.Point(99, 3)
         Me.B_Animations.Name = "B_Animations"
-        Me.B_Animations.Size = New System.Drawing.Size(75, 23)
+        Me.B_Animations.Padding = New System.Windows.Forms.Padding(1)
+        Me.B_Animations.Size = New System.Drawing.Size(72, 25)
         Me.B_Animations.TabIndex = 1
         Me.B_Animations.Text = "Animation"
         Me.B_Animations.UseVisualStyleBackColor = True
+        '
+        'B_Animation_E
+        '
+        Me.B_Animation_E.AutoSize = True
+        Me.B_Animation_E.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.B_Animation_E.Location = New System.Drawing.Point(177, 3)
+        Me.B_Animation_E.Name = "B_Animation_E"
+        Me.B_Animation_E.Padding = New System.Windows.Forms.Padding(1)
+        Me.B_Animation_E.Size = New System.Drawing.Size(81, 25)
+        Me.B_Animation_E.TabIndex = 1
+        Me.B_Animation_E.Text = "Animation E"
+        Me.B_Animation_E.UseVisualStyleBackColor = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
         Me.ClientSize = New System.Drawing.Size(685, 414)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.MS_Main)
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Font = Global.TestWAT.My.MySettings.Default.Font
+        Me.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
         Me.MainMenuStrip = Me.MS_Main
         Me.Name = "MainForm"
         Me.Text = "Form1"
         Me.MS_Main.ResumeLayout(False)
         Me.MS_Main.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -252,4 +282,5 @@ Partial Class MainForm
 	Friend WithEvents B_SQL As Button
 	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents B_Animations As Button
+    Friend WithEvents B_Animation_E As Button
 End Class

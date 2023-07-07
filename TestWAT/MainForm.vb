@@ -78,4 +78,9 @@ Public Class MainForm
         Console.WriteLine("")
     End Sub
 
+    Private Sub B_Animation_E_Click(sender As Object, e As EventArgs) Handles B_Animation_E.Click
+        Dim F = New FormAnimationE()
+        F.Show(Me)
+    End Sub
+
 End Class

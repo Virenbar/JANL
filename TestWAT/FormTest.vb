@@ -194,9 +194,9 @@ Public Class FormTest
         Dim I As Numerics.BigInteger = 0
         Dim D As Decimal = 0
         If Numerics.BigInteger.TryParse(TB_Number.Text, I) Then
-            TB_NumberText.Text = NumberToText(I, Kind.Male)
+            TB_NumberText.Text = NumberToText(I, NounKind.Male)
         ElseIf Decimal.TryParse(TB_Number.Text, D) Then
-            TB_NumberText.Text = RubToText(D)
+            TB_NumberText.Text = RubleToText(D)
         Else
             TB_NumberText.Text = ""
         End If
