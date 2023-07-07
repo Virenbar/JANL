@@ -13,7 +13,11 @@ namespace JANL
         /// <summary>
         /// Цвет текста для UI элементов
         /// </summary>
-        public static Color BackColor => Settings.Default.BackColor;
+        public static Color BackColor
+        {
+            get => Settings.Default.BackColor;
+            set => Settings.Default.BackColor = value;
+        }
 
         /// <summary>
         /// Default Culture
@@ -23,12 +27,20 @@ namespace JANL
         /// <summary>
         /// Шрифт для UI элементов
         /// </summary>
-        public static Font Font => Settings.Default.Font;
+        public static Font Font
+        {
+            get => Settings.Default.Font;
+            set => Settings.Default.Font = value;
+        }
 
         /// <summary>
         /// Цвет заднего фона для UI элементов
         /// </summary>
-        public static Color ForeColor => Settings.Default.ForeColor;
+        public static Color ForeColor
+        {
+            get => Settings.Default.ForeColor;
+            set => Settings.Default.ForeColor = value;
+        }
 
         /// <summary>
         /// Заголовок окон
