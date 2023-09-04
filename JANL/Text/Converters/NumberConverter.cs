@@ -1,4 +1,5 @@
-﻿using JANL.Extensions;
+﻿using JANL.Exceptions;
+using JANL.Extensions;
 using System;
 using System.Numerics;
 using System.Text;
@@ -31,13 +32,10 @@ namespace JANL.Text.Converters
         /// <returns>Возвращает строковую запись числа</returns>
         public static string NumberToText(BigInteger number, NounKind kind)
         {
-            if (kind == NounKind.Plural && number > 10 && (number % 10).IsBetween(2, 4))
-            {
-                // https://orfogrammka.ru/грамматика/синтаксическая_несочетаемость_в_числительных/
-                throw new Exception("Синтаксическая несочетаемость числительного и существительного");
-            }
-
+            // https://orfogrammka.ru/грамматика/синтаксическая_несочетаемость_в_числительных/
+            if (kind == NounKind.Plural && number > 20 && (number % 10).IsBetween(2, 4)) { throw new SyntacticIncongruityException(); }
             if (number.IsZero) { return "Ноль"; }
+
             var Minus = number.Sign < 0;
             var N = BigInteger.Abs(number);
             if (BigInteger.Log10(N) / 3 > MAX_CLASS) { return N.ToString("E"); }
@@ -53,7 +51,7 @@ namespace JANL.Text.Converters
                 {
                     var Noun = NumberNouns[ClassIndex];
                     var Part = (int)(N % 1000);
-                    ClassIndex += 1;
+                    ClassIndex++;
                     N /= 1000;
 
                     if (Part == 0) { continue; }

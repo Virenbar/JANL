@@ -142,7 +142,7 @@ namespace JANL.SQL
         /// Создает и открывает новое соединение по умолчанию
         /// </summary>
         /// <returns></returns>
-        public static Task<SqlConnection> NewConnectionAsync() => NewConnectionAsync(JANL.Defaults.Connection);
+        public static Task<SqlConnection> NewConnectionAsync() => NewConnectionAsync(Defaults.Connection);
 
         /// <summary>
         /// Создает и открывает новое соединение
@@ -159,7 +159,7 @@ namespace JANL.SQL
         /// <summary>
         /// Начинает транзакцию используя соединение по умолчанию
         /// </summary>
-        public static SqlTransaction NewTransaction() => NewTransaction(JANL.Defaults.Connection);
+        public static SqlTransaction NewTransaction() => NewTransaction(Defaults.Connection);
 
         /// <summary>
         /// Начинает транзакцию используя соединение

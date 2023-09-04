@@ -37,9 +37,9 @@ namespace JANL.UserControls
         private void UpdateText()
         {
             L_Percent.Text = $"{_Percent}%";
-            L_Elapsed.Text = SW.Elapsed.ToString(@"d\.hh\:mm\:ss");
+            L_Elapsed.Text = SW.Elapsed.ToString(Defaults.TimespanFormat);
             var E = PB.Value == 0 ? 0 : (SW.ElapsedMilliseconds / PB.Value) * (100 - PB.Value);
-            L_Estimated.Text = TimeSpan.FromMilliseconds(E).ToString(@"d\.hh\:mm\:ss");
+            L_Estimated.Text = TimeSpan.FromMilliseconds(E).ToString(Defaults.TimespanFormat);
         }
     }
 }

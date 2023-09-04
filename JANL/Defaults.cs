@@ -26,6 +26,6 @@
         /// <summary>
         /// Формат промежутка времени
         /// </summary>
-        public static string TimespanFormat { get; set; } = "d.hh:mm:ss";
+        public static string TimespanFormat { get; set; } = @"d\.hh\:mm\:ss";
     }
 }

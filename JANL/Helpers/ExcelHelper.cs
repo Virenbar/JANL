@@ -17,7 +17,7 @@ namespace JANL.Helpers
             var min = ToNumber(first) + 1;
             var max = ToNumber(last) - 1;
 
-            if (min > max) { return new List<string>() { first, last }; }
+            if (min > max) { return new List<string> { first, last }; }
 
             List<string> Items = new List<string> { first };
             for (var i = min; i <= max; i++)

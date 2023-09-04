@@ -1,12 +1,14 @@
-﻿using JANL.Helpers;
+﻿using JANL.Exceptions;
+using JANL.Helpers;
 using JANL.Text;
 using NUnit.Framework;
-using System;
 
 namespace JANL.Test.Helpers
 {
     internal class StringHelperTest
     {
+        private readonly static Noun Day = new Noun("сутки", "суток", "суток", NounKind.Plural);
+
         [Test]
         public void NumberToText_1()
         {
@@ -27,17 +29,15 @@ namespace JANL.Test.Helpers
         public void NumberToText_3()
         {
             var Target = "двое суток";
-            var Noun = new Noun("сутки", "суток", "суток", NounKind.Plural);
-            var Result = StringHelper.NumberToText(2, Noun);
+            var Result = StringHelper.NumberToText(2, Day);
             Assert.AreEqual(Target, Result);
         }
 
         [Test]
         public void NumberToText_4()
         {
-            var Noun = new Noun("сутки", "суток", "суток", NounKind.Plural);
-            void Target() { var Result = StringHelper.NumberToText(22, Noun); }
-            Assert.Throws<Exception>(Target);
+            void Result() { StringHelper.NumberToText(22, Day); }
+            Assert.Throws<SyntacticIncongruityException>(Result);
         }
 
         [Test]

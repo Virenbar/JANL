@@ -63,6 +63,9 @@
     <Compile Include="ExtendedControls\PixelPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ExtendedControls\TaskButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
@@ -182,6 +185,12 @@
     <Compile Include="UserControls\ProgressBarEx.Designer.cs">
       <DependentUpon>ProgressBarEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ProgressTrackerBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProgressTrackerBar.Designer.cs">
+      <DependentUpon>ProgressTrackerBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\StopWatchLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProgressBarEx.resx">
       <DependentUpon>ProgressBarEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProgressTrackerBar.resx">
+      <DependentUpon>ProgressTrackerBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.cs</DependentUpon>

@@ -57,8 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Exceptions\SyntacticIncongruityException.cs" />
     <Compile Include="Extensions\BetweenExtensions.cs" />
     <Compile Include="Extensions\DataExtensions.cs" />
+    <Compile Include="Extensions\SQLExtensions.cs" />
+    <Compile Include="General\ProgressTracker.cs" />
     <Compile Include="Text\Converters\DateConverter.cs" />
     <Compile Include="Text\Noun.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
@@ -102,7 +105,7 @@
     <Compile Include="SQL\SQLText.cs" />
     <Compile Include="DataReaders\XMLDataReader.cs" />
     <Compile Include="SyncEvent.cs" />
-    <Compile Include="TaskProgress.cs" />
+    <Compile Include="General\TaskProgress.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
