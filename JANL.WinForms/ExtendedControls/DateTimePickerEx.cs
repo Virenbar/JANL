@@ -23,7 +23,7 @@ namespace JANL
             set
             {
                 base.Value = value ?? DateTime.Now;
-                Checked = Value.HasValue;
+                Checked = value.HasValue;
             }
         }
 
