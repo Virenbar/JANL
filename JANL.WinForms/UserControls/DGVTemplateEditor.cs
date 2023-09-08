@@ -47,12 +47,17 @@ namespace JANL.UserControls
 
         private void CheckOrder()
         {
+            var invalid = false;
             foreach (DataGridViewTextBoxColumn C in DGV_Template.Columns)
             {
                 Debug.Print($"{C.HeaderText} { C.Index} { C.DisplayIndex}");
-                if (C.Index != C.DisplayIndex) { break; }
-                return;
+                if (C.Index != C.DisplayIndex)
+                {
+                    invalid = true;
+                    break;
+                }
             }
+            if (!invalid) { return; }
             var TC = DGV_Template.Columns.Cast<DataGridViewTextBoxColumn>().OrderBy(C => C.DisplayIndex).Select(C => ((DesignColumn)C.Tag).ToTemplate()).ToList();
             var T = new DGVTemplate { Columns = TC };
             SetTemplate(T);
