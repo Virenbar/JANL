@@ -14,7 +14,7 @@ namespace JANL.UserControls
     [DefaultEvent(nameof(RowDoubleClick))]
     public partial class DataTableView : UserControl
     {
-        private IEnumerable<string> Columns;
+        private readonly List<string> Columns = new List<string>();
         private DataTable DT;
 
         public DataTableView()
@@ -43,16 +43,16 @@ namespace JANL.UserControls
             if (IsDisposed) { return; }
             try
             {
-                if (Columns?.Count() == 0) { Columns = DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName); }
+                if (Columns.Count == 0) { Columns.AddRange(DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName)); }
                 if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
                 if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
 
-                var OldDT = this.DT;
-                var OldKey = CurrentKey;
+                var oldDatatable = this.DT;
+                var oldKey = CurrentKey;
                 this.DT = DT;
                 DGV.SetDataSource(DT);
-                OldDT?.Dispose();
-                if (OldKey != null) { BS_View.Position = BS_View.Find(KeyName, OldKey); }
+                oldDatatable?.Dispose();
+                if (oldKey != null) { BS_View.Position = BS_View.Find(KeyName, oldKey); }
             }
             catch (Exception E)
             {
@@ -67,7 +67,8 @@ namespace JANL.UserControls
 
         public void SetFilterColumns(IEnumerable<string> columns)
         {
-            Columns = columns;
+            Columns.Clear();
+            Columns.AddRange(columns);
             RefreshUI();
         }
 
@@ -85,16 +86,16 @@ namespace JANL.UserControls
 
         private void ApplyFilter()
         {
-            var Filter = TB_Filter.Text.Trim().RemoveSpecialCharacters();
-            if (string.IsNullOrWhiteSpace(Filter) || Columns.Count() == 0)
+            var filter = TB_Filter.Text.Trim().RemoveSpecialCharacters();
+            if (string.IsNullOrWhiteSpace(filter) || Columns.Count == 0)
             {
                 BS_View.Filter = "";
                 return;
             }
 
-            var OldKey = CurrentKey;
-            BS_View.Filter = FilterByMergedRow ? FilterHelper.RowFilterByRow(Columns, Filter) : FilterHelper.RowFilterByColumns(Columns, Filter);
-            if (OldKey != null) { BS_View.Position = BS_View.Find(KeyName, OldKey); }
+            var oldKey = CurrentKey;
+            BS_View.Filter = FilterByMergedRow ? FilterHelper.RowFilterByRow(Columns, filter) : FilterHelper.RowFilterByColumns(Columns, filter);
+            if (oldKey != null) { BS_View.Position = BS_View.Find(KeyName, oldKey); }
         }
 
         private void RefreshBN()
@@ -105,7 +106,7 @@ namespace JANL.UserControls
 
         private void RefreshUI()
         {
-            TB_Filter.Enabled = Columns.Count() > 0;
+            TB_Filter.Enabled = Columns.Count > 0;
             B_Edit.Enabled = Count > 0;
             B_Delete.Enabled = Count > 0;
         }
@@ -242,9 +243,9 @@ namespace JANL.UserControls
 
         private void BS_View_CurrentChanged(object sender, EventArgs e)
         {
-            var R = CurrentRow;
-            CurrentKey = R?.Field<object>(KeyName);
-            CurrentValue = R?.Field<object>(ValueName).ToString();
+            var row = CurrentRow;
+            CurrentKey = row?.Field<object>(KeyName);
+            CurrentValue = row?.Field<object>(ValueName).ToString();
 
             OnCurrentRowChanged(EventArgs.Empty);
         }
