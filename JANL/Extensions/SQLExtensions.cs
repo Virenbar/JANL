@@ -46,7 +46,7 @@ namespace JANL.Extensions
 
         public static DataTable ExecuteSelect(this SqlCommand command, SqlConnection connection)
         {
-            var Result = new DataTable() { Locale = CultureInfo.CurrentCulture };
+            var Result = new DataTable { Locale = CultureInfo.CurrentCulture };
             command.Connection = connection;
             using (var Reader = command.ExecuteReader())
             {

@@ -47,8 +47,6 @@ namespace JANL.UserControls
 
         void IProgress<int>.Report(int value) => ((IProgress<int>)Tracker).Report(value);
 
-        // public void Report(int value) => ((IProgress<int>)Tracker).Report(value);
-
         #region Properties
 
         [Browsable(false)]
