@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>Virenbar.JANL.Office</id>
+		<version>2.0.0</version>
+		<title>JANL.Office</title>
+		<authors>Virenbar</authors>
+		<owners>Virenbar</owners>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/Virenbar/JANL</projectUrl>
+		<repository type="git" url="https://github.com/Virenbar/JANL.git" />
+		<iconUrl>https://github.com/Virenbar/JANL/raw/master/Icon/JANL.png</iconUrl>
+		<icon>icon/JANL.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Just Another .NET Library</description>
+		<readme>docs\README.md</readme>
+		<summary>Just Another .NET Library</summary>
+		<copyright>Virenbar</copyright>
+		<dependencies>
+			<group>
+				<dependency id="Virenbar.JANL" version="2.0.0" />
+				<dependency id="DocumentFormat.OpenXml" version="2.20.0" />
+				<dependency id="EPPlus" version="4.5.3.3" />
+				<dependency id="OpenXmlPowerTools" version="4.5.3.2" />
+				<dependency id="Virenbar.JANL" version="2.0.0" />
+			</group>
+			<group targetFramework=".NETFramework4.5.2">
+				<dependency id="Virenbar.JANL" version="2.0.0" />
+				<dependency id="DocumentFormat.OpenXml" version="2.20.0" />
+				<dependency id="EPPlus" version="4.5.3.3" />
+				<dependency id="OpenXmlPowerTools" version="4.5.3.2" />
+				<dependency id="Virenbar.JANL" version="2.0.0" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\**\JANL.Office.*" target="lib\net452" />
+		<file src="..\Icon\JANL.png" target="icon\" />
+		<file src="..\README.md" target="docs\" />
+	</files>
+</package>

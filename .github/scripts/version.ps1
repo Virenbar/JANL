@@ -7,7 +7,13 @@ Write-Output "V=$number"
 "V=$number" >> $env:GITHUB_ENV
 Write-Output "{version}={$version}" >> $GITHUB_OUTPUT
 
+# Replace version in nuspec
 $Path = '.\JANL.WinForms\JANL.WinForms.nuspec'
+$File = Get-Content $Path
+$File = $File.Replace('id="Virenbar.JANL" version="2.0.0"', "id=`"Virenbar.JANL`" version=`"${version}`"")
+Set-Content $Path $File
+
+$Path = '.\JANL.Office\JANL.Office.nuspec'
 $File = Get-Content $Path
 $File = $File.Replace('id="Virenbar.JANL" version="2.0.0"', "id=`"Virenbar.JANL`" version=`"${version}`"")
 Set-Content $Path $File
