@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Virenbar")]
 [assembly: AssemblyProduct("JANL")]
-[assembly: AssemblyCopyright("Copyright © Virenbar 2022")]
+[assembly: AssemblyCopyright("Copyright © Virenbar 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 //

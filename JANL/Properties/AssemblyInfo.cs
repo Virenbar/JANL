@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Just Another .NET Library")]
 [assembly: AssemblyCompany("Virenbar")]
 [assembly: AssemblyProduct("JANL")]
-[assembly: AssemblyCopyright("Copyright © Virenbar 2022")]
+[assembly: AssemblyCopyright("Copyright © Virenbar 2023")]
 [assembly: AssemblyTrademark("")]
 //
 [assembly: ComVisible(false)]
