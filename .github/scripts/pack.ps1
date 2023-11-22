@@ -3,4 +3,4 @@ $Arguments = "-Version" , $env:VERSION,
 
 nuget pack .\JANL\JANL.nuspec @Arguments
 nuget pack .\JANL.WinForms\JANL.WinForms.nuspec @Arguments
-nuget pack .\JANL.WinForms\JANL.Office.nuspec @Arguments
+nuget pack .\JANL.Office\JANL.Office.nuspec @Arguments
