@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Data\SQLDataMapper.cs" />
     <Compile Include="Exceptions\SyntacticIncongruityException.cs" />
     <Compile Include="Extensions\BetweenExtensions.cs" />
     <Compile Include="Extensions\DataExtensions.cs" />
@@ -66,12 +67,12 @@
     <Compile Include="Text\Noun.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />
-    <Compile Include="DataTableStreamer.cs" />
+    <Compile Include="Data\DataTableStreamer.cs" />
     <Compile Include="Defaults.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Generic\FixedQueue.cs" />
-    <Compile Include="Helpers\ExcelHelper.cs" />
+    <Compile Include="Helpers\ExcelMiniHelper.cs" />
     <Compile Include="Helpers\FilterHelper.cs" />
     <Compile Include="Helpers\IOHelper.cs" />
     <Compile Include="Enums\NounKind.cs" />

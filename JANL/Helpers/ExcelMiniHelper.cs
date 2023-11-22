@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace JANL.Helpers
 {
-    public static class ExcelHelper
+    public static class ExcelMiniHelper
     {
         /// <summary>
         /// Создаёт список строковых индексов
@@ -51,7 +51,7 @@ namespace JANL.Helpers
         /// </summary>
         /// <param name="row">Индекс строки</param>
         /// <param name="col">Индекс столбца</param>
-        public static string ToLetter(int row, int col) => ToLetter(col) + row.ToString();
+        public static string ToLetter(int row, int col) => $"{ToLetter(col)}{row}";
 
         /// <summary>
         /// Переводит строковый индекс в числовой
@@ -65,8 +65,8 @@ namespace JANL.Helpers
         /// <summary>
         /// Перевод ширины столбца Excel в OOXML
         /// </summary>
-        /// <param name="d"></param>
-        /// <returns></returns>
-        public static double ToOOXMLWidth(double d) => d + 0.7109375;
+        /// <param name="width">Ширина столбца в Excel</param>
+        /// <returns>Ширина столбца в OOXML</returns>
+        public static double ToOOXMLWidth(double width) => width + 0.7109375;
     }
 }

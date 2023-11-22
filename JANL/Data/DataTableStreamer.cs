@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace JANL
+namespace JANL.Data
 {
     public class DataTableStreamer : IDisposable
     {
