@@ -46,13 +46,15 @@ Partial Class MainForm
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_Animations = New System.Windows.Forms.Button()
         Me.B_Animation_E = New System.Windows.Forms.Button()
+        Me.ФормыToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormOfficeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MS_Main
         '
-        Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.FormMDIToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
+        Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestFormToolStripMenuItem, Me.FormMDIToolStripMenuItem, Me.ФормыToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
         Me.MS_Main.Location = New System.Drawing.Point(0, 0)
         Me.MS_Main.Name = "MS_Main"
         Me.MS_Main.Size = New System.Drawing.Size(685, 24)
@@ -81,7 +83,7 @@ Partial Class MainForm
         'HashVSListToolStripMenuItem
         '
         Me.HashVSListToolStripMenuItem.Name = "HashVSListToolStripMenuItem"
-        Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.HashVSListToolStripMenuItem.Text = "HashVSList"
         '
         'DaDataToolStripMenuItem
@@ -94,13 +96,13 @@ Partial Class MainForm
         'TSMI_Address
         '
         Me.TSMI_Address.Name = "TSMI_Address"
-        Me.TSMI_Address.Size = New System.Drawing.Size(107, 22)
+        Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_Address.Text = "Адрес"
         '
         'TSMI_UL
         '
         Me.TSMI_UL.Name = "TSMI_UL"
-        Me.TSMI_UL.Size = New System.Drawing.Size(107, 22)
+        Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
         Me.TSMI_UL.Text = "ЮЛ"
         '
         'НижнийТагилToolStripMenuItem
@@ -113,7 +115,7 @@ Partial Class MainForm
         'НаселениеToolStripMenuItem
         '
         Me.НаселениеToolStripMenuItem.Name = "НаселениеToolStripMenuItem"
-        Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.НаселениеToolStripMenuItem.Text = "Население"
         '
         'ToolStripMenuItem1
@@ -126,13 +128,13 @@ Partial Class MainForm
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(131, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem3.Text = "Сальдо"
         '
         'РосреестрToolStripMenuItem
         '
         Me.РосреестрToolStripMenuItem.Name = "РосреестрToolStripMenuItem"
-        Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.РосреестрToolStripMenuItem.Text = "Росреестр"
         '
         'РазноеToolStripMenuItem
@@ -145,31 +147,31 @@ Partial Class MainForm
         'ПочтаToolStripMenuItem
         '
         Me.ПочтаToolStripMenuItem.Name = "ПочтаToolStripMenuItem"
-        Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ПочтаToolStripMenuItem.Text = "Почта"
         '
         'ImageViewerToolStripMenuItem
         '
         Me.ImageViewerToolStripMenuItem.Name = "ImageViewerToolStripMenuItem"
-        Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImageViewerToolStripMenuItem.Text = "ImageViewer"
         '
         'FormAsyncToolStripMenuItem
         '
         Me.FormAsyncToolStripMenuItem.Name = "FormAsyncToolStripMenuItem"
-        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
         '
         'SelectTestToolStripMenuItem
         '
         Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
-        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SelectTestToolStripMenuItem.Text = "SelectTest"
         '
         'DGVTEditorToolStripMenuItem
         '
         Me.DGVTEditorToolStripMenuItem.Name = "DGVTEditorToolStripMenuItem"
-        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
         '
         'B_Beep
@@ -234,6 +236,19 @@ Partial Class MainForm
         Me.B_Animation_E.Text = "Animation E"
         Me.B_Animation_E.UseVisualStyleBackColor = True
         '
+        'ФормыToolStripMenuItem
+        '
+        Me.ФормыToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormOfficeToolStripMenuItem})
+        Me.ФормыToolStripMenuItem.Name = "ФормыToolStripMenuItem"
+        Me.ФормыToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ФормыToolStripMenuItem.Text = "Формы"
+        '
+        'FormOfficeToolStripMenuItem
+        '
+        Me.FormOfficeToolStripMenuItem.Name = "FormOfficeToolStripMenuItem"
+        Me.FormOfficeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormOfficeToolStripMenuItem.Text = "Form Office"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -283,4 +298,6 @@ Partial Class MainForm
 	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents B_Animations As Button
     Friend WithEvents B_Animation_E As Button
+    Friend WithEvents ФормыToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FormOfficeToolStripMenuItem As ToolStripMenuItem
 End Class

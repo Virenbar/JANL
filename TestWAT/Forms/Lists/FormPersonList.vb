@@ -30,7 +30,7 @@ Public Class FormPersonList
     End Sub
 
     Private Async Function RefreshDT() As Task
-        DTV_Person.SetDataTable(Await Persons.GetDataTable(Filter))
+        DTV_Person.SetDataTable(Await Persons.SelectList(Filter))
     End Function
 
     Private Async Sub CB_PersonType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_PersonType.SelectedIndexChanged

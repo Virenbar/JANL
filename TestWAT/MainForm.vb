@@ -83,4 +83,9 @@ Public Class MainForm
         F.Show(Me)
     End Sub
 
+    Private Sub FormOfficeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormOfficeToolStripMenuItem.Click
+        Dim F = New FormOffice()
+        F.Show(Me)
+    End Sub
+
 End Class

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="BackColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">250, 250, 250</Value>
+      <Value Profile="(Default)">Control</Value>
     </Setting>
     <Setting Name="Font" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Segoe UI, 8.25pt</Value>

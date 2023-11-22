@@ -1,4 +1,5 @@
 ﻿Imports JANL
+Imports JANL.Data
 
 Namespace Models
 
@@ -39,7 +40,12 @@ Namespace Models
     End Class
 
     Public Class TestModelData
+
+        <SQLData("Date")>
         Public Property TestDate As Date?
+
+        <SQLData("String")>
         Public Property TestString As String
+
     End Class
 End Namespace

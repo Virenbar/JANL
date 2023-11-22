@@ -13,11 +13,11 @@ Public Class PersonStore
     Public ReadOnly Property ValueName As String
     Public ReadOnly Property FilterColumns As List(Of String)
 
-    Public Function GetDataTable() As Task(Of DataTable)
-        Return GetDataTable(New PersonFilter())
+    Public Function SelectList() As Task(Of DataTable)
+        Return SelectList(New PersonFilter())
     End Function
 
-    Public Async Function GetDataTable(Filter As PersonFilter) As Task(Of DataTable)
+    Public Async Function SelectList(Filter As PersonFilter) As Task(Of DataTable)
         Dim DT = New DataTable()
         DT.Columns.Add("Key", GetType(Integer))
         DT.Columns.Add("Value", GetType(String))
