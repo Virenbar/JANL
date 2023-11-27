@@ -2,6 +2,7 @@
 
 [![NuGet][nuget-0-src]][nuget-0-href]
 [![NuGet][nuget-1-src]][nuget-1-href]
+[![NuGet][nuget-2-src]][nuget-2-href]
 
 ## Just Another .Net Library
 
@@ -13,7 +14,11 @@ Contain common classes
 
 ### JANL.WinForm
 
-Includes JANL and contains Controls for WindowsForms  
+Contains classes and controls for WindowsForms  
+
+### JANL.Office
+
+Contains classes for working with Word and Excel files  
 
 ### TestWAT
 
@@ -40,3 +45,6 @@ Icons by [Icons8](https://icons8.com)
 
 [nuget-1-src]: https://img.shields.io/nuget/v/Virenbar.JANL.WinForms?label=JANL.WinForms&logo=nuget&style=for-the-badge
 [nuget-1-href]: https://www.nuget.org/packages/Virenbar.JANL.WinForms/
+
+[nuget-2-src]: https://img.shields.io/nuget/v/Virenbar.JANL.Office?label=JANL.Office&logo=nuget&style=for-the-badge
+[nuget-2-href]: https://www.nuget.org/packages/Virenbar.JANL.Office/
