@@ -10,8 +10,10 @@ namespace JANL.UserControls
         {
             InitializeComponent();
             Tracker = new ProgressTracker();
-            Tracker.ProgressChanged += Tracker_ProgressChanged;
+            Tracker.ProgressChanged += (object _, int e) => RefreshUI();
         }
+
+        void IProgress<int>.Report(int value) => ((IProgress<int>)Tracker).Report(value);
 
         public void Reset()
         {
@@ -40,13 +42,6 @@ namespace JANL.UserControls
             L_Remaining.Text = Tracker.TimeRemaining.ToString(Defaults.TimespanFormat);
         }
 
-        private void Tracker_ProgressChanged(object sender, int e)
-        {
-            RefreshUI();
-        }
-
-        void IProgress<int>.Report(int value) => ((IProgress<int>)Tracker).Report(value);
-
         #region Properties
 
         [Browsable(false)]
@@ -57,10 +52,10 @@ namespace JANL.UserControls
         }
 
         [Browsable(false)]
-        public int Value => Tracker.Value;
+        public ProgressTracker Tracker { get; }
 
         [Browsable(false)]
-        public ProgressTracker Tracker { get; }
+        public int Value => Tracker.Value;
 
         #region Designer
 

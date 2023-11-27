@@ -56,6 +56,8 @@
     <Compile Include="Animators\BaseAnimator.cs" />
     <Compile Include="Animators\Breather.cs" />
     <Compile Include="Animators\Rotator.cs" />
+    <Compile Include="Animators\Spinner.cs" />
+    <Compile Include="Animators\Spinner.Predefined.cs" />
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
@@ -64,6 +66,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ExtendedControls\TaskButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExtendedControls\ToolStripSpinner.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\FormExtensions.cs" />

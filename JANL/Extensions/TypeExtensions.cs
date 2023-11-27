@@ -27,6 +27,18 @@ namespace JANL.Extensions
         public static T PickRandom<T>(this IEnumerable<T> list) => list.Count() == 0 ? default : list.ElementAt(rnd.Next(list.Count()));
 
         /// <summary>
+        /// Случайный элемент из коллекции
+        /// </summary>
+        /// <param name="remove">Удалить элемент из коллекции</param>
+        public static T PickRandom<T>(this ICollection<T> collection, bool remove = false)
+        {
+            if (collection.Count == 0) { return default; }
+            var element = collection.ElementAt(rnd.Next(collection.Count));
+            if (remove) { collection.Remove(element); }
+            return element;
+        }
+
+        /// <summary>
         ///
         /// </summary>
         public static string Truncate(string value, int maxLength)
@@ -38,18 +50,18 @@ namespace JANL.Extensions
         #region SQL
 
         /// <summary>
-        /// Получить тип SQL
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
-
-        /// <summary>
         /// Получить тип CRL
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
+
+        /// <summary>
+        /// Получить тип SQL
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
 
         #endregion SQL
 

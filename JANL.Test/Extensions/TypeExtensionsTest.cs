@@ -1,17 +1,26 @@
 ﻿using JANL.Extensions;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace JANL.Test.Extensions
 {
     internal class TypeExtensionsTest
     {
         [Test]
-        public void PickRandom()
+        public void PickRandom_1()
         {
             var E = new[] { 1, 2, 3 };
             var R = E.PickRandom();
             Assert.Contains(R, E);
+        }
+
+        [Test]
+        public void PickRandom_2()
+        {
+            var E = new List<int>() { 1, 2, 3 };
+            var R = E.PickRandom(true);
+            Assert.False(E.Contains(R));
         }
 
         [Test]

@@ -1,9 +1,10 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
+using System;
 using System.IO;
 
 namespace JANL.Word
 {
-    public abstract class TemplateDocument
+    public abstract class TemplateDocument : IDisposable
     {
         protected FileInfo _file;
         private readonly Stream _stream;

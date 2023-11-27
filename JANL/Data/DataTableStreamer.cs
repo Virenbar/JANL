@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JANL.SQL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,27 +7,16 @@ namespace JANL.Data
 {
     public class DataTableStreamer : IDisposable
     {
-        private readonly IProgress<long> Progress;
         private readonly SqlBulkCopy SBC;
         private readonly SqlConnection Source;
-        private readonly string SourceTable;
         private readonly SqlConnection Target;
-        private readonly string TargetTable;
-
-        public DataTableStreamer(string source, string target, string table, IProgress<long> progress) : this(source, target, table, table) { }
-
-        public DataTableStreamer(string source, string target, string sourceTable, string targetTable, IProgress<long> progress) : this(source, target, sourceTable, targetTable)
-        {
-            Progress = progress;
-            SBC.SqlRowsCopied += (object _, SqlRowsCopiedEventArgs e) => Progress.Report(e.RowsCopied);
-        }
 
         public DataTableStreamer(string source, string target, string table) : this(source, target, table, table) { }
 
         public DataTableStreamer(string source, string target, string sourceTable, string targetTable)
         {
-            Source = SQL.SQLHelper.NewConnection(source);
-            Target = SQL.SQLHelper.NewConnection(target);
+            Source = SQLHelper.NewConnection(source);
+            Target = SQLHelper.NewConnection(target);
             SourceTable = sourceTable;
             TargetTable = targetTable;
             SBC = new SqlBulkCopy(target, SqlBulkCopyOptions.KeepIdentity)
@@ -35,6 +25,15 @@ namespace JANL.Data
                 NotifyAfter = 100,
                 EnableStreaming = true
             };
+        }
+
+        public string SourceTable { get; }
+        public string TargetTable { get; }
+
+        public void Copy(IProgress<long> progress)
+        {
+            SBC.SqlRowsCopied += (object _, SqlRowsCopiedEventArgs e) => progress.Report(e.RowsCopied);
+            Copy();
         }
 
         public void Copy()
