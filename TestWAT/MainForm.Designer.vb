@@ -22,9 +22,12 @@ Partial Class MainForm
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DefaultSpinner4 As JANL.Animators.Spinner.DefaultSpinner = New JANL.Animators.Spinner.DefaultSpinner()
         Me.MS_Main = New System.Windows.Forms.MenuStrip()
         Me.TestFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormMDIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ФормыToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormOfficeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PerfTestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HashVSListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,10 +49,12 @@ Partial Class MainForm
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_Animations = New System.Windows.Forms.Button()
         Me.B_Animation_E = New System.Windows.Forms.Button()
-        Me.ФормыToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FormOfficeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.Spinner = New JANL.ExtendedControls.ToolStripSpinner()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MS_Main
@@ -73,6 +78,19 @@ Partial Class MainForm
         Me.FormMDIToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
         Me.FormMDIToolStripMenuItem.Text = "FormMDI"
         '
+        'ФормыToolStripMenuItem
+        '
+        Me.ФормыToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormOfficeToolStripMenuItem})
+        Me.ФормыToolStripMenuItem.Name = "ФормыToolStripMenuItem"
+        Me.ФормыToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ФормыToolStripMenuItem.Text = "Формы"
+        '
+        'FormOfficeToolStripMenuItem
+        '
+        Me.FormOfficeToolStripMenuItem.Name = "FormOfficeToolStripMenuItem"
+        Me.FormOfficeToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.FormOfficeToolStripMenuItem.Text = "Form Office"
+        '
         'PerfTestsToolStripMenuItem
         '
         Me.PerfTestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HashVSListToolStripMenuItem})
@@ -83,7 +101,7 @@ Partial Class MainForm
         'HashVSListToolStripMenuItem
         '
         Me.HashVSListToolStripMenuItem.Name = "HashVSListToolStripMenuItem"
-        Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HashVSListToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.HashVSListToolStripMenuItem.Text = "HashVSList"
         '
         'DaDataToolStripMenuItem
@@ -96,13 +114,13 @@ Partial Class MainForm
         'TSMI_Address
         '
         Me.TSMI_Address.Name = "TSMI_Address"
-        Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_Address.Size = New System.Drawing.Size(107, 22)
         Me.TSMI_Address.Text = "Адрес"
         '
         'TSMI_UL
         '
         Me.TSMI_UL.Name = "TSMI_UL"
-        Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_UL.Size = New System.Drawing.Size(107, 22)
         Me.TSMI_UL.Text = "ЮЛ"
         '
         'НижнийТагилToolStripMenuItem
@@ -115,7 +133,7 @@ Partial Class MainForm
         'НаселениеToolStripMenuItem
         '
         Me.НаселениеToolStripMenuItem.Name = "НаселениеToolStripMenuItem"
-        Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.НаселениеToolStripMenuItem.Text = "Население"
         '
         'ToolStripMenuItem1
@@ -128,13 +146,13 @@ Partial Class MainForm
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(131, 22)
         Me.ToolStripMenuItem3.Text = "Сальдо"
         '
         'РосреестрToolStripMenuItem
         '
         Me.РосреестрToolStripMenuItem.Name = "РосреестрToolStripMenuItem"
-        Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.РосреестрToolStripMenuItem.Text = "Росреестр"
         '
         'РазноеToolStripMenuItem
@@ -147,31 +165,31 @@ Partial Class MainForm
         'ПочтаToolStripMenuItem
         '
         Me.ПочтаToolStripMenuItem.Name = "ПочтаToolStripMenuItem"
-        Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ПочтаToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.ПочтаToolStripMenuItem.Text = "Почта"
         '
         'ImageViewerToolStripMenuItem
         '
         Me.ImageViewerToolStripMenuItem.Name = "ImageViewerToolStripMenuItem"
-        Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImageViewerToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.ImageViewerToolStripMenuItem.Text = "ImageViewer"
         '
         'FormAsyncToolStripMenuItem
         '
         Me.FormAsyncToolStripMenuItem.Name = "FormAsyncToolStripMenuItem"
-        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
         '
         'SelectTestToolStripMenuItem
         '
         Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
-        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.SelectTestToolStripMenuItem.Text = "SelectTest"
         '
         'DGVTEditorToolStripMenuItem
         '
         Me.DGVTEditorToolStripMenuItem.Name = "DGVTEditorToolStripMenuItem"
-        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
         '
         'B_Beep
@@ -207,7 +225,7 @@ Partial Class MainForm
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Animations)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Animation_E)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 383)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 361)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(685, 31)
         Me.FlowLayoutPanel1.TabIndex = 3
@@ -236,18 +254,28 @@ Partial Class MainForm
         Me.B_Animation_E.Text = "Animation E"
         Me.B_Animation_E.UseVisualStyleBackColor = True
         '
-        'ФормыToolStripMenuItem
+        'StatusStrip1
         '
-        Me.ФормыToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormOfficeToolStripMenuItem})
-        Me.ФормыToolStripMenuItem.Name = "ФормыToolStripMenuItem"
-        Me.ФормыToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
-        Me.ФормыToolStripMenuItem.Text = "Формы"
+        Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Spinner, Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 392)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(685, 22)
+        Me.StatusStrip1.TabIndex = 5
+        Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'FormOfficeToolStripMenuItem
+        'Spinner
         '
-        Me.FormOfficeToolStripMenuItem.Name = "FormOfficeToolStripMenuItem"
-        Me.FormOfficeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.FormOfficeToolStripMenuItem.Text = "Form Office"
+        Me.Spinner.Name = "Spinner"
+        Me.Spinner.Size = New System.Drawing.Size(12, 20)
+        Me.Spinner.Spinner = DefaultSpinner4
+        Me.Spinner.Text = "-"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
+        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
         'MainForm
         '
@@ -257,6 +285,7 @@ Partial Class MainForm
         Me.ClientSize = New System.Drawing.Size(685, 414)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.MS_Main)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -269,6 +298,8 @@ Partial Class MainForm
         Me.MS_Main.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -300,4 +331,7 @@ Partial Class MainForm
     Friend WithEvents B_Animation_E As Button
     Friend WithEvents ФормыToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormOfficeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents Spinner As JANL.ExtendedControls.ToolStripSpinner
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class
