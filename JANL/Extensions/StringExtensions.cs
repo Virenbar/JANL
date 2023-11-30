@@ -58,5 +58,15 @@ namespace JANL.Extensions
             }
             return new string(buffer, 0, index);
         }
+
+        /// <summary>
+        /// Возвращает null если указанная строка является пустой строкой
+        /// </summary>
+        public static string NullIfEmpty(this string s) => string.IsNullOrEmpty(s) ? null : s;
+
+        /// <summary>
+        /// Возвращает null если указанная строка является пустой строкой или строкой, состоящей только из пробельных символов
+        /// </summary>
+        public static string NullIfWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s) ? null : s;
     }
 }

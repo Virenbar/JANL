@@ -71,6 +71,9 @@
     <Compile Include="ExtendedControls\ToolStripSpinner.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ExtendedControls\ToolStripStopwatch.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />

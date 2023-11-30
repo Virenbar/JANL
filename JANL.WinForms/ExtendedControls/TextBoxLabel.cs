@@ -13,7 +13,7 @@ namespace JANL
             LabelColor = Color.SlateGray;
         }
 
-        private void UpdateColor() => base.ForeColor = TextValue?.Length > 0 ? ForeColor : LabelColor;
+        private void UpdateColor() => base.ForeColor = IsText ? ForeColor : LabelColor;
 
         #region Properties
 
@@ -48,7 +48,7 @@ namespace JANL
             {
                 if (TextValue == value) { return; }
                 TextValue = value;
-                base.Text = TextValue?.Length > 0 ? TextValue : LabelValue;
+                base.Text = IsText ? TextValue : LabelValue;
                 UpdateColor();
             }
         }
@@ -56,7 +56,10 @@ namespace JANL
         #endregion Designer
 
         [Browsable(false)]
-        public bool IsLabel { get; private set; }
+        public bool IsLabel => TextValue?.Length == 0;
+
+        [Browsable(false)]
+        public bool IsText => TextValue?.Length > 0;
 
         #endregion Properties
 
