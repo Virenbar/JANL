@@ -22,7 +22,7 @@ Partial Class MainForm
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DefaultSpinner4 As JANL.Animators.Spinner.DefaultSpinner = New JANL.Animators.Spinner.DefaultSpinner()
+        Dim DefaultSpinner1 As JANL.Animators.Spinner.DefaultSpinner = New JANL.Animators.Spinner.DefaultSpinner()
         Me.MS_Main = New System.Windows.Forms.MenuStrip()
         Me.TestFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormMDIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,12 +49,14 @@ Partial Class MainForm
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_Animations = New System.Windows.Forms.Button()
         Me.B_Animation_E = New System.Windows.Forms.Button()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.Spinner = New JANL.ExtendedControls.ToolStripSpinner()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Status = New System.Windows.Forms.StatusStrip()
+        Me.TS_Spinner = New JANL.ExtendedControls.ToolStripSpinner()
+        Me.TS_Stopwatch = New JANL.ExtendedControls.ToolStripStopwatch()
+        Me.TS_Search = New JANL.ToolStripTextBoxLabel()
+        Me.TB_Search = New System.Windows.Forms.TextBox()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
-        Me.StatusStrip1.SuspendLayout()
+        Me.Status.SuspendLayout()
         Me.SuspendLayout()
         '
         'MS_Main
@@ -225,7 +227,7 @@ Partial Class MainForm
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Animations)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Animation_E)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 361)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 360)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(685, 31)
         Me.FlowLayoutPanel1.TabIndex = 3
@@ -254,28 +256,41 @@ Partial Class MainForm
         Me.B_Animation_E.Text = "Animation E"
         Me.B_Animation_E.UseVisualStyleBackColor = True
         '
-        'StatusStrip1
+        'Status
         '
-        Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Control
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Spinner, Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 392)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(685, 22)
-        Me.StatusStrip1.TabIndex = 5
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.Status.BackColor = System.Drawing.SystemColors.Control
+        Me.Status.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TS_Spinner, Me.TS_Stopwatch, Me.TS_Search})
+        Me.Status.Location = New System.Drawing.Point(0, 391)
+        Me.Status.Name = "Status"
+        Me.Status.Size = New System.Drawing.Size(685, 23)
+        Me.Status.TabIndex = 5
+        Me.Status.Text = "StatusStrip1"
         '
-        'Spinner
+        'TS_Spinner
         '
-        Me.Spinner.Name = "Spinner"
-        Me.Spinner.Size = New System.Drawing.Size(12, 20)
-        Me.Spinner.Spinner = DefaultSpinner4
-        Me.Spinner.Text = "-"
+        Me.TS_Spinner.Name = "TS_Spinner"
+        Me.TS_Spinner.Size = New System.Drawing.Size(12, 21)
+        Me.TS_Spinner.Spinner = DefaultSpinner1
+        Me.TS_Spinner.Text = "-"
         '
-        'ToolStripStatusLabel1
+        'TS_Stopwatch
         '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
-        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
+        Me.TS_Stopwatch.Name = "TS_Stopwatch"
+        Me.TS_Stopwatch.Size = New System.Drawing.Size(46, 21)
+        Me.TS_Stopwatch.Text = "Uptime"
+        '
+        'TS_Search
+        '
+        Me.TS_Search.Name = "TS_Search"
+        Me.TS_Search.Size = New System.Drawing.Size(100, 23)
+        Me.TS_Search.ToolTipText = "Esc - очистить фильтр"
+        '
+        'TB_Search
+        '
+        Me.TB_Search.Location = New System.Drawing.Point(157, 181)
+        Me.TB_Search.Name = "TB_Search"
+        Me.TB_Search.Size = New System.Drawing.Size(143, 22)
+        Me.TB_Search.TabIndex = 6
         '
         'MainForm
         '
@@ -283,9 +298,10 @@ Partial Class MainForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
         Me.ClientSize = New System.Drawing.Size(685, 414)
+        Me.Controls.Add(Me.TB_Search)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.MS_Main)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.Status)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -298,8 +314,8 @@ Partial Class MainForm
         Me.MS_Main.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
+        Me.Status.ResumeLayout(False)
+        Me.Status.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -331,7 +347,9 @@ Partial Class MainForm
     Friend WithEvents B_Animation_E As Button
     Friend WithEvents ФормыToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormOfficeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents Spinner As JANL.ExtendedControls.ToolStripSpinner
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents Status As StatusStrip
+    Friend WithEvents TS_Spinner As JANL.ExtendedControls.ToolStripSpinner
+    Friend WithEvents TS_Search As JANL.ToolStripTextBoxLabel
+    Friend WithEvents TS_Stopwatch As JANL.ExtendedControls.ToolStripStopwatch
+    Friend WithEvents TB_Search As TextBox
 End Class

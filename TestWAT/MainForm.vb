@@ -9,28 +9,24 @@ Public Class MainForm
 
     Protected Overrides Sub OnLoad(e As EventArgs)
         MyBase.OnLoad(e)
-        Spinner.Spinner = Predefined.Dots4
-        Spinner.Start()
+
+        TS_Spinner.Spinner = Predefined.Dots4
+        TS_Spinner.Start()
+
+        TS_Stopwatch.Start()
     End Sub
 
-    Private Sub B_Animation_E_Click(sender As Object, e As EventArgs) Handles B_Animation_E.Click
-        Dim F = New FormAnimationE()
-        F.Show(Me)
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim Q = "SELECT * FROM Win32_PnPEntity"
+        Dim R = New ManagementObjectSearcher(Q).Get()
+        Dim R1 = R.Cast(Of ManagementObject)().ToList()
+        Dim R2 = R1.Select(Function(P) P.Properties("Name").Value.ToString()).ToList()
+        Console.WriteLine("")
     End Sub
 
-    Private Sub B_Animations_Click(sender As Object, e As EventArgs) Handles B_Animations.Click
-        Dim F = New FormAnimation()
-        F.Show(Me)
-    End Sub
+#Region "UIEvents"
 
-    Private Sub B_SQL_Click(sender As Object, e As EventArgs) Handles B_SQL.Click
-        Dim DT = SQLCommands.UP_PEP_DBList().Execute()
-        Dim R = DT.Rows.Count
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles B_Beep.Click
-        PlayMary()
-    End Sub
+#Region "Menu"
 
     Private Sub DGVTEditorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DGVTEditorToolStripMenuItem.Click
         Dim F = New DGVTEdit()
@@ -54,14 +50,6 @@ Public Class MainForm
 
     Private Sub HashVSListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HashVSListToolStripMenuItem.Click
         PerfomanceTests.HashVSList()
-    End Sub
-
-    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim Q = "SELECT * FROM Win32_PnPEntity"
-        Dim R = New ManagementObjectSearcher(Q).Get()
-        Dim R1 = R.Cast(Of ManagementObject)().ToList()
-        Dim R2 = R1.Select(Function(P) P.Properties("Name").Value.ToString()).ToList()
-        Console.WriteLine("")
     End Sub
 
     Private Sub SelectTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectTestToolStripMenuItem.Click
@@ -92,5 +80,32 @@ Public Class MainForm
     Private Sub РосреестрToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles РосреестрToolStripMenuItem.Click
         Reestr.Process()
     End Sub
+
+#End Region
+
+    Private Sub B_Animation_E_Click(sender As Object, e As EventArgs) Handles B_Animation_E.Click
+        Dim F = New FormAnimationE()
+        F.Show(Me)
+    End Sub
+
+    Private Sub B_Animations_Click(sender As Object, e As EventArgs) Handles B_Animations.Click
+        Dim F = New FormAnimation()
+        F.Show(Me)
+    End Sub
+
+    Private Sub B_SQL_Click(sender As Object, e As EventArgs) Handles B_SQL.Click
+        Dim DT = SQLCommands.UP_PEP_DBList().Execute()
+        Dim R = DT.Rows.Count
+    End Sub
+
+    Private Sub B_Beep_Click(sender As Object, e As EventArgs) Handles B_Beep.Click
+        PlayStillAlive()
+    End Sub
+
+    Private Sub TS_Search_InputDone(sender As Object, e As EventArgs) Handles TS_Search.InputDone
+        TB_Search.Text = TS_Search.Text
+    End Sub
+
+#End Region
 
 End Class
