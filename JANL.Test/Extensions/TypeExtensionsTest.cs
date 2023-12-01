@@ -18,7 +18,7 @@ namespace JANL.Test.Extensions
         [Test]
         public void PickRandom_2()
         {
-            var E = new List<int>() { 1, 2, 3 };
+            var E = new List<int> { 1, 2, 3 };
             var R = E.PickRandom(true);
             Assert.False(E.Contains(R));
         }

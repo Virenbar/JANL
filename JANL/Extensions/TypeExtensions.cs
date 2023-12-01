@@ -29,8 +29,13 @@ namespace JANL.Extensions
         /// <summary>
         /// Случайный элемент из коллекции
         /// </summary>
+        public static T PickRandom<T>(this ICollection<T> collection) => PickRandom<T>(collection, false);
+
+        /// <summary>
+        /// Случайный элемент из коллекции
+        /// </summary>
         /// <param name="remove">Удалить элемент из коллекции</param>
-        public static T PickRandom<T>(this ICollection<T> collection, bool remove = false)
+        public static T PickRandom<T>(this ICollection<T> collection, bool remove)
         {
             if (collection.Count == 0) { return default; }
             var element = collection.ElementAt(rnd.Next(collection.Count));

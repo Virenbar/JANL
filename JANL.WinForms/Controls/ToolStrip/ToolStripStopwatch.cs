@@ -13,7 +13,7 @@ namespace JANL.Controls
     public class ToolStripStopwatch : ToolStripLabel
     {
         private readonly Stopwatch stopwatch = new Stopwatch();
-        private readonly Timer timer = new Timer() { Interval = 500 };
+        private readonly Timer timer = new Timer { Interval = 500 };
 
         public ToolStripStopwatch()
         {
