@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace JANL.ExtendedControls
+namespace JANL.Controls
 {
     public class PixelPictureBox : PictureBox
     {

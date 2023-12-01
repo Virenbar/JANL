@@ -3,11 +3,12 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     /// <summary>
     /// TextBox with Label
     /// </summary>
+    [Obsolete("WIP")]
     public class TextBoxEx : TextBox
     {
         internal PictureBox PB_Clear;

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     public abstract class DataTableComboBox : ComboBox
     {

@@ -38,8 +38,8 @@ Partial Class FormAnimation
         Me.CB_Direction = New System.Windows.Forms.CheckBox()
         Me.NUD_Scale = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.APB_1 = New JANL.ExtendedControls.AnimatedPictureBox()
-        Me.APB_2 = New JANL.ExtendedControls.AnimatedPictureBox()
+        Me.APB_1 = New JANL.Controls.AnimatedPictureBox()
+        Me.APB_2 = New JANL.Controls.AnimatedPictureBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -306,7 +306,7 @@ Partial Class FormAnimation
 
     End Sub
 
-    Friend WithEvents APB_1 As JANL.ExtendedControls.AnimatedPictureBox
+    Friend WithEvents APB_1 As JANL.Controls.AnimatedPictureBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TB_FPS As TrackBar
     Friend WithEvents TB_Duration As TrackBar
@@ -321,7 +321,7 @@ Partial Class FormAnimation
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents CB_Direction As CheckBox
     Friend WithEvents NUD_Scale As NumericUpDown
-    Friend WithEvents APB_2 As JANL.ExtendedControls.AnimatedPictureBox
+    Friend WithEvents APB_2 As JANL.Controls.AnimatedPictureBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

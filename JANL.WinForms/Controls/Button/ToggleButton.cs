@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     public class ToggleButton : Button
     {

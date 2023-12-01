@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace JANL.ExtendedControls
+namespace JANL.Controls
 {
     internal class DataGridViewExtended : DataGridView
     {

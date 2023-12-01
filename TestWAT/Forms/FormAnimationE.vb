@@ -1,5 +1,5 @@
 ﻿Imports JANL.Animators
-Imports JANL.ExtendedControls
+Imports JANL.Controls
 Imports JANL.Extensions
 Imports JANL.Interfaces
 

@@ -47,7 +47,7 @@
             this.B_Delete = new System.Windows.Forms.ToolStripButton();
             this.BNS2 = new System.Windows.Forms.ToolStripSeparator();
             this.B_Refresh = new System.Windows.Forms.ToolStripButton();
-            this.TB_Filter = new JANL.ToolStripTextBoxLabel();
+            this.TB_Filter = new JANL.Controls.ToolStripTextBoxLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BN_View)).BeginInit();
             this.BN_View.SuspendLayout();
@@ -233,7 +233,7 @@
             this.TB_Filter.Name = "TB_Filter";
             this.TB_Filter.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.TB_Filter.Size = new System.Drawing.Size(300, 25);
-            this.TB_Filter.ToolTipText = "Esc";
+            this.TB_Filter.ToolTipText = "Esc - очистить фильтр";
             // 
             // DataTableView
             // 
@@ -271,7 +271,7 @@
         internal System.Windows.Forms.ToolStripButton B_Delete;
         internal System.Windows.Forms.ToolStripSeparator BNS2;
         internal System.Windows.Forms.ToolStripButton B_Refresh;
-        private ToolStripTextBoxLabel TB_Filter;
+        private Controls.ToolStripTextBoxLabel TB_Filter;
         private System.Windows.Forms.BindingSource BS_View;
     }
 }

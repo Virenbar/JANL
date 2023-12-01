@@ -50,9 +50,9 @@ Partial Class MainForm
         Me.B_Animations = New System.Windows.Forms.Button()
         Me.B_Animation_E = New System.Windows.Forms.Button()
         Me.Status = New System.Windows.Forms.StatusStrip()
-        Me.TS_Spinner = New JANL.ExtendedControls.ToolStripSpinner()
-        Me.TS_Stopwatch = New JANL.ExtendedControls.ToolStripStopwatch()
-        Me.TS_Search = New JANL.ToolStripTextBoxLabel()
+        Me.TS_Spinner = New JANL.Controls.ToolStripSpinner()
+        Me.TS_Stopwatch = New JANL.Controls.ToolStripStopwatch()
+        Me.TS_Search = New JANL.Controls.ToolStripTextBoxLabel()
         Me.TB_Search = New System.Windows.Forms.TextBox()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -348,8 +348,8 @@ Partial Class MainForm
     Friend WithEvents ФормыToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FormOfficeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Status As StatusStrip
-    Friend WithEvents TS_Spinner As JANL.ExtendedControls.ToolStripSpinner
-    Friend WithEvents TS_Search As JANL.ToolStripTextBoxLabel
-    Friend WithEvents TS_Stopwatch As JANL.ExtendedControls.ToolStripStopwatch
+    Friend WithEvents TS_Spinner As JANL.Controls.ToolStripSpinner
+    Friend WithEvents TS_Search As JANL.Controls.ToolStripTextBoxLabel
+    Friend WithEvents TS_Stopwatch As JANL.Controls.ToolStripStopwatch
     Friend WithEvents TB_Search As TextBox
 End Class

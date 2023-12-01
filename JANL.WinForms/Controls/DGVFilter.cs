@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     /// <summary>
     /// Фильтр для DataGridView

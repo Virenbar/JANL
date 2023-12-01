@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace JANL.ExtendedControls
+namespace JANL.Controls
 {
     public class AnimatedPictureBox : PictureBox
     {

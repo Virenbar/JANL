@@ -3,7 +3,7 @@ Imports System.Threading
 
 Public Class Test_TaskButton
 
-    Private Sub TB_Start_Click(sender As Object, e As JANL.ExtendedControls.TaskButton.ClickEventArgs) Handles TB_Start.Click
+    Private Sub TB_Start_Click(sender As Object, e As JANL.Controls.TaskButton.ClickEventArgs) Handles TB_Start.Click
         e.Task = Count(e.CTS.Token)
     End Sub
 

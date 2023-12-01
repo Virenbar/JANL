@@ -62,16 +62,19 @@
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
     <Compile Include="Drawing\DirectBitmap.cs" />
-    <Compile Include="ExtendedControls\PixelPictureBox.cs">
+    <Compile Include="Controls\PixelPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\TaskButton.cs">
+    <Compile Include="Controls\Button\TaskButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\ToolStripSpinner.cs">
+    <Compile Include="Controls\ToolStrip\ToolStripSpinner.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\ToolStripStopwatch.cs">
+    <Compile Include="Controls\ToolStrip\ToolStripStopwatch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolStrip\ToolStripTaskProgress.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\FormExtensions.cs" />
@@ -80,37 +83,37 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
-    <Compile Include="ExtendedControls\AnimatedPictureBox.cs">
+    <Compile Include="Controls\AnimatedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\CancelableButton.cs">
+    <Compile Include="Controls\Button\CancelableButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\DataGridViewExtended.cs">
+    <Compile Include="Controls\DataGridViewExtended.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\DataTableComboBox.cs">
+    <Compile Include="Controls\DataTableComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\DateTimePickerEx.cs">
+    <Compile Include="Controls\DateTimePickerEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\DGVFilter.cs">
+    <Compile Include="Controls\DGVFilter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\RegexTextBox.cs">
+    <Compile Include="Controls\RegexTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\TextBoxEx.cs">
+    <Compile Include="Controls\TextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\TextBoxLabel.cs">
+    <Compile Include="Controls\TextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\ToggleButton.cs">
+    <Compile Include="Controls\Button\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ExtendedControls\ToolStripTextBoxLabel.cs">
+    <Compile Include="Controls\ToolStrip\ToolStripTextBoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\ControlExtensions.cs" />
@@ -208,7 +211,7 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ExtendedControls\TextBoxEx.resx">
+    <EmbeddedResource Include="Controls\TextBoxEx.resx">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">

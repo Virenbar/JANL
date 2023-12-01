@@ -25,7 +25,7 @@ Partial Class Test_TaskButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.L_Count = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.TB_Start = New JANL.ExtendedControls.TaskButton()
+        Me.TB_Start = New JANL.Controls.TaskButton()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -96,7 +96,7 @@ Partial Class Test_TaskButton
 
     End Sub
 
-    Friend WithEvents TB_Start As JANL.ExtendedControls.TaskButton
+    Friend WithEvents TB_Start As JANL.Controls.TaskButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents L_Count As Label

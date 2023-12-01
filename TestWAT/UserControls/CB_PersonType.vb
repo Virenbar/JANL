@@ -1,4 +1,4 @@
-﻿Imports JANL
+﻿Imports JANL.Controls
 Imports TestWAT.Enums
 
 Public Class CB_PersonType

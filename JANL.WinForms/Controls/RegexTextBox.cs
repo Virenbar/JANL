@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     /// <summary>
     /// Тестовое поле с проверкой через Regex
@@ -62,6 +62,7 @@ namespace JANL
         /// <summary>
         /// Верно но ли заполнено поле
         /// </summary>
+        [Browsable(false)]
         public bool IsValid { get; private set; }
 
         /// <summary>

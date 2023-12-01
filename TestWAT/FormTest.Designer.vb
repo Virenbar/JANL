@@ -34,29 +34,29 @@ Partial Class FormTest
         Me.B_Date2000 = New System.Windows.Forms.Button()
         Me.DateTimeS2 = New JANL.DateTimePickerEx()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TB_Test = New JANL.ToggleButton()
+        Me.TB_Test = New JANL.Controls.ToggleButton()
         Me.B_Exception = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.CncB_Test = New JANL.CancelableButton()
+        Me.CncB_Test = New JANL.Controls.CancelableButton()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.TSPB_Test = New System.Windows.Forms.ToolStripProgressBar()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.SWL_Test = New JANL.UserControls.StopWatchLabel()
-        Me.CB_SW = New JANL.CancelableButton()
+        Me.CB_SW = New JANL.Controls.CancelableButton()
         Me.GP_PB = New System.Windows.Forms.GroupBox()
         Me.PBE_Test = New JANL.UserControls.ProgressBarEx()
         Me.B_PB = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.TextBoxEx1 = New JANL.TextBoxEx()
-        Me.TextBoxLabel1 = New JANL.TextBoxLabel()
+        Me.TextBoxEx1 = New JANL.Controls.TextBoxEx()
+        Me.TextBoxLabel1 = New JANL.Controls.TextBoxLabel()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.RegexTextBox1 = New JANL.RegexTextBox()
-        Me.RegexTextBox2 = New JANL.RegexTextBox()
-        Me.RegexTextBox3 = New JANL.RegexTextBox()
-        Me.RegexTextBox4 = New JANL.RegexTextBox()
+        Me.RegexTextBox1 = New JANL.Controls.RegexTextBox()
+        Me.RegexTextBox2 = New JANL.Controls.RegexTextBox()
+        Me.RegexTextBox3 = New JANL.Controls.RegexTextBox()
+        Me.RegexTextBox4 = New JANL.Controls.RegexTextBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MonthPicker1 = New JANL.UserControls.MonthPicker()
@@ -719,8 +719,8 @@ Partial Class FormTest
     End Sub
 
     Friend WithEvents DateTimeS1 As JANL.DateTimePickerEx
-	Friend WithEvents TB_Test As JANL.ToggleButton
-	Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents TB_Test As JANL.Controls.ToggleButton
+    Friend WithEvents ImageList1 As ImageList
 	Friend WithEvents GroupBox1 As GroupBox
 	Friend WithEvents B_Date2000 As Button
 	Friend WithEvents BS_TestModel As BindingSource
@@ -731,32 +731,32 @@ Partial Class FormTest
 	Friend WithEvents DateTimeS2 As JANL.DateTimePickerEx
 	Friend WithEvents B_Exception As Button
 	Friend WithEvents GroupBox3 As GroupBox
-	Friend WithEvents CncB_Test As JANL.CancelableButton
-	Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents CncB_Test As JANL.Controls.CancelableButton
+    Friend WithEvents StatusStrip1 As StatusStrip
 	Friend WithEvents TSPB_Test As ToolStripProgressBar
     Friend WithEvents SWL_Test As JANL.UserControls.StopWatchLabel
     Friend WithEvents GroupBox4 As GroupBox
-	Friend WithEvents CB_SW As JANL.CancelableButton
+    Friend WithEvents CB_SW As JANL.Controls.CancelableButton
     Friend WithEvents PBE_Test As JANL.UserControls.ProgressBarEx
     Friend WithEvents GP_PB As GroupBox
 	Friend WithEvents B_PB As Button
-	Friend WithEvents TextBoxEx1 As JANL.TextBoxEx
-	Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxEx1 As JANL.Controls.TextBoxEx
+    Friend WithEvents TextBox1 As TextBox
 	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 	Friend WithEvents GroupBox5 As GroupBox
-	Friend WithEvents RegexTextBox1 As JANL.RegexTextBox
-	Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents RegexTextBox1 As JANL.Controls.RegexTextBox
+    Friend WithEvents GroupBox6 As GroupBox
 	Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-	Friend WithEvents RegexTextBox2 As JANL.RegexTextBox
-	Friend WithEvents RegexTextBox3 As JANL.RegexTextBox
-	Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
+    Friend WithEvents RegexTextBox2 As JANL.Controls.RegexTextBox
+    Friend WithEvents RegexTextBox3 As JANL.Controls.RegexTextBox
+    Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
 	Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
 	Friend WithEvents TB_Number As TextBox
 	Friend WithEvents TB_NumberText As TextBox
 	Friend WithEvents TB_Numberaga As GroupBox
-	Friend WithEvents RegexTextBox4 As JANL.RegexTextBox
+    Friend WithEvents RegexTextBox4 As JANL.Controls.RegexTextBox
     Friend WithEvents MonthPicker1 As JANL.UserControls.MonthPicker
-    Friend WithEvents TextBoxLabel1 As JANL.TextBoxLabel
+    Friend WithEvents TextBoxLabel1 As JANL.Controls.TextBoxLabel
     Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
     Friend WithEvents B_EditFile As Button
     Friend WithEvents TabControl1 As TabControl

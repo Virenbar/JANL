@@ -4,14 +4,16 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace JANL.ExtendedControls
+namespace JANL.Controls
 {
+    /// <summary>
+    ///
+    /// </summary>
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
     public class ToolStripStopwatch : ToolStripLabel
     {
         private readonly Stopwatch stopwatch = new Stopwatch();
         private readonly Timer timer = new Timer() { Interval = 500 };
-        private string textValue = "Stopwatch";
 
         public ToolStripStopwatch()
         {
@@ -39,14 +41,16 @@ namespace JANL.ExtendedControls
             UpdateText();
         }
 
-        private void UpdateText()
+        protected virtual void UpdateText()
         {
-            base.Text = $"{textValue}: {stopwatch.Elapsed.ToString(Defaults.TimespanFormat)}";
+            var time = stopwatch.Elapsed.ToString(Defaults.TimespanFormat);
+            base.Text = ShowText ? $"{_text}: {time}" : time;
         }
 
         #region Properties
 
         #region Designer
+        protected string _text = "Stopwatch";
 
         [Browsable(true), Category("ToolStripStopwatch"), DefaultValue(500)]
         public int RefreshInterval
@@ -55,14 +59,17 @@ namespace JANL.ExtendedControls
             set => timer.Interval = value;
         }
 
+        [Browsable(true), Category("ToolStripStopwatch"), DefaultValue(true)]
+        public bool ShowText { get; set; }
+
         [Browsable(true), DefaultValue("Stopwatch")]
         public new string Text
 
         {
-            get => textValue;
+            get => _text;
             set
             {
-                textValue = value;
+                _text = value;
                 UpdateText();
             }
         }

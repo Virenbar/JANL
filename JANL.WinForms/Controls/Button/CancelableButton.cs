@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace JANL
+namespace JANL.Controls
 {
     /// <summary>
     /// Кнопка с возможность отмены задачи.

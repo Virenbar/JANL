@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JANL.ExtendedControls
+namespace JANL.Controls
 {
     [DefaultEvent(nameof(Click))]
     public class TaskButton : Button
