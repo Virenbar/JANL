@@ -9,49 +9,49 @@ namespace JANL.Test.Helpers
         [Test]
         public void LetterRange_1()
         {
-            var Target = new List<string>(new[] { "A", "B", "C", "D" });
-            var Result = ExcelMiniHelper.LetterRange("A", "D");
-            Assert.AreEqual(Target, Result);
+            var target = new List<string>(new[] { "A", "B", "C", "D" });
+            var result = ExcelMiniHelper.LetterRange("A", "D");
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void ToLetter_1()
         {
-            var Target = "A";
-            var Result = ExcelMiniHelper.ToLetter(1);
-            Assert.AreEqual(Target, Result);
+            var target = "A";
+            var result = ExcelMiniHelper.ToLetter(1);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void ToLetter_2()
         {
-            var Target = "AA";
-            var Result = ExcelMiniHelper.ToLetter(27);
-            Assert.AreEqual(Target, Result);
+            var target = "AA";
+            var result = ExcelMiniHelper.ToLetter(27);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void ToLetter_3()
         {
-            var Target = "A1";
-            var Result = ExcelMiniHelper.ToLetter(1, 1);
-            Assert.AreEqual(Target, Result);
+            var target = "A1";
+            var result = ExcelMiniHelper.ToLetter(1, 1);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void ToNumber_1()
         {
-            var Target = 1;
-            var Result = ExcelMiniHelper.ToNumber("A");
-            Assert.AreEqual(Target, Result);
+            var target = 1;
+            var result = ExcelMiniHelper.ToNumber("A");
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void ToNumber_2()
         {
-            var Target = 27;
-            var Result = ExcelMiniHelper.ToNumber("AA");
-            Assert.AreEqual(Target, Result);
+            var target = 27;
+            var result = ExcelMiniHelper.ToNumber("AA");
+            Assert.AreEqual(target, result);
         }
     }
 }

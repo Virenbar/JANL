@@ -8,17 +8,17 @@ namespace JANL.Test.Helpers
         [Test]
         public void RowFilterByColumns()
         {
-            var Filter = "(Convert(C1,'System.String') LIKE '%V1%' AND Convert(C1,'System.String') LIKE '%V2%') OR (Convert(C2,'System.String') LIKE '%V1%' AND Convert(C2,'System.String') LIKE '%V2%')";
-            var F = FilterHelper.RowFilterByColumns(new[] { "C1", "C2" }, "V1 V2");
-            Assert.AreEqual(Filter, F);
+            var target = "(Convert(C1,'System.String') LIKE '%V1%' AND Convert(C1,'System.String') LIKE '%V2%') OR (Convert(C2,'System.String') LIKE '%V1%' AND Convert(C2,'System.String') LIKE '%V2%')";
+            var result = FilterHelper.RowFilterByColumns(new[] { "C1", "C2" }, "V1 V2");
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void RowFilterByRow()
         {
-            var Filter = "Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V1%' AND Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V2%'";
-            var F = FilterHelper.RowFilterByRow(new[] { "C1", "C2" }, "V1 V2");
-            Assert.AreEqual(Filter, F);
+            var target = "Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V1%' AND Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V2%'";
+            var result = FilterHelper.RowFilterByRow(new[] { "C1", "C2" }, "V1 V2");
+            Assert.AreEqual(target, result);
         }
     }
 }

@@ -12,25 +12,25 @@ namespace JANL.Test.Helpers
         [Test]
         public void NumberToText_1()
         {
-            var Target = "одна тысяча триста тридцать семь";
-            var Result = StringHelper.NumberToText(1337);
-            Assert.AreEqual(Target, Result);
+            var target = "одна тысяча триста тридцать семь";
+            var result = StringHelper.NumberToText(1337);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void NumberToText_2()
         {
-            var Target = "двести две тысячи сто один";
-            var Result = StringHelper.NumberToText(202101);
-            Assert.AreEqual(Target, Result);
+            var target = "двести две тысячи сто один";
+            var result = StringHelper.NumberToText(202101);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void NumberToText_3()
         {
-            var Target = "двое суток";
-            var Result = StringHelper.NumberToText(2, Day);
-            Assert.AreEqual(Target, Result);
+            var target = "двое суток";
+            var result = StringHelper.NumberToText(2, Day);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
@@ -43,17 +43,17 @@ namespace JANL.Test.Helpers
         [Test]
         public void RubleToText_1()
         {
-            var Target = "одна тысяча триста тридцать семь рублей 0 копеек";
-            var Result = StringHelper.RubleToText(1337m);
-            Assert.AreEqual(Target, Result);
+            var target = "одна тысяча триста тридцать семь рублей 0 копеек";
+            var result = StringHelper.RubleToText(1337m);
+            Assert.AreEqual(target, result);
         }
 
         [Test]
         public void RubleToText_2()
         {
-            var Target = "двести две тысячи сто один рубль 55 копеек";
-            var Result = StringHelper.RubleToText(202101.55m);
-            Assert.AreEqual(Target, Result);
+            var target = "двести две тысячи сто один рубль 55 копеек";
+            var result = StringHelper.RubleToText(202101.55m);
+            Assert.AreEqual(target, result);
         }
     }
 }
