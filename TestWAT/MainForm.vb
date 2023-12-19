@@ -21,7 +21,7 @@ Public Class MainForm
         Dim R = New ManagementObjectSearcher(Q).Get()
         Dim R1 = R.Cast(Of ManagementObject)().ToList()
         Dim R2 = R1.Select(Function(P) P.Properties("Name").Value.ToString()).ToList()
-        Console.WriteLine("")
+        Console.WriteLine(String.Join(vbNewLine, R2))
     End Sub
 
 #Region "UIEvents"

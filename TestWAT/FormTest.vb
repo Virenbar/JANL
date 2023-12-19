@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Speech.Synthesis
 Imports System.Threading
 Imports JANL
 Imports JANL.Controls
@@ -191,6 +192,8 @@ Public Class FormTest
 
 #End Region
 
+#Region "NumberToText"
+
     Private Sub TB_Number_TextChanged(sender As Object, e As EventArgs) Handles TB_Number.TextChanged
         Dim I As Numerics.BigInteger = 0
         Dim D As Decimal = 0
@@ -202,6 +205,18 @@ Public Class FormTest
             TB_NumberText.Text = ""
         End If
     End Sub
+
+    Private Async Sub B_TTS_Click(sender As Object, e As EventArgs) Handles B_TTS.Click
+        Using synth As New SpeechSynthesizer()
+            synth.SetOutputToDefaultAudioDevice()
+            synth.Volume = 100
+            synth.Rate = 2
+            Dim promt = New Prompt(TB_NumberText.Text, SynthesisTextFormat.Text)
+            Await Task.Run(Sub() synth.Speak(TB_NumberText.Text))
+        End Using
+    End Sub
+
+#End Region
 
     Private Sub B_EditFile_Click(sender As Object, e As EventArgs) Handles B_EditFile.Click
         Dim T = Path.GetTempFileName + ".txt"

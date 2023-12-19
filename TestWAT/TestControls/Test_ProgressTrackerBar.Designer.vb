@@ -51,6 +51,7 @@ Partial Class Test_ProgressTrackerBar
         Me.PTB.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PTB.Location = New System.Drawing.Point(3, 16)
         Me.PTB.Maximum = 100
+        Me.PTB.MinimumSize = New System.Drawing.Size(300, 50)
         Me.PTB.Name = "PTB"
         Me.PTB.Size = New System.Drawing.Size(317, 55)
         Me.PTB.TabIndex = 1

@@ -73,6 +73,8 @@ Partial Class FormTest
         Me.Test_DataMapper1 = New TestWAT.Test_DataMapper()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.B_TTS = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +97,7 @@ Partial Class FormTest
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.FlowLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -515,17 +518,18 @@ Partial Class FormTest
         Me.TB_NumberText.Multiline = True
         Me.TB_NumberText.Name = "TB_NumberText"
         Me.TB_NumberText.ReadOnly = True
-        Me.TB_NumberText.Size = New System.Drawing.Size(980, 197)
+        Me.TB_NumberText.Size = New System.Drawing.Size(980, 194)
         Me.TB_NumberText.TabIndex = 23
         '
         'TB_Numberaga
         '
         Me.TB_Numberaga.Controls.Add(Me.TB_NumberText)
         Me.TB_Numberaga.Controls.Add(Me.TB_Number)
+        Me.TB_Numberaga.Controls.Add(Me.FlowLayoutPanel6)
         Me.TB_Numberaga.Dock = System.Windows.Forms.DockStyle.Top
         Me.TB_Numberaga.Location = New System.Drawing.Point(3, 3)
         Me.TB_Numberaga.Name = "TB_Numberaga"
-        Me.TB_Numberaga.Size = New System.Drawing.Size(986, 240)
+        Me.TB_Numberaga.Size = New System.Drawing.Size(986, 266)
         Me.TB_Numberaga.TabIndex = 24
         Me.TB_Numberaga.TabStop = False
         Me.TB_Numberaga.Text = "NumberToText"
@@ -625,7 +629,7 @@ Partial Class FormTest
         Me.Test_DataMapper1.AutoSize = True
         Me.Test_DataMapper1.Location = New System.Drawing.Point(3, 153)
         Me.Test_DataMapper1.Name = "Test_DataMapper1"
-        Me.Test_DataMapper1.Size = New System.Drawing.Size(187, 66)
+        Me.Test_DataMapper1.Size = New System.Drawing.Size(191, 68)
         Me.Test_DataMapper1.TabIndex = 2
         '
         'TabPage2
@@ -659,6 +663,25 @@ Partial Class FormTest
         Me.TabPage3.Size = New System.Drawing.Size(992, 457)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Page NumberToText"
+        '
+        'B_TTS
+        '
+        Me.B_TTS.Location = New System.Drawing.Point(3, 3)
+        Me.B_TTS.Name = "B_TTS"
+        Me.B_TTS.Size = New System.Drawing.Size(75, 23)
+        Me.B_TTS.TabIndex = 25
+        Me.B_TTS.Text = "TTS"
+        Me.B_TTS.UseVisualStyleBackColor = True
+        '
+        'FlowLayoutPanel6
+        '
+        Me.FlowLayoutPanel6.AutoSize = True
+        Me.FlowLayoutPanel6.Controls.Add(Me.B_TTS)
+        Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 234)
+        Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
+        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(980, 29)
+        Me.FlowLayoutPanel6.TabIndex = 26
         '
         'FormTest
         '
@@ -713,6 +736,7 @@ Partial Class FormTest
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
+        Me.FlowLayoutPanel6.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -767,4 +791,6 @@ Partial Class FormTest
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Test_TaskButton1 As Test_TaskButton
     Friend WithEvents Test_DataMapper1 As Test_DataMapper
+    Friend WithEvents FlowLayoutPanel6 As FlowLayoutPanel
+    Friend WithEvents B_TTS As Button
 End Class
