@@ -21,7 +21,7 @@ namespace JANL.Types
             Count++;
         }
 
-        public DesignColumn(DGVTemplateColumn C)
+        protected DesignColumn(DGVTemplateColumn C)
         {
             Name = C.Name;
             Header = C.Header;
@@ -31,6 +31,8 @@ namespace JANL.Types
             ForeColor = ColorTranslator.FromHtml(C.ForeColor);
             Font = (Font)new FontConverter().ConvertFromInvariantString(C.Font);
         }
+
+        public static DesignColumn FromTemplate(DGVTemplateColumn column) => new DesignColumn(column);
 
         public override string ToString() => $"{Name}({Header}, {Width})";
 

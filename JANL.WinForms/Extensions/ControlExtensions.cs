@@ -85,23 +85,30 @@ namespace JANL.Extensions
             }
         }
 
-        public static void SetEnableRecursive(Control cont, bool state) => SetEnableRecursive(cont, state, new Control[] { });
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="state"></param>
+        public static void SetEnableRecursive(Control control, bool state) => SetEnableRecursive(control, state, new Control[] { });
 
         /// <summary>
         /// Рекурсивно меняет состояние контролов, кроме исключённых
         /// </summary>
+        /// <param name="control"></param>
         /// <param name="state">Состояние</param>
         /// <param name="excl">Исключения</param>
-        public static void SetEnableRecursive(this Control cont, bool state, Control[] excl) => SetEnableRecursive(cont, state, new HashSet<Control>(excl));
+        public static void SetEnableRecursive(this Control control, bool state, Control[] excl) => SetEnableRecursive(control, state, new HashSet<Control>(excl));
 
         /// <summary>
         /// Рекурсивно меняет состояние контролов, кроме исключённых
         /// </summary>
+        /// <param name="control"></param>
         /// <param name="state">Состояние</param>
         /// <param name="excl">Исключения</param>
-        public static void SetEnableRecursive(this Control cont, bool state, HashSet<Control> excl)
+        public static void SetEnableRecursive(this Control control, bool state, HashSet<Control> excl)
         {
-            foreach (Control C in cont.Controls)
+            foreach (Control C in control.Controls)
             {
                 if (C.Controls.Count > 0)
                 {
@@ -114,8 +121,19 @@ namespace JANL.Extensions
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="CB"></param>
+        /// <param name="value"></param>
         public static void SetIntegerValue(this ComboBox CB, object value) => SetIntegerValue(CB, value, -1);
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="CB"></param>
+        /// <param name="value"></param>
+        /// <param name="def"></param>
         public static void SetIntegerValue(this ComboBox CB, object value, int def)
         {
             if (value == DBNull.Value || value == null)

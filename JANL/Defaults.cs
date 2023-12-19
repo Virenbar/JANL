@@ -1,5 +1,8 @@
 ﻿namespace JANL
 {
+    /// <summary>
+    /// Глобальные свойства
+    /// </summary>
     public static class Defaults
     {
         /// <summary>

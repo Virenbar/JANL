@@ -111,15 +111,18 @@ namespace JANL.Controls
         #region Events
 
         /// <summary>
-        /// Вызывает событие <see cref="CancelableButton.Cancel"/>
+        /// Вызывает событие <see cref="Cancel"/>
         /// </summary>
         protected void OnCancel(EventArgs e) => Cancel?.Invoke(this, e);
 
         /// <summary>
-        /// Вызывает событие <see cref="CancelableButton.Run"/>
+        /// Вызывает событие <see cref="Run"/>
         /// </summary>
         protected void OnRun(RunEventArgs e) => Run?.Invoke(this, e);
 
+        /// <summary>
+        ///
+        /// </summary>
         public class RunEventArgs : EventArgs
         {
             /// <summary>

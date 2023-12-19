@@ -22,6 +22,7 @@ namespace JANL.UserControls
             L_Total.Text = "-";
             PB_Bar.Value = Tracker.Value;
             PB_Bar.Maximum = Tracker.Maximum;
+            L_Percent.Text = "-";
             L_Elapsed.Text = "-";
             L_Average.Text = "-";
             L_Remaining.Text = "-";
@@ -37,6 +38,7 @@ namespace JANL.UserControls
             L_Total.Text = $"{Tracker.Maximum}";
             PB_Bar.Value = Tracker.Value;
             PB_Bar.Maximum = Tracker.Maximum;
+            L_Percent.Text = $"{Tracker.Percent:N0}%";
             L_Elapsed.Text = Tracker.TimeElapsed.ToString(Defaults.TimespanFormat);
             L_Average.Text = Tracker.TimeAverage.ToString(Defaults.TimespanFormat);
             L_Remaining.Text = Tracker.TimeRemaining.ToString(Defaults.TimespanFormat);
@@ -85,6 +87,13 @@ namespace JANL.UserControls
         {
             get => L_Elapsed.Visible;
             set => L_Elapsed.Visible = value;
+        }
+
+        [Browsable(true), Category("ProgressTrackerBar"), Description("Сглаживание оставшегося времени"), DefaultValue(0.8F)]
+        public float TimeRemainingSmoothness
+        {
+            get => Tracker.Smoothness;
+            set => Tracker.Smoothness = value;
         }
 
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать оставшиеся время"), DefaultValue(true)]

@@ -7,9 +7,25 @@ using System.Reflection;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для базовых типов
+    /// </summary>
     public static class TypeExtensions
     {
         private static readonly Random rnd = new Random();
+
+        /// <summary>
+        /// Ограничивает значение диапазоном
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="min">Минимум</param>
+        /// <param name="max">Максимум</param>
+        public static T Clamp<T>(this T value, T min, T max) where T : struct, IComparable<T>
+        {
+            if (value.CompareTo(min) < 0) { return min; }
+            if (value.CompareTo(max) > 0) { return max; }
+            return value;
+        }
 
         /// <summary>
         /// Первый день месяца
@@ -34,6 +50,7 @@ namespace JANL.Extensions
         /// <summary>
         /// Случайный элемент из коллекции
         /// </summary>
+        /// <param name="collection"></param>
         /// <param name="remove">Удалить элемент из коллекции</param>
         public static T PickRandom<T>(this ICollection<T> collection, bool remove)
         {

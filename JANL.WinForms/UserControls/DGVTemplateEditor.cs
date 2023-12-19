@@ -23,7 +23,7 @@ namespace JANL.UserControls
 
         public void SetTemplate(DGVTemplate Template)
         {
-            Design = new Design(Template);
+            Design = Design.FromTemplate(Template);
             ReCreateDGV();
 
             BS_Design.DataSource = Design;

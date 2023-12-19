@@ -1,4 +1,5 @@
-﻿using JANL.Generic;
+﻿using JANL.Extensions;
+using JANL.Generic;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace JANL
     {
         private readonly FixedQueue<TimeSpan> DeltaTime;
         private readonly Stopwatch TotalTime = new Stopwatch();
-        private TimeSpan LastIncriment = new TimeSpan();
+        private TimeSpan LastReport = new TimeSpan();
 
         public ProgressTracker(int total, int limit)
         {
@@ -54,17 +55,22 @@ namespace JANL
             }
             else
             {
-                DeltaTime.Enqueue(TotalTime.Elapsed - LastIncriment);
+                DeltaTime.Enqueue(new TimeSpan((TotalTime.Elapsed - LastReport).Ticks / value));
                 long Average = (long)DeltaTime.Average(T => T.Ticks);
                 TimeAverage = new TimeSpan(Average);
-                TimeRemaining = new TimeSpan(Average * (Maximum - Value));
+                long old = TimeRemaining.Ticks;
+                long n = Average * (Maximum - Value);
+
+                long d = (long)(old * Smoothness + n * (1 - Smoothness));
+
+                TimeRemaining = new TimeSpan(d);
             }
-            LastIncriment = TotalTime.Elapsed;
+            LastReport = TotalTime.Elapsed;
             base.OnReport(value);
         }
 
         #region Properties
-
+        private float _smoothness = 0.8F;
         public int Maximum { get; set; }
         public float Percent => Maximum == 0 ? 0 : Math.Min((float)Value / Maximum * 100, 100);
 
@@ -72,6 +78,12 @@ namespace JANL
         {
             get => DeltaTime.Limit;
             set => DeltaTime.Limit = value;
+        }
+
+        public float Smoothness
+        {
+            get => _smoothness;
+            set => _smoothness = value.Clamp(0, 1);
         }
 
         public TimeSpan TimeAverage { get; private set; }
