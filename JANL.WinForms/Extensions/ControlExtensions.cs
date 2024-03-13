@@ -1,8 +1,11 @@
-﻿using System;
+﻿using JANL.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JANL.Extensions
@@ -39,6 +42,8 @@ namespace JANL.Extensions
             DoubleBuffered(dgv, true);
         }
 
+        public static ButtonAwaiter GetAwaiter(this Button button) => new ButtonAwaiter(button);
+
         /// <summary>
         /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе Nothing
         /// </summary>
@@ -68,6 +73,16 @@ namespace JANL.Extensions
         /// <param name="CB"></param>
         /// <returns></returns>
         public static T? GetValue<T>(this ToolStripComboBox CB) where T : struct => CB.SelectedIndex > 0 ? new T?((T)CB.ComboBox.SelectedValue) : default;
+
+        /// <summary>
+        /// Вызывает метод в текущем потоке
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="action">Метод для вызова</param>
+        public static void InvokeAction(this ISynchronizeInvoke control, Action action)
+        {
+            if (control.InvokeRequired) { control.Invoke(action, null); } else { action(); }
+        }
 
         /// <summary>
         /// Устанавливает DT в качестве источника c сохранением сортировки.
@@ -144,16 +159,6 @@ namespace JANL.Extensions
             {
                 CB.SelectedValue = (int)value;
             }
-        }
-
-        /// <summary>
-        /// Вызывает метод в текущем потоке
-        /// </summary>
-        /// <param name="control"></param>
-        /// <param name="action">Метод для вызова</param>
-        public static void InvokeAction(this ISynchronizeInvoke control, Action action)
-        {
-            if (control.InvokeRequired) { control.Invoke(action, null); } else { action(); }
         }
     }
 }

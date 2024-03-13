@@ -48,7 +48,7 @@ namespace JANL.Drawing
             GC.SuppressFinalize(this);
         }
 
-        protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             BitsHandle.Free();
             if (disposing)

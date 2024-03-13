@@ -24,7 +24,7 @@ namespace JANL.Controls
             UpdateText();
         }
 
-        protected virtual void Handler(TaskProgress T)
+        protected void Handler(TaskProgress T)
         {
             if (T.HasStatus) { _status = T.Status; }
             if (T.HasValue)
@@ -34,7 +34,7 @@ namespace JANL.Controls
             UpdateText();
         }
 
-        protected virtual void UpdateText()
+        protected void UpdateText()
         {
             Text = $"{_text}: {_status} {_value}".Trim();
         }

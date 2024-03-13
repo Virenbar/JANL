@@ -15,7 +15,6 @@ namespace JANL.UserControls
     public partial class DataTableView : UserControl
     {
         private readonly List<string> Columns = new List<string>();
-        private DataTable DT;
 
         public DataTableView()
         {
@@ -38,25 +37,36 @@ namespace JANL.UserControls
             return CurrentRow.Field<T>(name);
         }
 
-        public void SetDataTable(DataTable DT)
+        /// <summary>
+        /// Устанавливает новую таблицу и вызывает <see cref="DataTable.Dispose"/> у старой таблицы
+        /// </summary>
+        /// <param name="table">Таблица</param>
+        public void SetDataTable(DataTable table) => SetDataTable(table, true);
+
+        /// <summary>
+        /// Устанавливает новую таблицу
+        /// </summary>
+        /// <param name="table">Таблица</param>
+        /// <param name="dispose">Вызвать <see cref="DataTable.Dispose"/> у старой таблицы</param>
+        public void SetDataTable(DataTable table, bool dispose)
         {
             if (IsDisposed) { return; }
             try
             {
-                if (Columns.Count == 0) { Columns.AddRange(DT.Columns.Cast<DataColumn>().Select(C => C.ColumnName)); }
+                if (Columns.Count == 0) { Columns.AddRange(table.Columns.Cast<DataColumn>().Select(C => C.ColumnName)); }
                 if (string.IsNullOrWhiteSpace(KeyName)) { KeyName = Columns.First(); }
                 if (string.IsNullOrWhiteSpace(ValueName)) { ValueName = Columns.First(); }
 
-                var oldDatatable = this.DT;
+                var oldTable = this.DataTable;
                 var oldKey = CurrentKey;
-                this.DT = DT;
-                DGV.SetDataSource(DT);
-                oldDatatable?.Dispose();
+                DataTable = table;
+                DGV.SetDataSource(table);
+                if (dispose) { oldTable?.Dispose(); }
                 if (oldKey != null) { BS_View.Position = BS_View.Find(KeyName, oldKey); }
             }
             catch (Exception E)
             {
-                Msgs.ShowException(E);
+                FindForm().ShowException(E);
             }
             finally
             {
@@ -75,14 +85,49 @@ namespace JANL.UserControls
         /// <summary>
         /// Apply template from <see cref="DGVManager"/>
         /// </summary>
-        /// <param name="Template">Template Name</param>
-        public void SetTemplate(string Template) => DGVManager.ApplyTemplate(DGV, Template);
+        /// <param name="template">Template Name</param>
+        public void SetTemplate(string template) => DGVManager.ApplyTemplate(DGV, template);
 
         /// <summary>
         /// Apply template
         /// </summary>
-        /// <param name="Template">Template</param>
-        public void SetTemplate(DGVTemplate Template) => DGVManager.ApplyTemplate(DGV, Template);
+        /// <param name="template">Template</param>
+        public void SetTemplate(DGVTemplate template) => DGVManager.ApplyTemplate(DGV, template);
+
+        /// <summary>
+        /// Обновить или добавить строку
+        /// </summary>
+        /// <param name="row"></param>
+        public void UpdateRow(DataRow row)
+        {
+            if (row is null) { return; }
+            var R = DataTable.Select($"{KeyName}={row[KeyName]}").FirstOrDefault();
+            if (R is null)
+            {
+                DataTable.Rows.InsertAt(row, 0);
+            }
+            else
+            {
+                foreach (var column in DataTable.Columns.Cast<DataColumn>())
+                {
+                    if (column.ReadOnly) { continue; }
+                    R[column.ColumnName] = row[column.ColumnName];
+                }
+            }
+            DataTable.AcceptChanges();
+        }
+
+        /// <summary>
+        /// Обновить или добавить строки
+        /// </summary>
+        /// <param name="table"></param>
+        public void UpdateTable(DataTable table)
+        {
+            foreach (var row in table.Rows.Cast<DataRow>())
+            {
+                UpdateRow(row);
+            }
+        }
 
         private void ApplyFilter()
         {
@@ -141,6 +186,11 @@ namespace JANL.UserControls
         ///
         /// </summary>
         public DataGridView DataGridView => DGV;
+
+        /// <summary>
+        /// Текущий DataTable
+        /// </summary>
+        public DataTable DataTable { get; protected set; }
 
         public ContextMenu Menu
         {

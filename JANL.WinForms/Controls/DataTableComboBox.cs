@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -12,13 +13,22 @@ namespace JANL.Controls
         private static readonly DataSet DataTableCache = new DataSet("ComboBoxCache");
         private bool SuppressEvents = true;
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="valueName"></param>
         protected DataTableComboBox(string keyName, string valueName) : this()
         {
             KeyName = keyName;
             ValueName = valueName;
         }
 
-        private DataTableComboBox() { AddEmptyRow = false; }
+        private DataTableComboBox()
+        {
+            AddEmptyRow = false;
+            DropDownStyle = ComboBoxStyle.DropDownList;
+        }
 
         /// <summary>
         /// Удаляет все таблицы из кэша
@@ -77,8 +87,9 @@ namespace JANL.Controls
         #region Properties
 
         /// <summary>
-        /// Добавлять пустую строку в начале списка
+        /// Добавлять в начало списка пустую строку
         /// </summary>
+        [DefaultValue(false), Description("Добавлять в начало списка пустую строку")]
         public bool AddEmptyRow { get; set; }
 
         /// <summary>

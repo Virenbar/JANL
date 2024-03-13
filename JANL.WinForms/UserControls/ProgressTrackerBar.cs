@@ -13,6 +13,10 @@ namespace JANL.UserControls
             Tracker.ProgressChanged += (object _, int e) => RefreshUI();
         }
 
+        public void Increment() => Tracker.Incriment();
+
+        public void Increment(int inc) => Tracker.Incriment(inc);
+
         void IProgress<int>.Report(int value) => ((IProgress<int>)Tracker).Report(value);
 
         public void Reset()

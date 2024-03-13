@@ -61,6 +61,7 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Controls\Button\ButtonAwaiter.cs" />
     <Compile Include="Drawing\DirectBitmap.cs" />
     <Compile Include="Controls\PixelPictureBox.cs">
       <SubType>Component</SubType>
@@ -81,6 +82,7 @@
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
     <Compile Include="Controls\AnimatedPictureBox.cs">

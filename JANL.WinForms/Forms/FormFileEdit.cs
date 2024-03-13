@@ -56,7 +56,7 @@ namespace JANL.Forms
             else
             {
                 var W = Editor.MainWindowHandle;
-                SetForegroundWindow(W);
+                NativeMethods.SetForegroundWindow(W);
             }
             RefreshUI();
         }
@@ -93,12 +93,5 @@ namespace JANL.Forms
         }
 
         #endregion UI Events
-
-        #region WinAPI
-
-        [System.Runtime.InteropServices.DllImport("User32.dll")]
-        private static extern bool SetForegroundWindow(IntPtr handle);
-
-        #endregion WinAPI
     }
 }

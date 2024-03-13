@@ -41,7 +41,7 @@ namespace JANL.Controls
             UpdateText();
         }
 
-        protected virtual void UpdateText()
+        protected void UpdateText()
         {
             var time = stopwatch.Elapsed.ToString(Defaults.TimespanFormat);
             base.Text = ShowText ? $"{_text}: {time}" : time;

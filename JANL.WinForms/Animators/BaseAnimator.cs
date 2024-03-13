@@ -129,7 +129,7 @@ namespace JANL.Animators
         /// <summary>
         /// Частота кадров
         /// </summary>
-        public virtual int Framerate
+        public int Framerate
         {
             get => _framerate;
             set

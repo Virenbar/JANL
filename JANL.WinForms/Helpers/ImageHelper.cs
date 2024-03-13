@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
 
 namespace JANL.Helpers
 {
@@ -18,8 +17,7 @@ namespace JANL.Helpers
         /// <summary>
         /// Уничтожить иконку
         /// </summary>
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern bool DestroyIcon(IntPtr handle);
+        public static bool DestroyIcon(IntPtr handle) => NativeMethods.DestroyIcon(handle);
 
         /// <summary>
         /// Создает иконку из изображения
