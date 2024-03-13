@@ -14,7 +14,7 @@ namespace JANL.Excel
             RowIndexLast = RowIndexFirst;
 
             ColumnIndexFirst = 1;
-            ColumnIndexLast = Worksheet.Dimension.End.Column;
+            ColumnIndexLast = Worksheet.Dimension?.End?.Column ?? 1;
 
             CurrentRowNumber = 1;
             CurrentRowIndex = RowIndexFirst;

@@ -73,6 +73,7 @@
     <Compile Include="Excel\AutoReport.cs" />
     <Compile Include="Excel\TemplateReport.cs" />
     <Compile Include="Excel\WorksheetContext.cs" />
+    <Compile Include="Excel\WorksheetWriter.cs" />
     <Compile Include="Extensions\ExcelExtensions.cs" />
     <Compile Include="Extensions\WordExtensions.cs" />
     <Compile Include="Helpers\ExcelHelper.Common.cs" />

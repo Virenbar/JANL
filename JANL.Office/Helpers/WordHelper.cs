@@ -5,12 +5,16 @@ using System.Linq;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Расширения для Word
+    /// </summary>
     public static class WordHelper
     {
         /// <summary>
         /// Удалить параграф с указанным текстом
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="package">Документ</param>
+        /// <param name="text">Текст</param>
         public static void RemoveParagraph(WordprocessingDocument package, string text)
         {
             var Body = package.MainDocumentPart.Document.Body;
@@ -23,7 +27,8 @@ namespace JANL.Helpers
         /// <summary>
         /// Заменить text на replacement
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="package">Документ</param>
+        /// <param name="text">Текст для замены</param>
         /// <param name="replacement"></param>
         public static void ReplaceText(WordprocessingDocument package, string text, string replacement)
         {
@@ -33,7 +38,8 @@ namespace JANL.Helpers
         /// <summary>
         /// Заменить text на replacement
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="package">Документ</param>
+        /// <param name="text">Текст</param>
         /// <param name="replacement"></param>
         public static void ReplaceText(WordprocessingDocument package, string text, object replacement)
         {

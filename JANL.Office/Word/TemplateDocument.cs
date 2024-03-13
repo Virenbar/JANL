@@ -4,6 +4,9 @@ using System.IO;
 
 namespace JANL.Word
 {
+    /// <summary>
+    ///
+    /// </summary>
     public abstract class TemplateDocument : IDisposable
     {
         protected FileInfo _file;

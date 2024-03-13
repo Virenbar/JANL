@@ -28,6 +28,7 @@ namespace JANL.Excel
         public virtual void Print(FileInfo file)
         {
             if (!file.Directory.Exists) { file.Directory.Create(); }
+            if (file.Exists) { file.Delete(); }
             using (var package = new ExcelPackage(file))
             {
                 PrintReport(package);
