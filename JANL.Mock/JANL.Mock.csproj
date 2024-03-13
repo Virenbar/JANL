@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<RootNamespace>JANL</RootNamespace>
+		<IsPackable>false</IsPackable>
+		<Configurations>Debug;Release</Configurations>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\JANL\JANL.csproj" />
+	</ItemGroup>
+	
+</Project>
