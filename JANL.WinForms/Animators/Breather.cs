@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace JANL.Animators
 {
-    public class Breather : BaseAnimator
+    public sealed class Breather : BaseAnimator
     {
         private bool down;
         private float scale = 1;

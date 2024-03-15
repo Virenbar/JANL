@@ -87,11 +87,11 @@ namespace JANL.DataReaders
         #endregion IDisposable Support
 
         #region NotImplemented
-        public int Depth => throw new NotImplementedException();
+        public int Depth => throw new InvalidOperationException();
 
-        public bool IsClosed => throw new NotImplementedException();
+        public bool IsClosed => throw new InvalidOperationException();
 
-        public int RecordsAffected => throw new NotImplementedException();
+        public int RecordsAffected => throw new InvalidOperationException();
 
         public void Close() => throw new NotImplementedException();
 

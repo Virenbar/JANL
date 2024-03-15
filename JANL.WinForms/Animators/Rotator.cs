@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace JANL.Animators
 {
-    public class Rotator : BaseAnimator
+    public sealed class Rotator : BaseAnimator
     {
         /// <summary>
         /// Максимальный угол

@@ -10,13 +10,21 @@ namespace JANL.Data
 {
     public static class SQLDataMapper
     {
+        /// <summary>
+        /// Reads
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="data"></param>
         public static void ReadFromObject(SqlParameterCollection parameters, object data)
         {
+            var type = data.GetType();
+            var t = type.GetCustomAttributes(typeof(SQLObjectAttribute), false).FirstOrDefault();
+
             var properties = data.GetType().GetProperties();
             foreach (var prop in properties)
             {
                 if (!prop.CanRead) { continue; }
-                var attribute = (SQLDataAttribute)prop.GetCustomAttributes(typeof(SQLDataAttribute), false).FirstOrDefault();
+                var attribute = (SQLMemberAttribute)prop.GetCustomAttributes(typeof(SQLMemberAttribute), false).FirstOrDefault();
                 if (attribute is null || attribute.WriteOnly) { continue; }
 
                 var name = attribute.MemberName;
@@ -76,7 +84,7 @@ namespace JANL.Data
             foreach (var prop in properties)
             {
                 if (!prop.CanWrite) { continue; }
-                var attribute = (SQLDataAttribute)prop.GetCustomAttributes(typeof(SQLDataAttribute), false).FirstOrDefault();
+                var attribute = (SQLMemberAttribute)prop.GetCustomAttributes(typeof(SQLMemberAttribute), false).FirstOrDefault();
                 if (attribute is null || attribute.ReadOnly) { continue; }
 
                 var name = attribute.MemberName;
@@ -88,16 +96,40 @@ namespace JANL.Data
             }
         }
     }
-    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    public class SQLDataAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false), Obsolete]
+    public class SQLDataAttribute : SQLMemberAttribute
     {
         public SQLDataAttribute([CallerMemberName] string memberName = null)
         {
             MemberName = memberName;
         }
+    }
 
-        public string MemberName { get; }
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    public class SQLMemberAttribute : Attribute
+    {
+        public SQLMemberAttribute([CallerMemberName] string memberName = null)
+        {
+            MemberName = memberName;
+        }
+
+        public string MemberName { get; protected set; }
         public bool ReadOnly { get; set; }
         public bool WriteOnly { get; set; }
+    }
+
+    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+    public class SQLObjectAttribute : Attribute
+    {
+    }
+
+    public class ColumnNameAttribute : Attribute
+    {
+        public string Name { get; }
+
+        public ColumnNameAttribute(string name)
+        {
+            Name = name;
+        }
     }
 }

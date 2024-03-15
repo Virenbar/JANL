@@ -14,18 +14,17 @@ namespace JANL.DataReaders
         protected readonly StreamReader CSV;
         protected readonly char SplitChar = ',';
 
-        public CSVDataReader(string File)
+        public CSVDataReader(string file)
         {
-            CSV = new StreamReader(File);
+            CSV = new StreamReader(file);
             Columns = CSV.ReadLine().Split(SplitChar).ToList();
         }
 
-        public CSVDataReader(string File, IEnumerable<string> Columns) : this(File)
+        public CSVDataReader(string file, IEnumerable<string> columns) : this(file)
         {
-            CSV = new StreamReader(File);
-            this.Columns = Columns.ToList();
+            Columns = columns.ToList();
             var index = 0;
-            Mapping = Columns.ToDictionary(K => K, V => index++);
+            Mapping = columns.ToDictionary(K => K, V => index++);
         }
 
         public int FieldCount => Columns.Count;

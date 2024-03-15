@@ -8,11 +8,11 @@ namespace JANL.Beep
     public struct Note
     {
         private const int A440 = 440;
-        private readonly static Dictionary<string, int> NoteNumber = new Dictionary<string, int>();
-        private readonly static Dictionary<string, double> NoteValues = new Dictionary<string, double>();
-        private static Regex RNote = new Regex(@"(?<Pitch>[A-G][#b]?|R)(?<Octave>[0-8])?(?<Value>[WHQES]\.{0,3})?", RegexOptions.IgnoreCase);
-        private static Regex RNumber = new Regex(@"(?<Pitch>[A-G][#bn]?|R)(?<Octave>[0-8])?", RegexOptions.IgnoreCase & RegexOptions.Compiled);
-        private static Regex RNoteSS = new Regex(@"(?<Notes>(?>[A-GR][#bn]?[0-8]?-?)+)\/?(?<Value>\d.\d+)?", RegexOptions.IgnoreCase);
+        private static readonly Dictionary<string, int> NoteNumber = new Dictionary<string, int>();
+        private static readonly Dictionary<string, double> NoteValues = new Dictionary<string, double>();
+        private static readonly Regex RNote = new Regex(@"(?<Pitch>[A-G][#b]?|R)(?<Octave>[0-8])?(?<Value>[WHQES]\.{0,3})?", RegexOptions.IgnoreCase);
+        private static readonly Regex RNoteSS = new Regex(@"(?<Notes>(?>[A-GR][#bn]?[0-8]?-?)+)\/?(?<Value>\d.\d+)?", RegexOptions.IgnoreCase);
+        private static readonly Regex RNumber = new Regex(@"(?<Pitch>[A-G][#bn]?|R)(?<Octave>[0-8])?", RegexOptions.IgnoreCase & RegexOptions.Compiled);
         //(?<Note>((?<Pitch>[A-G][#b]?|R)(?<Octave>[0-8])?-?)+)(?<Value>\/\d.\d+)?
 
         static Note()

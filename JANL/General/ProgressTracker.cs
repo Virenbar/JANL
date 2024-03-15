@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace JANL
 {
-    public class ProgressTracker : Progress<int>
+    public class ProgressTracker : Progress<int>, IProgress<int>
     {
         private readonly FixedQueue<TimeSpan> DeltaTime;
         private readonly Stopwatch TotalTime = new Stopwatch();
@@ -22,16 +22,16 @@ namespace JANL
 
         public ProgressTracker() : this(100, 10) { }
 
-        public void Incriment() => OnReport(1);
+        public void Incriment() => OnReport(Value + 1);
 
-        public void Incriment(int value) => OnReport(value);
+        public void Incriment(int inc) => OnReport(Value + inc);
 
         public void Reset()
         {
             Value = 0;
             TotalTime.Reset();
-            TimeAverage = TimeSpan.Zero;
             DeltaTime.Clear();
+            TimeAverage = TimeSpan.Zero;
             TimeRemaining = TimeSpan.Zero;
         }
 
@@ -47,23 +47,20 @@ namespace JANL
 
         protected override void OnReport(int value)
         {
-            Value += value;
+            var delta = value - Value;
+            Value = Math.Min(value, Maximum);
             if (Value >= Maximum)
             {
-                Value = Maximum;
                 TimeRemaining = TimeSpan.Zero;
             }
             else
             {
-                DeltaTime.Enqueue(new TimeSpan((TotalTime.Elapsed - LastReport).Ticks / value));
+                DeltaTime.Enqueue(new TimeSpan((TotalTime.Elapsed - LastReport).Ticks / delta));
                 long Average = (long)DeltaTime.Average(T => T.Ticks);
+                long oldTicks = TimeRemaining.Ticks;
+                long newTicks = Average * (Maximum - Value);
                 TimeAverage = new TimeSpan(Average);
-                long old = TimeRemaining.Ticks;
-                long n = Average * (Maximum - Value);
-
-                long d = (long)(old * Smoothness + n * (1 - Smoothness));
-
-                TimeRemaining = new TimeSpan(d);
+                TimeRemaining = new TimeSpan((long)(oldTicks * Smoothness + newTicks * (1 - Smoothness)));
             }
             LastReport = TotalTime.Elapsed;
             base.OnReport(value);

@@ -77,8 +77,8 @@ namespace JANL.Animators
         /// <summary>
         /// Создает новый кадр
         /// </summary>
-        /// <param name="SourceImage"></param>
-        /// <param name="CurrentImage"></param>
+        /// <param name="SourceImage">Исходный кадр</param>
+        /// <param name="CurrentImage">Текущий кадр</param>
         /// <returns>Новый кадр</returns>
         protected abstract Image Transform(Image SourceImage, Image CurrentImage);
 
@@ -109,7 +109,7 @@ namespace JANL.Animators
         /// <summary>
         /// Длительность анимации
         /// </summary>
-        public virtual int Duration
+        public int Duration
         {
             get => _duration;
             set

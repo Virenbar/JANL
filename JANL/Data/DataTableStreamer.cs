@@ -54,7 +54,7 @@ namespace JANL.Data
 
         void IDisposable.Dispose() => Dispose(true);
 
-        protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
             {

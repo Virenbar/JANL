@@ -6,14 +6,21 @@ namespace JANL.Extensions
 {
     public static class SQLExtensions
     {
+        public static void ExecuteNonQuery(this SqlCommand command) => ExecuteNonQuery(command, Defaults.Connection);
+
         public static void ExecuteNonQuery(this SqlCommand command, string connection)
         {
             using (var Connection = new SqlConnection(connection))
             {
                 Connection.Open();
-                command.Connection = Connection;
-                command.ExecuteNonQuery();
+                ExecuteNonQuery(command, Connection);
             }
+        }
+
+        public static void ExecuteNonQuery(this SqlCommand command, SqlConnection connection)
+        {
+            command.Connection = connection;
+            command.ExecuteNonQuery();
         }
 
         public static object ExecuteScalar(this SqlCommand command, string connection)
@@ -54,5 +61,7 @@ namespace JANL.Extensions
             }
             return Result;
         }
+
+        public static SqlParameter AddParameter(this SqlCommand command, string name, object value) => command.Parameters.AddWithValue(name, value);
     }
 }

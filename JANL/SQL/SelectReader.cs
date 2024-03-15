@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace JANL.SQL
     /// <summary>
     /// Процедура возвращающая <see cref="SqlDataReader"/>
     /// </summary>
+    [Obsolete()]
     public class SelectReader : SQLProcedure<SqlDataReader>
     {
         /// <summary>
