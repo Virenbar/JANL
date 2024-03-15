@@ -10,35 +10,36 @@ namespace JANL.Test.Extensions
         public void TestAll()
         {
             // Integer
-            Assert.IsTrue(2.IsBetween(1, 3));
-            Assert.IsFalse(0.IsBetween(1, 3));
-            Assert.IsFalse(4.IsBetween(1, 3));
-            Assert.IsTrue(2.IsBetween(3, 1));
-            Assert.IsFalse(0.IsBetween(3, 1));
-            Assert.IsFalse(4.IsBetween(3, 1));
+            Assert.That(2.IsBetween(1, 3), Is.True);
+            Assert.That(2.IsBetween(1, 3), Is.True);
+            Assert.That(0.IsBetween(1, 3), Is.False);
+            Assert.That(4.IsBetween(1, 3), Is.False);
+            Assert.That(2.IsBetween(3, 1), Is.True);
+            Assert.That(0.IsBetween(3, 1), Is.False);
+            Assert.That(4.IsBetween(3, 1), Is.False);
             // BigInteger
-            Assert.IsTrue(new BigInteger(2).IsBetween(1, 3));
-            Assert.IsFalse(new BigInteger(0).IsBetween(1, 3));
-            Assert.IsFalse(new BigInteger(4).IsBetween(1, 3));
-            Assert.IsTrue(new BigInteger(2).IsBetween(3, 1));
-            Assert.IsFalse(new BigInteger(0).IsBetween(3, 1));
-            Assert.IsFalse(new BigInteger(4).IsBetween(3, 1));
+            Assert.That(new BigInteger(2).IsBetween(1, 3), Is.True);
+            Assert.That(new BigInteger(0).IsBetween(1, 3), Is.False);
+            Assert.That(new BigInteger(4).IsBetween(1, 3), Is.False);
+            Assert.That(new BigInteger(2).IsBetween(3, 1), Is.True);
+            Assert.That(new BigInteger(0).IsBetween(3, 1), Is.False);
+            Assert.That(new BigInteger(4).IsBetween(3, 1), Is.False);
         }
 
         [Test]
         public void TestGeneric()
         {
-            Assert.IsTrue(2.IsBetween<int>(1, 3));
-            Assert.IsFalse(0.IsBetween<int>(1, 3));
-            Assert.IsFalse(4.IsBetween<int>(1, 3));
+            Assert.That(2.IsBetween<int>(1, 3), Is.True);
+            Assert.That(0.IsBetween<int>(1, 3), Is.False);
+            Assert.That(4.IsBetween<int>(1, 3), Is.False);
 
-            Assert.IsTrue(2.IsBetween<int>(3, 1));
-            Assert.IsFalse(0.IsBetween<int>(3, 1));
-            Assert.IsFalse(4.IsBetween<int>(3, 1));
+            Assert.That(2.IsBetween<int>(3, 1), Is.True);
+            Assert.That(0.IsBetween<int>(3, 1), Is.False);
+            Assert.That(4.IsBetween<int>(3, 1), Is.False);
 
-            Assert.IsTrue(2.IsBetween<int>(2, 2));
-            Assert.IsFalse(0.IsBetween<int>(2, 2));
-            Assert.IsFalse(4.IsBetween<int>(2, 2));
+            Assert.That(2.IsBetween<int>(2, 2), Is.True);
+            Assert.That(0.IsBetween<int>(2, 2), Is.False);
+            Assert.That(4.IsBetween<int>(2, 2), Is.False);
         }
     }
 }

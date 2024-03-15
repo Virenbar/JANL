@@ -13,14 +13,14 @@ namespace JANL.Test.Generic
         {
             for (int i = 0; i < Limit + 5; i++) { Queue.Enqueue(0); }
             Queue.Dequeue();
-            Assert.AreEqual(Limit - 1, Queue.Count);
+            Assert.That(Limit - 1, Is.EqualTo(Queue.Count));
         }
 
         [Test]
         public void Enqueue()
         {
             for (int i = 0; i < Limit + 5; i++) { Queue.Enqueue(0); }
-            Assert.AreEqual(Limit, Queue.Count);
+            Assert.That(Limit, Is.EqualTo(Queue.Count));
         }
 
         [SetUp]

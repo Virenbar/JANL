@@ -10,7 +10,7 @@ namespace JANL.Test.Helpers
         {
             var target = "(Convert(C1,'System.String') LIKE '%V1%' AND Convert(C1,'System.String') LIKE '%V2%') OR (Convert(C2,'System.String') LIKE '%V1%' AND Convert(C2,'System.String') LIKE '%V2%')";
             var result = FilterHelper.RowFilterByColumns(new[] { "C1", "C2" }, "V1 V2");
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -18,7 +18,7 @@ namespace JANL.Test.Helpers
         {
             var target = "Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V1%' AND Convert(C1,'System.String')+' '+Convert(C2,'System.String') LIKE '%V2%'";
             var result = FilterHelper.RowFilterByRow(new[] { "C1", "C2" }, "V1 V2");
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
     }
 }

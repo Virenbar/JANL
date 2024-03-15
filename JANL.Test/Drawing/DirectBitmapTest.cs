@@ -25,14 +25,14 @@ namespace JANL.Test.Drawing
         public void TestGetSet()
         {
             Bitmap.SetPixel(0, 0, White);
-            Assert.AreEqual(White.ToArgb(), Bitmap.GetPixel(0, 0).ToArgb());
+            Assert.That(White.ToArgb(), Is.EqualTo(Bitmap.GetPixel(0, 0).ToArgb()));
         }
 
         [Test]
         public void TestThis()
         {
             Bitmap[1, 1] = White;
-            Assert.AreEqual(White.ToArgb(), Bitmap[1, 1].ToArgb());
+            Assert.That(White.ToArgb(), Is.EqualTo(Bitmap[1, 1].ToArgb()));
         }
     }
 }

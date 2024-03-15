@@ -14,7 +14,7 @@ namespace JANL.Test.Helpers
         {
             var target = "одна тысяча триста тридцать семь";
             var result = StringHelper.NumberToText(1337);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -22,7 +22,7 @@ namespace JANL.Test.Helpers
         {
             var target = "двести две тысячи сто один";
             var result = StringHelper.NumberToText(202101);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace JANL.Test.Helpers
         {
             var target = "двое суток";
             var result = StringHelper.NumberToText(2, Day);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -38,6 +38,7 @@ namespace JANL.Test.Helpers
         {
             void Result() { StringHelper.NumberToText(22, Day); }
             Assert.Throws<SyntacticIncongruityException>(Result);
+            Assert.That(Result, Throws.Exception.TypeOf<SyntacticIncongruityException>());
         }
 
         [Test]
@@ -45,7 +46,7 @@ namespace JANL.Test.Helpers
         {
             var target = "одна тысяча триста тридцать семь рублей 0 копеек";
             var result = StringHelper.RubleToText(1337m);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -53,7 +54,7 @@ namespace JANL.Test.Helpers
         {
             var target = "двести две тысячи сто один рубль 55 копеек";
             var result = StringHelper.RubleToText(202101.55m);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
     }
 }

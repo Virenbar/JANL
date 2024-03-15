@@ -7,15 +7,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="nunit" Version="3.13.3" />
+		<PackageReference Include="nunit" Version="3.14.0" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\JANL.Mock\JANL.Mock.csproj" />
 		<ProjectReference Include="..\JANL.Office\JANL.Office.csproj" />
 		<ProjectReference Include="..\JANL.WinForms\JANL.WinForms.csproj" />
 		<ProjectReference Include="..\JANL\JANL.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="System.Data.DataSetExtensions">
+	    <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ namespace JANL.Test.Helpers
         {
             var target = new List<string>(new[] { "A", "B", "C", "D" });
             var result = ExcelMiniHelper.LetterRange("A", "D");
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -19,7 +19,7 @@ namespace JANL.Test.Helpers
         {
             var target = "A";
             var result = ExcelMiniHelper.ToLetter(1);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace JANL.Test.Helpers
         {
             var target = "AA";
             var result = ExcelMiniHelper.ToLetter(27);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace JANL.Test.Helpers
         {
             var target = "A1";
             var result = ExcelMiniHelper.ToLetter(1, 1);
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace JANL.Test.Helpers
         {
             var target = 1;
             var result = ExcelMiniHelper.ToNumber("A");
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace JANL.Test.Helpers
         {
             var target = 27;
             var result = ExcelMiniHelper.ToNumber("AA");
-            Assert.AreEqual(target, result);
+            Assert.That(result, Is.EqualTo(target));
         }
     }
 }
