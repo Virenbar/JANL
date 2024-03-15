@@ -5,10 +5,10 @@ Imports JANL
 Imports JANL.Controls
 Imports JANL.Forms
 Imports JANL.Helpers.StringHelper
-Imports TestWAT.Models
+Imports JANL.Models
 
 Public Class FormTest
-    Private TestObject As New TestModel()
+    Private TestObject As New TestObject()
     Private TP As Progress(Of TaskProgress)
 
     Private Sub FormTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load

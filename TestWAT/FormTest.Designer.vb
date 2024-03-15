@@ -150,7 +150,7 @@ Partial Class FormTest
         '
         'BS_TestModel
         '
-        Me.BS_TestModel.DataSource = GetType(TestWAT.Models.TestModel)
+        Me.BS_TestModel.DataSource = GetType(JANL.Models.TestObject)
         '
         'TableLayoutPanel1
         '

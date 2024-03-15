@@ -14,7 +14,7 @@ Namespace My
 
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
             'Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr-FR")
-            Config.Current = JsonConvert.DeserializeObject(Of Config)(IO.File.ReadAllText("Config.json"))
+            Config.Load()
             'JANL.My.MySettings.Default.Font
             Defaults.Connection = "Data Source=PARTSERVER2014;Initial Catalog=wpeople_SPR;Integrated Security=True"
             '

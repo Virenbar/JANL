@@ -1,5 +1,5 @@
-﻿Imports JANL.Controls
-Imports TestWAT.Enums
+﻿Imports JANL
+Imports JANL.Controls
 
 Public Class CB_PersonType
     Inherits DataTableComboBox

@@ -1,5 +1,5 @@
-﻿Imports TestWAT.Enums
-Imports TestWAT.Models.Filters
+﻿Imports JANL.Models.Filters
+Imports JANL.Stores
 
 Public Class FormPersonList
 
@@ -25,7 +25,7 @@ Public Class FormPersonList
         DTV_Person.WaitTime = 50
         DTV_Person.KeyName = Persons.KeyName
         DTV_Person.ValueName = Persons.ValueName
-        DTV_Person.SetFilterColumns(Persons.FilterColumns)
+        ' DTV_Person.SetFilterColumns(Persons.FilterColumns)
         Await RefreshDT()
     End Sub
 
