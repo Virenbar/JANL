@@ -9,122 +9,61 @@ namespace JANL.Controls
     /// TextBox with Label
     /// </summary>
     [Obsolete("WIP")]
-    public class TextBoxEx : TextBox
+    public class TextBoxEx : TextBoxLabel
     {
         internal PictureBox PB_Clear;
-        private const string LabelPrefix = "\x200b\x200b";
-        private string LabelStr;
 
         public TextBoxEx()
         {
             InitializeComponent();
 
-            Controls.Add(PB_Clear);
-            PB_Clear.Location = new Point(-10, 0); // = New Point((Height \ 2) - (PB_Clear.Height \ 2), Width - PB_Clear.Width - 2)
+            //Controls.Add(PB_Clear);
+            //  PB_Clear.Location = new Point(0, 0); // = New Point((Height \ 2) - (PB_Clear.Height \ 2), Width - PB_Clear.Width - 2)
+        }
 
-            base.Text = LabelPrefix;
-            ForeColor = Color.Black;
-            LabelColor = Color.SlateGray;
-            Label = "";
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            //  _button.Size = new Size(_button.Width, this.ClientSize.Height + 2);
+            PB_Clear.Location = new Point(this.ClientSize.Width - PB_Clear.Width, -1);
+            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+            //SendMessage(this.Handle, 0xd3, (IntPtr)2, (IntPtr)(_button.Width << 16));
         }
 
         #region Properties
 
         #region Designer
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [DefaultValue(typeof(Color), "0x000000")]
-        public new Color ForeColor { get; set; }
-
-        [Browsable(true)]
-        [Category("Appearance")]
-        [DefaultValue("")]
-        [Description("Label")]
-        public string Label
-        {
-            get => LabelStr.Substring(2);
-            set
-            {
-                LabelStr = LabelPrefix + value;
-                if (IsLabel) { base.Text = LabelStr; }
-                UpdateColor();
-            }
-        }
-
-        [Browsable(true)]
-        [Category("Appearance")]
-        [DefaultValue(typeof(Color), "0x708090")]
-        [Description("Label color")]
-        public Color LabelColor { get; set; }
-
-        [Browsable(true)]
-        [Category("Appearance")]
-        [DefaultValue("")]
-        public new string Text
-        {
-            get => IsLabel ? "" : base.Text;
-            set
-            {
-                base.Text = value?.Length == 0 ? LabelStr : value;
-                UpdateColor();
-            }
-        }
+        //j
 
         #endregion Designer
 
-        [Browsable(false)]
-        public bool IsLabel => base.Text.Length >= 2 && base.Text.Substring(0, 2) == LabelPrefix;
-
         #endregion Properties
-
-        protected override void OnGotFocus(EventArgs e)
-        {
-            if (IsLabel) { Clear(); }
-            base.OnGotFocus(e);
-        }
-
-        protected override void OnLostFocus(EventArgs e)
-        {
-            if (base.Text.Length == 0) { base.Text = LabelStr; }
-            base.OnLostFocus(e);
-        }
-
-        protected override void OnTextChanged(EventArgs e)
-        {
-            UpdateColor();
-            base.OnTextChanged(e);
-        }
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextBoxEx));
-            this.PB_Clear = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Clear)).BeginInit();
-            this.SuspendLayout();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(TextBoxEx));
+            PB_Clear = new PictureBox();
+            ((ISupportInitialize)PB_Clear).BeginInit();
+            SuspendLayout();
             //
             // PB_Clear
             //
-            this.PB_Clear.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.PB_Clear.BackColor = System.Drawing.Color.Transparent;
-            this.PB_Clear.Image = ((System.Drawing.Image)(resources.GetObject("PB_Clear.Image")));
-            this.PB_Clear.Location = new System.Drawing.Point(0, 0);
-            this.PB_Clear.Name = "PB_Clear";
-            this.PB_Clear.Size = new System.Drawing.Size(16, 16);
-            this.PB_Clear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_Clear.TabIndex = 0;
-            this.PB_Clear.TabStop = false;
+            PB_Clear.Anchor = AnchorStyles.Right;
+            PB_Clear.BackColor = Color.Transparent;
+            PB_Clear.Image = (Image)(resources.GetObject("PB_Clear.Image"));
+            PB_Clear.Location = new Point(this.ClientSize.Width - PB_Clear.Width, -1);// new Point(0, 0);
+            PB_Clear.Name = "PB_Clear";
+            PB_Clear.Size = new Size(16, 16);
+            PB_Clear.SizeMode = PictureBoxSizeMode.Zoom;
+            PB_Clear.TabIndex = 0;
+            PB_Clear.TabStop = false;
             //
             // TextBoxEx
             //
-            this.Controls.Add(this.PB_Clear);
-            ((System.ComponentModel.ISupportInitialize)(this.PB_Clear)).EndInit();
-            this.ResumeLayout(false);
-        }
-
-        private void UpdateColor()
-        {
-            base.ForeColor = IsLabel ? LabelColor : ForeColor;
+            Controls.Add(PB_Clear);
+            ((ISupportInitialize)PB_Clear).EndInit();
+            ResumeLayout(false);
         }
     }
 }

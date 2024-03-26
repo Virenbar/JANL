@@ -33,6 +33,7 @@ namespace JANL
             DeltaTime.Clear();
             TimeAverage = TimeSpan.Zero;
             TimeRemaining = TimeSpan.Zero;
+            LastReport = TimeSpan.Zero;
         }
 
         public void Start()
@@ -47,21 +48,24 @@ namespace JANL
 
         protected override void OnReport(int value)
         {
-            var delta = value - Value;
+            var delta = Math.Abs(value - Value);
             Value = Math.Min(value, Maximum);
-            if (Value >= Maximum)
+            if (Value == Maximum)
             {
                 TimeRemaining = TimeSpan.Zero;
             }
-            else
+            else if (delta > 0)
             {
                 DeltaTime.Enqueue(new TimeSpan((TotalTime.Elapsed - LastReport).Ticks / delta));
                 long Average = (long)DeltaTime.Average(T => T.Ticks);
+                TimeAverage = new TimeSpan(Average);
                 long oldTicks = TimeRemaining.Ticks;
                 long newTicks = Average * (Maximum - Value);
-                TimeAverage = new TimeSpan(Average);
                 TimeRemaining = new TimeSpan((long)(oldTicks * Smoothness + newTicks * (1 - Smoothness)));
             }
+#if DEBUG
+            Console.WriteLine($"{delta}{TimeAverage}{TimeRemaining}");
+#endif
             LastReport = TotalTime.Elapsed;
             base.OnReport(value);
         }

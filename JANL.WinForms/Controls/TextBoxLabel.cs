@@ -15,6 +15,8 @@ namespace JANL.Controls
 
         private void UpdateColor() => base.ForeColor = IsText ? ForeColor : LabelColor;
 
+        private bool focused;
+
         #region Properties
 
         #region Designer
@@ -67,19 +69,23 @@ namespace JANL.Controls
 
         protected override void OnGotFocus(EventArgs e)
         {
+            focused = true;
             base.Text = TextValue;
+            UpdateColor();
             base.OnGotFocus(e);
         }
 
         protected override void OnLostFocus(EventArgs e)
         {
+            focused = false;
+            TextValue = base.Text;
             if (base.Text.Length == 0) { base.Text = Label; }
             base.OnLostFocus(e);
         }
 
         protected override void OnTextChanged(EventArgs e)
         {
-            if (Focused) { TextValue = base.Text; }
+            if (focused) { TextValue = base.Text; }
             UpdateColor();
             base.OnTextChanged(e);
         }
