@@ -25,14 +25,7 @@ Partial Class FormTest
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTest))
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.DateTimeS1 = New JANL.DateTimePickerEx()
         Me.BS_TestModel = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.B_DateNull = New System.Windows.Forms.Button()
-        Me.B_Date2000 = New System.Windows.Forms.Button()
-        Me.DateTimeS2 = New JANL.DateTimePickerEx()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TB_Test = New JANL.Controls.ToggleButton()
         Me.B_Exception = New System.Windows.Forms.Button()
@@ -51,34 +44,27 @@ Partial Class FormTest
         Me.TextBoxEx1 = New JANL.Controls.TextBoxEx()
         Me.TextBoxLabel1 = New JANL.Controls.TextBoxLabel()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.RegexTextBox1 = New JANL.Controls.RegexTextBox()
-        Me.RegexTextBox2 = New JANL.Controls.RegexTextBox()
-        Me.RegexTextBox3 = New JANL.Controls.RegexTextBox()
-        Me.RegexTextBox4 = New JANL.Controls.RegexTextBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MonthPicker1 = New JANL.UserControls.MonthPicker()
         Me.TB_Number = New System.Windows.Forms.TextBox()
         Me.TB_NumberText = New System.Windows.Forms.TextBox()
         Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.B_TTS = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_EditFile = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Test_ProgressTrackerBar1 = New TestWAT.Test_ProgressTrackerBar()
         Me.Test_TaskButton1 = New TestWAT.Test_TaskButton()
         Me.Test_DataMapper1 = New TestWAT.Test_DataMapper()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.B_TTS = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.GroupBox1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.Test_DTP1 = New TestWAT.Test_DTP()
+        Me.Test_RegexTextBox1 = New TestWAT.Test_RegexTextBox()
         CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -86,18 +72,16 @@ Partial Class FormTest
         Me.GP_PB.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.TB_Numberaga.SuspendLayout()
+        Me.FlowLayoutPanel6.SuspendLayout()
         Me.FlowLayoutPanel5.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        Me.FlowLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -106,95 +90,9 @@ Partial Class FormTest
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.AutoSize = True
-        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel2)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(179, 112)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "TestDate"
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.AutoSize = True
-        Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.Controls.Add(Me.DateTimeS1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel1, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.DateTimeS2, 0, 2)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 18)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(173, 91)
-        Me.TableLayoutPanel2.TabIndex = 4
-        '
-        'DateTimeS1
-        '
-        Me.DateTimeS1.CustomFormat = "dd.MM.yyyy g"
-        Me.DateTimeS1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DateTimeS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimeS1.Location = New System.Drawing.Point(3, 3)
-        Me.DateTimeS1.Name = "DateTimeS1"
-        Me.DateTimeS1.Size = New System.Drawing.Size(167, 22)
-        Me.DateTimeS1.TabIndex = 0
-        Me.DateTimeS1.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
-        '
         'BS_TestModel
         '
         Me.BS_TestModel.DataSource = GetType(JANL.Models.TestObject)
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(Me.B_DateNull, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.B_Date2000, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 31)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(162, 29)
-        Me.TableLayoutPanel1.TabIndex = 3
-        '
-        'B_DateNull
-        '
-        Me.B_DateNull.Location = New System.Drawing.Point(84, 3)
-        Me.B_DateNull.Name = "B_DateNull"
-        Me.B_DateNull.Size = New System.Drawing.Size(75, 23)
-        Me.B_DateNull.TabIndex = 3
-        Me.B_DateNull.Text = "SetNull"
-        Me.B_DateNull.UseVisualStyleBackColor = True
-        '
-        'B_Date2000
-        '
-        Me.B_Date2000.Location = New System.Drawing.Point(3, 3)
-        Me.B_Date2000.Name = "B_Date2000"
-        Me.B_Date2000.Size = New System.Drawing.Size(75, 23)
-        Me.B_Date2000.TabIndex = 1
-        Me.B_Date2000.Text = "Set2000"
-        Me.B_Date2000.UseVisualStyleBackColor = True
-        '
-        'DateTimeS2
-        '
-        Me.DateTimeS2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BS_TestModel, "TestDate", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DateTimeS2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimeS2.Location = New System.Drawing.Point(3, 66)
-        Me.DateTimeS2.Name = "DateTimeS2"
-        Me.DateTimeS2.Size = New System.Drawing.Size(167, 22)
-        Me.DateTimeS2.TabIndex = 4
-        Me.DateTimeS2.Value = New Date(2021, 2, 24, 15, 10, 56, 363)
         '
         'GroupBox2
         '
@@ -270,7 +168,7 @@ Partial Class FormTest
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPB_Test})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 575)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1000, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(994, 22)
         Me.StatusStrip1.TabIndex = 6
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -374,7 +272,7 @@ Partial Class FormTest
         '
         'TextBoxEx1
         '
-        Me.TextBoxEx1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxEx1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BS_TestModel, "TestString", True))
         Me.TextBoxEx1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.TextBoxEx1.Label = "TestString"
         Me.TextBoxEx1.Location = New System.Drawing.Point(3, 31)
@@ -398,77 +296,12 @@ Partial Class FormTest
         Me.GroupBox5.AutoSize = True
         Me.GroupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox5.Controls.Add(Me.FlowLayoutPanel1)
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 121)
+        Me.GroupBox5.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(134, 105)
         Me.GroupBox5.TabIndex = 17
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "TextBoxEx"
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.AutoSize = True
-        Me.GroupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox6.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox6.Location = New System.Drawing.Point(3, 232)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(140, 133)
-        Me.GroupBox6.TabIndex = 19
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "RegexTextBox"
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.AutoSize = True
-        Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox1)
-        Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox2)
-        Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox3)
-        Me.FlowLayoutPanel2.Controls.Add(Me.RegexTextBox4)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 18)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(134, 112)
-        Me.FlowLayoutPanel2.TabIndex = 0
-        Me.FlowLayoutPanel2.WrapContents = False
-        '
-        'RegexTextBox1
-        '
-        Me.RegexTextBox1.Location = New System.Drawing.Point(3, 3)
-        Me.RegexTextBox1.Message = Nothing
-        Me.RegexTextBox1.Name = "RegexTextBox1"
-        Me.RegexTextBox1.Pattern = "^4\d{9}$"
-        Me.RegexTextBox1.Size = New System.Drawing.Size(128, 22)
-        Me.RegexTextBox1.TabIndex = 18
-        '
-        'RegexTextBox2
-        '
-        Me.RegexTextBox2.Location = New System.Drawing.Point(3, 31)
-        Me.RegexTextBox2.Message = Nothing
-        Me.RegexTextBox2.Name = "RegexTextBox2"
-        Me.RegexTextBox2.Pattern = "^4\d{9}$"
-        Me.RegexTextBox2.Required = True
-        Me.RegexTextBox2.Size = New System.Drawing.Size(128, 22)
-        Me.RegexTextBox2.TabIndex = 19
-        '
-        'RegexTextBox3
-        '
-        Me.RegexTextBox3.Location = New System.Drawing.Point(3, 59)
-        Me.RegexTextBox3.Message = Nothing
-        Me.RegexTextBox3.Name = "RegexTextBox3"
-        Me.RegexTextBox3.Pattern = "^\d{1,10}$"
-        Me.RegexTextBox3.Required = True
-        Me.RegexTextBox3.Size = New System.Drawing.Size(128, 22)
-        Me.RegexTextBox3.TabIndex = 20
-        '
-        'RegexTextBox4
-        '
-        Me.RegexTextBox4.Location = New System.Drawing.Point(3, 87)
-        Me.RegexTextBox4.Message = Nothing
-        Me.RegexTextBox4.Name = "RegexTextBox4"
-        Me.RegexTextBox4.Size = New System.Drawing.Size(128, 22)
-        Me.RegexTextBox4.TabIndex = 21
         '
         'FlowLayoutPanel3
         '
@@ -479,25 +312,23 @@ Partial Class FormTest
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 34)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 420)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 480)
         Me.FlowLayoutPanel3.TabIndex = 20
         '
         'FlowLayoutPanel4
         '
-        Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox1)
         Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox5)
-        Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox6)
         Me.FlowLayoutPanel4.Controls.Add(Me.MonthPicker1)
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(240, 34)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 420)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 480)
         Me.FlowLayoutPanel4.TabIndex = 21
         '
         'MonthPicker1
         '
         Me.MonthPicker1.AutoSize = True
-        Me.MonthPicker1.Location = New System.Drawing.Point(3, 371)
+        Me.MonthPicker1.Location = New System.Drawing.Point(3, 114)
         Me.MonthPicker1.MinYear = 2000
         Me.MonthPicker1.Name = "MonthPicker1"
         Me.MonthPicker1.Size = New System.Drawing.Size(158, 21)
@@ -508,7 +339,7 @@ Partial Class FormTest
         Me.TB_Number.Dock = System.Windows.Forms.DockStyle.Top
         Me.TB_Number.Location = New System.Drawing.Point(3, 18)
         Me.TB_Number.Name = "TB_Number"
-        Me.TB_Number.Size = New System.Drawing.Size(980, 22)
+        Me.TB_Number.Size = New System.Drawing.Size(974, 22)
         Me.TB_Number.TabIndex = 22
         '
         'TB_NumberText
@@ -518,7 +349,7 @@ Partial Class FormTest
         Me.TB_NumberText.Multiline = True
         Me.TB_NumberText.Name = "TB_NumberText"
         Me.TB_NumberText.ReadOnly = True
-        Me.TB_NumberText.Size = New System.Drawing.Size(980, 194)
+        Me.TB_NumberText.Size = New System.Drawing.Size(974, 194)
         Me.TB_NumberText.TabIndex = 23
         '
         'TB_Numberaga
@@ -529,10 +360,29 @@ Partial Class FormTest
         Me.TB_Numberaga.Dock = System.Windows.Forms.DockStyle.Top
         Me.TB_Numberaga.Location = New System.Drawing.Point(3, 3)
         Me.TB_Numberaga.Name = "TB_Numberaga"
-        Me.TB_Numberaga.Size = New System.Drawing.Size(986, 266)
+        Me.TB_Numberaga.Size = New System.Drawing.Size(980, 266)
         Me.TB_Numberaga.TabIndex = 24
         Me.TB_Numberaga.TabStop = False
         Me.TB_Numberaga.Text = "NumberToText"
+        '
+        'FlowLayoutPanel6
+        '
+        Me.FlowLayoutPanel6.AutoSize = True
+        Me.FlowLayoutPanel6.Controls.Add(Me.B_TTS)
+        Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 234)
+        Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
+        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(974, 29)
+        Me.FlowLayoutPanel6.TabIndex = 26
+        '
+        'B_TTS
+        '
+        Me.B_TTS.Location = New System.Drawing.Point(3, 3)
+        Me.B_TTS.Name = "B_TTS"
+        Me.B_TTS.Size = New System.Drawing.Size(75, 23)
+        Me.B_TTS.TabIndex = 25
+        Me.B_TTS.Text = "TTS"
+        Me.B_TTS.UseVisualStyleBackColor = True
         '
         'FlowLayoutPanel5
         '
@@ -542,7 +392,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel5.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
-        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(986, 31)
+        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(980, 31)
         Me.FlowLayoutPanel5.TabIndex = 25
         '
         'B_EditFile
@@ -569,7 +419,7 @@ Partial Class FormTest
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1000, 483)
+        Me.TabControl1.Size = New System.Drawing.Size(994, 543)
         Me.TabControl1.TabIndex = 26
         '
         'TabPage1
@@ -584,53 +434,30 @@ Partial Class FormTest
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(992, 457)
+        Me.TabPage1.Size = New System.Drawing.Size(986, 517)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Page 1"
         '
         'TableLayoutPanel3
         '
-        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.Controls.Add(Me.Test_ProgressTrackerBar1, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Test_TaskButton1, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Test_DataMapper1, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Test_DataMapper1, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Test_DTP1, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Test_RegexTextBox1, 1, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowCount = 3
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(986, 325)
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(980, 325)
         Me.TableLayoutPanel3.TabIndex = 1
-        '
-        'Test_ProgressTrackerBar1
-        '
-        Me.Test_ProgressTrackerBar1.AutoSize = True
-        Me.Test_ProgressTrackerBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Test_ProgressTrackerBar1.Location = New System.Drawing.Point(3, 3)
-        Me.Test_ProgressTrackerBar1.MinimumSize = New System.Drawing.Size(300, 0)
-        Me.Test_ProgressTrackerBar1.Name = "Test_ProgressTrackerBar1"
-        Me.Test_ProgressTrackerBar1.Size = New System.Drawing.Size(329, 144)
-        Me.Test_ProgressTrackerBar1.TabIndex = 0
-        '
-        'Test_TaskButton1
-        '
-        Me.Test_TaskButton1.AutoSize = True
-        Me.Test_TaskButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Test_TaskButton1.Location = New System.Drawing.Point(338, 3)
-        Me.Test_TaskButton1.Name = "Test_TaskButton1"
-        Me.Test_TaskButton1.Size = New System.Drawing.Size(206, 56)
-        Me.Test_TaskButton1.TabIndex = 1
-        '
-        'Test_DataMapper1
-        '
-        Me.Test_DataMapper1.AutoSize = True
-        Me.Test_DataMapper1.Location = New System.Drawing.Point(3, 153)
-        Me.Test_DataMapper1.Name = "Test_DataMapper1"
-        Me.Test_DataMapper1.Size = New System.Drawing.Size(191, 68)
-        Me.Test_DataMapper1.TabIndex = 2
         '
         'TabPage2
         '
@@ -646,7 +473,7 @@ Partial Class FormTest
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(992, 457)
+        Me.TabPage2.Size = New System.Drawing.Size(986, 517)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Page ClusterFuck"
         '
@@ -660,35 +487,61 @@ Partial Class FormTest
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(992, 457)
+        Me.TabPage3.Size = New System.Drawing.Size(986, 517)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Page NumberToText"
         '
-        'B_TTS
+        'Test_ProgressTrackerBar1
         '
-        Me.B_TTS.Location = New System.Drawing.Point(3, 3)
-        Me.B_TTS.Name = "B_TTS"
-        Me.B_TTS.Size = New System.Drawing.Size(75, 23)
-        Me.B_TTS.TabIndex = 25
-        Me.B_TTS.Text = "TTS"
-        Me.B_TTS.UseVisualStyleBackColor = True
+        Me.Test_ProgressTrackerBar1.AutoSize = True
+        Me.Test_ProgressTrackerBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Test_ProgressTrackerBar1.Location = New System.Drawing.Point(3, 3)
+        Me.Test_ProgressTrackerBar1.MinimumSize = New System.Drawing.Size(300, 0)
+        Me.Test_ProgressTrackerBar1.Name = "Test_ProgressTrackerBar1"
+        Me.Test_ProgressTrackerBar1.Size = New System.Drawing.Size(340, 144)
+        Me.Test_ProgressTrackerBar1.TabIndex = 0
         '
-        'FlowLayoutPanel6
+        'Test_TaskButton1
         '
-        Me.FlowLayoutPanel6.AutoSize = True
-        Me.FlowLayoutPanel6.Controls.Add(Me.B_TTS)
-        Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 234)
-        Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
-        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(980, 29)
-        Me.FlowLayoutPanel6.TabIndex = 26
+        Me.Test_TaskButton1.AutoSize = True
+        Me.Test_TaskButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Test_TaskButton1.Location = New System.Drawing.Point(349, 3)
+        Me.Test_TaskButton1.Name = "Test_TaskButton1"
+        Me.Test_TaskButton1.Size = New System.Drawing.Size(162, 74)
+        Me.Test_TaskButton1.TabIndex = 1
+        '
+        'Test_DataMapper1
+        '
+        Me.Test_DataMapper1.AutoSize = True
+        Me.Test_DataMapper1.Location = New System.Drawing.Point(517, 3)
+        Me.Test_DataMapper1.Name = "Test_DataMapper1"
+        Me.Test_DataMapper1.Size = New System.Drawing.Size(191, 68)
+        Me.Test_DataMapper1.TabIndex = 2
+        '
+        'Test_DTP1
+        '
+        Me.Test_DTP1.AutoSize = True
+        Me.Test_DTP1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Test_DTP1.Location = New System.Drawing.Point(3, 153)
+        Me.Test_DTP1.Name = "Test_DTP1"
+        Me.Test_DTP1.Size = New System.Drawing.Size(185, 118)
+        Me.Test_DTP1.TabIndex = 2
+        '
+        'Test_RegexTextBox1
+        '
+        Me.Test_RegexTextBox1.AutoSize = True
+        Me.Test_RegexTextBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Test_RegexTextBox1.Location = New System.Drawing.Point(349, 153)
+        Me.Test_RegexTextBox1.Name = "Test_RegexTextBox1"
+        Me.Test_RegexTextBox1.Size = New System.Drawing.Size(146, 139)
+        Me.Test_RegexTextBox1.TabIndex = 2
         '
         'FormTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
-        Me.ClientSize = New System.Drawing.Size(1000, 597)
+        Me.ClientSize = New System.Drawing.Size(994, 597)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -698,12 +551,7 @@ Partial Class FormTest
         Me.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
         Me.Name = "FormTest"
         Me.Text = "FormTest"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
         CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -717,16 +565,13 @@ Partial Class FormTest
         Me.FlowLayoutPanel1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.FlowLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
         Me.FlowLayoutPanel4.ResumeLayout(False)
         Me.FlowLayoutPanel4.PerformLayout()
         Me.TB_Numberaga.ResumeLayout(False)
         Me.TB_Numberaga.PerformLayout()
+        Me.FlowLayoutPanel6.ResumeLayout(False)
         Me.FlowLayoutPanel5.ResumeLayout(False)
         Me.FlowLayoutPanel5.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -736,25 +581,16 @@ Partial Class FormTest
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
-        Me.FlowLayoutPanel6.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents DateTimeS1 As JANL.DateTimePickerEx
     Friend WithEvents TB_Test As JANL.Controls.ToggleButton
     Friend WithEvents ImageList1 As ImageList
-	Friend WithEvents GroupBox1 As GroupBox
-	Friend WithEvents B_Date2000 As Button
-	Friend WithEvents BS_TestModel As BindingSource
-	Friend WithEvents B_DateNull As Button
-	Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-	Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-	Friend WithEvents GroupBox2 As GroupBox
-	Friend WithEvents DateTimeS2 As JANL.DateTimePickerEx
-	Friend WithEvents B_Exception As Button
-	Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents BS_TestModel As BindingSource
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents B_Exception As Button
+    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents CncB_Test As JANL.Controls.CancelableButton
     Friend WithEvents StatusStrip1 As StatusStrip
 	Friend WithEvents TSPB_Test As ToolStripProgressBar
@@ -768,17 +604,11 @@ Partial Class FormTest
     Friend WithEvents TextBox1 As TextBox
 	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 	Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents RegexTextBox1 As JANL.Controls.RegexTextBox
-    Friend WithEvents GroupBox6 As GroupBox
-	Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-    Friend WithEvents RegexTextBox2 As JANL.Controls.RegexTextBox
-    Friend WithEvents RegexTextBox3 As JANL.Controls.RegexTextBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-	Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
-	Friend WithEvents TB_Number As TextBox
-	Friend WithEvents TB_NumberText As TextBox
-	Friend WithEvents TB_Numberaga As GroupBox
-    Friend WithEvents RegexTextBox4 As JANL.Controls.RegexTextBox
+    Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
+    Friend WithEvents TB_Number As TextBox
+    Friend WithEvents TB_NumberText As TextBox
+    Friend WithEvents TB_Numberaga As GroupBox
     Friend WithEvents MonthPicker1 As JANL.UserControls.MonthPicker
     Friend WithEvents TextBoxLabel1 As JANL.Controls.TextBoxLabel
     Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
@@ -793,4 +623,6 @@ Partial Class FormTest
     Friend WithEvents Test_DataMapper1 As Test_DataMapper
     Friend WithEvents FlowLayoutPanel6 As FlowLayoutPanel
     Friend WithEvents B_TTS As Button
+    Friend WithEvents Test_RegexTextBox1 As Test_RegexTextBox
+    Friend WithEvents Test_DTP1 As Test_DTP
 End Class

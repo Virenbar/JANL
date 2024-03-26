@@ -8,7 +8,7 @@ Public Class Test_ProgressTrackerBar
         Dim Count = 0
         While Count < Max
             Thread.Sleep(Random.Next(50, 200))
-            Count += Random.Next(1, 2)
+            Count += 1 'Random.Next(1, 2)
             PP.Report(Count)
 
         End While

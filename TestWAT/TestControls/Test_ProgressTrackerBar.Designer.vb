@@ -53,7 +53,7 @@ Partial Class Test_ProgressTrackerBar
         Me.PTB.Maximum = 100
         Me.PTB.MinimumSize = New System.Drawing.Size(300, 50)
         Me.PTB.Name = "PTB"
-        Me.PTB.Size = New System.Drawing.Size(317, 55)
+        Me.PTB.Size = New System.Drawing.Size(328, 55)
         Me.PTB.TabIndex = 1
         '
         'FlowLayoutPanel1
@@ -67,7 +67,7 @@ Partial Class Test_ProgressTrackerBar
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 71)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(317, 62)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(328, 62)
         Me.FlowLayoutPanel1.TabIndex = 2
         '
         'B_StartM
@@ -115,7 +115,7 @@ Partial Class Test_ProgressTrackerBar
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(300, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(323, 136)
+        Me.GroupBox1.Size = New System.Drawing.Size(334, 136)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ProgressTrackerBar"
@@ -129,7 +129,7 @@ Partial Class Test_ProgressTrackerBar
         Me.Controls.Add(Me.GroupBox1)
         Me.MinimumSize = New System.Drawing.Size(310, 0)
         Me.Name = "Test_ProgressTrackerBar"
-        Me.Size = New System.Drawing.Size(329, 142)
+        Me.Size = New System.Drawing.Size(340, 142)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

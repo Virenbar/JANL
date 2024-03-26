@@ -71,6 +71,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseDebug|AnyCPU'">
     <OutputPath>bin\ReleaseDebug\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\shrek.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -240,10 +243,22 @@
     <Compile Include="TestControls\Test_DataMapper.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TestControls\Test_DTP.Designer.vb">
+      <DependentUpon>Test_DTP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_DTP.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TestControls\Test_ProgressTrackerBar.Designer.vb">
       <DependentUpon>Test_ProgressTrackerBar.vb</DependentUpon>
     </Compile>
     <Compile Include="TestControls\Test_ProgressTrackerBar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestControls\Test_RegexTextBox.Designer.vb">
+      <DependentUpon>Test_RegexTextBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_RegexTextBox.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TestControls\Test_TaskButton.Designer.vb">
@@ -318,8 +333,14 @@
     <EmbeddedResource Include="TestControls\Test_DataMapper.resx">
       <DependentUpon>Test_DataMapper.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_DTP.resx">
+      <DependentUpon>Test_DTP.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_ProgressTrackerBar.resx">
       <DependentUpon>Test_ProgressTrackerBar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_RegexTextBox.resx">
+      <DependentUpon>Test_RegexTextBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_TaskButton.resx">
       <DependentUpon>Test_TaskButton.vb</DependentUpon>
@@ -330,6 +351,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="My Project\DataSources\JANL.Interfaces.IAnimator.datasource" />
+    <None Include="My Project\DataSources\JANL.Models.TestObject.datasource" />
     <None Include="Resources\partner64.png" />
     <None Include="Resources\shrek.ico" />
     <None Include="Archive\Excel\Header.xlsx" />

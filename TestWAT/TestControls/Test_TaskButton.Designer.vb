@@ -23,49 +23,38 @@ Partial Class Test_TaskButton
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.L_Count = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TB_Start = New JANL.Controls.TaskButton()
+        Me.L_Count = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.AutoSize = True
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel1)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox1.MinimumSize = New System.Drawing.Size(200, 50)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 50)
+        Me.GroupBox1.Size = New System.Drawing.Size(152, 66)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "TaskButton"
         '
-        'L_Count
-        '
-        Me.L_Count.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.L_Count.AutoSize = True
-        Me.L_Count.Location = New System.Drawing.Point(93, 9)
-        Me.L_Count.Name = "L_Count"
-        Me.L_Count.Size = New System.Drawing.Size(47, 13)
-        Me.L_Count.TabIndex = 1
-        Me.L_Count.Text = "Count: 0"
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoSize = True
-        Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Controls.Add(Me.TB_Start)
         Me.FlowLayoutPanel1.Controls.Add(Me.L_Count)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 16)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(194, 31)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(143, 31)
         Me.FlowLayoutPanel1.TabIndex = 2
         '
         'TB_Start
         '
+        Me.TB_Start.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.TB_Start.AutoSize = True
         Me.TB_Start.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TB_Start.Image = Global.TestWAT.My.Resources.icons8.icons8_Ok16
@@ -79,6 +68,16 @@ Partial Class Test_TaskButton
         Me.TB_Start.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.TB_Start.UseVisualStyleBackColor = True
         '
+        'L_Count
+        '
+        Me.L_Count.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.L_Count.AutoSize = True
+        Me.L_Count.Location = New System.Drawing.Point(93, 9)
+        Me.L_Count.Name = "L_Count"
+        Me.L_Count.Size = New System.Drawing.Size(47, 13)
+        Me.L_Count.TabIndex = 1
+        Me.L_Count.Text = "Count: 0"
+        '
         'Test_TaskButton
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -87,12 +86,13 @@ Partial Class Test_TaskButton
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Test_TaskButton"
-        Me.Size = New System.Drawing.Size(206, 56)
+        Me.Size = New System.Drawing.Size(158, 72)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

@@ -5,6 +5,7 @@ Public Class MainForm
 
     Public Sub New()
         InitializeComponent()
+        Icon = My.Resources.shrek
     End Sub
 
     Protected Overrides Sub OnLoad(e As EventArgs)
