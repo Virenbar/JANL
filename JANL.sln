@@ -8,7 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A68D3F1-BEA7-4F0D-B261-9AD4BA49E6E0}"
 	ProjectSection(SolutionItems) = preProject
 		CodeMaid.config = CodeMaid.config
+		Directory.Build.targets = Directory.Build.targets
 		README.md = README.md
+		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL", "JANL\JANL.csproj", "{6EAF970D-B09F-41CC-B855-A5221757A9AE}"
@@ -22,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL.WinForms", "JANL.WinFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL.Office", "JANL.Office\JANL.Office.csproj", "{01346CCD-FB9F-4EA3-BEEA-D69D99B0EDD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JANL.Mock", "JANL.Mock\JANL.Mock.csproj", "{5B61A940-CA8C-49FD-9383-9C24B8F23D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JANL.Mock", "JANL.Mock\JANL.Mock.csproj", "{5B61A940-CA8C-49FD-9383-9C24B8F23D12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

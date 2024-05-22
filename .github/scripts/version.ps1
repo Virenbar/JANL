@@ -7,6 +7,12 @@ Write-Output "V=$number"
 "V=$number" >> $env:GITHUB_ENV
 Write-Output "{version}={$version}" >> $GITHUB_OUTPUT
 
+# Replace version in AssemblyInfo
+$Path = '.\SharedAssemblyInfo.cs'
+$File = Get-Content $Path
+$File = $File.Replace('AssemblyVersion("2.0.0")', "AssemblyVersion(`"${number}`")")
+Set-Content $Path $File
+
 # Replace version in nuspec
 $Path = '.\JANL.WinForms\JANL.WinForms.nuspec'
 $File = Get-Content $Path

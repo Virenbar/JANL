@@ -55,6 +55,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Excel\AutoReport.cs" />
     <Compile Include="Excel\TemplateReport.cs" />
     <Compile Include="Excel\WorksheetContext.cs" />
