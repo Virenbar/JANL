@@ -1,6 +1,7 @@
 ﻿using JANL.Excel;
 using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -36,6 +37,27 @@ namespace JANL.Helpers
             var contex = new WorksheetContext(worksheet, data);
             FillCurrentSheet(contex);
             return contex;
+        }
+
+        public static void MergeCollumns(ExcelWorksheet sheet, string cells, string value)
+        {
+            sheet.Cells[cells].Merge = true;
+            sheet.Cells[cells].Value = value;
+        }
+
+        public static void MergeRows(ExcelWorksheet sheet, int first, int last, params List<string>[] collumns)
+        {
+            foreach (var C in collumns)
+            {
+                C.ForEach((x) =>
+                {
+                    if (string.IsNullOrEmpty(sheet.Cells[$"{x}{first}"].Value.ToString()))
+                    {
+                        sheet.Cells[$"{x}{first}"].Value = sheet.Cells[$"{x}{last}"].Value;
+                    }
+                    sheet.Cells[$"{x}{first}:{x}{last}"].Merge = true;
+                });
+            }
         }
 
         /// <summary>
