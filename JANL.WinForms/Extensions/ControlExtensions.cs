@@ -1,11 +1,10 @@
 ﻿using JANL.Controls;
+using JANL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JANL.Extensions
@@ -160,5 +159,9 @@ namespace JANL.Extensions
                 CB.SelectedValue = (int)value;
             }
         }
+
+        public static void VowelsBegone(this Control control) => TextHelper.VowelsBegone(control);
+
+        public static void VowelsBegone(this ToolStripItem control) => TextHelper.VowelsBegone(control);
     }
 }

@@ -81,6 +81,7 @@
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="UIDefaults.cs" />
     <Compile Include="Designers\HResizeOnly.cs" />
@@ -118,7 +119,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\ControlExtensions.cs" />
-    <Compile Include="Extensions\WAT.cs" />
     <Compile Include="Forms\ExceptionBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +209,12 @@
     <Compile Include="UserControls\StopWatchLabel.Designer.cs">
       <DependentUpon>StopWatchLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\YearPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\YearPicker.Designer.cs">
+      <DependentUpon>YearPicker.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StopWatchLabel.resx">
       <DependentUpon>StopWatchLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\YearPicker.resx">
+      <DependentUpon>YearPicker.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
