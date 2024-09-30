@@ -16,8 +16,8 @@ namespace JANL.Extensions
 
         public static WorksheetContext FillSheet(this ExcelWorksheet worksheet, IDataReader data) => ExcelHelper.FillSheet(worksheet, data);
 
-        public static void FillSheet(this ExcelWorksheet sheet, int first, int last, params List<string>[] collumns) => ExcelHelper.MergeRows(sheet, first, last, collumns);
+        public static void MergeRows(this ExcelWorksheet sheet, int first, int last, params List<string>[] collumns) => ExcelHelper.MergeRows(sheet, first, last, collumns);
 
-        public static void FillSheet(this ExcelWorksheet sheet, string cells, string value) => ExcelHelper.MergeCollumns(sheet, cells, value);
+        public static void MergeCollumns(this ExcelWorksheet sheet, string cells, string value) => ExcelHelper.MergeCollumns(sheet, cells, value);
     }
 }
