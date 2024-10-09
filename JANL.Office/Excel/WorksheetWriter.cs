@@ -6,15 +6,31 @@ using System.Linq;
 
 namespace JANL.Excel
 {
+    /// <summary>
+    /// Класс для записи данных в Excel файл
+    /// </summary>
     public class WorksheetWriter
     {
+        /// <summary>
+        /// Создает класс на основе файла и индекса страницы
+        /// </summary>
+        /// <param name="package">Файл Excel</param>
+        /// <param name="position">Индекс страницы</param>
         public WorksheetWriter(ExcelPackage package, int position) : this(package.Workbook.Worksheets[position])
         {
             Worksheet = package.Workbook.Worksheets[position];
         }
 
+        /// <summary>
+        /// Создает класс на основе файла и первой страницы
+        /// </summary>
+        /// <param name="package">Файл Excel</param>
         public WorksheetWriter(ExcelPackage package) : this(package.Workbook.Worksheets.First()) { }
 
+        /// <summary>
+        /// Создает класс на основе страницы
+        /// </summary>
+        /// <param name="worksheet">Страница Excel</param>
         public WorksheetWriter(ExcelWorksheet worksheet)
         {
             Worksheet = worksheet;
@@ -87,19 +103,21 @@ namespace JANL.Excel
             WriteToSheet(reader);
         }
 
-        private void InsertRow()
+        /// <summary>
+        /// Заполоняет текущую строку данными из справочника CurrentRowData
+        /// </summary>
+        private void FillCurrentRow()
         {
-            // Создать копию оригинальной строки для сохранения стиля
+            // Создать копию строки с шаблоном для сохранения стиля
             Worksheet.InsertRow(CurrentRowIndex + 1, 1, CurrentRowIndex);
             foreach (var Column in Columns)
             {
                 var Name = Column.Value.ToLowerInvariant();
-                // Если есть данные для столбца
                 if (CurrentRowData.ContainsKey(Name))
                 {
-                    // Взять значение
+                    // Если есть данные для столбца - вставить значение
                     var Value = CurrentRowData[Name];
-                    if (Value is string str && DateTime.TryParse(str, out var Date))
+                    if (Value is string str && str.Contains(".") && DateTime.TryParse(str, out var Date))
                     {
                         Worksheet.Cells[CurrentRowIndex, Column.Key].Value = Date;
                     }
@@ -110,7 +128,7 @@ namespace JANL.Excel
                 }
                 else
                 {
-                    // Если для столбца нет данных, попробовать скопировать формулу
+                    // Иначе скопировать формулу, если она есть
                     var Formula = Worksheet.Cells[RowIndexFirst, Column.Key].FormulaR1C1;
                     if (!string.IsNullOrWhiteSpace(Formula))
                     {
@@ -124,24 +142,28 @@ namespace JANL.Excel
         private void WriteToSheet(IDataReader reader)
         {
             if (reader.IsClosed) { return; }
-            // Заполняем справочник столбцов шаблона
-            Columns.Clear();
-            for (int i = ColumnIndexFirst; i <= ColumnIndexLast; i++)
+            if (Columns.Count == 0)
             {
-                Columns[i] = Worksheet.Cells[RowIndexFirst, i].Value.ToString();
+                // Заполнить справочник столбцов из начальной строки если он пуст
+                for (int i = ColumnIndexFirst; i <= ColumnIndexLast; i++)
+                {
+                    Columns[i] = Worksheet.Cells[RowIndexFirst, i].Value.ToString();
+                }
             }
             while (reader.Read())
             {
-                // Заполняем справочник данных
+                // Заполнить справочник данных
                 CurrentRowData.Clear();
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
                     CurrentRowData[reader.GetName(i).ToLowerInvariant()] = reader[i];
                 }
                 // Вставка строки
-                InsertRow();
-                IncrementRow();
+                FillCurrentRow();
+                CurrentRowIndex++;
+                CurrentRowNumber++;
             }
+            // Удалить строку с шаблоном
             Worksheet.DeleteRow(CurrentRowIndex);
         }
     }

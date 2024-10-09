@@ -9,29 +9,28 @@ namespace JANL.Helpers
 {
     public static partial class ExcelHelper
     {
+        [Obsolete]
         public static WorksheetContext FillSheet(ExcelPackage package, int position, IDataReader data)
         {
             var worksheet = package.Workbook.Worksheets[position];
             return FillSheet(worksheet, data);
         }
 
+        [Obsolete]
         public static WorksheetContext FillSheet(ExcelPackage package, IDataReader data)
         {
             var worksheet = package.Workbook.Worksheets.First();
             return FillSheet(worksheet, data);
         }
 
+        [Obsolete]
         public static WorksheetContext FillSheet(ExcelPackage package, WorksheetContext contex)
         {
             FillCurrentSheet(contex);
             return contex;
         }
 
-        /// <summary>
-        /// Заполняет указанный
-        /// </summary>
-        /// <param name="worksheet"></param>
-        /// <param name="data"></param>
+        [Obsolete]
         public static WorksheetContext FillSheet(ExcelWorksheet worksheet, IDataReader data)
         {
             var contex = new WorksheetContext(worksheet, data);
@@ -39,24 +38,44 @@ namespace JANL.Helpers
             return contex;
         }
 
-        public static void MergeCollumns(ExcelWorksheet sheet, string cells, string value)
+        /// <summary>
+        /// Объединить ячейки
+        /// </summary>
+        /// <param name="sheet">Страница Excel</param>
+        /// <param name="cells">Диапазон ячеек</param>
+        public static void MergeCells(ExcelWorksheet sheet, string cells)
+        {
+            sheet.Cells[cells].Merge = true;
+        }
+
+        /// <summary>
+        /// Объединить ячейки и записать значение
+        /// </summary>
+        /// <param name="sheet">Страница Excel</param>
+        /// <param name="cells">Диапазон ячеек</param>
+        /// <param name="value"></param>
+        public static void MergeCells(ExcelWorksheet sheet, string cells, string value)
         {
             sheet.Cells[cells].Merge = true;
             sheet.Cells[cells].Value = value;
         }
 
-        public static void MergeRows(ExcelWorksheet sheet, int first, int last, params List<string>[] collumns)
+        /// <summary>
+        /// Объединить строки в указанных столбцах
+        /// </summary>
+        /// <param name="sheet">Страница Excel</param>
+        /// <param name="first">Номер первой строки</param>
+        /// <param name="last">Номер последней строки</param>
+        /// <param name="columns">Столбцы</param>
+        public static void MergeRows(ExcelWorksheet sheet, int first, int last, params List<string>[] columns)
         {
-            foreach (var C in collumns)
+            foreach (var column in columns.SelectMany(C => C))
             {
-                C.ForEach((x) =>
+                if (string.IsNullOrEmpty(sheet.Cells[$"{column}{first}"].Value?.ToString()))
                 {
-                    if (string.IsNullOrEmpty(sheet.Cells[$"{x}{first}"].Value.ToString()))
-                    {
-                        sheet.Cells[$"{x}{first}"].Value = sheet.Cells[$"{x}{last}"].Value;
-                    }
-                    sheet.Cells[$"{x}{first}:{x}{last}"].Merge = true;
-                });
+                    sheet.Cells[$"{column}{first}"].Value = sheet.Cells[$"{column}{last}"].Value;
+                }
+                sheet.Cells[$"{column}{first}:{column}{last}"].Merge = true;
             }
         }
 
@@ -64,6 +83,7 @@ namespace JANL.Helpers
         /// Заполняет <see cref="ExcelWorksheet"/>
         /// </summary>
         /// <param name="contex"></param>
+        [Obsolete]
         private static void FillCurrentSheet(WorksheetContext contex)
         {
             if (contex.Reader.IsClosed) { return; }
@@ -88,6 +108,7 @@ namespace JANL.Helpers
             contex.Worksheet.DeleteRow(contex.CurrentRowIndex);
         }
 
+        [Obsolete]
         private static void InsertRow(WorksheetContext contex)
         {
             // Создать копию оригинальной строки для сохранения стиля

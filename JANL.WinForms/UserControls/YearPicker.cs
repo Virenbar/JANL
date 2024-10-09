@@ -45,7 +45,7 @@ namespace JANL.UserControls
         /// <summary>
         /// Выбранный год
         /// </summary>
-        [Browsable(true), Category("YearPicker"), DefaultValue(null)]
+        [Browsable(true), Bindable(true), Category("YearPicker"), DefaultValue(null)]
         [RefreshProperties(RefreshProperties.All)]
         public int? Value
         {
