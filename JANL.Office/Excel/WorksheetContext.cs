@@ -1,9 +1,11 @@
 ﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace JANL.Excel
 {
+    [Obsolete("Use WorksheetWriter")]
     public class WorksheetContext
     {
         public WorksheetContext(ExcelWorksheet worksheet, IDataReader reader, int rowFirst)

@@ -4,7 +4,6 @@ using System.IO;
 
 namespace JANL.Excel
 {
-    [Obsolete("WIP")]
     public abstract class TemplateReport : Report, IDisposable
     {
         private readonly Stream _stream;

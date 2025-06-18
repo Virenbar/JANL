@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace JANL.SQL
@@ -155,6 +156,11 @@ namespace JANL.SQL
             if (Connection.State != ConnectionState.Open) { await Connection.OpenAsync(); }
             return Connection;
         }
+
+        public static SqlCommand NewProcedure([CallerMemberName] string name = null) => new SqlCommand(name)
+        {
+            CommandType = CommandType.StoredProcedure
+        };
 
         /// <summary>
         /// Начинает транзакцию используя соединение по умолчанию

@@ -8,12 +8,10 @@ namespace JANL.Helpers
     public static class StringHelper
     {
         /// <summary>
-        /// Перевод периода в строку
+        /// Преобразует период в строку
+        /// "за период c [begin]г. по [end]г."
         /// </summary>
-        public static string DateToPeriod(DateTime date1, DateTime date2)
-        {
-            return date1.Month == date2.Month && date1.Year == date2.Year ? $"за {date1:MMMM yyyy}г." : $"за период с {date1:MMMM yyyy}г. по {date2:MMMM yyyy}г.";
-        }
+        public static string DateToPeriod(DateTime begin, DateTime end) => $"за {DateConverter.PeriodToText(begin, end)}";
 
         /// <summary>
         /// Перевод целого числа в строку
@@ -32,6 +30,7 @@ namespace JANL.Helpers
 
         /// <summary>
         /// Преобразует период в строку
+        /// "период c [begin]г. по [end]г."
         /// </summary>
         public static string PeriodToText(DateTime begin, DateTime end) => DateConverter.PeriodToText(begin, end);
 
