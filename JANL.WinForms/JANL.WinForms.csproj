@@ -77,8 +77,10 @@
     <Compile Include="Controls\ToolStrip\ToolStripTaskProgress.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Drawing\HSLColor.cs" />
+    <Compile Include="Extensions\ComboBoxExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="Extensions\MessageBoxExtensions.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\TextHelper.cs" />

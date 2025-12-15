@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -15,6 +17,26 @@ namespace JANL.Extensions
     public static class ControlExtensions
     {
         private readonly static HashSet<Type> CTR = new HashSet<Type> { typeof(Button), typeof(ComboBox), typeof(NumericUpDown), typeof(DateTimePicker), typeof(TextBox) };
+
+        /// <summary>
+        /// Возвращает все дочерние элементы
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static IEnumerable<Control> ChildControls(this Control root)
+        {
+            var control = root;
+            var queue = new Queue<Control>();
+            do
+            {
+                foreach (var child in control.Controls.OfType<Control>())
+                {
+                    queue.Enqueue(child);
+                }
+                control = queue.Dequeue();
+                yield return control;
+            } while (queue.Count > 0);
+        }
 
         /// <summary>
         /// Включает двойную буферизацию
@@ -32,7 +54,7 @@ namespace JANL.Extensions
         }
 
         /// <summary>
-        /// Отключает автогенерацию колонок и включает двойную буферизацию
+        /// Отключает авто-генерацию колонок и включает двойную буферизацию
         /// </summary>
         /// <param name="dgv"></param>
         public static void FixDGV(this DataGridView dgv)
@@ -44,34 +66,11 @@ namespace JANL.Extensions
         public static ButtonAwaiter GetAwaiter(this Button button) => new ButtonAwaiter(button);
 
         /// <summary>
-        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе Nothing
-        /// </summary>
-        /// <param name="CB"></param>
-        /// <returns></returns>
-        public static string GetString(this ComboBox CB) => CB.SelectedIndex > 0 ? Convert.ToString(CB.SelectedValue) : null;
-
-        /// <summary>
         /// Если текст больше 0, то возвращает его иначе Nothing
         /// </summary>
         /// <param name="TB"></param>
         /// <returns></returns>
         public static string GetString(this TextBox TB) => TB.Text.Length > 0 ? TB.Text : null;
-
-        /// <summary>
-        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе Nothing
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="CB"></param>
-        /// <returns></returns>
-        public static T? GetValue<T>(this ComboBox CB) where T : struct => CB.SelectedIndex > 0 ? new T?((T)CB.SelectedValue) : default;
-
-        /// <summary>
-        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе Nothing
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="CB"></param>
-        /// <returns></returns>
-        public static T? GetValue<T>(this ToolStripComboBox CB) where T : struct => CB.SelectedIndex > 0 ? new T?((T)CB.ComboBox.SelectedValue) : default;
 
         /// <summary>
         /// Вызывает метод в текущем потоке
@@ -136,28 +135,25 @@ namespace JANL.Extensions
         }
 
         /// <summary>
-        ///
+        /// Делает шрифт текста жирным
         /// </summary>
-        /// <param name="CB"></param>
-        /// <param name="value"></param>
-        public static void SetIntegerValue(this ComboBox CB, object value) => SetIntegerValue(CB, value, -1);
+        /// <param name="control"></param>
+        public static void SetFontBold(this Control control) => SetFontStyle(control, FontStyle.Bold);
 
         /// <summary>
-        ///
+        /// Меняет стиль шрифта не затрагивая шрифт дочерних элементов
         /// </summary>
-        /// <param name="CB"></param>
-        /// <param name="value"></param>
-        /// <param name="def"></param>
-        public static void SetIntegerValue(this ComboBox CB, object value, int def)
+        /// <param name="control"></param>
+        /// <param name="style">Style of new font</param>
+        public static void SetFontStyle(this Control control, FontStyle style)
         {
-            if (value == DBNull.Value || value == null)
+            var initial = control.Font;
+            var styled = new Font(initial, style);
+            foreach (var child in control.Controls.OfType<Control>())
             {
-                CB.SelectedValue = def;
+                child.Font = initial;
             }
-            else
-            {
-                CB.SelectedValue = (int)value;
-            }
+            control.Font = styled;
         }
 
         public static void VowelsBegone(this Control control) => TextHelper.VowelsBegone(control);
