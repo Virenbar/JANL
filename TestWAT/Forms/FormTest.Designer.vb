@@ -1,27 +1,27 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormTest
-	Inherits System.Windows.Forms.Form
+    Inherits System.Windows.Forms.Form
 
-	'Форма переопределяет dispose для очистки списка компонентов.
-	<System.Diagnostics.DebuggerNonUserCode()>
-	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-		Try
-			If disposing AndAlso components IsNot Nothing Then
-				components.Dispose()
-			End If
-		Finally
-			MyBase.Dispose(disposing)
-		End Try
-	End Sub
+    'Форма переопределяет dispose для очистки списка компонентов.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
 
-	'Является обязательной для конструктора форм Windows Forms
-	Private components As System.ComponentModel.IContainer
+    'Является обязательной для конструктора форм Windows Forms
+    Private components As System.ComponentModel.IContainer
 
-	'Примечание: следующая процедура является обязательной для конструктора форм Windows Forms
-	'Для ее изменения используйте конструктор форм Windows Form.  
-	'Не изменяйте ее в редакторе исходного кода.
-	<System.Diagnostics.DebuggerStepThrough()>
-	Private Sub InitializeComponent()
+    'Примечание: следующая процедура является обязательной для конструктора форм Windows Forms
+    'Для ее изменения используйте конструктор форм Windows Form.  
+    'Не изменяйте ее в редакторе исходного кода.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTest))
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
@@ -52,18 +52,22 @@ Partial Class FormTest
         Me.TB_Numberaga = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_TTS = New System.Windows.Forms.Button()
+        Me.TtsPlayer1 = New TestWAT.TTSPlayer()
         Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
         Me.B_EditFile = New System.Windows.Forms.Button()
+        Me.B_Message = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Test_ProgressTrackerBar1 = New TestWAT.Test_ProgressTrackerBar()
         Me.Test_TaskButton1 = New TestWAT.Test_TaskButton()
         Me.Test_DataMapper1 = New TestWAT.Test_DataMapper()
         Me.Test_DTP1 = New TestWAT.Test_DTP()
         Me.Test_RegexTextBox1 = New TestWAT.Test_RegexTextBox()
+        Me.Test_YearPicker1 = New TestWAT.Test_YearPicker()
+        Me.Test_ColorHash1 = New TestWAT.Test_ColorHash()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         CType(Me.BS_TestModel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -312,7 +316,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 34)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 480)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(237, 512)
         Me.FlowLayoutPanel3.TabIndex = 20
         '
         'FlowLayoutPanel4
@@ -322,7 +326,7 @@ Partial Class FormTest
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(240, 34)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 480)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 512)
         Me.FlowLayoutPanel4.TabIndex = 21
         '
         'MonthPicker1
@@ -338,18 +342,19 @@ Partial Class FormTest
         '
         Me.TB_Number.Dock = System.Windows.Forms.DockStyle.Top
         Me.TB_Number.Location = New System.Drawing.Point(3, 18)
+        Me.TB_Number.Multiline = True
         Me.TB_Number.Name = "TB_Number"
-        Me.TB_Number.Size = New System.Drawing.Size(974, 22)
+        Me.TB_Number.Size = New System.Drawing.Size(974, 67)
         Me.TB_Number.TabIndex = 22
         '
         'TB_NumberText
         '
         Me.TB_NumberText.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TB_NumberText.Location = New System.Drawing.Point(3, 40)
+        Me.TB_NumberText.Location = New System.Drawing.Point(3, 85)
         Me.TB_NumberText.Multiline = True
         Me.TB_NumberText.Name = "TB_NumberText"
         Me.TB_NumberText.ReadOnly = True
-        Me.TB_NumberText.Size = New System.Drawing.Size(974, 194)
+        Me.TB_NumberText.Size = New System.Drawing.Size(974, 349)
         Me.TB_NumberText.TabIndex = 23
         '
         'TB_Numberaga
@@ -357,10 +362,10 @@ Partial Class FormTest
         Me.TB_Numberaga.Controls.Add(Me.TB_NumberText)
         Me.TB_Numberaga.Controls.Add(Me.TB_Number)
         Me.TB_Numberaga.Controls.Add(Me.FlowLayoutPanel6)
-        Me.TB_Numberaga.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TB_Numberaga.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TB_Numberaga.Location = New System.Drawing.Point(3, 3)
         Me.TB_Numberaga.Name = "TB_Numberaga"
-        Me.TB_Numberaga.Size = New System.Drawing.Size(980, 266)
+        Me.TB_Numberaga.Size = New System.Drawing.Size(980, 543)
         Me.TB_Numberaga.TabIndex = 24
         Me.TB_Numberaga.TabStop = False
         Me.TB_Numberaga.Text = "NumberToText"
@@ -369,10 +374,11 @@ Partial Class FormTest
         '
         Me.FlowLayoutPanel6.AutoSize = True
         Me.FlowLayoutPanel6.Controls.Add(Me.B_TTS)
+        Me.FlowLayoutPanel6.Controls.Add(Me.TtsPlayer1)
         Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 234)
+        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 434)
         Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
-        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(974, 29)
+        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(974, 106)
         Me.FlowLayoutPanel6.TabIndex = 26
         '
         'B_TTS
@@ -384,11 +390,21 @@ Partial Class FormTest
         Me.B_TTS.Text = "TTS"
         Me.B_TTS.UseVisualStyleBackColor = True
         '
+        'TtsPlayer1
+        '
+        Me.TtsPlayer1.AutoSize = True
+        Me.TtsPlayer1.Location = New System.Drawing.Point(84, 3)
+        Me.TtsPlayer1.MinimumSize = New System.Drawing.Size(250, 0)
+        Me.TtsPlayer1.Name = "TtsPlayer1"
+        Me.TtsPlayer1.Size = New System.Drawing.Size(250, 100)
+        Me.TtsPlayer1.TabIndex = 26
+        '
         'FlowLayoutPanel5
         '
         Me.FlowLayoutPanel5.AutoSize = True
         Me.FlowLayoutPanel5.Controls.Add(Me.B_EditFile)
         Me.FlowLayoutPanel5.Controls.Add(Me.B_Exception)
+        Me.FlowLayoutPanel5.Controls.Add(Me.B_Message)
         Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel5.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
@@ -408,6 +424,19 @@ Partial Class FormTest
         Me.B_EditFile.Text = "Открыть файл"
         Me.B_EditFile.UseVisualStyleBackColor = True
         '
+        'B_Message
+        '
+        Me.B_Message.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.B_Message.AutoSize = True
+        Me.B_Message.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.B_Message.Location = New System.Drawing.Point(195, 3)
+        Me.B_Message.Name = "B_Message"
+        Me.B_Message.Padding = New System.Windows.Forms.Padding(1)
+        Me.B_Message.Size = New System.Drawing.Size(89, 25)
+        Me.B_Message.TabIndex = 4
+        Me.B_Message.Text = "Task Message"
+        Me.B_Message.UseVisualStyleBackColor = True
+        '
         'TabControl1
         '
         Me.TabControl1.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
@@ -415,11 +444,11 @@ Partial Class FormTest
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(994, 543)
+        Me.TabControl1.Size = New System.Drawing.Size(994, 575)
         Me.TabControl1.TabIndex = 26
         '
         'TabPage1
@@ -434,7 +463,7 @@ Partial Class FormTest
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(986, 517)
+        Me.TabPage1.Size = New System.Drawing.Size(986, 549)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Page 1"
         '
@@ -449,6 +478,8 @@ Partial Class FormTest
         Me.TableLayoutPanel3.Controls.Add(Me.Test_DataMapper1, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Test_DTP1, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Test_RegexTextBox1, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Test_YearPicker1, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Test_ColorHash1, 2, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -456,40 +487,8 @@ Partial Class FormTest
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(980, 325)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(980, 441)
         Me.TableLayoutPanel3.TabIndex = 1
-        '
-        'TabPage2
-        '
-        Me.TabPage2.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
-        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel4)
-        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel3)
-        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel5)
-        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabPage2.Font = Global.TestWAT.My.MySettings.Default.Font
-        Me.TabPage2.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(986, 517)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Page ClusterFuck"
-        '
-        'TabPage3
-        '
-        Me.TabPage3.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
-        Me.TabPage3.Controls.Add(Me.TB_Numberaga)
-        Me.TabPage3.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabPage3.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TabPage3.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(986, 517)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Page NumberToText"
         '
         'Test_ProgressTrackerBar1
         '
@@ -536,6 +535,55 @@ Partial Class FormTest
         Me.Test_RegexTextBox1.Size = New System.Drawing.Size(146, 139)
         Me.Test_RegexTextBox1.TabIndex = 2
         '
+        'Test_YearPicker1
+        '
+        Me.Test_YearPicker1.AutoSize = True
+        Me.Test_YearPicker1.Location = New System.Drawing.Point(3, 298)
+        Me.Test_YearPicker1.Name = "Test_YearPicker1"
+        Me.Test_YearPicker1.Size = New System.Drawing.Size(143, 79)
+        Me.Test_YearPicker1.TabIndex = 3
+        '
+        'Test_ColorHash1
+        '
+        Me.Test_ColorHash1.AutoSize = True
+        Me.Test_ColorHash1.Location = New System.Drawing.Point(517, 153)
+        Me.Test_ColorHash1.MinimumSize = New System.Drawing.Size(200, 0)
+        Me.Test_ColorHash1.Name = "Test_ColorHash1"
+        Me.Test_ColorHash1.Size = New System.Drawing.Size(200, 38)
+        Me.Test_ColorHash1.TabIndex = 4
+        '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
+        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel4)
+        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel3)
+        Me.TabPage2.Controls.Add(Me.FlowLayoutPanel5)
+        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.TestWAT.My.MySettings.Default, "Font", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TabPage2.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TabPage2.Font = Global.TestWAT.My.MySettings.Default.Font
+        Me.TabPage2.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(986, 549)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Page ClusterFuck"
+        '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
+        Me.TabPage3.Controls.Add(Me.TB_Numberaga)
+        Me.TabPage3.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.TestWAT.My.MySettings.Default, "BackColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TabPage3.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.TestWAT.My.MySettings.Default, "ForeColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TabPage3.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(986, 549)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Page NumberToText"
+        '
         'FormTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -572,6 +620,7 @@ Partial Class FormTest
         Me.TB_Numberaga.ResumeLayout(False)
         Me.TB_Numberaga.PerformLayout()
         Me.FlowLayoutPanel6.ResumeLayout(False)
+        Me.FlowLayoutPanel6.PerformLayout()
         Me.FlowLayoutPanel5.ResumeLayout(False)
         Me.FlowLayoutPanel5.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -593,17 +642,17 @@ Partial Class FormTest
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents CncB_Test As JANL.Controls.CancelableButton
     Friend WithEvents StatusStrip1 As StatusStrip
-	Friend WithEvents TSPB_Test As ToolStripProgressBar
+    Friend WithEvents TSPB_Test As ToolStripProgressBar
     Friend WithEvents SWL_Test As JANL.UserControls.StopWatchLabel
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents CB_SW As JANL.Controls.CancelableButton
     Friend WithEvents PBE_Test As JANL.UserControls.ProgressBarEx
     Friend WithEvents GP_PB As GroupBox
-	Friend WithEvents B_PB As Button
+    Friend WithEvents B_PB As Button
     Friend WithEvents TextBoxEx1 As JANL.Controls.TextBoxEx
     Friend WithEvents TextBox1 As TextBox
-	Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-	Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
     Friend WithEvents TB_Number As TextBox
@@ -625,4 +674,8 @@ Partial Class FormTest
     Friend WithEvents B_TTS As Button
     Friend WithEvents Test_RegexTextBox1 As Test_RegexTextBox
     Friend WithEvents Test_DTP1 As Test_DTP
+    Friend WithEvents Test_YearPicker1 As Test_YearPicker
+    Friend WithEvents B_Message As Button
+    Friend WithEvents TtsPlayer1 As TTSPlayer
+    Friend WithEvents Test_ColorHash1 As Test_ColorHash
 End Class

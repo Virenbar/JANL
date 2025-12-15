@@ -1,32 +1,50 @@
-﻿Public Class PerfomanceTests
+﻿Imports System.Text.RegularExpressions
 
-	Public Shared Sub HashVSList()
-		Dim SW = New Stopwatch()
-		Dim H = New HashSet(Of Integer)
-		Dim L = New List(Of Integer)
-		For i = 1 To 100000
-			H.Add(i)
-			L.Add(i)
-		Next
+Public Class PerfomanceTests
 
-		Dim R = New Random(123)
-		SW.Restart()
-		For i = 1 To 100000
-			H.Contains(R.Next)
-		Next
-		SW.Stop()
-		Dim HR = SW.Elapsed.ToString
+    Public Shared Sub HashVSList()
+        Dim H = New HashSet(Of Integer)
+        Dim L = New List(Of Integer)
+        For i = 1 To 100000
+            H.Add(i)
+            L.Add(i)
+        Next
 
-		R = New Random(123)
-		SW.Restart()
-		For i = 1 To 100000
-			L.Contains(R.Next)
-		Next
-		SW.Stop()
-		Dim LR = SW.Elapsed.ToString
+        Dim R = New Random(123)
+        Dim HR = Run(Sub() H.Contains(R.Next))
+        R = New Random(123)
+        Dim LR = Run(Sub() L.Contains(R.Next))
 
-		Console.WriteLine($"HashSet: {HR}")
-		Console.WriteLine($"List: {LR}")
-	End Sub
+        Console.WriteLine($"HashSet: {HR}")
+        Console.WriteLine($"List: {LR}")
+    End Sub
+
+    Public Shared Sub RegexVSArray()
+        Dim S = "тешщтуцшетцущнтшщуцнтуцшнтрктмнуткнумкнТДУЖТЕШТУНЛТУШНТУШЦТУЩШЕ"
+
+        Dim VowelsLower() As Char = {"у"c, "е"c, "ы"c, "а"c, "о"c, "э"c, "я"c, "и"c, "ю"c}
+        Dim Vowels = VowelsLower.Concat(VowelsLower.AsEnumerable().Select(Function(x) Char.ToUpperInvariant(x))).ToArray()
+        Dim V = New Regex("[уеыаоэяиюУЕЫАОЭЯИЮ]", RegexOptions.Compiled)
+
+        Dim Array = Run(Sub() String.Join("", S.Split(Vowels)))
+        Dim Regex = Run(Sub() V.Replace(S, ""))
+
+        Console.WriteLine($"Array: {Array}")
+        Console.WriteLine($"Regex: {Regex}")
+    End Sub
+
+    Private Shared Function Run(Action As Action) As TimeSpan
+        Return Run(Action, 100000)
+    End Function
+
+    Private Shared Function Run(Action As Action, Count As Integer) As TimeSpan
+        Dim SW = New Stopwatch()
+        SW.Restart()
+        For i = 1 To Count
+            Action()
+        Next
+        SW.Stop()
+        Return SW.Elapsed
+    End Function
 
 End Class

@@ -3,9 +3,12 @@ Imports System.Speech.Synthesis
 Imports System.Threading
 Imports JANL
 Imports JANL.Controls
+Imports JANL.Drawing
+Imports JANL.Extensions
 Imports JANL.Forms
 Imports JANL.Helpers.StringHelper
 Imports JANL.Models
+Imports Microsoft.VisualBasic.CompilerServices
 
 Public Class FormTest
     Private TestObject As New TestObject()
@@ -78,6 +81,7 @@ Public Class FormTest
     Private Sub B_Exception_Click(sender As Object, e As EventArgs) Handles B_Exception.Click
         Try
             InnerExOne()
+            Dim t = AstroColor.Dark.Off
         Catch ex As Exception
             Dim EB = New ExceptionBox(ex)
             If EB.ShowDialog(Me) = DialogResult.Abort Then Application.Exit()
@@ -92,7 +96,7 @@ Public Class FormTest
         Try
             InnerExThree()
         Catch ex As InvalidOperationException
-            Throw New Exception("Произошла некоректная операция.", ex)
+            Throw New Exception("Произошла некорректная операция.", ex)
         End Try
     End Sub
 
@@ -109,6 +113,9 @@ Public Class FormTest
     End Sub
 
     Private Shared Sub InnerExFive()
+        Dim Null As Object = DBNull.Value
+        Dim D As Date = Conversions.ToDate(Null)
+
         Dim z As Integer = 0
         Dim x As Integer = 3 \ z
     End Sub
@@ -193,13 +200,15 @@ Public Class FormTest
         Else
             TB_NumberText.Text = ""
         End If
+        TtsPlayer1.Queue.Clear()
+        TtsPlayer1.Queue.Enqueue(New Prompt(TB_NumberText.Text))
     End Sub
 
     Private Async Sub B_TTS_Click(sender As Object, e As EventArgs) Handles B_TTS.Click
         Using synth As New SpeechSynthesizer()
             synth.SetOutputToDefaultAudioDevice()
             synth.Volume = 100
-            synth.Rate = 2
+            synth.Rate = 10
             Dim promt = New Prompt(TB_NumberText.Text, SynthesisTextFormat.Text)
             Await Task.Run(Sub() synth.Speak(TB_NumberText.Text))
         End Using
@@ -212,6 +221,21 @@ Public Class FormTest
         File.WriteAllText(T, "Test text")
         Dim F = New FormFileEdit(T)
         F.ShowDialog(Me)
+    End Sub
+
+    Private Function ThreadMessageBox(owner As Control, text As String) As DialogResult
+        Return DirectCast(owner.Invoke(Function() MessageBox.Show(owner, text, "s", MessageBoxButtons.YesNo, MessageBoxIcon.Question)), DialogResult)
+    End Function
+
+    Private Async Sub B_Message_Click(sender As Object, e As EventArgs) Handles B_Message.Click
+
+        Await Task.Run(
+            Sub()
+                'Me.InvokeAskYesNo("")
+                Dim Result = ThreadMessageBox(Me, "Абоба?")
+                'Dim Result = DirectCast(Me.Invoke(Function() Me.AskYesNo("Абоба?")), DialogResult)
+
+            End Sub)
     End Sub
 
 End Class

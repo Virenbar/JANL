@@ -82,6 +82,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
@@ -119,6 +120,7 @@
     <Compile Include="Archive\Excel\Reestr.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
+    <Compile Include="ExtensionsModule.vb" />
     <Compile Include="Forms\FormAnimation.Designer.vb">
       <DependentUpon>FormAnimation.vb</DependentUpon>
     </Compile>
@@ -129,6 +131,12 @@
       <DependentUpon>FormAnimationE.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAnimationE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormColors.Designer.vb">
+      <DependentUpon>FormColors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormColors.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormOffice.Designer.vb">
@@ -167,16 +175,16 @@
     <Compile Include="Forms\Tests\FormSelectTest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tests\FormULCheck.Designer.vb">
+    <Compile Include="Forms\DaData\FormULCheck.Designer.vb">
       <DependentUpon>FormULCheck.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tests\FormULCheck.vb">
+    <Compile Include="Forms\DaData\FormULCheck.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTest.Designer.vb">
+    <Compile Include="Forms\FormTest.Designer.vb">
       <DependentUpon>FormTest.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormTest.vb">
+    <Compile Include="Forms\FormTest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="icons8.Designer.vb">
@@ -197,10 +205,10 @@
     <Compile Include="Forms\Tests\FormAsync.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAddressSuggest.Designer.vb">
+    <Compile Include="Forms\DaData\FormAddressSuggest.Designer.vb">
       <DependentUpon>FormAddressSuggest.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormAddressSuggest.vb">
+    <Compile Include="Forms\DaData\FormAddressSuggest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.vb">
@@ -237,6 +245,12 @@
     <Compile Include="TestControls\Test_ButtonAwaiter.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TestControls\Test_ColorHash.Designer.vb">
+      <DependentUpon>Test_ColorHash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_ColorHash.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TestControls\Test_DataMapper.Designer.vb">
       <DependentUpon>Test_DataMapper.vb</DependentUpon>
     </Compile>
@@ -267,8 +281,20 @@
     <Compile Include="TestControls\Test_TaskButton.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TestControls\Test_YearPicker.Designer.vb">
+      <DependentUpon>Test_YearPicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_YearPicker.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\CB_PersonType.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\TTSPlayer.Designer.vb">
+      <DependentUpon>TTSPlayer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TTSPlayer.vb">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAnimationE.resx">
       <DependentUpon>FormAnimationE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormColors.resx">
+      <DependentUpon>FormColors.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOffice.resx">
       <DependentUpon>FormOffice.vb</DependentUpon>
@@ -287,7 +316,7 @@
     <EmbeddedResource Include="Forms\Tests\DGVTEdit.resx">
       <DependentUpon>DGVTEdit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormAddressSuggest.resx">
+    <EmbeddedResource Include="Forms\DaData\FormAddressSuggest.resx">
       <DependentUpon>FormAddressSuggest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\FormAsync.resx">
@@ -302,10 +331,10 @@
     <EmbeddedResource Include="Forms\Tests\FormSelectTest.resx">
       <DependentUpon>FormSelectTest.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\FormULCheck.resx">
+    <EmbeddedResource Include="Forms\DaData\FormULCheck.resx">
       <DependentUpon>FormULCheck.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTest.resx">
+    <EmbeddedResource Include="Forms\FormTest.resx">
       <DependentUpon>FormTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="icons8GIF.resx">
@@ -330,6 +359,9 @@
     <EmbeddedResource Include="TestControls\Test_ButtonAwaiter.resx">
       <DependentUpon>Test_ButtonAwaiter.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_ColorHash.resx">
+      <DependentUpon>Test_ColorHash.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_DataMapper.resx">
       <DependentUpon>Test_DataMapper.vb</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_TaskButton.resx">
       <DependentUpon>Test_TaskButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_YearPicker.resx">
+      <DependentUpon>Test_YearPicker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TTSPlayer.resx">
+      <DependentUpon>TTSPlayer.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -416,16 +454,16 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dadata">
-      <Version>23.6.1</Version>
+      <Version>25.7.0</Version>
     </PackageReference>
     <PackageReference Include="DocumentFormat.OpenXml">
-      <Version>2.20.0</Version>
+      <Version>3.3.0</Version>
     </PackageReference>
     <PackageReference Include="EPPlus">
       <Version>4.5.3.3</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
+      <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="OpenXmlPowerTools">
       <Version>4.5.3.2</Version>
@@ -434,7 +472,7 @@
       <Version>5.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.IO.Packaging">
-      <Version>8.0.0</Version>
+      <Version>9.0.10</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

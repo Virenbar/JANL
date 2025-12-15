@@ -1,7 +1,6 @@
 ﻿Imports JANL
 Imports JANL.Forms
 Imports Microsoft.VisualBasic.ApplicationServices
-Imports Newtonsoft.Json
 
 Namespace My
     ' Для MyApplication имеются следующие события:
