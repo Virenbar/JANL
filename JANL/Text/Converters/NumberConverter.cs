@@ -8,7 +8,7 @@ namespace JANL.Text.Converters
 {
     public static class NumberConverter
     {
-        private const int MAX_CLASS = 40;
+        private const int MAX_CLASS = 1000;
         private readonly static string[] Dozen;
         private readonly static string[] Hundreds;
         private readonly static Noun Kopek;
@@ -38,18 +38,18 @@ namespace JANL.Text.Converters
 
             var Minus = number.Sign < 0;
             var N = BigInteger.Abs(number);
-            if (BigInteger.Log10(N) / 3 > MAX_CLASS) { return N.ToString("E"); }
+            if (BigInteger.Log10(N) / 3 > MAX_CLASS + 2) { return N.ToString("E"); }
 
             var SB = new StringBuilder();
             InsertClass(SB, (int)(N % 1000), kind);
             if (N > 999)
             {
                 var ClassIndex = 0;
-                var NumberNouns = GetNumberNouns();
+                //var NumberNouns = GetNumberNouns();
                 N /= 1000;
                 while (N != 0)
                 {
-                    var Noun = NumberNouns[ClassIndex];
+                    var Noun = GenerateNoun(ClassIndex);// NumberNouns[ClassIndex];
                     var Part = (int)(N % 1000);
                     ClassIndex++;
                     N /= 1000;
@@ -113,6 +113,108 @@ namespace JANL.Text.Converters
         /// <returns>Возвращает существительное с падежным окончанием, которое соответствует числу</returns>
         private static string CaseForNumber(int number, Noun noun) => CaseForNumber(number, noun.One, noun.Few, noun.Many);
 
+        private static Noun CreateNoun(string name) => new Noun(name, $"{name}а", $"{name}ов");
+
+        private static Noun GenerateNoun(int big)
+        {
+            switch (big)
+            {
+                case 0: return new Noun("тысяча", "тысячи", "тысяч", NounKind.Female);
+                case 1: return CreateNoun("миллион");
+                case 2: return CreateNoun("миллиард");
+                case 3: return CreateNoun("триллион");
+                case 4: return CreateNoun("квадриллион");
+                case 5: return CreateNoun("квинтиллион");
+                case 6: return CreateNoun("секстиллион");
+                case 7: return CreateNoun("септиллион");
+                case 8: return CreateNoun("октиллион");
+                case 9: return CreateNoun("нониллион");
+                case 1000: return CreateNoun("миллиниллион");
+            }
+            var pre = "";
+            var N1 = big / 100 % 10;
+            var N2 = big / 10 % 10;
+            var N3 = big / 1 % 10;
+
+            switch (N3)
+            {
+                case 1: pre = "ун"; break;
+                case 2: pre = "дуо"; break;
+                case 3:
+                    pre = "тре";
+                    if (N2 == 0)
+                    {
+                        if (N1 == 1 || (N1 > 2 && N1 < 6)) { pre += "с"; }
+                    }
+                    else if (N2 > 1 && N2 < 6) { pre += "с"; }
+                    break;
+
+                case 4: pre = "кваттуор"; break;
+                case 5: pre = "квин"; break;
+                case 6:
+                    pre = "се";
+                    if (N2 == 0)
+                    {
+                        if (N1 > 2 && N1 < 6) { pre += "с"; }
+                        if (N1 == 1 || N1 == 8) { pre += "кс"; }
+                    }
+                    else if (N2 > 1 && N2 < 6) { pre += "с"; }
+                    else if (N2 == 8) { pre += "кс"; }
+                    break;
+
+                case 7:
+                    pre = "септе";
+                    if (N2 == 0)
+                    {
+                        if (N1 == 8) { pre += "м"; }
+                        else if (N1 < 8) { pre += "н"; }
+                    }
+                    else if (N2 == 8 || N2 == 2) { pre += "м"; }
+                    else if (N2 < 8) { pre += "н"; }
+                    break;
+
+                case 8: pre = "окто"; break;
+                case 9:
+                    pre = "нове";
+                    if (N2 == 0)
+                    {
+                        if (N1 == 8) { pre += "м"; }
+                        else if (N1 < 8) { pre += "н"; }
+                    }
+                    else if (N2 == 8 || N2 == 2) { pre += "м"; }
+                    else if (N2 < 8) { pre += "н"; }
+                    break;
+            }
+
+            switch (N2)
+            {
+                case 1: pre += "деци"; break;
+                case 2: pre += "вигинти"; break;
+                case 3: pre += "тригинта"; break;
+                case 4: pre += "квадрагинта"; break;
+                case 5: pre += "квинквагинта"; break;
+                case 6: pre += "сексагинта"; break;
+                case 7: pre += "септуагинта"; break;
+                case 8: pre += "октогинта"; break;
+                case 9: pre += "нонагинта"; break;
+            }
+
+            switch (N1)
+            {
+                case 1: pre += "санти"; break;
+                case 2: pre += "дуценти"; break;
+                case 3: pre += "треценти"; break;
+                case 4: pre += "квадрингенти"; break;
+                case 5: pre += "квингенти"; break;
+                case 6: pre += "сесценти"; break;
+                case 7: pre += "септингенти"; break;
+                case 8: pre += "октингенти"; break;
+                case 9: pre += "нонгенти"; break;
+            }
+
+            return pre.EndsWith("a") ? CreateNoun($"{pre.Remove(pre.Length - 1)}иллион") : CreateNoun($"{pre}ллион");
+        }
+
         /// <summary>
         /// Получить наименование десятка для значения класса
         /// </summary>
@@ -139,53 +241,6 @@ namespace JANL.Text.Converters
         /// Получить наименование сотни для значения класса
         /// </summary>
         private static string GetHundred(int number) => Hundreds[number / 100];
-
-        private static Noun[] GetNumberNouns()
-        {
-            return new[] {
-                new Noun("тысяча", "тысячи", "тысяч", NounKind.Female),
-                new Noun("миллион", "миллиона", "миллионов"),
-                new Noun("миллиард", "миллиарда", "миллиардов"),
-                new Noun("триллион", "триллиона", "триллионов"),
-                new Noun("квадриллион", "квадриллиона", "квадриллионов"),
-                new Noun("квинтиллион", "квинтиллиона", "квинтиллионов"),
-                new Noun("секстиллион", "секстиллиона", "секстиллионов"),
-                new Noun("септиллион", "септиллиона", "септиллионов"),
-                new Noun("октиллион", "октиллиона", "октиллионов"),
-                new Noun("нониллион", "нониллиона", "нониллионов"),
-                new Noun("дециллион", "дециллиона", "дециллионов"),
-                new Noun("ундециллион", "ундециллиона", "ундециллионов"),
-                new Noun("дуодециллион", "дуодециллиона", "дуодециллионов"),
-                new Noun("тредециллион", "тредециллиона", "тредециллионов"),
-                new Noun("квиндециллион", "квиндециллиона", "квиндециллионов"),
-                new Noun("сексдециллион", "сексдециллионa", "сексдециллион"),
-                new Noun("септдециллион", "септдециллиона", "септдециллионов"),
-                new Noun("октодециллион", "октодециллионa", "октодециллионов"),
-                new Noun("новемдециллион", "октодециллионa", "октодециллионов"),
-                new Noun("вигинтиллион", "вигинтиллиона", "вигинтиллионов"),
-                new Noun("унвигинтиллион", "унвигинтиллионa", "унвигинтиллионов"),
-                new Noun("дуовигинтиллион", "дуовигинтиллионa", "дуовигинтиллионов"),
-                new Noun("тревигинтиллион", "тревигинтиллионa", "тревигинтиллионов"),
-                new Noun("кваттуорвигинтиллион", "кваттуорвигинтиллионa", "кваттуорвигинтиллионов"),
-                new Noun("квинвигинтиллион", "квинвигинтиллионa", "квинвигинтиллионов"),
-                new Noun("сексвигинтиллион", "сексвигинтиллионa", "сексвигинтиллионов"),
-                new Noun("септенвигинтиллион", "септенвигинтиллионa", "септенвигинтиллионов"),
-                new Noun("октовигинтиллион", "октовигинтиллионa", "октовигинтиллионов"),
-                new Noun("новемвигинтиллион", "новемвигинтиллионa", "новемвигинтиллионов"),
-                new Noun("тригинтиллион", "тригинтиллионa", "тригинтиллионов"),
-                new Noun("унтригинтиллион", "унтригинтиллионa", "унтригинтиллионов"),
-                new Noun("дуотригинтиллион", "дуотригинтиллионa", "дуотригинтиллионов"),
-                new Noun("третригинтиллион", "третригинтиллионa", "третригинтиллионов"),
-                new Noun("кваттуортригинтиллион", "кваттуортригинтиллионa", "кваттуортригинтиллионов"),
-                new Noun("квинтригинтиллион", "квинтригинтиллионa", "квинтригинтиллионов"),
-                new Noun("секстригинтиллион", "секстригинтиллионa", "секстригинтиллионов"),
-                new Noun("септентригинтиллион", "септентригинтиллионa", "септентригинтиллионов"),
-                new Noun("октотригинтиллион", "октотригинтиллионa", "октотригинтиллионов"),
-                new Noun("новемтригинтиллион", "новемтригинтиллионa", "новемтригинтиллионов"),
-                new Noun("квадрагинтиллион", "квадрагинтиллионa", "квадрагинтиллионов")
-            };
-            // Нужно больше числительных
-        }
 
         private static void InsertClass(StringBuilder SB, int number, NounKind kind)
         {

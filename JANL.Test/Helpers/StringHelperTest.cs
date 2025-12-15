@@ -28,13 +28,21 @@ namespace JANL.Test.Helpers
         [Test]
         public void NumberToText_3()
         {
+            var target = "двести две тысячи сто один";
+            var result = StringHelper.NumberToText(202101);
+            Assert.That(result, Is.EqualTo(target));
+        }
+
+        [Test]
+        public void NumberToText_Day()
+        {
             var target = "двое суток";
             var result = StringHelper.NumberToText(2, Day);
             Assert.That(result, Is.EqualTo(target));
         }
 
         [Test]
-        public void NumberToText_4()
+        public void NumberToText_Exception()
         {
             void Result() { StringHelper.NumberToText(22, Day); }
             Assert.Throws<SyntacticIncongruityException>(Result);
