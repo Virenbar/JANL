@@ -28,16 +28,6 @@ namespace JANL.Extensions
         }
 
         /// <summary>
-        /// Первый день месяца
-        /// </summary>
-        public static DateTime FirstDay(this DateTime date) => new DateTime(date.Year, date.Month, 1);
-
-        /// <summary>
-        /// Последний день месяца
-        /// </summary>
-        public static DateTime LastDay(this DateTime date) => new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
-
-        /// <summary>
         /// Случайный элемент из перечисления
         /// </summary>
         public static T PickRandom<T>(this IEnumerable<T> list) => list.Count() == 0 ? default : list.ElementAt(rnd.Next(list.Count()));
@@ -58,15 +48,6 @@ namespace JANL.Extensions
             var element = collection.ElementAt(rnd.Next(collection.Count));
             if (remove) { collection.Remove(element); }
             return element;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public static string Truncate(string value, int maxLength)
-        {
-            if (string.IsNullOrEmpty(value)) { return value; }
-            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
 
         #region SQL

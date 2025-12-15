@@ -65,6 +65,7 @@
     <Compile Include="Extensions\BetweenExtensions.cs" />
     <Compile Include="Extensions\DataExtensions.cs" />
     <Compile Include="Extensions\SQLExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="General\ProgressTracker.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Text\Converters\DateConverter.cs" />

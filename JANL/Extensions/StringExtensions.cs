@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для строк
+    /// </summary>
     public static class StringExtensions
 
     {
@@ -42,6 +45,16 @@ namespace JANL.Extensions
         public static string JoinStrings(this IEnumerable<string> strings) => JoinStrings(strings, ", ");
 
         /// <summary>
+        /// Возвращает null если указанная строка является пустой строкой
+        /// </summary>
+        public static string NullIfEmpty(this string s) => string.IsNullOrEmpty(s) ? null : s;
+
+        /// <summary>
+        /// Возвращает null если указанная строка является пустой строкой или строкой, состоящей только из пробельных символов
+        /// </summary>
+        public static string NullIfWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s) ? null : s;
+
+        /// <summary>
         /// Удаляет все символы кроме [0-9a-zA-Zа-яА-ЯёЁ _.]
         /// </summary>
         public static string RemoveSpecialCharacters(this string str)
@@ -60,13 +73,12 @@ namespace JANL.Extensions
         }
 
         /// <summary>
-        /// Возвращает null если указанная строка является пустой строкой
+        /// Обрезает строку до указанной длины
         /// </summary>
-        public static string NullIfEmpty(this string s) => string.IsNullOrEmpty(s) ? null : s;
-
-        /// <summary>
-        /// Возвращает null если указанная строка является пустой строкой или строкой, состоящей только из пробельных символов
-        /// </summary>
-        public static string NullIfWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s) ? null : s;
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) { return value; }
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+        }
     }
 }
