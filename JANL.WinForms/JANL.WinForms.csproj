@@ -81,6 +81,8 @@
     <Compile Include="Extensions\ComboBoxExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Extensions\MessageBoxExtensions.cs" />
+    <Compile Include="Helpers\ColorHash.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
