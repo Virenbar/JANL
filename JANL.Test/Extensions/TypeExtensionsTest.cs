@@ -26,7 +26,7 @@ namespace JANL.Test.Extensions
         }
 
         [Test]
-        public void FirstDay()
+        public void FirstMonthDay()
         {
             var D = new DateTime(1994, 11, 21);
             var L = D.FirstDay();
@@ -34,11 +34,27 @@ namespace JANL.Test.Extensions
         }
 
         [Test]
-        public void LastDay()
+        public void FirstYearDay()
+        {
+            var D = new DateTime(1994, 11, 21);
+            var L = D.FirstYearDay();
+            Assert.That(L, Is.EqualTo(new DateTime(1994, 1, 1)));
+        }
+
+        [Test]
+        public void LastMonthDay()
         {
             var D = new DateTime(1994, 11, 21);
             var L = D.LastDay();
             Assert.That(L, Is.EqualTo(new DateTime(1994, 11, 30)));
+        }
+
+        [Test]
+        public void LastYearDay()
+        {
+            var D = new DateTime(1994, 11, 21);
+            var L = D.LastYearDay();
+            Assert.That(L, Is.EqualTo(new DateTime(1994, 12, 31)));
         }
 
         [Test]
