@@ -34,7 +34,7 @@ namespace JANL.Data
             var data = row.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => row[v]);
             foreach (var prop in Properties)
             {
-                var name = prop.Name.ToLower();
+                var name = prop.Name.ToLowerInvariant();
                 if (!data.ContainsKey(name)) { continue; }
                 prop.SetValue(item, data[name]);
             }

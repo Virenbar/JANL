@@ -15,7 +15,7 @@ namespace JANL.Helpers
         public static void VowelsBegone(Control control)
         {
             Type type = control.GetType();
-            if (TextControls.Contains(type) | type.IsSubclassOf(typeof(Form)) | type.IsSubclassOf(typeof(ToolStrip)))
+            if (TextControls.Contains(type) || type.IsSubclassOf(typeof(Form)) || type.IsSubclassOf(typeof(ToolStrip)))
             {
                 control.Text = RemoveVowels(control.Text);
             }

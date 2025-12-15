@@ -8,7 +8,7 @@ namespace JANL.SQL
     /// <summary>
     /// Процедура возвращающая <see cref="SqlDataReader"/>
     /// </summary>
-    [Obsolete()]
+    [Obsolete("WIP")]
     public class SelectReader : SQLProcedure<SqlDataReader>
     {
         /// <summary>

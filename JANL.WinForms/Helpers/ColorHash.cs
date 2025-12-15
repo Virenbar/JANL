@@ -23,8 +23,8 @@ namespace JANL.Helpers
             hash = SHA256Hash;
 
             HueRanges = new List<HueRange>();
-            Saturations = new List<double>() { 0.35, 0.5, 0.65 };
-            Luminositiess = new List<double>() { 0.35, 0.5, 0.65 };
+            Saturations = new List<double> { 0.35, 0.5, 0.65 };
+            Luminositiess = new List<double> { 0.35, 0.5, 0.65 };
         }
 
         public ColorHash(Func<string, uint> hash) : this()
@@ -99,12 +99,8 @@ namespace JANL.Helpers
             using (var hash = SHA256.Create())
             {
                 var bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(str));
-                //var tt = BitConverter.ToInt32(bytes, 0);
-
-                var t = string.Concat(bytes.Select(item => item.ToString("x2")));
-                var t1 = Convert.ToUInt32($"0x{t.Substring(0, 8)}", 16);
-                var t2 = uint.Parse(t.Substring(0, 8), NumberStyles.HexNumber);
-                return t1;
+                var hex = string.Concat(bytes.Select(item => item.ToString("x2")));
+                return Convert.ToUInt32($"0x{hex.Substring(0, 8)}", 16);
             }
         }
 

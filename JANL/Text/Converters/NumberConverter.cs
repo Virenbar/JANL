@@ -45,11 +45,10 @@ namespace JANL.Text.Converters
             if (N > 999)
             {
                 var ClassIndex = 0;
-                //var NumberNouns = GetNumberNouns();
                 N /= 1000;
                 while (N != 0)
                 {
-                    var Noun = GenerateNoun(ClassIndex);// NumberNouns[ClassIndex];
+                    var Noun = GenerateNoun(ClassIndex);
                     var Part = (int)(N % 1000);
                     ClassIndex++;
                     N /= 1000;

@@ -72,7 +72,7 @@ namespace JANL.Controls
             get => _darkMode;
             set
             {
-                if (_darkMode == value) return;
+                if (_darkMode == value) { return; }
                 _darkMode = value;
                 UpdatePanel();
             }
@@ -87,7 +87,7 @@ namespace JANL.Controls
             get => _status;
             set
             {
-                if (_status == value) return;
+                if (_status == value) { return; }
                 _status = value;
                 UpdatePanel();
             }
