@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JANL.Extensions;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -34,7 +35,7 @@ namespace JANL.Controls
             if (!IsValid && Message?.Length > 0 && Text.Length > 0)
             {
                 e.Cancel = true;
-                Msgs.ShowWarning(Message);
+                this.ShowWarning(Message);
             }
 
             base.OnValidating(e);

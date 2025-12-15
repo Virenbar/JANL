@@ -5,6 +5,12 @@ using System.Runtime.InteropServices;
 
 namespace JANL.Drawing
 {
+    /// <summary>
+    /// Bitmap with pinned memory
+    /// </summary>
+    /// <remarks>
+    /// https://stackoverflow.com/a/34801225/9530839
+    /// </remarks>
     public class DirectBitmap : IDisposable
     {
         public DirectBitmap(int width, int height)

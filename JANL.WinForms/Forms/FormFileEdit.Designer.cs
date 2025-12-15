@@ -148,16 +148,17 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 85);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 91);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 37);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 31);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // flowLayoutPanel2
@@ -166,7 +167,8 @@
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.B_OK);
             this.flowLayoutPanel2.Controls.Add(this.B_Cancel);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(243, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(246, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(138, 31);
             this.flowLayoutPanel2.TabIndex = 8;
@@ -211,7 +213,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(384, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(384, 36);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // FormFileEdit

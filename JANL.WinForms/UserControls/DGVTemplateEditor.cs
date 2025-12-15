@@ -1,4 +1,5 @@
-﻿using JANL.Types;
+﻿using JANL.Extensions;
+using JANL.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace JANL.UserControls
             }
             catch (Exception ex)
             {
-                Msgs.ShowError(ex.Message);
+                this.ShowError(ex.Message);
             }
         }
 

@@ -6,21 +6,21 @@ namespace JANL.Helpers
     public static class ImageHelper
     {
         /// <summary>
-        /// Уничтожить иконку
+        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon"/>)
         /// </summary>
         public static void DestroyIcon(Icon icon)
         {
-            icon.Dispose();
             DestroyIcon(icon.Handle);
+            icon.Dispose();
         }
 
         /// <summary>
-        /// Уничтожить иконку
+        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon"/>)
         /// </summary>
         public static bool DestroyIcon(IntPtr handle) => NativeMethods.DestroyIcon(handle);
 
         /// <summary>
-        /// Создает иконку из изображения
+        /// Создать иконку из изображения
         /// </summary>
         public static Icon ToIcon(Image image)
         {
@@ -28,12 +28,12 @@ namespace JANL.Helpers
 
             using (var bitmap = new Bitmap(image))
             {
-                return Icon.FromHandle(bitmap.GetHicon());
+                return ToIcon(bitmap);
             }
         }
 
         /// <summary>
-        /// Создает иконку из изображения
+        /// Создать иконку из изображения
         /// </summary>
         public static Icon ToIcon(Bitmap bitmap) => Icon.FromHandle(bitmap.GetHicon());
     }

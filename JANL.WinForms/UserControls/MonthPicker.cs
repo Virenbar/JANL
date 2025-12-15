@@ -9,26 +9,35 @@ using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
+    /// <summary>
+    /// Элемент выбора месяца
+    /// </summary>
     [Designer(typeof(HResizeOnly))]
     public partial class MonthPicker : UserControl
     {
         private readonly List<MonthItem> Months;
 
+        /// <summary>
+        /// Создаёт новы элемент выбора месяца
+        /// </summary>
         public MonthPicker()
         {
             InitializeComponent();
 
             var T = DateTime.Today;
-            Months = Enumerable.Range(1, 12).Select(i => new MonthItem(System.Convert.ToUInt16(i), DateTimeFormatInfo.CurrentInfo.GetMonthName(i))).ToList();
+            Months = Enumerable.Range(1, 12).Select(i => new MonthItem(i)).ToList();
             CB_Month.DataSource = Months;
             CB_Month.DisplayMember = "Name";
             CB_Month.ValueMember = "Index";
-            CB_Month.SelectedValue = Convert.ToUInt16(T.Month);
+            CB_Month.SelectedValue = T.Month;
 
             _MinYear = 2010;
             FillYear();
         }
 
+        /// <summary>
+        /// Вызывает <see cref="DateChanged"/>
+        /// </summary>
         protected void OnDateChanged() => DateChanged?.Invoke(this, EventArgs.Empty);
 
         private void CB_Month_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
@@ -37,12 +46,13 @@ namespace JANL.UserControls
 
         private void FillYear()
         {
-            var Y = DateTime.Today.Year;
+            var Y = MaxYear ?? DateTime.Today.Year;
             CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).ToList();
             if (MinYear <= Y) { CB_Year.Text = Y.ToString(); }
         }
 
         #region Properties
+        private int? _MaxYear;
         private int _MinYear;
 
         /// <summary>
@@ -58,9 +68,23 @@ namespace JANL.UserControls
         public DateTime LastDate => new DateTime(Year, Month, DateTime.DaysInMonth(Year, Month));
 
         /// <summary>
+        /// Максимальный год
+        /// </summary>
+        [Browsable(true), Category("MonthPicker"), DefaultValue(null), Description("Максимальный год")]
+        public int? MaxYear
+        {
+            get => _MaxYear;
+            set
+            {
+                _MaxYear = value;
+                FillYear();
+            }
+        }
+
+        /// <summary>
         /// Минимальный год
         /// </summary>
-        [Browsable(true), Category("MonthPicker"), DefaultValue(2010)]
+        [Browsable(true), Category("MonthPicker"), DefaultValue(2010), Description("Минимальный год")]
         public int MinYear
         {
             get => _MinYear;
@@ -75,7 +99,7 @@ namespace JANL.UserControls
         /// Выбранный месяц
         /// </summary>
         [Browsable(false)]
-        public ushort Month => (ushort)CB_Month.SelectedValue;
+        public int Month => (int)CB_Month.SelectedValue;
 
         /// <summary>
         /// Выбранный год
@@ -87,18 +111,21 @@ namespace JANL.UserControls
 
         private struct MonthItem : IEquatable<MonthItem>
         {
-            public MonthItem(ushort I, string N)
+            public MonthItem(int i)
             {
-                Index = I;
-                Name = N;
+                Index = i;
+                Name = $"{i:00} - {DateTimeFormatInfo.CurrentInfo.GetMonthName(i)}";
             }
 
-            public ushort Index { get; set; }
+            public int Index { get; set; }
             public string Name { get; set; }
 
             public bool Equals(MonthItem other) => Index.Equals(other);
         }
 
+        /// <summary>
+        /// Происходит при смене месяца
+        /// </summary>
         public event EventHandler DateChanged;
     }
 }

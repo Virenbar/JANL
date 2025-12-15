@@ -9,6 +9,7 @@ namespace JANL
     /// <summary>
     /// Message box wrapper
     /// </summary>
+    [Obsolete("Use JANL.Extensions")]
     public static class Msgs
     {
         private static string DefaultHeader => UIDefaults.Header;

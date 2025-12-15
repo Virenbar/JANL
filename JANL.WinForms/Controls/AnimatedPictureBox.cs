@@ -6,12 +6,18 @@ using System.Windows.Forms;
 
 namespace JANL.Controls
 {
+    /// <summary>
+    /// <see cref="PictureBox"/> для отображения анимированного изображения
+    /// </summary>
     public class AnimatedPictureBox : PictureBox
     {
         private IAnimator _animator;
         private Image _frame;
         private Image _image;
 
+        /// <summary>
+        /// Экземпляр класса аниматора
+        /// </summary>
         public IAnimator Animator
         {
             get => _animator;
@@ -28,6 +34,9 @@ namespace JANL.Controls
             }
         }
 
+        /// <summary>
+        /// Отображаемое изображение
+        /// </summary>
         [Bindable(true), Category("Appearance"), Description("Отображаемое изображение")]
         public new Image Image
         {
@@ -41,10 +50,19 @@ namespace JANL.Controls
             }
         }
 
+        /// <summary>
+        /// Запуск анимации
+        /// </summary>
         public void StartAnimation() => Animator?.StartAnimation();
 
+        /// <summary>
+        /// Остановка анимации
+        /// </summary>
         public void StopAnimation() => Animator?.StopAnimation();
 
+        /// <summary>
+        ///
+        /// </summary>
         protected override void OnBackgroundImageChanged(EventArgs e)
         {
             SizeMode = (_image.Width > Width || _image.Height > Height) ? PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;

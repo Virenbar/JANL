@@ -27,12 +27,12 @@ namespace JANL.Forms
             InitializeComponent();
 
             Text = EB_Strings.EB_Header;
-            //Buttons
+            // Buttons
             B_Ignore.Text = EB_Strings.EB_Continue;
             B_Exit.Text = EB_Strings.EB_Exit;
             B_MailTo.Text = EB_Strings.EB_Mail;
             B_Copy.Text = EB_Strings.EB_Copy;
-            //Labels
+            // Labels
             L_Text.Text = EB_Strings.EB_Text;
             L_Description.Text = EB_Strings.EB_ErrDesc;
             L_Message.Text = EB_Strings.EB_Message;

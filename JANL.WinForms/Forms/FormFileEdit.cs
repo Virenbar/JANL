@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace JANL.Forms
 {
+    /// <summary>
+    /// Форма для открытия редактирования файла и отслеживанием изменения
+    /// </summary>
     public partial class FormFileEdit : Form
     {
         private readonly FileInfo File;
@@ -15,6 +18,10 @@ namespace JANL.Forms
         private FileSystemWatcher FSW;
         private DateTime LastWrite;
 
+        /// <summary>
+        /// Создаёт новую форму
+        /// </summary>
+        /// <param name="FilePath"></param>
         public FormFileEdit(string FilePath)
         {
             InitializeComponent();
@@ -22,6 +29,9 @@ namespace JANL.Forms
             L_Name.Text = File.Name;
         }
 
+        /// <summary>
+        /// Изменился ли файл с момента открытия формы
+        /// </summary>
         public bool IsChanged { get; private set; }
 
         private void Editor_Exited(object sender, EventArgs e)

@@ -5,13 +5,40 @@ using System.Reflection;
 
 namespace JANL.Data
 {
+    /// <summary>
+    /// Класс для преобразования <see cref="DataTable"/>/<see cref="DataRow"/> в экземпляр класса
+    /// </summary>
+    /// <typeparam name="T">Тип класса</typeparam>
     public class DataMapper<T> where T : class, new()
     {
-        public List<PropertyInfo> Properties { get; }
-
+        /// <summary>
+        ///
+        /// </summary>
         public DataMapper()
         {
             Properties = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList();
+        }
+
+        /// <summary>
+        /// Публичный свойства экземпляра типа <typeparamref name="T"/>
+        /// </summary>
+        public List<PropertyInfo> Properties { get; }
+
+        /// <summary>
+        /// Преобразует DataRow в объект типа <typeparamref name="T"/>
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="row"></param>
+        public T FillObject(T item, DataRow row)
+        {
+            var data = row.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => row[v]);
+            foreach (var prop in Properties)
+            {
+                var name = prop.Name.ToLower();
+                if (!data.ContainsKey(name)) { continue; }
+                prop.SetValue(item, data[name]);
+            }
+            return item;
         }
 
         /// <summary>
@@ -29,27 +56,9 @@ namespace JANL.Data
         }
 
         /// <summary>
-        /// Преобразует DataRow в объект типа <see cref="T"/>
+        /// Преобразует DataRow в объект типа <typeparamref name="T"/>
         /// </summary>
         /// <param name="row"></param>
-        /// <returns></returns>
         public T ToObject(DataRow row) => FillObject(new T(), row);
-
-        /// <summary>
-        /// Преобразует DataRow в объект типа <see cref="T"/>
-        /// </summary>
-        /// <param name="row"></param>
-        /// <returns></returns>
-        public T FillObject(T item, DataRow row)
-        {
-            var data = row.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => row[v]);
-            foreach (var prop in Properties)
-            {
-                var name = prop.Name.ToLower();
-                if (!data.ContainsKey(name)) { continue; }
-                prop.SetValue(item, data[name]);
-            }
-            return item;
-        }
     }
 }
