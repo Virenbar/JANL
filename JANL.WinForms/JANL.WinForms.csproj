@@ -60,6 +60,10 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Controls\AstroStatusPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\Astro\AstroColor.cs" />
     <Compile Include="Controls\Button\ButtonAwaiter.cs" />
     <Compile Include="Drawing\DirectBitmap.cs" />
     <Compile Include="Controls\PixelPictureBox.cs">
@@ -78,6 +82,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Drawing\HSLColor.cs" />
+    <Compile Include="Drawing\Astro\AstroStatus.cs" />
     <Compile Include="Extensions\ComboBoxExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Extensions\MessageBoxExtensions.cs" />
