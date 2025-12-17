@@ -5,8 +5,14 @@ using System.Windows.Forms;
 
 namespace JANL.Forms
 {
+    /// <summary>
+    /// Форма выбора элемента
+    /// </summary>
     public partial class SelectBox : Form
     {
+        /// <summary>
+        ///
+        /// </summary>
         public SelectBox()
         {
             InitializeComponent();
@@ -15,21 +21,38 @@ namespace JANL.Forms
 
         #region Properties
 
+        /// <summary>
+        /// Свойство для отображения
+        /// </summary>
         public string DisplayMember
         {
             get => LB_Items.DisplayMember;
             set => LB_Items.DisplayMember = value;
         }
 
+        /// <summary>
+        /// Заголовок списка
+        /// </summary>
         public string Header
         {
             get => L_Select.Text;
             set => L_Select.Text = value;
         }
 
+        /// <summary>
+        /// Список элементов
+        /// </summary>
         public IEnumerable<object> Items { get; set; }
+
+        /// <summary>
+        /// Выбранный элемент
+        /// </summary>
         public object SelectedItem { get; private set; }
 
+        /// <summary>
+        /// Выбранный элемент
+        /// </summary>
+        /// <typeparam name="T">Тип элемента</typeparam>
         public T Item<T>() => (T)SelectedItem;
 
         #endregion Properties

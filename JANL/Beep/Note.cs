@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace JANL.Beep
 {
+    /// <summary>
+    /// Нота для <see cref="Song"/>
+    /// </summary>
     public struct Note
     {
         private const int A440 = 440;
@@ -45,6 +48,10 @@ namespace JANL.Beep
             }
         }
 
+        /// <summary>
+        /// Создаёт новую ноту
+        /// </summary>
+        /// <param name="value">Длина ноты</param>
         public Note(double value)
         {
             Value = value;
@@ -53,10 +60,27 @@ namespace JANL.Beep
             Octave = 0;
         }
 
+        /// <summary>
+        /// Создаёт новую ноту
+        /// </summary>
+        /// <param name="note">Название ноты</param>
+        /// <param name="value">Длина ноты</param>
         public Note(NoteName note, double value) : this((int)note, 4, value) { }
 
+        /// <summary>
+        /// Создаёт новую ноту
+        /// </summary>
+        /// <param name="note">Название ноты</param>
+        /// <param name="octave">Октава ноты</param>
+        /// <param name="value">Длина ноты</param>
         public Note(NoteName note, int octave, double value) : this((int)note, octave, value) { }
 
+        /// <summary>
+        /// Создаёт новую ноту
+        /// </summary>
+        /// <param name="note">Номер ноты (4 октава)</param>
+        /// <param name="octave">Октава ноты</param>
+        /// <param name="value">Длина ноты</param>
         public Note(int note, int octave, double value) : this(value)
         {
             if (note == 0) { return; }
@@ -65,15 +89,44 @@ namespace JANL.Beep
             Frequency = (int)(A440 * Math.Pow(2, (Number - 69) / 12d));
         }
 
+        /// <summary>
+        /// Частота ноты
+        /// </summary>
         public int Frequency { get; private set; }
+
+        /// <summary>
+        /// Номер ноты (MIDI)
+        /// </summary>
         public int Number { get; private set; }
+
+        /// <summary>
+        /// Номер октавы ноты
+        /// </summary>
         public int Octave { get; private set; }
+
+        /// <summary>
+        /// Длина ноты
+        /// </summary>
         public double Value { get; private set; }
 
+        /// <summary>
+        /// Длительность воспроизведения
+        /// </summary>
+        /// <param name="tempo">Темп воспроизведения</param>
+        /// <param name="value">Длина ноты</param>
+        /// <returns></returns>
         public static int GetDuration(int tempo, double value) => (int)(GetDuration(tempo) * value * 4);
 
+        /// <summary>
+        /// Длительность воспроизведения
+        /// </summary>
+        /// <param name="tempo">Темп воспроизведения</param>
         public static int GetDuration(int tempo) => 60_000 / tempo;
 
+        /// <summary>
+        /// Преобразует текстовое представление ноты в <see cref="Note"/>
+        /// </summary>
+        /// <param name="note">Текстовое представление ноты</param>
         public static Note Parse(string note)
         {
             var M = RNote.Match(note);
@@ -85,6 +138,11 @@ namespace JANL.Beep
             return N;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="note"></param>
+        /// <returns></returns>
         public static int ParseNumber(string note)
         {
             var M = RNumber.Match(note);
@@ -94,23 +152,82 @@ namespace JANL.Beep
             return NoteNumber[pitch] - 12 * (4 - int.Parse(octave));
         }
 
+        /// <summary>
+        /// Длительность ноты
+        /// </summary>
+        /// <param name="tempo"></param>
+        /// <returns></returns>
         public int Duration(int tempo) => GetDuration(tempo, Value);
     }
 
+    /// <summary>
+    /// Названия нот
+    /// </summary>
     public enum NoteName
     {
+        /// <summary>
+        /// Пропуск ноты
+        /// </summary>
         REST = 0,
+
+        /// <summary>
+        /// B♯/C
+        /// </summary>
         C = 60,
+
+        /// <summary>
+        /// C♯/D♭
+        /// </summary>
         C_D = 61,
+
+        /// <summary>
+        /// D
+        /// </summary>
         D = 62,
+
+        /// <summary>
+        /// D♯/E♭
+        /// </summary>
         D_E = 63,
+
+        /// <summary>
+        /// E/F♭
+        /// </summary>
         E = 64,
+
+        /// <summary>
+        /// E♯/F
+        /// </summary>
         F = 65,
+
+        /// <summary>
+        /// F♯/G♭
+        /// </summary>
         F_G = 66,
+
+        /// <summary>
+        /// G
+        /// </summary>
         G = 67,
+
+        /// <summary>
+        /// G♯/A♭
+        /// </summary>
         G_A = 68,
+
+        /// <summary>
+        /// A
+        /// </summary>
         A = 69,
+
+        /// <summary>
+        /// A♯/B♭
+        /// </summary>
         A_B = 70,
+
+        /// <summary>
+        /// B/C♭
+        /// </summary>
         B = 71
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace JANL.Extensions
 {
     /// <summary>
-    /// Extensions for Types inheriting Control
+    /// Расширения для классов наследованных от <see cref="Control"/>
     /// </summary>
     public static class ControlExtensions
     {
@@ -63,6 +63,10 @@ namespace JANL.Extensions
             DoubleBuffered(dgv, true);
         }
 
+        /// <summary>
+        /// Создаёт класс ожидания нажатия на кнопку
+        /// </summary>
+        /// <param name="button">Кнопка</param>
         public static ButtonAwaiter GetAwaiter(this Button button) => new ButtonAwaiter(button);
 
         /// <summary>
@@ -156,8 +160,16 @@ namespace JANL.Extensions
             control.Font = styled;
         }
 
+        /// <summary>
+        /// Удаляет гласные из всех текстов
+        /// </summary>
+        /// <param name="control"></param>
         public static void VowelsBegone(this Control control) => TextHelper.VowelsBegone(control);
 
+        /// <summary>
+        /// Удаляет гласные из всех текстов
+        /// </summary>
+        /// <param name="control"></param>
         public static void VowelsBegone(this ToolStripItem control) => TextHelper.VowelsBegone(control);
     }
 }

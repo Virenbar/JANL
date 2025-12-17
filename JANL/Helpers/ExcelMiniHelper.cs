@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с Excel
+    /// </summary>
     public static class ExcelMiniHelper
     {
         /// <summary>

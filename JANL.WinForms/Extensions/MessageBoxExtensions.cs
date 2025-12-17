@@ -6,6 +6,9 @@ using static System.Environment;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для вызова <see cref="MessageBox"/>
+    /// </summary>
     public static class MessageBoxExtensions
     {
         private static string DefaultHeader => UIDefaults.Header;
@@ -16,6 +19,18 @@ namespace JANL.Extensions
         /// <param name="owner">Родитель</param>
         /// <param name="text">Текст вопроса</param>
         public static DialogResult AskYesNo(this Control owner, string text) => MessageBox.Show(owner, text, DefaultHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        /// <summary>
+        /// Отображает вопрос с Да Нет (В основном потоке)
+        /// </summary>
+        /// <param name="owner">Родитель</param>
+        /// <param name="text">Текст вопроса</param>
+        [Obsolete("WIP")]
+        public static DialogResult InvokeAskYesNo(this Control owner, string text)
+        {
+            Func<DialogResult> x = () => owner.AskYesNo(text);
+            return (DialogResult)owner.Invoke(x);
+        }
 
         /// <summary>
         /// Отображает ошибку
@@ -92,17 +107,5 @@ namespace JANL.Extensions
         /// <param name="text">Текст предупреждения</param>
         /// <param name="header">Заголовок окна</param>
         public static void ShowWarning(this Control owner, string text, string header) => ShowMessage(owner, text, header, MessageBoxIcon.Exclamation);
-
-        /// <summary>
-        /// Отображает вопрос с Да Нет (В основном потоке)
-        /// </summary>
-        /// <param name="owner">Родитель</param>
-        /// <param name="text">Текст вопроса</param>
-        [Obsolete("WIP")]
-        public static DialogResult InvokeAskYesNo(this Control owner, string text)
-        {
-            Func<DialogResult> x = () => owner.AskYesNo(text);
-            return (DialogResult)owner.Invoke(x);
-        }
     }
 }

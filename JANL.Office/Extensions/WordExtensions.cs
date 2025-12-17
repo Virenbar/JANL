@@ -7,6 +7,9 @@ using WordText = DocumentFormat.OpenXml.Wordprocessing.Text;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для <see cref="WordprocessingDocument"/>
+    /// </summary>
     public static class WordExtensions
     {
         /// <summary>

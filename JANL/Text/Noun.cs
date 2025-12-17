@@ -30,11 +30,30 @@ namespace JANL.Text
         /// <param name="many">0 и 5+</param>
         public Noun(string one, string few, string many) : this(one, few, many, NounKind.Male) { }
 
+        /// <summary>
+        /// Несколько (2-4)
+        /// </summary>
         public string Few { get; set; }
+
+        /// <summary>
+        /// Род существительного
+        /// </summary>
         public NounKind Kind { get; set; }
+
+        /// <summary>
+        /// Много (0 и 5+)
+        /// </summary>
         public string Many { get; set; }
+
+        /// <summary>
+        /// Одно (1)
+        /// </summary>
         public string One { get; set; }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="other"></param>
         public bool Equals(Noun other)
         {
             return One == other.One
@@ -43,6 +62,9 @@ namespace JANL.Text
                 && Kind == other.Kind;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
         public override string ToString() => One;
     }
 }

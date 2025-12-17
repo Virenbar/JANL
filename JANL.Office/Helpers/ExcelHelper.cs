@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="ExcelPackage"/>
+    /// </summary>
     public static partial class ExcelHelper
     {
         [Obsolete]

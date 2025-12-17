@@ -1,5 +1,8 @@
 ﻿namespace JANL.Drawing
 {
+    /// <summary>
+    /// Statuses
+    /// </summary>
     public enum AstroStatus
     {
         /// <summary>

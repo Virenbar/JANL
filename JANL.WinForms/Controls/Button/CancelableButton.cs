@@ -9,7 +9,7 @@ namespace JANL.Controls
     /// <summary>
     /// Кнопка с возможность отмены задачи.
     /// При повторном нажатии происходит отмена.
-    /// При завершении или отмене необходимо вызвать <see cref="CancelableButton.ResetButton()"/>
+    /// При завершении или отмене необходимо вызвать <see cref="ResetButton()"/>
     /// </summary>
     public class CancelableButton : Button
     {
@@ -140,13 +140,15 @@ namespace JANL.Controls
         /// <summary>
         /// Происходит при запуске пользователем
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e">Объект класса <see cref="RunEventArgs"/>, содержащий данные события.</param>
         [Browsable(true), Category("Action")]
         public event EventHandler<RunEventArgs> Run;
 
         #endregion Events
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             CTS?.Dispose();

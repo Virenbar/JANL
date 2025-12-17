@@ -7,6 +7,9 @@ using System.Data;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для <see cref="ExcelWorksheet"/>
+    /// </summary>
     public static class ExcelExtensions
     {
         [Obsolete("Use WorksheetWriter")]

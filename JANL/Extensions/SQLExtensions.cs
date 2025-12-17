@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для SQL
+    /// </summary>
     public static class SQLExtensions
     {
         private static string DefaultConnection => Defaults.Connection;

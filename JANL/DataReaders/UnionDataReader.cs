@@ -13,7 +13,10 @@ namespace JANL.DataReaders
         private readonly Queue<IDataReader> Readers;
         private IDataReader Current;
 
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
+
         public UnionDataReader(IEnumerable<IDataReader> readers)
+
         {
             FieldCount = readers.First().FieldCount;
             if (!readers.All(R => R.FieldCount == FieldCount)) { throw new ArgumentException("FieldCounts differ", nameof(readers)); }
@@ -60,7 +63,10 @@ namespace JANL.DataReaders
             return NextResult();
         }
 
+#pragma warning restore CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
+
         #region CurrentDataReader
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
         public int Depth => Current.Depth;
         public object this[int i] => Current[i];
 
@@ -112,6 +118,7 @@ namespace JANL.DataReaders
 
         public bool IsDBNull(int i) => Current.IsDBNull(i);
 
+#pragma warning restore CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
         #endregion CurrentDataReader
     }
 }

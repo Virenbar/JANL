@@ -5,13 +5,24 @@ using System.Windows.Forms;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="string"/>
+    /// </summary>
     public static class TextHelper
     {
         private readonly static HashSet<Type> TextControls = new HashSet<Type> { typeof(Button), typeof(Label), typeof(GroupBox), typeof(TabPage), typeof(ToolStripMenuItem), typeof(ToolStripDropDownButton), typeof(CheckBox) };
         private readonly static Regex Vowels = new Regex("[уеыаоэяиюУЕЫАОЭЯИЮ]");
 
+        /// <summary>
+        /// Удаляет из строки
+        /// </summary>
+        /// <param name="str">Строка</param>
         public static string RemoveVowels(string str) => Vowels.Replace(str, "");
 
+        /// <summary>
+        /// Удаляет гласные из всех текстов
+        /// </summary>
+        /// <param name="control"></param>
         public static void VowelsBegone(Control control)
         {
             Type type = control.GetType();
@@ -35,6 +46,10 @@ namespace JANL.Helpers
             }
         }
 
+        /// <summary>
+        /// Удаляет гласные из всех текстов
+        /// </summary>
+        /// <param name="control"></param>
         public static void VowelsBegone(ToolStripItem control)
         {
             control.Text = RemoveVowels(control.Text);

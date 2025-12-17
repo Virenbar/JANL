@@ -3,10 +3,13 @@ using System.Drawing;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для <see cref="Image"/>
+    /// </summary>
     public static class ImageExtensions
     {
         /// <summary>
-        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon"/>)
+        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon(Image)"/>)
         /// </summary>
         public static void DestroyIcon(this Icon icon) => ImageHelper.DestroyIcon(icon);
 

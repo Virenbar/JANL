@@ -5,6 +5,9 @@ using JANL.Text;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="string"/>
+    /// </summary>
     public static class StringHelper
     {
         /// <summary>
@@ -34,8 +37,16 @@ namespace JANL.Helpers
         /// </summary>
         public static string PeriodToText(DateTime begin, DateTime end) => DateConverter.PeriodToText(begin, end);
 
+        /// <summary>
+        /// Преобразует число в прописное значение рублей
+        /// </summary>
+        /// <param name="number">Число</param>
         public static string RubleToText(decimal number) => NumberConverter.RubleToText(number);
 
+        /// <summary>
+        /// Преобразует число в прописное значение рублей
+        /// </summary>
+        /// <param name="number">Число</param>
         public static string RubleToText(BigInteger number) => NumberConverter.RubleToText(number);
     }
 }

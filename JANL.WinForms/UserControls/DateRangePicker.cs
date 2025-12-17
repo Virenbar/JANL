@@ -5,8 +5,14 @@ using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
+    /// <summary>
+    /// Элемент выбора периода
+    /// </summary>
     public partial class DateRangePicker : UserControl
     {
+        /// <summary>
+        ///
+        /// </summary>
         public DateRangePicker()
         {
             InitializeComponent();
@@ -36,6 +42,9 @@ namespace JANL.UserControls
 
         #region Properties
 
+        /// <summary>
+        /// Дата начала периода
+        /// </summary>
         [Browsable(false)]
         public DateTime DateBegin
         {
@@ -43,6 +52,9 @@ namespace JANL.UserControls
             set => DTP_Begin.Value = value;
         }
 
+        /// <summary>
+        /// Дата конца периода
+        /// </summary>
         [Browsable(false)]
         public DateTime DateEnd
         {
@@ -50,6 +62,9 @@ namespace JANL.UserControls
             set => DTP_End.Value = value;
         }
 
+        /// <summary>
+        /// Заголовок начала периода
+        /// </summary>
         [Browsable(true), Category("DateRangePicker"), DefaultValue("От")]
         public string LabelBegin
         {
@@ -57,6 +72,9 @@ namespace JANL.UserControls
             set => L_Begin.Text = value;
         }
 
+        /// <summary>
+        /// Заголовок конца периода
+        /// </summary>
         [Browsable(true), Category("DateRangePicker"), DefaultValue("по")]
         public string LabelEnd
         {
@@ -68,10 +86,22 @@ namespace JANL.UserControls
 
         #region Events
 
+        /// <summary>
+        /// Вызывает <see cref="OnDateBeginChanged(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnDateBeginChanged(EventArgs args) => DateBeginChanged?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnDateChanged(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnDateChanged(EventArgs args) => DateChanged?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnDateEndChanged(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnDateEndChanged(EventArgs args) => DateEndChanged?.Invoke(this, args);
 
         /// <summary>

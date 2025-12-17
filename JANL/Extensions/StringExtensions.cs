@@ -4,7 +4,7 @@ using System.Linq;
 namespace JANL.Extensions
 {
     /// <summary>
-    /// Расширения для строк
+    /// Расширения для <see cref="string"/>
     /// </summary>
     public static class StringExtensions
 

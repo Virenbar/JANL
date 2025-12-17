@@ -5,7 +5,9 @@ using System.Drawing;
 
 namespace JANL.Animators
 {
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
     public class UnionAnimator : ObservableObject, IAnimator
+
     {
         public UnionAnimator()
         {
@@ -88,4 +90,5 @@ namespace JANL.Animators
 
         #endregion Events
     }
+#pragma warning restore CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
 }

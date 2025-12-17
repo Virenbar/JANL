@@ -20,7 +20,7 @@ namespace JANL.Data
         }
 
         /// <summary>
-        /// Публичный свойства экземпляра типа <typeparamref name="T"/>
+        /// Публичные свойства экземпляра типа <typeparamref name="T"/>
         /// </summary>
         public List<PropertyInfo> Properties { get; }
 

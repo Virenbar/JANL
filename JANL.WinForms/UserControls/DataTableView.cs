@@ -11,11 +11,17 @@ using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
+    /// <summary>
+    /// Элемент для просмотра <see cref="System.Data.DataTable"/>
+    /// </summary>
     [DefaultEvent(nameof(RowDoubleClick))]
     public partial class DataTableView : UserControl
     {
         private readonly List<string> Columns = new List<string>();
 
+        /// <summary>
+        ///
+        /// </summary>
         public DataTableView()
         {
             InitializeComponent();
@@ -25,12 +31,21 @@ namespace JANL.UserControls
             DGV.DataSource = BS_View;
         }
 
+        /// <summary>
+        /// Значение ключа текущей строки
+        /// </summary>
+        /// <typeparam name="T">Тип значения</typeparam>
         public T CurrentKeyCast<T>()
         {
             if (CurrentKey == null) { return default; }
             return (T)CurrentKey;
         }
 
+        /// <summary>
+        /// Значение столбца текущей строки
+        /// </summary>
+        /// <typeparam name="T">Тип значения</typeparam>
+        /// <param name="name">Имя столбца</param>
         public T Field<T>(string name)
         {
             if (CurrentRow == null || !CurrentRow.Table.Columns.Contains(name)) { return default; }
@@ -38,7 +53,7 @@ namespace JANL.UserControls
         }
 
         /// <summary>
-        /// Устанавливает новую таблицу и вызывает <see cref="DataTable.Dispose"/> у старой таблицы
+        /// Устанавливает новую таблицу и вызывает <see cref="IDisposable.Dispose"/> у старой таблицы
         /// </summary>
         /// <param name="table">Таблица</param>
         public void SetDataTable(DataTable table) => SetDataTable(table, true);
@@ -47,7 +62,7 @@ namespace JANL.UserControls
         /// Устанавливает новую таблицу
         /// </summary>
         /// <param name="table">Таблица</param>
-        /// <param name="dispose">Вызвать <see cref="DataTable.Dispose"/> у старой таблицы</param>
+        /// <param name="dispose">Вызвать <see cref="IDisposable.Dispose"/> у старой таблицы</param>
         public void SetDataTable(DataTable table, bool dispose)
         {
             if (IsDisposed) { return; }
@@ -75,6 +90,10 @@ namespace JANL.UserControls
             RefreshUI();
         }
 
+        /// <summary>
+        /// Установить столбцы для фильтрации
+        /// </summary>
+        /// <param name="columns"></param>
         public void SetFilterColumns(IEnumerable<string> columns)
         {
             Columns.Clear();
@@ -173,6 +192,9 @@ namespace JANL.UserControls
         /// </summary>
         public string CountText => Count == CountFull ? $"{CountFull}" : $"{Count}/{CountFull}";
 
+        /// <summary>
+        /// Ключ текущий строки
+        /// </summary>
         public object CurrentKey { get; set; }
 
         /// <summary>
@@ -180,18 +202,24 @@ namespace JANL.UserControls
         /// </summary>
         public DataRow CurrentRow => ((DataRowView)BS_View.Current)?.Row;
 
+        /// <summary>
+        /// Значение текущий строки
+        /// </summary>
         public string CurrentValue { get; private set; }
 
         /// <summary>
-        ///
+        /// Компонент <see cref="System.Windows.Forms.DataGridView"/>
         /// </summary>
         public DataGridView DataGridView => DGV;
 
         /// <summary>
-        /// Текущий DataTable
+        /// Текущий <see cref="System.Data.DataTable"/>
         /// </summary>
         public DataTable DataTable { get; protected set; }
 
+        /// <summary>
+        /// Компонент <see cref="ContextMenu"/>
+        /// </summary>
         public ContextMenu Menu
         {
             get => DGV.ContextMenu;
@@ -200,6 +228,9 @@ namespace JANL.UserControls
 
         #region Designer
 
+        /// <summary>
+        /// Отображаться ли кнопка создать
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Кнопка создать"), DefaultValue(false)]
         public bool CreateVisible
         {
@@ -211,6 +242,9 @@ namespace JANL.UserControls
             }
         }
 
+        /// <summary>
+        /// Отображаться ли кнопка удалить
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Кнопка удалить"), DefaultValue(false)]
         public bool DeleteVisible
         {
@@ -222,6 +256,9 @@ namespace JANL.UserControls
             }
         }
 
+        /// <summary>
+        /// Отображаться ли кнопка изменить
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Кнопка изменить"), DefaultValue(true)]
         public bool EditVisible
         {
@@ -239,6 +276,9 @@ namespace JANL.UserControls
         [Browsable(true), Category("DataTableView"), Description("Фильтровать по объединенным столбцам"), DefaultValue(false)]
         public bool FilterByMergedRow { get; set; }
 
+        /// <summary>
+        /// Отображаться ли фильтр
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Фильтр строк"), DefaultValue(true)]
         public bool FilterVisible
         {
@@ -250,9 +290,15 @@ namespace JANL.UserControls
             }
         }
 
+        /// <summary>
+        /// Столбец ключа
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Наименование ключа"), DefaultValue("")]
         public string KeyName { get; set; }
 
+        /// <summary>
+        /// Отображаться ли кнопка обновить
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Кнопка обновить"), DefaultValue(true)]
         public bool RefreshVisible
         {
@@ -264,6 +310,9 @@ namespace JANL.UserControls
             }
         }
 
+        /// <summary>
+        /// Столбец значения
+        /// </summary>
         [Browsable(true), Category("DataTableView"), Description("Наименование значения"), DefaultValue("")]
         public string ValueName { get; set; }
 
@@ -316,33 +365,75 @@ namespace JANL.UserControls
 
         #region Events
 
+        /// <summary>
+        /// Вызывает <see cref="OnCreateClick(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnCreateClick(EventArgs args) => CreateClick?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnCurrentRowChanged(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnCurrentRowChanged(EventArgs args) => CurrentRowChanged?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnDeleteClick(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnDeleteClick(EventArgs args) => DeleteClick?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnEditClick(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnEditClick(EventArgs args) => EditClick?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnRefreshClick(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnRefreshClick(EventArgs args) => RefreshClick?.Invoke(this, args);
 
+        /// <summary>
+        /// Вызывает <see cref="OnRowDoubleClick(EventArgs)"/>
+        /// </summary>
+        /// <param name="args"></param>
         protected void OnRowDoubleClick(EventArgs args) => RowDoubleClick?.Invoke(this, args);
 
+        /// <summary>
+        /// Происходит при нажатии кнопки создать
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler CreateClick;
 
+        /// <summary>
+        /// Происходит при нажатии смене текущей строки
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler CurrentRowChanged;
 
+        /// <summary>
+        /// Происходит при нажатии кнопки удалить
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler DeleteClick;
 
+        /// <summary>
+        /// Происходит при нажатии кнопки изменить
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler EditClick;
 
+        /// <summary>
+        /// Происходит при нажатии кнопки создать
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler RefreshClick;
 
+        /// <summary>
+        /// Происходит при двойном клике по строке
+        /// </summary>
         [Category("DataTableView")]
         public event EventHandler RowDoubleClick;
 

@@ -3,10 +3,13 @@ using System.Drawing;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="Image"/>
+    /// </summary>
     public static class ImageHelper
     {
         /// <summary>
-        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon"/>)
+        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon(Image)"/>)
         /// </summary>
         public static void DestroyIcon(Icon icon)
         {
@@ -15,7 +18,7 @@ namespace JANL.Helpers
         }
 
         /// <summary>
-        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon"/>)
+        /// Уничтожить иконку (Только для иконок из <see cref="ToIcon(Image)"/>)
         /// </summary>
         public static bool DestroyIcon(IntPtr handle) => NativeMethods.DestroyIcon(handle);
 

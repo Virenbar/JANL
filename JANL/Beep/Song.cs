@@ -6,13 +6,34 @@ using System.Threading.Tasks;
 
 namespace JANL.Beep
 {
+    /// <summary>
+    ///
+    /// </summary>
     public class Song
     {
         private static readonly Regex RBPM = new Regex(@"(?>BPM=)\d+", RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// Запущенно ли воспроизведение
+        /// </summary>
         public bool Playing { get; protected set; }
+
+        /// <summary>
+        /// Список нот для воспроизведения
+        /// </summary>
         public List<Note> Notes { get; } = new List<Note>();
+
+        /// <summary>
+        /// Текущий темп воспроизведения
+        /// </summary>
         public int Tempo { get; private set; } = 150;
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="song"></param>
+        /// <param name="tempo"></param>
+        /// <returns></returns>
         public static Song Parse(string song, int tempo)
         {
             var S = Parse(song);
@@ -20,6 +41,11 @@ namespace JANL.Beep
             return S;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="song"></param>
+        /// <returns></returns>
         public static Song Parse(string song)
         {
             var S = new Song();
@@ -37,10 +63,24 @@ namespace JANL.Beep
             return S;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="song"></param>
+        /// <returns></returns>
         public static Song Parse(IEnumerable<string> song) => Parse(string.Join(",", song));
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="song"></param>
+        /// <param name="tempo"></param>
+        /// <returns></returns>
         public static Song Parse(IEnumerable<string> song, int tempo) => Parse(string.Join(",", song), tempo);
 
+        /// <summary>
+        /// Запускает воспроизведение
+        /// </summary>
         public void Play()
         {
             if (Playing) { return; }
@@ -60,6 +100,11 @@ namespace JANL.Beep
             Playing = false;
         }
 
+        /// <summary>
+        /// Асинхронно запускает воспроизведение
+        /// </summary>
+        /// <param name="CT"></param>
+        /// <returns></returns>
         public async Task PlayAsync(CancellationToken CT)
         {
             if (Playing) { return; }
@@ -80,6 +125,9 @@ namespace JANL.Beep
             Playing = false;
         }
 
+        /// <summary>
+        /// Останавливает воспроизведение
+        /// </summary>
         public void Stop() => Playing = false;
     }
 }

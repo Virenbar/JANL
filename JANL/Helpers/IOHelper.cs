@@ -4,6 +4,9 @@ using System.IO;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// IO helper
+    /// </summary>
     public static class IOHelper
     {
         /// <summary>

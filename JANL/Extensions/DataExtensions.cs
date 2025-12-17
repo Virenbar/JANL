@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace JANL.Extensions
 {
+    /// <summary>
+    /// Расширения для <see cref="System.Data"/>
+    /// </summary>
     public static class DataExtensions
     {
         /// <summary>

@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="Form"/>
+    /// </summary>
     public static class FormHelper
     {
         /// <summary>
@@ -10,7 +13,6 @@ namespace JANL.Helpers
         /// </summary>
         /// <typeparam name="T">Тип формы</typeparam>
         /// <param name="Activate">Активировать ли форму</param>
-        /// <returns></returns>
         public static bool IsOpen<T>(bool Activate) where T : Form
         {
             var Form = Application.OpenForms.OfType<T>().FirstOrDefault();

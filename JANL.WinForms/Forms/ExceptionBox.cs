@@ -22,6 +22,10 @@ namespace JANL.Forms
         private readonly Exception Exception;
         private Exception Selected;
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="exception"></param>
         public ExceptionBox(Exception exception)
         {
             InitializeComponent();
@@ -49,6 +53,10 @@ namespace JANL.Forms
             UpdateTree();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (e.CloseReason != CloseReason.None) { DialogResult = DialogResult.Ignore; }
@@ -169,10 +177,24 @@ namespace JANL.Forms
 
         #endregion UI Events
 
+        /// <summary>
+        /// Свойства письма
+        /// </summary>
         public class EMail
         {
+            /// <summary>
+            /// Тема письма
+            /// </summary>
             public string Subject { get; set; } = "";
+
+            /// <summary>
+            /// Текст письма
+            /// </summary>
             public string Text { get; set; } = "";
+
+            /// <summary>
+            /// Получатели письма
+            /// </summary>
             public string To { get; set; } = "";
         }
     }

@@ -2,6 +2,9 @@
 
 namespace JANL.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы работы с <see cref="Color"/>
+    /// </summary>
     public static class ColorHelper
     {
         /// <summary>

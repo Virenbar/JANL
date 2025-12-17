@@ -12,23 +12,20 @@ namespace JANL.Extensions
         /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе null
         /// </summary>
         /// <param name="CB"></param>
-        /// <returns></returns>
         public static string GetString(this ComboBox CB) => CB.SelectedIndex > 0 ? Convert.ToString(CB.SelectedValue) : null;
 
         /// <summary>
-        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе <see cref="null"/>
+        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе <see langword="null"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="CB"></param>
-        /// <returns></returns>
         public static T? GetValue<T>(this ComboBox CB) where T : struct => CB.SelectedIndex > 0 ? new T?((T)CB.SelectedValue) : default;
 
         /// <summary>
-        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе null
+        /// Если выбранный индекс больше 0, то возвращает выбранное значение иначе <see langword="null"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="CB"></param>
-        /// <returns></returns>
         public static T? GetValue<T>(this ToolStripComboBox CB) where T : struct => CB.SelectedIndex > 0 ? new T?((T)CB.ComboBox.SelectedValue) : default;
 
         /// <summary>

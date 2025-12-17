@@ -5,13 +5,20 @@ using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace JANL.UserControls
+
 {
+    /// <summary>
+    /// Элемент выбора года
+    /// </summary>
     [DefaultBindingProperty("Value")]
     [DefaultEvent("ValueChanged")]
     [DefaultProperty("Value")]
     [Designer(typeof(HResizeOnly))]
     public partial class YearPicker : UserControl
     {
+        /// <summary>
+        ///
+        /// </summary>
         public YearPicker()
         {
             InitializeComponent();
@@ -69,6 +76,9 @@ namespace JANL.UserControls
 
         #region Events
 
+        /// <summary>
+        /// Вызывает <see cref="ValueChanged"/>
+        /// </summary>
         protected void OnValueChanged() => ValueChanged?.Invoke(this, EventArgs.Empty);
 
         private void CB_Year_CheckedChanged(object sender, EventArgs e)
@@ -81,6 +91,9 @@ namespace JANL.UserControls
             OnValueChanged();
         }
 
+        /// <summary>
+        /// Происходит при изменении значения
+        /// </summary>
         public event EventHandler ValueChanged;
 
         #endregion Events

@@ -6,7 +6,7 @@ using System.Linq;
 namespace JANL.Helpers
 {
     /// <summary>
-    /// Расширения для Word
+    /// Вспомогательные методы работы с <see cref="WordprocessingDocument"/>
     /// </summary>
     public static class WordHelper
     {
