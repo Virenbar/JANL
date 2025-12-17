@@ -1,0 +1,45 @@
+name: Build Artifact - Test
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_call:
+    outputs:
+      version:
+        description: "Artifact Version"
+        value: ${{ jobs.build.outputs.version }}
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: true
+    outputs:
+      version: ${{steps.version.outputs.version}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.x
+
+      - name: Set VERSION
+        id: version
+        run: .\.github\scripts\version.ps1
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore packages
+        run: nuget restore
+
+      - name: Build solution
+        run: msbuild JANL.sln /t:Build /p:Configuration=Release /p:ContinuousIntegrationBuild=true
+
+      - name: Test solution
+        run: dotnet test --no-restore --no-build --verbosity normal /p:Configuration=Release
