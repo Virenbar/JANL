@@ -4,7 +4,7 @@ namespace JANL.Models
 {
     public class TestObject : ObservableObject
     {
-        private TestObjectData data;
+        private readonly TestObjectData data;
 
         public TestObject()
         {

@@ -8,7 +8,7 @@ namespace JANL.Beep
     /// <summary>
     /// Нота для <see cref="Song"/>
     /// </summary>
-    public struct Note
+    public struct Note : IEquatable<Note>
     {
         private const int A440 = 440;
         private static readonly Dictionary<string, int> NoteNumber = new Dictionary<string, int>();
@@ -158,6 +158,17 @@ namespace JANL.Beep
         /// <param name="tempo"></param>
         /// <returns></returns>
         public int Duration(int tempo) => GetDuration(tempo, Value);
+
+        /// <summary>
+        /// Указывает, равен ли текущий объект другому объекту того же типа
+        /// </summary>
+        /// <param name="other">Объект, который требуется сравнить с данным объектом</param>
+        public bool Equals(Note other)
+        {
+            return Number == other.Number
+                && Frequency == other.Frequency
+                && Value == other.Value;
+        }
     }
 
     /// <summary>

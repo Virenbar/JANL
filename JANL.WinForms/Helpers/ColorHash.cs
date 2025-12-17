@@ -16,12 +16,6 @@ namespace JANL.Helpers
     public class ColorHash
     {
         /// <summary>
-        /// Hash function to calculate the hash of the given string
-        /// <para>Default: <see cref="SHA256Hash(string)"/></para>
-        /// </summary>
-        public Func<string, uint> Hash;
-
-        /// <summary>
         ///
         /// </summary>
         public ColorHash()
@@ -41,6 +35,12 @@ namespace JANL.Helpers
         {
             Hash = hash;
         }
+
+        /// <summary>
+        /// Hash function to calculate the hash of the given string
+        /// <para>Default: <see cref="SHA256Hash(string)"/></para>
+        /// </summary>
+        public Func<string, uint> Hash { get; set; }
 
         /// <summary>
         /// Possible ranges of hue values
@@ -138,7 +138,7 @@ namespace JANL.Helpers
         /// <summary>
         /// Hue range
         /// </summary>
-        public struct HueRange
+        public struct HueRange : IEquatable<HueRange>
         {
             /// <summary>
             /// Maximal hue
@@ -149,6 +149,15 @@ namespace JANL.Helpers
             /// Minimal hue
             /// </summary>
             public int Min { get; set; }
+
+            /// <summary>
+            /// Указывает, равен ли текущий объект другому объекту того же типа
+            /// </summary>
+            /// <param name="other">Объект, который требуется сравнить с данным объектом</param>
+            public bool Equals(HueRange other)
+            {
+                return Min == other.Min && Max == other.Max;
+            }
         }
     }
 }

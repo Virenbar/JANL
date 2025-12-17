@@ -7,7 +7,7 @@ namespace JANL.Controls
     /// <summary>
     /// Класс ожидания нажатия на кнопку
     /// </summary>
-    public struct ButtonAwaiter : INotifyCompletion
+    public struct ButtonAwaiter : INotifyCompletion, IEquatable<ButtonAwaiter>
     {
         private readonly Button _button;
         private Action _continuation;
@@ -26,6 +26,16 @@ namespace JANL.Controls
         /// Завершено ли ожидание
         /// </summary>
         public bool IsCompleted => false;
+
+        /// <summary>
+        /// Указывает, равен ли текущий объект другому объекту того же типа
+        /// </summary>
+        /// <param name="other">Объект, который требуется сравнить с данным объектом</param>
+        public bool Equals(ButtonAwaiter other)
+        {
+            return _button == other._button
+                && _continuation == other._continuation;
+        }
 
         /// <summary>
         /// Результат ожидания
