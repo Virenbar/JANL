@@ -9,8 +9,16 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "groupName": "actions",
+      "matchManagers": [
+        "github-actions"
+      ]
+    },
+    {
       "description": "Skip nuget",
-      "matchManagers": [ "nuget" ],
+      "matchManagers": [
+        "nuget"
+      ],
       "enabled": false
     }
   ]
