@@ -58,7 +58,6 @@
     </Compile>
     <Compile Include="Beep\Note.cs" />
     <Compile Include="Beep\Song.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Data\DataMapper.cs" />
     <Compile Include="Data\SQLDataMapper.cs" />
     <Compile Include="Exceptions\SyntacticIncongruityException.cs" />

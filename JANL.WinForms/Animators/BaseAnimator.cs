@@ -148,12 +148,6 @@ namespace JANL.Animators
         public virtual int Height => SourceImage.Height;
 
         /// <summary>
-        /// Активна ли анимация
-        /// </summary>
-        [Obsolete("Use Enabled")]
-        public bool IsAnimated => Timer.Enabled;
-
-        /// <summary>
         /// Исходное изображение
         /// </summary>
         public Image SourceImage { get; set; }

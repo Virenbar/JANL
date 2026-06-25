@@ -1,8 +1,8 @@
-﻿using DocumentFormat.OpenXml.Packaging;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using JANL.Helpers;
-using System.Collections.Generic;
-using System.Linq;
 using WordText = DocumentFormat.OpenXml.Wordprocessing.Text;
 
 namespace JANL.Extensions

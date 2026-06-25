@@ -1,7 +1,7 @@
-﻿using OfficeOpenXml;
-using OfficeOpenXml.Table;
-using System.Data;
+﻿using System.Data;
 using System.Drawing;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
 
 namespace JANL.Excel
 {
@@ -35,16 +35,15 @@ namespace JANL.Excel
         {
             if (_reader.IsClosed) { return; }
 
-            var context = new WorksheetContext(package.Workbook.Worksheets.Add(WorksheetName), _reader, 1);
-
-            var Range = context.Worksheet.SelectedRange[context.RowIndexFirst, context.ColumnIndexFirst].LoadFromDataReader(_reader, true);
-            Range.AutoFitColumns();
-            if (Font != null) { Range.Style.Font.SetFromFont(Font); }
+            var sheet = package.Workbook.Worksheets.Add(WorksheetName);
+            var range = sheet.SelectedRange[1, 1].LoadFromDataReader(_reader, true);
+            range.AutoFitColumns();
+            if (Font != null) { range.Style.Font.SetFromFont(Font); }
             // Форматирование диапазона как таблицы
-            var Table = context.Worksheet.Tables.Add(Range, WorksheetName.Replace(' ', '_'));
-            Table.TableStyle = TableStyle;
-            Table.ShowRowStripes = true;
-            Table.ShowFilter = ShowFilter;
+            var table = sheet.Tables.Add(range, WorksheetName.Replace(' ', '_'));
+            table.TableStyle = TableStyle;
+            table.ShowRowStripes = true;
+            table.ShowFilter = ShowFilter;
 
             //Worksheet.InsertColumn(1,1,)
         }

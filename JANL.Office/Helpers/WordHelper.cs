@@ -1,7 +1,7 @@
-﻿using DocumentFormat.OpenXml.Drawing;
+﻿using System.Linq;
+using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Packaging;
 using OpenXmlPowerTools;
-using System.Linq;
 
 namespace JANL.Helpers
 {

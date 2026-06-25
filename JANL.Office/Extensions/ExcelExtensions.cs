@@ -1,9 +1,6 @@
-﻿using JANL.Excel;
+﻿using System.Collections.Generic;
 using JANL.Helpers;
 using OfficeOpenXml;
-using System;
-using System.Collections.Generic;
-using System.Data;
 
 namespace JANL.Extensions
 {
@@ -12,17 +9,6 @@ namespace JANL.Extensions
     /// </summary>
     public static class ExcelExtensions
     {
-        [Obsolete("Use WorksheetWriter")]
-        public static WorksheetContext FillSheet(this ExcelPackage package, WorksheetContext context) => ExcelHelper.FillSheet(package, context);
-
-        [Obsolete("Use WorksheetWriter")]
-        public static WorksheetContext FillSheet(this ExcelPackage package, int position, IDataReader data) => ExcelHelper.FillSheet(package, position, data);
-
-        [Obsolete("Use WorksheetWriter")]
-        public static WorksheetContext FillSheet(this ExcelPackage package, IDataReader data) => ExcelHelper.FillSheet(package, data);
-
-        [Obsolete("Use WorksheetWriter")]
-        public static WorksheetContext FillSheet(this ExcelWorksheet worksheet, IDataReader data) => ExcelHelper.FillSheet(worksheet, data);
 
         /// <summary>
         /// Объединить ячейки
@@ -38,9 +24,6 @@ namespace JANL.Extensions
         /// <param name="cells">Диапазон ячеек</param>
         /// <param name="value"></param>
         public static void MergeCells(this ExcelWorksheet sheet, string cells, string value) => ExcelHelper.MergeCells(sheet, cells, value);
-
-        [Obsolete]
-        public static void MergeCollumns(this ExcelWorksheet sheet, string cells, string value) => ExcelHelper.MergeCells(sheet, cells, value);
 
         /// <summary>
         /// Объединить строки в указанных столбцах

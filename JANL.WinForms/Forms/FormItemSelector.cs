@@ -9,7 +9,6 @@ namespace JANL.Forms
 {
     public partial class FormItemSelector : Form
     {
-
         private int page = 1;
         private int pageCount;
 

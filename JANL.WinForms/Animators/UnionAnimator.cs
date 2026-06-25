@@ -64,9 +64,6 @@ namespace JANL.Animators
 
         public int Height => Items.Height;
 
-        [Obsolete("Use Enable")]
-        public bool IsAnimated => Items.Enabled;
-
         public AnimatorCollection Items { get; }
 
         public Image SourceImage

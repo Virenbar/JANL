@@ -179,7 +179,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Managers\DGVManager.cs" />
-    <Compile Include="Msgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

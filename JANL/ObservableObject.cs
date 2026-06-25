@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 
 namespace JANL
 {
+    /// <summary>
+    /// Базовый класс для объектов с уведомлениями
+    /// </summary>
     public class ObservableObject : INotifyPropertyChanged
     {
         /// <summary>
