@@ -1,7 +1,44 @@
-﻿Imports JANL
-Imports JANL.Forms
+﻿Imports JANL.Forms
 
 Public Class FormSelectTest
+
+    Private Sub FormSelectTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub B_FTB_Empty_Click(sender As Object, e As EventArgs)
+        Dim F = New FormTextBox("Empty")
+        If F.ShowDialog() = DialogResult.OK Then
+            L_Result.Text = F.Text
+        End If
+    End Sub
+
+    Private Sub B_FTB_Text_Click(sender As Object, e As EventArgs) Handles B_FTB_Text.Click
+        Dim F = New FormTextBox("Empty", "Text")
+        If F.ShowDialog() = DialogResult.OK Then
+            L_Result.Text = F.Text
+        End If
+    End Sub
+
+#Region "ItemSelector"
+
+    Private Sub B_LVDate_Click(sender As Object, e As EventArgs) Handles B_LVDate.Click
+        Dim dates = New List(Of Date)
+        For index = 1 To 10
+            dates.Add(Today.AddDays(-1 - 3 * index))
+        Next
+        Dim items = dates.Select(Function(D) New DateLVI(D)).ToList()
+
+        Using F = New FormItemSelector With {.Items = items, .ItemsPerPage = 20}
+            If F.ShowDialog() = DialogResult.OK Then
+                L_Result.Text = F.Selected(Of DateLVI).FirstOrDefault()?.Text
+            End If
+        End Using
+    End Sub
+
+#End Region
+
+#Region "SelectBox"
 
     Private Sub B_Date_Click(sender As Object, e As EventArgs) Handles B_Date.Click
         Dim SB = New SelectBox() With {
@@ -10,7 +47,7 @@ Public Class FormSelectTest
         }
         If SB.ShowDialog(Me) = DialogResult.OK Then
             Dim I = SB.Item(Of Date)
-            TSSL_Result.Text = I.ToString()
+            L_Result.Text = I.ToString()
         End If
     End Sub
 
@@ -21,7 +58,7 @@ Public Class FormSelectTest
         }
         If SB.ShowDialog(Me) = DialogResult.OK Then
             Dim I = SB.Item(Of String)
-            TSSL_Result.Text = I
+            L_Result.Text = I
         End If
     End Sub
 
@@ -36,7 +73,7 @@ Public Class FormSelectTest
         }
         If SB.ShowDialog(Me) = DialogResult.OK Then
             Dim I = SB.Item(Of TestObject)
-            TSSL_Result.Text = $"{I} - {I.MyDate}"
+            L_Result.Text = $"{I} - {I.MyDate}"
         End If
     End Sub
 
@@ -47,7 +84,7 @@ Public Class FormSelectTest
         }
         If SB.ShowDialog(Me) = DialogResult.OK Then
             Dim I = SB.Item(Of TestEnum)
-            TSSL_Result.Text = $"{I} - {CInt(I)}"
+            L_Result.Text = $"{I} - {CInt(I)}"
         End If
     End Sub
 
@@ -74,30 +111,6 @@ Public Class FormSelectTest
         K4
     End Enum
 
-    Private Sub B_FormSelect_Click(sender As Object, e As EventArgs) Handles B_FormSelect.Click
-        'Dim F = New FormSelect(New TestRepository())
-        'F.ShowDialog()
-    End Sub
-
-    Private Sub FormSelectTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        'AutoTextBox1.Init(AddressOf TestRepository.GetValueS)
-
-        'AutoTextBox1.RefreshValue()
-    End Sub
-
-    Private Sub B_FTB_Empty_Click(sender As Object, e As EventArgs)
-        Dim F = New FormTextBox("Empty")
-        If F.ShowDialog() = DialogResult.OK Then
-            TSSL_Result.Text = F.Text
-        End If
-    End Sub
-
-    Private Sub B_FTB_Text_Click(sender As Object, e As EventArgs) Handles B_FTB_Text.Click
-        Dim F = New FormTextBox("Empty", "Text")
-        If F.ShowDialog() = DialogResult.OK Then
-            TSSL_Result.Text = F.Text
-        End If
-    End Sub
+#End Region
 
 End Class

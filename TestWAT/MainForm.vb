@@ -22,7 +22,7 @@ Public Class MainForm
         Dim Q = "SELECT * FROM Win32_PnPEntity"
         Dim R = New ManagementObjectSearcher(Q).Get()
         Dim R1 = R.Cast(Of ManagementObject)().ToList()
-        Dim R2 = R1.Select(Function(P) P.Properties("Name").Value.ToString()).ToList()
+        Dim R2 = R1.Select(Function(P) P.Properties("Name").Value?.ToString()).ToList()
         Console.WriteLine(String.Join(vbNewLine, R2))
     End Sub
 
@@ -31,6 +31,11 @@ Public Class MainForm
 #Region "Menu"
 
 #Region "Forms"
+
+    Private Sub MI_Select_Click(sender As Object, e As EventArgs) Handles MI_Select.Click
+        Dim F = New FormSelectTest()
+        F.Show(Me)
+    End Sub
 
     Private Sub MI_Animation_1_Click(sender As Object, e As EventArgs) Handles MI_Animation_1.Click
         Dim F = New FormAnimation()
@@ -72,22 +77,6 @@ Public Class MainForm
 
     Private Sub HashVSListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MI_HashVSList.Click
         PerfomanceTests.HashVSList()
-    End Sub
-
-#End Region
-
-#Region "Excel"
-
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
-        MakeGood1()
-    End Sub
-
-    Private Sub НаселениеToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles НаселениеToolStripMenuItem.Click
-        MakeGood("D:\Мои документы\Рабочий стол\Население Тагил\население 2019-1")
-    End Sub
-
-    Private Sub РосреестрToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles РосреестрToolStripMenuItem.Click
-        Reestr.Process()
     End Sub
 
 #End Region

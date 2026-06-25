@@ -117,9 +117,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archive\Excel\Reestr.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
+    <Compile Include="Controls\DateLVI.vb" />
     <Compile Include="ExtensionsModule.vb" />
     <Compile Include="Forms\FormAnimation.Designer.vb">
       <DependentUpon>FormAnimation.vb</DependentUpon>
@@ -234,8 +234,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="PerfomanceTests.vb" />
-    <Compile Include="Archive\Excel\Saldo.vb" />
-    <Compile Include="Archive\Excel\Tagiiiiiiiiiiiiiiiiiiiiiiiiiiil.vb" />
     <Compile Include="RingAnimation.xaml.vb">
       <DependentUpon>RingAnimation.xaml</DependentUpon>
     </Compile>
@@ -255,6 +253,12 @@
       <DependentUpon>Test_DataMapper.vb</DependentUpon>
     </Compile>
     <Compile Include="TestControls\Test_DataMapper.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestControls\Test_DragDrop.Designer.vb">
+      <DependentUpon>Test_DragDrop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_DragDrop.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TestControls\Test_DTP.Designer.vb">
@@ -281,13 +285,19 @@
     <Compile Include="TestControls\Test_TaskButton.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TestControls\Test_TextBoxLabel.Designer.vb">
+      <DependentUpon>Test_TextBoxLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestControls\Test_TextBoxLabel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TestControls\Test_YearPicker.Designer.vb">
       <DependentUpon>Test_YearPicker.vb</DependentUpon>
     </Compile>
     <Compile Include="TestControls\Test_YearPicker.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\CB_PersonType.vb">
+    <Compile Include="Controls\CB_PersonType.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\TTSPlayer.Designer.vb">
@@ -365,6 +375,9 @@
     <EmbeddedResource Include="TestControls\Test_DataMapper.resx">
       <DependentUpon>Test_DataMapper.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_DragDrop.resx">
+      <DependentUpon>Test_DragDrop.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_DTP.resx">
       <DependentUpon>Test_DTP.vb</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_TaskButton.resx">
       <DependentUpon>Test_TaskButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestControls\Test_TextBoxLabel.resx">
+      <DependentUpon>Test_TextBoxLabel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestControls\Test_YearPicker.resx">
       <DependentUpon>Test_YearPicker.vb</DependentUpon>
@@ -392,7 +408,6 @@
     <None Include="My Project\DataSources\JANL.Models.TestObject.datasource" />
     <None Include="Resources\partner64.png" />
     <None Include="Resources\shrek.ico" />
-    <None Include="Archive\Excel\Header.xlsx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

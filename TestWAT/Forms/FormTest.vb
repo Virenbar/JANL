@@ -4,9 +4,8 @@ Imports System.Threading
 Imports JANL
 Imports JANL.Controls
 Imports JANL.Drawing
-Imports JANL.Extensions
 Imports JANL.Forms
-Imports JANL.Helpers.StringHelper
+Imports JANL.Helpers
 Imports JANL.Models
 Imports Microsoft.VisualBasic.CompilerServices
 
@@ -194,14 +193,16 @@ Public Class FormTest
         Dim I As Numerics.BigInteger = 0
         Dim D As Decimal = 0
         If Numerics.BigInteger.TryParse(TB_Number.Text, I) Then
-            TB_NumberText.Text = NumberToText(I, NounKind.Male)
+            TB_NumberText.Text = StringHelper.NumberToText(I, NounKind.Male)
         ElseIf Decimal.TryParse(TB_Number.Text, D) Then
-            TB_NumberText.Text = RubleToText(D)
+            TB_NumberText.Text = StringHelper.RubleToText(D)
         Else
             TB_NumberText.Text = ""
         End If
-        TtsPlayer1.Queue.Clear()
-        TtsPlayer1.Queue.Enqueue(New Prompt(TB_NumberText.Text))
+        Dim PB = New PromptBuilder()
+        PB.AppendText(TB_NumberText.Text)
+        TTS.Queue.Clear()
+        TTS.Queue.Enqueue(PB)
     End Sub
 
     Private Async Sub B_TTS_Click(sender As Object, e As EventArgs) Handles B_TTS.Click
@@ -224,7 +225,7 @@ Public Class FormTest
     End Sub
 
     Private Function ThreadMessageBox(owner As Control, text As String) As DialogResult
-        Return DirectCast(owner.Invoke(Function() MessageBox.Show(owner, text, "s", MessageBoxButtons.YesNo, MessageBoxIcon.Question)), DialogResult)
+        Return DirectCast(owner.Invoke(Function() MessageBox.Show(owner, text, "Amogus", MessageBoxButtons.YesNo, MessageBoxIcon.Question)), DialogResult)
     End Function
 
     Private Async Sub B_Message_Click(sender As Object, e As EventArgs) Handles B_Message.Click

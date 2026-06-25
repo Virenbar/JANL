@@ -22,7 +22,6 @@ Partial Class MainForm
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DefaultSpinner1 As JANL.Animators.Spinner.DefaultSpinner = New JANL.Animators.Spinner.DefaultSpinner()
         Me.MS_Main = New System.Windows.Forms.MenuStrip()
         Me.ФормыToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_Controls = New System.Windows.Forms.ToolStripMenuItem()
@@ -30,17 +29,13 @@ Partial Class MainForm
         Me.MI_FormOffice = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_Animation_1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_Animation_2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MI_Colors = New System.Windows.Forms.ToolStripMenuItem()
         Me.PerfTestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_HashVSList = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_ArrayVSRegex = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Address = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_UL = New System.Windows.Forms.ToolStripMenuItem()
-        Me.НижнийТагилToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.НаселениеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.РосреестрToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.РазноеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormAsyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +49,7 @@ Partial Class MainForm
         Me.TS_Stopwatch = New JANL.Controls.ToolStripStopwatch()
         Me.TS_Search = New JANL.Controls.ToolStripTextBoxLabel()
         Me.TB_Search = New System.Windows.Forms.TextBox()
-        Me.MI_Colors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MI_Select = New System.Windows.Forms.ToolStripMenuItem()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Status.SuspendLayout()
@@ -62,7 +57,7 @@ Partial Class MainForm
         '
         'MS_Main
         '
-        Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ФормыToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.НижнийТагилToolStripMenuItem, Me.ToolStripMenuItem1, Me.РазноеToolStripMenuItem})
+        Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ФормыToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.РазноеToolStripMenuItem})
         Me.MS_Main.Location = New System.Drawing.Point(0, 0)
         Me.MS_Main.Name = "MS_Main"
         Me.MS_Main.Size = New System.Drawing.Size(685, 24)
@@ -71,7 +66,7 @@ Partial Class MainForm
         '
         'ФормыToolStripMenuItem
         '
-        Me.ФормыToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MI_Controls, Me.MI_MDI, Me.MI_FormOffice, Me.MI_Animation_1, Me.MI_Animation_2, Me.MI_Colors})
+        Me.ФормыToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MI_MDI, Me.MI_Select, Me.MI_Controls, Me.MI_FormOffice, Me.MI_Animation_1, Me.MI_Animation_2, Me.MI_Colors})
         Me.ФормыToolStripMenuItem.Name = "ФормыToolStripMenuItem"
         Me.ФормыToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ФормыToolStripMenuItem.Text = "Формы"
@@ -86,7 +81,7 @@ Partial Class MainForm
         '
         Me.MI_MDI.Name = "MI_MDI"
         Me.MI_MDI.Size = New System.Drawing.Size(198, 22)
-        Me.MI_MDI.Text = "MDI форма"
+        Me.MI_MDI.Text = "Формы MDI"
         '
         'MI_FormOffice
         '
@@ -106,23 +101,29 @@ Partial Class MainForm
         Me.MI_Animation_2.Size = New System.Drawing.Size(198, 22)
         Me.MI_Animation_2.Text = "Анимация 2"
         '
+        'MI_Colors
+        '
+        Me.MI_Colors.Name = "MI_Colors"
+        Me.MI_Colors.Size = New System.Drawing.Size(198, 22)
+        Me.MI_Colors.Text = "Colors"
+        '
         'PerfTestsToolStripMenuItem
         '
         Me.PerfTestsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MI_HashVSList, Me.MI_ArrayVSRegex})
         Me.PerfTestsToolStripMenuItem.Name = "PerfTestsToolStripMenuItem"
-        Me.PerfTestsToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+        Me.PerfTestsToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.PerfTestsToolStripMenuItem.Text = "PerfTests"
         '
         'MI_HashVSList
         '
         Me.MI_HashVSList.Name = "MI_HashVSList"
-        Me.MI_HashVSList.Size = New System.Drawing.Size(146, 22)
+        Me.MI_HashVSList.Size = New System.Drawing.Size(147, 22)
         Me.MI_HashVSList.Text = "HashVSList"
         '
         'MI_ArrayVSRegex
         '
         Me.MI_ArrayVSRegex.Name = "MI_ArrayVSRegex"
-        Me.MI_ArrayVSRegex.Size = New System.Drawing.Size(146, 22)
+        Me.MI_ArrayVSRegex.Size = New System.Drawing.Size(147, 22)
         Me.MI_ArrayVSRegex.Text = "ArrayVSRegex"
         '
         'DaDataToolStripMenuItem
@@ -135,46 +136,14 @@ Partial Class MainForm
         'TSMI_Address
         '
         Me.TSMI_Address.Name = "TSMI_Address"
-        Me.TSMI_Address.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_Address.Size = New System.Drawing.Size(107, 22)
         Me.TSMI_Address.Text = "Адрес"
         '
         'TSMI_UL
         '
         Me.TSMI_UL.Name = "TSMI_UL"
-        Me.TSMI_UL.Size = New System.Drawing.Size(180, 22)
+        Me.TSMI_UL.Size = New System.Drawing.Size(107, 22)
         Me.TSMI_UL.Text = "ЮЛ"
-        '
-        'НижнийТагилToolStripMenuItem
-        '
-        Me.НижнийТагилToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.НаселениеToolStripMenuItem})
-        Me.НижнийТагилToolStripMenuItem.Name = "НижнийТагилToolStripMenuItem"
-        Me.НижнийТагилToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
-        Me.НижнийТагилToolStripMenuItem.Text = "Нижний Тагил"
-        '
-        'НаселениеToolStripMenuItem
-        '
-        Me.НаселениеToolStripMenuItem.Name = "НаселениеToolStripMenuItem"
-        Me.НаселениеToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
-        Me.НаселениеToolStripMenuItem.Text = "Население"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.РосреестрToolStripMenuItem})
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(45, 20)
-        Me.ToolStripMenuItem1.Text = "Excel"
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(131, 22)
-        Me.ToolStripMenuItem3.Text = "Сальдо"
-        '
-        'РосреестрToolStripMenuItem
-        '
-        Me.РосреестрToolStripMenuItem.Name = "РосреестрToolStripMenuItem"
-        Me.РосреестрToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
-        Me.РосреестрToolStripMenuItem.Text = "Росреестр"
         '
         'РазноеToolStripMenuItem
         '
@@ -186,29 +155,29 @@ Partial Class MainForm
         'FormAsyncToolStripMenuItem
         '
         Me.FormAsyncToolStripMenuItem.Name = "FormAsyncToolStripMenuItem"
-        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
         '
         'SelectTestToolStripMenuItem
         '
         Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
-        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SelectTestToolStripMenuItem.Text = "SelectTest"
         '
         'DGVTEditorToolStripMenuItem
         '
         Me.DGVTEditorToolStripMenuItem.Name = "DGVTEditorToolStripMenuItem"
-        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
         '
         'B_Beep
         '
         Me.B_Beep.AutoSize = True
         Me.B_Beep.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_Beep.Location = New System.Drawing.Point(48, 3)
+        Me.B_Beep.Location = New System.Drawing.Point(47, 3)
         Me.B_Beep.Name = "B_Beep"
         Me.B_Beep.Padding = New System.Windows.Forms.Padding(1)
-        Me.B_Beep.Size = New System.Drawing.Size(45, 25)
+        Me.B_Beep.Size = New System.Drawing.Size(44, 25)
         Me.B_Beep.TabIndex = 1
         Me.B_Beep.Text = "Beep"
         Me.B_Beep.UseVisualStyleBackColor = True
@@ -220,7 +189,7 @@ Partial Class MainForm
         Me.B_SQL.Location = New System.Drawing.Point(3, 3)
         Me.B_SQL.Name = "B_SQL"
         Me.B_SQL.Padding = New System.Windows.Forms.Padding(1)
-        Me.B_SQL.Size = New System.Drawing.Size(39, 25)
+        Me.B_SQL.Size = New System.Drawing.Size(38, 25)
         Me.B_SQL.TabIndex = 2
         Me.B_SQL.Text = "SQL"
         Me.B_SQL.UseVisualStyleBackColor = True
@@ -242,7 +211,7 @@ Partial Class MainForm
         '
         Me.B_Vowels.AutoSize = True
         Me.B_Vowels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_Vowels.Location = New System.Drawing.Point(99, 3)
+        Me.B_Vowels.Location = New System.Drawing.Point(97, 3)
         Me.B_Vowels.Name = "B_Vowels"
         Me.B_Vowels.Padding = New System.Windows.Forms.Padding(1)
         Me.B_Vowels.Size = New System.Drawing.Size(49, 25)
@@ -264,7 +233,6 @@ Partial Class MainForm
         '
         Me.TS_Spinner.Name = "TS_Spinner"
         Me.TS_Spinner.Size = New System.Drawing.Size(12, 21)
-        Me.TS_Spinner.Spinner = DefaultSpinner1
         Me.TS_Spinner.Text = "-"
         '
         'TS_Stopwatch
@@ -287,11 +255,11 @@ Partial Class MainForm
         Me.TB_Search.Size = New System.Drawing.Size(143, 22)
         Me.TB_Search.TabIndex = 6
         '
-        'MI_Colors
+        'MI_Select
         '
-        Me.MI_Colors.Name = "MI_Colors"
-        Me.MI_Colors.Size = New System.Drawing.Size(198, 22)
-        Me.MI_Colors.Text = "Colors"
+        Me.MI_Select.Name = "MI_Select"
+        Me.MI_Select.Size = New System.Drawing.Size(198, 22)
+        Me.MI_Select.Text = "Формы выбора"
         '
         'MainForm
         '
@@ -323,10 +291,6 @@ Partial Class MainForm
     End Sub
 
     Friend WithEvents MS_Main As MenuStrip
-    Friend WithEvents НижнийТагилToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents НаселениеToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents B_Beep As Button
     Friend WithEvents DaDataToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents РазноеToolStripMenuItem As ToolStripMenuItem
@@ -337,7 +301,6 @@ Partial Class MainForm
     Friend WithEvents TSMI_UL As ToolStripMenuItem
     Friend WithEvents SelectTestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DGVTEditorToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents РосреестрToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents B_SQL As Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents ФормыToolStripMenuItem As ToolStripMenuItem
@@ -354,4 +317,5 @@ Partial Class MainForm
     Friend WithEvents MI_MDI As ToolStripMenuItem
     Friend WithEvents B_Vowels As Button
     Friend WithEvents MI_Colors As ToolStripMenuItem
+    Friend WithEvents MI_Select As ToolStripMenuItem
 End Class

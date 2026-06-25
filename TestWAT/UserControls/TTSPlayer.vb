@@ -1,6 +1,7 @@
 ﻿Imports System.Speech.Synthesis
 
 Public Class TTSPlayer
+    Private CurrentBuilder As PromptBuilder
     Private CurrentPrompt As Prompt
     Private Synth As SpeechSynthesizer
 
@@ -16,7 +17,7 @@ Public Class TTSPlayer
         RefreshUI()
     End Sub
 
-    Public ReadOnly Property Queue As Queue(Of Prompt) = New Queue(Of Prompt)
+    Public ReadOnly Property Queue As Queue(Of PromptBuilder) = New Queue(Of PromptBuilder)
 
     Private Sub B_Pause_Click(sender As Object, e As EventArgs) Handles B_Pause.Click
         If Synth.State = SynthesizerState.Speaking Then
@@ -43,8 +44,8 @@ Public Class TTSPlayer
 
     Private Sub Play()
         If Queue.Count > 0 Then
-            CurrentPrompt = Queue.Dequeue()
-            Synth.SpeakAsync(CurrentPrompt)
+            CurrentBuilder = Queue.Dequeue()
+            CurrentPrompt = Synth.SpeakAsync(CurrentBuilder)
         End If
         RefreshUI()
     End Sub
@@ -61,7 +62,8 @@ Public Class TTSPlayer
     End Sub
 
     Private Sub Synth_SpeakProgress(sender As Object, e As SpeakProgressEventArgs)
-        L_Progress.Text = $"{e.Prompt.ToString().Length / e.CharacterPosition:P}"
+        L_Progress.Text = $"{e.CharacterPosition}"
+        'Console.WriteLine("CharPos: {0} CharCount: {1} AudioPos: {2} ""{3}""", e.CharacterPosition, e.CharacterCount, e.AudioPosition, e.Text)
     End Sub
 
     Private Sub Synth_StateChanged(sender As Object, e As StateChangedEventArgs)
