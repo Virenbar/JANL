@@ -1,0 +1,29 @@
+name: Build Solution
+description: Setups MSBuild and build solution
+outputs:
+  version:
+    description: "Build Version"
+    value: ${{ steps.version.outputs.version }}
+runs:
+  using: composite
+  steps:
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: 6.x
+
+    - name: Set VERSION
+      id: version
+      shell: pwsh
+      run: .\.github\scripts\version.ps1
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Restore packages
+      shell: pwsh
+      run: nuget restore
+
+    - name: Build solution
+      shell: pwsh
+      run: msbuild JANL.sln /t:Build /p:Configuration=Release /p:ContinuousIntegrationBuild=true
