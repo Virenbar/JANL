@@ -63,6 +63,8 @@
     <Compile Include="Controls\AstroStatusPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\EventArgs\FileDropEventArgs.cs" />
+    <Compile Include="Controls\FileDropHandler.cs" />
     <Compile Include="Drawing\Astro\AstroColor.cs" />
     <Compile Include="Controls\Button\ButtonAwaiter.cs" />
     <Compile Include="Drawing\DirectBitmap.cs" />
