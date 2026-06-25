@@ -1,29 +1,37 @@
-﻿using JANL.Animators;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using JANL.Animators;
 
 namespace JANL.Controls
 {
     /// <summary>
-    ///
+    /// Спиннер
     /// </summary>
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.StatusStrip)]
     public class ToolStripSpinner : ToolStripLabel
     {
         private readonly Timer timer = new Timer { Interval = 100 };
-        private Spinner _spinner;
         private int index;
 
+        /// <summary>
+        /// Создает элемент отображения спиннера
+        /// </summary>
         public ToolStripSpinner()
         {
             Spinner = Spinner.Predefined.Default;
             timer.Tick += (object _, EventArgs e) => UpdateSpinner();
         }
 
+        /// <summary>
+        /// Запускает анимацию спиннера
+        /// </summary>
         public void Start() => timer.Start();
 
+        /// <summary>
+        /// Останавливает анимацию спиннера
+        /// </summary>
         public void Stop()
         {
             timer.Stop();
@@ -45,7 +53,11 @@ namespace JANL.Controls
         }
 
         #region Properties
+        private Spinner _spinner;
 
+        /// <summary>
+        /// Спиннер
+        /// </summary>
         [Browsable(false)]
         public Spinner Spinner
         {
@@ -57,6 +69,9 @@ namespace JANL.Controls
             }
         }
 
+        /// <summary>
+        /// Текст
+        /// </summary>
         [Browsable(false)]
         protected new string Text
         {

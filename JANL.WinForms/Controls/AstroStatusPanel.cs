@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace JANL.Controls
 {
     /// <summary>
-    /// Панели для отображения цвета на основе статуса <see cref="Status"/>
+    /// Панель для отображения цвета на основе статуса <see cref="Status"/>
     /// </summary>
     public class AstroStatusPanel : Panel
     {

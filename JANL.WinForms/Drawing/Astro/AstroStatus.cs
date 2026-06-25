@@ -3,6 +3,9 @@
     /// <summary>
     /// Statuses
     /// </summary>
+    /// <remarks>
+    /// https://www.astrouxds.com/patterns/status-system/
+    /// </remarks>
     public enum AstroStatus
     {
         /// <summary>

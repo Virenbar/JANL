@@ -5,7 +5,7 @@ namespace JANL.Animators
 {
     public abstract partial class Spinner
     {
-        public sealed class DefaultSpinner : Spinner
+        private sealed class DefaultSpinner : Spinner
         {
             public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
 

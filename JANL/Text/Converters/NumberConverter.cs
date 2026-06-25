@@ -1,11 +1,14 @@
-﻿using JANL.Exceptions;
-using JANL.Extensions;
-using System;
+﻿using System;
 using System.Numerics;
 using System.Text;
+using JANL.Exceptions;
+using JANL.Extensions;
 
 namespace JANL.Text.Converters
 {
+    /// <summary>
+    /// Класс для перевода чисел в пропись
+    /// </summary>
     public static class NumberConverter
     {
         private const int MAX_CLASS = 1000;
@@ -22,11 +25,24 @@ namespace JANL.Text.Converters
             Ruble = new Noun("рубль", "рубля", "рублей");
         }
 
+        /// <summary>
+        /// Перевод целого числа в строку
+        /// </summary>
+        /// <param name="number">Число</param>
+        /// <param name="noun">Существительное</param>
+        /// <returns>Возвращает строковую запись числа и существительного</returns>
         public static string NumberToText(BigInteger number, Noun noun) => $"{NumberToText(number, noun.Kind)} {CaseForNumber((int)(number % 1000), noun)}";
 
+        /// <summary>
+        /// Перевод целого числа в строку
+        /// </summary>
+        /// <param name="number">Число</param>
+        /// <returns>Возвращает строковую запись числа</returns>
         public static string NumberToText(BigInteger number) => NumberToText(number, NounKind.Male);
 
-        /// <summary>Перевод целого числа в строку</summary>
+        /// <summary>
+        /// Перевод целого числа в строку
+        /// </summary>
         /// <param name="number">Число</param>
         /// <param name="kind">Род существительного</param>
         /// <returns>Возвращает строковую запись числа</returns>

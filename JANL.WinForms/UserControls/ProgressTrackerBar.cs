@@ -4,8 +4,14 @@ using System.Windows.Forms;
 
 namespace JANL.UserControls
 {
+    /// <summary>
+    /// <see cref="ProgressBar"/> c расчётом прогресса
+    /// </summary>
     public partial class ProgressTrackerBar : UserControl, IProgress<int>
     {
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public ProgressTrackerBar()
         {
             InitializeComponent();
@@ -13,12 +19,22 @@ namespace JANL.UserControls
             Tracker.ProgressChanged += (object _, int e) => RefreshUI();
         }
 
+        /// <summary>
+        /// Увеличивает значение на 1
+        /// </summary>
         public void Increment() => Tracker.Incriment();
 
+        /// <summary>
+        /// Увеличивает значение на указанное значение
+        /// </summary>
+        /// <param name="inc">Значение</param>
         public void Increment(int inc) => Tracker.Incriment(inc);
 
         void IProgress<int>.Report(int value) => ((IProgress<int>)Tracker).Report(value);
 
+        /// <summary>
+        /// Сбрасывает состояние
+        /// </summary>
         public void Reset()
         {
             Tracker.Reset();
@@ -32,8 +48,14 @@ namespace JANL.UserControls
             L_Remaining.Text = "-";
         }
 
+        /// <summary>
+        /// Запускает измерение времени выполнения
+        /// </summary>
         public void Start() => Tracker.Start();
 
+        /// <summary>
+        /// Останавливает измерение времени выполнения
+        /// </summary>
         public void Stop() => Tracker.Stop();
 
         private void RefreshUI()
@@ -50,6 +72,9 @@ namespace JANL.UserControls
 
         #region Properties
 
+        /// <summary>
+        /// Максимальное значение
+        /// </summary>
         [Browsable(false)]
         public int Maximum
         {
@@ -57,14 +82,23 @@ namespace JANL.UserControls
             set => Tracker.Maximum = value;
         }
 
+        /// <summary>
+        /// Экземпляр класса расчёта прогресса
+        /// </summary>
         [Browsable(false)]
         public ProgressTracker Tracker { get; }
 
+        /// <summary>
+        /// Текущее значение
+        /// </summary>
         [Browsable(false)]
         public int Value => Tracker.Value;
 
         #region Designer
 
+        /// <summary>
+        /// Показывать процент
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать процент"), DefaultValue(true)]
         public bool PercentVisible
         {
@@ -72,6 +106,9 @@ namespace JANL.UserControls
             set => L_Percent.Visible = value;
         }
 
+        /// <summary>
+        /// Лимит очереди
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Лимит очереди"), DefaultValue(10)]
         public int QueueLimit
         {
@@ -79,6 +116,9 @@ namespace JANL.UserControls
             set => Tracker.QueueLimit = value;
         }
 
+        /// <summary>
+        /// Показывать среднее время
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать среднее время"), DefaultValue(false)]
         public bool TimeAverageVisible
         {
@@ -86,6 +126,9 @@ namespace JANL.UserControls
             set => L_Average.Visible = value;
         }
 
+        /// <summary>
+        /// Показывать пройденное время
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать пройденное время"), DefaultValue(true)]
         public bool TimeElapsedVisible
         {
@@ -93,6 +136,9 @@ namespace JANL.UserControls
             set => L_Elapsed.Visible = value;
         }
 
+        /// <summary>
+        /// Сглаживание оставшегося времени
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Сглаживание оставшегося времени"), DefaultValue(0.8F)]
         public float TimeRemainingSmoothness
         {
@@ -100,6 +146,9 @@ namespace JANL.UserControls
             set => Tracker.Smoothness = value;
         }
 
+        /// <summary>
+        /// Показывать оставшиеся время
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать оставшиеся время"), DefaultValue(true)]
         public bool TimeRemainingVisible
         {
@@ -107,6 +156,9 @@ namespace JANL.UserControls
             set => L_Remaining.Visible = value;
         }
 
+        /// <summary>
+        /// Показывать значения
+        /// </summary>
         [Browsable(true), Category("ProgressTrackerBar"), Description("Показывать значения"), DefaultValue(true)]
         public bool ValuesVisible
         {

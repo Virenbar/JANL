@@ -97,6 +97,9 @@ namespace JANL
         /// </summary>
         public int Value { get; }
 
+        /// <summary>
+        ///
+        /// </summary>
         public bool Equals(TaskProgress other) => Value == other.Value && Max == other.Max && Status == other.Status;
 
         #endregion Properties

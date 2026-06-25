@@ -28,7 +28,7 @@ namespace JANL.Extensions
         public static void ReplaceText(this WordprocessingDocument package, string text, object replacement) => WordHelper.ReplaceText(package, text, replacement);
 
         /// <summary>
-		///
+		/// Получить ячейки строки
 		/// </summary>
 		/// <param name="row"></param>
 		/// <returns></returns>
@@ -38,7 +38,7 @@ namespace JANL.Extensions
         }
 
         /// <summary>
-        /// Получить текст ячейки
+        /// Получить тексты ячеек строки
         /// </summary>
         /// <param name="row"></param>
         /// <returns></returns>
