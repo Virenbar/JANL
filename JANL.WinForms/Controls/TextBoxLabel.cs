@@ -10,43 +10,52 @@ namespace JANL.Controls
     /// </summary>
     public class TextBoxLabel : TextBox
     {
+        private bool focused;
+
         /// <summary>
         /// Создаёт новое текстовое поле с заголовком
         /// </summary>
-        public TextBoxLabel()
-        {
-            ForeColor = Color.Black;
-            LabelColor = Color.SlateGray;
-        }
+        public TextBoxLabel() { }
 
-        private void UpdateColor() => base.ForeColor = IsText ? ForeColor : LabelColor;
+        private void UpdateColor() => base.ForeColor = IsText ? _foreColor : _labelColor;
 
-        private bool focused;
+        private void UpdateText() => base.Text = IsText ? _textValue : _labelValue;
 
         #region Properties
 
         #region Designer
-        private string LabelValue = "";
-        private string TextValue = "";
+        private Color _foreColor = Color.Black;
+        private Color _labelColor = Color.SlateGray;
+        private string _labelValue = "";
+        private string _textValue = "";
 
         /// <summary>
         /// Цвет текста
         /// </summary>
         [Browsable(true), Category("Appearance"), DefaultValue(typeof(Color), "0x000000"), Description("Цвет текста")]
-        public new Color ForeColor { get; set; }
+        public new Color ForeColor
+        {
+            get => _foreColor;
+            set
+            {
+                if (_foreColor == value) { return; }
+                _foreColor = value;
+                UpdateColor();
+            }
+        }
 
         /// <summary>
         /// Текст заголовка
         /// </summary>
-        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("Заголовок")]
+        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("Текст заголовка")]
         public string Label
         {
-            get => LabelValue;
+            get => _labelValue;
             set
             {
-                if (LabelValue == value) { return; }
-                LabelValue = value;
-                if (TextValue.Length == 0) { base.Text = LabelValue; }
+                if (_labelValue == value) { return; }
+                _labelValue = value;
+                UpdateText();
                 UpdateColor();
             }
         }
@@ -55,7 +64,16 @@ namespace JANL.Controls
         /// Цвет заголовка
         /// </summary>
         [Browsable(true), Category("Appearance"), DefaultValue(typeof(Color), "0x708090"), Description("Цвет заголовка")]
-        public Color LabelColor { get; set; }
+        public Color LabelColor
+        {
+            get => _labelColor;
+            set
+            {
+                if (_labelColor == value) { return; }
+                _labelColor = value;
+                UpdateColor();
+            }
+        }
 
         /// <summary>
         /// Текущий текст
@@ -63,12 +81,12 @@ namespace JANL.Controls
         [Browsable(true), Category("Appearance"), DefaultValue(""), Description("Текст")]
         public new string Text
         {
-            get => TextValue;
+            get => _textValue;
             set
             {
-                if (TextValue == value) { return; }
-                TextValue = value;
-                base.Text = IsText ? TextValue : LabelValue;
+                if (_textValue == value) { return; }
+                _textValue = value;
+                UpdateText();
                 UpdateColor();
             }
         }
@@ -79,36 +97,36 @@ namespace JANL.Controls
         /// Отображается ли сейчас заголовок
         /// </summary>
         [Browsable(false)]
-        public bool IsLabel => TextValue?.Length == 0;
+        public bool IsLabel => _textValue?.Length == 0;
 
         /// <summary>
         /// Отображается ли сейчас текст
         /// </summary>
         [Browsable(false)]
-        public bool IsText => TextValue?.Length > 0;
+        public bool IsText => _textValue?.Length > 0;
 
         #endregion Properties
 
         #region Overrides
 
         /// <summary>
-        ///
+        /// Создает событие <see cref="ToolStripControlHost.GotFocus"/>
         /// </summary>
         protected override void OnGotFocus(EventArgs e)
         {
             focused = true;
-            base.Text = TextValue;
+            base.Text = _textValue;
             UpdateColor();
             base.OnGotFocus(e);
         }
 
         /// <summary>
-        ///
+        /// Создает событие <see cref="ToolStripControlHost.LostFocus"/>
         /// </summary>
         protected override void OnLostFocus(EventArgs e)
         {
             focused = false;
-            TextValue = base.Text;
+            _textValue = base.Text;
             if (base.Text.Length == 0) { base.Text = Label; }
             base.OnLostFocus(e);
         }
@@ -118,7 +136,7 @@ namespace JANL.Controls
         /// </summary>
         protected override void OnTextChanged(EventArgs e)
         {
-            if (focused) { TextValue = base.Text; }
+            if (focused) { _textValue = base.Text; }
             UpdateColor();
             base.OnTextChanged(e);
         }

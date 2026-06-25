@@ -44,7 +44,7 @@
             this.TB.Location = new System.Drawing.Point(3, 18);
             this.TB.Multiline = true;
             this.TB.Name = "TB";
-            this.TB.Size = new System.Drawing.Size(386, 127);
+            this.TB.Size = new System.Drawing.Size(278, 103);
             this.TB.TabIndex = 0;
             // 
             // TableLayoutPanel2
@@ -61,7 +61,7 @@
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TableLayoutPanel2.Size = new System.Drawing.Size(392, 185);
+            this.TableLayoutPanel2.Size = new System.Drawing.Size(284, 161);
             this.TableLayoutPanel2.TabIndex = 7;
             // 
             // FlowLayoutPanel1
@@ -71,7 +71,7 @@
             this.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.FlowLayoutPanel1.Controls.Add(this.B_OK);
             this.FlowLayoutPanel1.Controls.Add(this.B_Cancel);
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(251, 151);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(143, 127);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(138, 31);
             this.FlowLayoutPanel1.TabIndex = 3;
@@ -122,13 +122,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::JANL.Properties.Settings.Default.BackColor;
-            this.ClientSize = new System.Drawing.Size(392, 185);
+            this.ClientSize = new System.Drawing.Size(284, 161);
             this.Controls.Add(this.TableLayoutPanel2);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::JANL.Properties.Settings.Default, "Font", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::JANL.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::JANL.Properties.Settings.Default, "ForeColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = global::JANL.Properties.Settings.Default.Font;
             this.ForeColor = global::JANL.Properties.Settings.Default.ForeColor;
+            this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "FormTextBox";
             this.Text = "FormTextBox";
             this.TableLayoutPanel2.ResumeLayout(false);

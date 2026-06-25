@@ -1,6 +1,4 @@
-﻿using JANL.Controls;
-using JANL.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using JANL.Controls;
+using JANL.Helpers;
+using JANL.Properties;
 
 namespace JANL.Extensions
 {
@@ -16,7 +17,7 @@ namespace JANL.Extensions
     /// </summary>
     public static class ControlExtensions
     {
-        private readonly static HashSet<Type> CTR = new HashSet<Type> { typeof(Button), typeof(ComboBox), typeof(NumericUpDown), typeof(DateTimePicker), typeof(TextBox) };
+        private static readonly HashSet<Type> CTR = new HashSet<Type> { typeof(Button), typeof(ComboBox), typeof(NumericUpDown), typeof(DateTimePicker), typeof(TextBox) };
 
         /// <summary>
         /// Возвращает все дочерние элементы
@@ -48,9 +49,9 @@ namespace JANL.Extensions
         /// </summary>
         public static void DoubleBuffered(this Control control, bool setting)
         {
-            Type CtrlType = control.GetType();
-            PropertyInfo propInfo = CtrlType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-            propInfo.SetValue(control, setting, null);
+            var type = control.GetType();
+            var property = type.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+            property.SetValue(control, setting, null);
         }
 
         /// <summary>
@@ -171,5 +172,16 @@ namespace JANL.Extensions
         /// </summary>
         /// <param name="control"></param>
         public static void VowelsBegone(this ToolStripItem control) => TextHelper.VowelsBegone(control);
+
+        /// <summary>
+        /// Привязать
+        /// </summary>
+        /// <param name="form"></param>
+        internal static void BindSettings(this Form form)
+        {
+            form.DataBindings.Add(new Binding("Font", Settings.Default, "Font", true, DataSourceUpdateMode.OnPropertyChanged));
+            form.DataBindings.Add(new Binding("ForeColor", Settings.Default, "ForeColor", true, DataSourceUpdateMode.OnPropertyChanged));
+            form.DataBindings.Add(new Binding("BackColor", Settings.Default, "BackColor", true, DataSourceUpdateMode.OnPropertyChanged));
+        }
     }
 }

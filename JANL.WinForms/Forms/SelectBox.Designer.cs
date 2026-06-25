@@ -30,10 +30,10 @@
         {
             this.TableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.B_Select = new System.Windows.Forms.Button();
             this.B_Cancel = new System.Windows.Forms.Button();
             this.L_Select = new System.Windows.Forms.Label();
             this.LB_Items = new System.Windows.Forms.ListBox();
-            this.B_Select = new System.Windows.Forms.Button();
             this.TableLayoutPanel2.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TableLayoutPanel2.Size = new System.Drawing.Size(314, 239);
+            this.TableLayoutPanel2.Size = new System.Drawing.Size(284, 211);
             this.TableLayoutPanel2.TabIndex = 6;
             // 
             // FlowLayoutPanel1
@@ -62,10 +62,25 @@
             this.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.FlowLayoutPanel1.Controls.Add(this.B_Select);
             this.FlowLayoutPanel1.Controls.Add(this.B_Cancel);
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(146, 205);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(116, 177);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(165, 31);
             this.FlowLayoutPanel1.TabIndex = 3;
+            // 
+            // B_Select
+            // 
+            this.B_Select.AutoSize = true;
+            this.B_Select.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.B_Select.Image = global::My.Resources.icons8.Ok16;
+            this.B_Select.Location = new System.Drawing.Point(3, 3);
+            this.B_Select.Name = "B_Select";
+            this.B_Select.Padding = new System.Windows.Forms.Padding(1);
+            this.B_Select.Size = new System.Drawing.Size(79, 25);
+            this.B_Select.TabIndex = 1;
+            this.B_Select.Text = "Выбрать";
+            this.B_Select.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.B_Select.UseVisualStyleBackColor = true;
+            this.B_Select.Click += new System.EventHandler(this.B_Select_Click);
             // 
             // B_Cancel
             // 
@@ -99,32 +114,19 @@
             this.LB_Items.Location = new System.Drawing.Point(5, 20);
             this.LB_Items.Margin = new System.Windows.Forms.Padding(5);
             this.LB_Items.Name = "LB_Items";
-            this.LB_Items.Size = new System.Drawing.Size(304, 177);
+            this.LB_Items.Size = new System.Drawing.Size(274, 149);
             this.LB_Items.TabIndex = 0;
             this.LB_Items.SelectedIndexChanged += new System.EventHandler(this.LB_Items_SelectedIndexChanged);
-            // 
-            // B_Select
-            // 
-            this.B_Select.AutoSize = true;
-            this.B_Select.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.B_Select.Image = global::My.Resources.icons8.Ok16;
-            this.B_Select.Location = new System.Drawing.Point(3, 3);
-            this.B_Select.Name = "B_Select";
-            this.B_Select.Padding = new System.Windows.Forms.Padding(1);
-            this.B_Select.Size = new System.Drawing.Size(79, 25);
-            this.B_Select.TabIndex = 1;
-            this.B_Select.Text = "Выбрать";
-            this.B_Select.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.B_Select.UseVisualStyleBackColor = true;
-            this.B_Select.Click += new System.EventHandler(this.B_Select_Click);
             // 
             // SelectBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 239);
+            this.ClientSize = new System.Drawing.Size(284, 211);
             this.Controls.Add(this.TableLayoutPanel2);
+            this.MinimumSize = new System.Drawing.Size(300, 250);
             this.Name = "SelectBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SelectBox";
             this.Load += new System.EventHandler(this.SelectBox_Load);
             this.TableLayoutPanel2.ResumeLayout(false);

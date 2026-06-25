@@ -103,9 +103,39 @@ namespace My.Resources {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap DoubleLeft16 {
+            get {
+                object obj = ResourceManager.GetObject("DoubleLeft16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DoubleRight16 {
+            get {
+                object obj = ResourceManager.GetObject("DoubleRight16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Info16 {
             get {
                 object obj = ResourceManager.GetObject("Info16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Left16 {
+            get {
+                object obj = ResourceManager.GetObject("Left16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +186,16 @@ namespace My.Resources {
         public static System.Drawing.Bitmap Refresh16 {
             get {
                 object obj = ResourceManager.GetObject("Refresh16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Right16 {
+            get {
+                object obj = ResourceManager.GetObject("Right16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
