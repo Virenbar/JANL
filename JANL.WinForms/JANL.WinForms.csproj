@@ -60,6 +60,12 @@
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
+    <Compile Include="Components\FileEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FileEditor.Designer.cs">
+      <DependentUpon>FileEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AstroStatusPanel.cs">
       <SubType>Component</SubType>
     </Compile>
