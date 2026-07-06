@@ -1,9 +1,10 @@
-﻿using JANL.Extensions;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using JANL.Drawing;
+using JANL.Extensions;
 
 namespace JANL.Controls
 {
@@ -15,9 +16,9 @@ namespace JANL.Controls
         public RegexTextBox()
         {
             BackColor = Color.White;
-            ValidColor = Colors.Common.Good;
-            RequiredColor = Colors.Common.Unknown;
-            InvalidColor = Colors.Common.Bad;
+            ValidColor = CommonColor.Good;
+            RequiredColor = CommonColor.Unknown;
+            InvalidColor = CommonColor.Bad;
             Validate();
         }
 

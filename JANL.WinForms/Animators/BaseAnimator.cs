@@ -1,8 +1,8 @@
-﻿using JANL.Interfaces;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using JANL.Interfaces;
 
 namespace JANL.Animators
 {

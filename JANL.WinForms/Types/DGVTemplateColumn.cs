@@ -1,8 +1,8 @@
-﻿using JANL.Properties;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using JANL.Properties;
 
 namespace JANL.Types
 {

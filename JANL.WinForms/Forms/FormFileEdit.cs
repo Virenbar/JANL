@@ -1,9 +1,9 @@
-﻿using JANL.Extensions;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using JANL.Extensions;
 
 namespace JANL.Forms
 {

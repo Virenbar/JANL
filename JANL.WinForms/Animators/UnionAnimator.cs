@@ -1,7 +1,7 @@
-﻿using JANL.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using JANL.Interfaces;
 
 namespace JANL.Animators
 {

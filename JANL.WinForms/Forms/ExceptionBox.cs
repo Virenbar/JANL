@@ -1,9 +1,9 @@
-﻿using JANL.Locales;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using JANL.Locales;
 using static System.Environment;
 
 namespace JANL.Forms

@@ -1,8 +1,8 @@
-﻿using JANL.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
+using JANL.Interfaces;
 
 namespace JANL.Animators
 {

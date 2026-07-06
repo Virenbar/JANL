@@ -1,13 +1,13 @@
-﻿using JANL.Extensions;
-using JANL.Helpers;
-using JANL.Managers;
-using JANL.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using JANL.Extensions;
+using JANL.Helpers;
+using JANL.Managers;
+using JANL.Types;
 
 namespace JANL.UserControls
 {

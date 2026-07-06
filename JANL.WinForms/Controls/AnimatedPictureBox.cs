@@ -1,8 +1,8 @@
-﻿using JANL.Interfaces;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using JANL.Interfaces;
 
 namespace JANL.Controls
 {

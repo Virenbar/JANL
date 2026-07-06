@@ -1,13 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace JANL.Colors
+namespace JANL.Drawing
 {
     /// <summary>
     /// Часто используемые цвета
     /// </summary>
-    [Obsolete("Use JANL.Drawing.CommonColor")]
-    public struct Common
+    public struct CommonColor
     {
 #pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
         public static Color White => Color.White;

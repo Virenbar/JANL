@@ -1,7 +1,7 @@
-﻿using JANL.Managers;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using JANL.Managers;
 
 namespace JANL.Controls
 {

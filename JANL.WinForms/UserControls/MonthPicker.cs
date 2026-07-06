@@ -1,11 +1,11 @@
-﻿using JANL.Designers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using JANL.Designers;
 
 namespace JANL.UserControls
 {
@@ -34,11 +34,6 @@ namespace JANL.UserControls
             _MinYear = 2010;
             FillYear();
         }
-
-        /// <summary>
-        /// Вызывает <see cref="DateChanged"/>
-        /// </summary>
-        protected void OnDateChanged() => DateChanged?.Invoke(this, EventArgs.Empty);
 
         private void CB_Month_SelectedIndexChanged(object sender, EventArgs e) => OnDateChanged();
 
@@ -109,6 +104,20 @@ namespace JANL.UserControls
 
         #endregion Properties
 
+        #region MyRegion
+
+        /// <summary>
+        /// Вызывает <see cref="DateChanged"/>
+        /// </summary>
+        protected void OnDateChanged() => DateChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Происходит при смене месяца
+        /// </summary>
+        public event EventHandler DateChanged;
+
+        #endregion MyRegion
+
         private struct MonthItem : IEquatable<MonthItem>
         {
             public MonthItem(int i)
@@ -122,10 +131,5 @@ namespace JANL.UserControls
 
             public bool Equals(MonthItem other) => Index.Equals(other);
         }
-
-        /// <summary>
-        /// Происходит при смене месяца
-        /// </summary>
-        public event EventHandler DateChanged;
     }
 }

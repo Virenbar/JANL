@@ -1,7 +1,7 @@
-﻿using JANL.Properties;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using JANL.Properties;
 
 namespace JANL.Types
 {

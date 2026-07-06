@@ -1,7 +1,7 @@
-﻿using JANL.Forms;
-using System;
+﻿using System;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using JANL.Forms;
 using static System.Environment;
 
 namespace JANL.Extensions

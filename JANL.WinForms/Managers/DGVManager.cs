@@ -1,9 +1,9 @@
-﻿using JANL.Extensions;
-using JANL.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using JANL.Extensions;
+using JANL.Types;
 
 namespace JANL.Managers
 {

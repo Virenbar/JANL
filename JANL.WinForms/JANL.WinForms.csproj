@@ -73,6 +73,7 @@
     <Compile Include="Controls\FileDropHandler.cs" />
     <Compile Include="Drawing\Astro\AstroColor.cs" />
     <Compile Include="Controls\Button\ButtonAwaiter.cs" />
+    <Compile Include="Drawing\CommonColor.cs" />
     <Compile Include="Drawing\DirectBitmap.cs" />
     <Compile Include="Controls\PixelPictureBox.cs">
       <SubType>Component</SubType>
