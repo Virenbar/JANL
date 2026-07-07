@@ -1,7 +1,7 @@
-﻿using JANL.Extensions;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using JANL.Extensions;
+using NUnit.Framework;
 
 namespace JANL.Test.Extensions
 {

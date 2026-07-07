@@ -1,6 +1,6 @@
-﻿using JANL.Extensions;
+﻿using System.Numerics;
+using JANL.Extensions;
 using NUnit.Framework;
-using System.Numerics;
 
 namespace JANL.Test.Extensions
 {

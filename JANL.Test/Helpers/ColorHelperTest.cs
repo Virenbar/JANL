@@ -1,6 +1,6 @@
-﻿using JANL.Helpers;
+﻿using System.Drawing;
+using JANL.Helpers;
 using NUnit.Framework;
-using System.Drawing;
 
 namespace JANL.Test.Helpers
 {

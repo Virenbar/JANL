@@ -1,6 +1,6 @@
-﻿using JANL.Drawing;
+﻿using System.Drawing;
+using JANL.Drawing;
 using NUnit.Framework;
-using System.Drawing;
 
 namespace JANL.Test.Drawing
 {

@@ -55,15 +55,13 @@ namespace JANL.Extensions
         /// <summary>
         /// Получить тип CRL
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">Тип SQL</param>
         public static Type GetCRLType(this SqlDbType type) => SQLHelper.GetCRLType(type);
 
         /// <summary>
         /// Получить тип SQL
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">Тип CRL</param>
         public static SqlDbType GetSQLType(this Type type) => SQLHelper.GetDBType(type);
 
         #endregion SQL

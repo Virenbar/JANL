@@ -1,7 +1,7 @@
-﻿using JANL.Data;
+﻿using System;
+using JANL.Data;
 using JANL.Models;
 using NUnit.Framework;
-using System;
 
 namespace JANL.Test.Data
 {

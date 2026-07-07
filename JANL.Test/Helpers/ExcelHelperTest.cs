@@ -1,6 +1,6 @@
-﻿using JANL.Helpers;
+﻿using System.Collections.Generic;
+using JANL.Helpers;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace JANL.Test.Helpers
 {

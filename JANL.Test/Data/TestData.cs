@@ -1,7 +1,7 @@
-﻿using JANL.Stores;
-using NUnit.Framework;
-using System.Data;
+﻿using System.Data;
 using System.Threading.Tasks;
+using JANL.Stores;
+using NUnit.Framework;
 
 namespace JANL.Test.Data
 {

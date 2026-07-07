@@ -1,4 +1,4 @@
-using JANL.Helpers;
+﻿using JANL.Helpers;
 using NUnit.Framework;
 
 namespace JANL.Test.Helpers

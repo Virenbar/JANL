@@ -14,6 +14,10 @@ namespace JANL.SQL
     {
         #region Converters
 
+        /// <summary>
+        /// Получить тип CRL
+        /// </summary>
+        /// <param name="type">Тип SQL</param>
         public static Type GetCRLType(SqlDbType type)
         {
             switch (type)
@@ -82,6 +86,10 @@ namespace JANL.SQL
             }
         }
 
+        /// <summary>
+        /// Получить тип SQL
+        /// </summary>
+        /// <param name="type">Тип CRL</param>
         public static SqlDbType GetDBType(Type type)
         {
             type = Nullable.GetUnderlyingType(type) ?? type;
@@ -157,6 +165,11 @@ namespace JANL.SQL
             return Connection;
         }
 
+        /// <summary>
+        /// Создает новую команду с типом хранимой процедуры
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static SqlCommand NewProcedure([CallerMemberName] string name = null) => new SqlCommand(name)
         {
             CommandType = CommandType.StoredProcedure
