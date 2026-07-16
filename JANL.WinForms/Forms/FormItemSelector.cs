@@ -7,15 +7,23 @@ using JANL.Extensions;
 
 namespace JANL.Forms
 {
+    /// <summary>
+    /// Форма выбора элемента наследуемого от <see cref="ListViewItem"/>
+    /// </summary>
     public partial class FormItemSelector : Form
     {
         private int page = 1;
         private int pageCount;
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public FormItemSelector()
         {
             InitializeComponent();
+
             this.BindSettings();
+            LV_Items.DoubleBuffered();
             Text = "Окно выбора";
         }
 
@@ -28,6 +36,9 @@ namespace JANL.Forms
 
         private void FormItemSelector_Load(object sender, EventArgs e)
         {
+            Icon = Owner?.Icon;
+            L_Label.Visible = !string.IsNullOrWhiteSpace(L_Label.Text);
+
             var columnCount = Items.Max(I => I.SubItems.Count) - 1;
             var columns = Enumerable.Range(1, columnCount).Select(N => new ColumnHeader() { Name = $"SubItem {N}" }).ToArray();
             LV_Items.Columns.AddRange(columns);
@@ -63,6 +74,15 @@ namespace JANL.Forms
         #region Properties
 
         /// <summary>
+        /// Показывать кнопку сброса
+        /// </summary>
+        public bool ShowReset
+        {
+            get => B_Reset.Visible;
+            set => B_Reset.Visible = value;
+        }
+
+        /// <summary>
         /// Перечисление элементов для выбора
         /// </summary>
         public IEnumerable<ListViewItem> Items { get; set; }
@@ -70,7 +90,16 @@ namespace JANL.Forms
         /// <summary>
         /// Количество элементов на странице
         /// </summary>
-        public int ItemsPerPage { get; set; }
+        public int ItemsPerPage { get; set; } = 20;
+
+        /// <summary>
+        /// Заголовок списка
+        /// </summary>
+        public string Label
+        {
+            get => L_Label.Text;
+            set => L_Label.Text = value;
+        }
 
         /// <summary>
         /// Выбранные элементы
@@ -125,10 +154,11 @@ namespace JANL.Forms
             RefreshUI();
         }
 
-        //private void LV_Items_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    RefreshUI();
-        //}
+        private void LV_Items_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (LV_Items.SelectedItems.Count == 0) return;
+            B_OK.PerformClick();
+        }
 
         #endregion UI Events
     }

@@ -39,6 +39,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.B_Reset = new System.Windows.Forms.Button();
             this.B_OK = new System.Windows.Forms.Button();
+            this.L_Label = new System.Windows.Forms.Label();
             this.TS_Page.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,13 +53,15 @@
             this.LV_Items.GridLines = true;
             this.LV_Items.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LV_Items.HideSelection = false;
-            this.LV_Items.Location = new System.Drawing.Point(0, 25);
+            this.LV_Items.Location = new System.Drawing.Point(0, 42);
+            this.LV_Items.MultiSelect = false;
             this.LV_Items.Name = "LV_Items";
-            this.LV_Items.Size = new System.Drawing.Size(284, 355);
+            this.LV_Items.Size = new System.Drawing.Size(284, 348);
             this.LV_Items.TabIndex = 4;
             this.LV_Items.UseCompatibleStateImageBehavior = false;
             this.LV_Items.View = System.Windows.Forms.View.Details;
             this.LV_Items.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LV_Items_ItemSelectionChanged);
+            this.LV_Items.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LV_Items_MouseDoubleClick);
             // 
             // C_Name
             // 
@@ -132,7 +135,7 @@
             this.flowLayoutPanel1.Controls.Add(this.B_OK);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 380);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 390);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 31);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -153,6 +156,7 @@
             this.B_Reset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.B_Reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.B_Reset.UseVisualStyleBackColor = true;
+            this.B_Reset.Visible = false;
             this.B_Reset.Click += new System.EventHandler(this.B_Reset_Click);
             // 
             // B_OK
@@ -173,15 +177,29 @@
             this.B_OK.UseVisualStyleBackColor = true;
             this.B_OK.Click += new System.EventHandler(this.B_OK_Click);
             // 
+            // L_Label
+            // 
+            this.L_Label.AutoSize = true;
+            this.L_Label.Dock = System.Windows.Forms.DockStyle.Top;
+            this.L_Label.Location = new System.Drawing.Point(0, 25);
+            this.L_Label.Name = "L_Label";
+            this.L_Label.Padding = new System.Windows.Forms.Padding(2);
+            this.L_Label.Size = new System.Drawing.Size(107, 17);
+            this.L_Label.TabIndex = 7;
+            this.L_Label.Text = "Выберите элемент";
+            // 
             // FormItemSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 411);
+            this.ClientSize = new System.Drawing.Size(284, 421);
             this.Controls.Add(this.LV_Items);
+            this.Controls.Add(this.L_Label);
             this.Controls.Add(this.TS_Page);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(300, 450);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(300, 460);
             this.Name = "FormItemSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormItemSelector";
@@ -208,5 +226,6 @@
         private System.Windows.Forms.ToolStripLabel L_Page;
         private System.Windows.Forms.ToolStripButton B_Next;
         private System.Windows.Forms.ToolStripButton B_Last;
+        private System.Windows.Forms.Label L_Label;
     }
 }
