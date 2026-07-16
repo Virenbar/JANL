@@ -1,6 +1,9 @@
 name: Publish Artifact
 on:
   workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build:
     name: Build
@@ -24,8 +27,14 @@ jobs:
       - name: List files
         run: ls -R
 
+      - name: NuGet login
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: Virenbar
+
       - name: Push - NuGet
-        run: dotnet nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGETKEY}} --skip-duplicate
+        run: dotnet nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{ steps.login.outputs.NUGET_API_KEY }} --skip-duplicate
 
       - name: Push - GitHub
-        run: dotnet nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
+        run: dotnet nuget push **\*.nupkg -s 'https://nuget.pkg.github.com/Virenbar/index.json' -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
