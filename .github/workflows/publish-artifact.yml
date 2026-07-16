@@ -2,8 +2,9 @@ name: Publish Artifact
 on:
   workflow_dispatch:
 permissions:
-  id-token: write
-  contents: read
+  id-token: write # Nuget
+  contents: read  # Nuget
+  packages: write # GitHub
 jobs:
   build:
     name: Build
