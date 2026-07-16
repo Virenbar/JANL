@@ -1,713 +1,728 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
+// Spinners from https://github.com/sindresorhus/cli-spinners
 namespace JANL.Animators
 {
-    public abstract partial class Spinner
+    public sealed class AestheticSpinner : Spinner
     {
-        private sealed class DefaultSpinner : Spinner
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+            "▰▱▱▱▱▱▱",
+            "▰▰▱▱▱▱▱",
+            "▰▰▰▱▱▱▱",
+            "▰▰▰▰▱▱▱",
+            "▰▰▰▰▰▱▱",
+            "▰▰▰▰▰▰▱",
+            "▰▰▰▰▰▰▰",
+            "▰▱▱▱▱▱▱"
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⣷",
-                "⣯",
-                "⣟",
-                "⡿",
-                "⢿",
-                "⣻",
-                "⣽",
-                "⣾",
-            };
-        }
-        private sealed class AsciiSpinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class ArcSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+            "◜",
+            "◠",
+            "◝",
+            "◞",
+            "◡",
+            "◟"
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                @"-",
-                @"\",
-                @"|",
-                @"/",
-                @"-",
-                @"\",
-                @"|",
-                @"/",
-            };
-        }
-        private sealed class DotsSpinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+    }
+    public sealed class AsciiSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            @"-",
+            @"\",
+            @"|",
+            @"/",
+            @"-",
+            @"\",
+            @"|",
+            @"/",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠋",
-                "⠙",
-                "⠹",
-                "⠸",
-                "⠼",
-                "⠴",
-                "⠦",
-                "⠧",
-                "⠇",
-                "⠏",
-            };
-        }
-        private sealed class Dots2Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+    }
+    public sealed class BinarySpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "010010",
+            "001100",
+            "100101",
+            "111010",
+            "111101",
+            "010111",
+            "101011",
+            "111000",
+            "110011",
+            "110101"
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⣾",
-                "⣽",
-                "⣻",
-                "⢿",
-                "⡿",
-                "⣟",
-                "⣯",
-                "⣷",
-            };
-        }
-        private sealed class Dots3Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class CircleHalvesSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "◐",
+            "◓",
+            "◑",
+            "◒",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠋",
-                "⠙",
-                "⠚",
-                "⠞",
-                "⠖",
-                "⠦",
-                "⠴",
-                "⠲",
-                "⠳",
-                "⠓",
-            };
-        }
-        private sealed class Dots4Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(50);
+    }
+    public sealed class ClockSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "🕛 ",
+            "🕐 ",
+            "🕑 ",
+            "🕒 ",
+            "🕓 ",
+            "🕔 ",
+            "🕕 ",
+            "🕖 ",
+            "🕗 ",
+            "🕘 ",
+            "🕙 ",
+            "🕚 "
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠄",
-                "⠆",
-                "⠇",
-                "⠋",
-                "⠙",
-                "⠸",
-                "⠰",
-                "⠠",
-                "⠰",
-                "⠸",
-                "⠙",
-                "⠋",
-                "⠇",
-                "⠆",
-            };
-        }
-        private sealed class Dots5Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+    }
+    public sealed class DefaultSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⣷",
+            "⣯",
+            "⣟",
+            "⡿",
+            "⢿",
+            "⣻",
+            "⣽",
+            "⣾",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠋",
-                "⠙",
-                "⠚",
-                "⠒",
-                "⠂",
-                "⠂",
-                "⠒",
-                "⠲",
-                "⠴",
-                "⠦",
-                "⠖",
-                "⠒",
-                "⠐",
-                "⠐",
-                "⠒",
-                "⠓",
-                "⠋",
-            };
-        }
-        private sealed class Dots6Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+    }
+    public sealed class Dots10Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⢄",
+            "⢂",
+            "⢁",
+            "⡁",
+            "⡈",
+            "⡐",
+            "⡠",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠁",
-                "⠉",
-                "⠙",
-                "⠚",
-                "⠒",
-                "⠂",
-                "⠂",
-                "⠒",
-                "⠲",
-                "⠴",
-                "⠤",
-                "⠄",
-                "⠄",
-                "⠤",
-                "⠴",
-                "⠲",
-                "⠒",
-                "⠂",
-                "⠂",
-                "⠒",
-                "⠚",
-                "⠙",
-                "⠉",
-                "⠁",
-            };
-        }
-        private sealed class Dots7Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots11Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⠁",
+            "⠂",
+            "⠄",
+            "⡀",
+            "⢀",
+            "⠠",
+            "⠐",
+            "⠈",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠈",
-                "⠉",
-                "⠋",
-                "⠓",
-                "⠒",
-                "⠐",
-                "⠐",
-                "⠒",
-                "⠖",
-                "⠦",
-                "⠤",
-                "⠠",
-                "⠠",
-                "⠤",
-                "⠦",
-                "⠖",
-                "⠒",
-                "⠐",
-                "⠐",
-                "⠒",
-                "⠓",
-                "⠋",
-                "⠉",
-                "⠈",
-            };
-        }
-        private sealed class Dots8Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+    }
+    public sealed class Dots12Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⢀⠀",
+            "⡀⠀",
+            "⠄⠀",
+            "⢂⠀",
+            "⡂⠀",
+            "⠅⠀",
+            "⢃⠀",
+            "⡃⠀",
+            "⠍⠀",
+            "⢋⠀",
+            "⡋⠀",
+            "⠍⠁",
+            "⢋⠁",
+            "⡋⠁",
+            "⠍⠉",
+            "⠋⠉",
+            "⠋⠉",
+            "⠉⠙",
+            "⠉⠙",
+            "⠉⠩",
+            "⠈⢙",
+            "⠈⡙",
+            "⢈⠩",
+            "⡀⢙",
+            "⠄⡙",
+            "⢂⠩",
+            "⡂⢘",
+            "⠅⡘",
+            "⢃⠨",
+            "⡃⢐",
+            "⠍⡐",
+            "⢋⠠",
+            "⡋⢀",
+            "⠍⡁",
+            "⢋⠁",
+            "⡋⠁",
+            "⠍⠉",
+            "⠋⠉",
+            "⠋⠉",
+            "⠉⠙",
+            "⠉⠙",
+            "⠉⠩",
+            "⠈⢙",
+            "⠈⡙",
+            "⠈⠩",
+            "⠀⢙",
+            "⠀⡙",
+            "⠀⠩",
+            "⠀⢘",
+            "⠀⡘",
+            "⠀⠨",
+            "⠀⢐",
+            "⠀⡐",
+            "⠀⠠",
+            "⠀⢀",
+            "⠀⡀",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠁",
-                "⠁",
-                "⠉",
-                "⠙",
-                "⠚",
-                "⠒",
-                "⠂",
-                "⠂",
-                "⠒",
-                "⠲",
-                "⠴",
-                "⠤",
-                "⠄",
-                "⠄",
-                "⠤",
-                "⠠",
-                "⠠",
-                "⠤",
-                "⠦",
-                "⠖",
-                "⠒",
-                "⠐",
-                "⠐",
-                "⠒",
-                "⠓",
-                "⠋",
-                "⠉",
-                "⠈",
-                "⠈",
-            };
-        }
-        private sealed class Dots9Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots2Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⣾",
+            "⣽",
+            "⣻",
+            "⢿",
+            "⡿",
+            "⣟",
+            "⣯",
+            "⣷",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⢹",
-                "⢺",
-                "⢼",
-                "⣸",
-                "⣇",
-                "⡧",
-                "⡗",
-                "⡏",
-            };
-        }
-        private sealed class Dots10Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots3Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⠋",
+            "⠙",
+            "⠚",
+            "⠞",
+            "⠖",
+            "⠦",
+            "⠴",
+            "⠲",
+            "⠳",
+            "⠓",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⢄",
-                "⢂",
-                "⢁",
-                "⡁",
-                "⡈",
-                "⡐",
-                "⡠",
-            };
-        }
-        private sealed class Dots11Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots4Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(100);
+            "⠄",
+            "⠆",
+            "⠇",
+            "⠋",
+            "⠙",
+            "⠸",
+            "⠰",
+            "⠠",
+            "⠰",
+            "⠸",
+            "⠙",
+            "⠋",
+            "⠇",
+            "⠆",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠁",
-                "⠂",
-                "⠄",
-                "⡀",
-                "⢀",
-                "⠠",
-                "⠐",
-                "⠈",
-            };
-        }
-        private sealed class Dots12Spinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots5Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⠋",
+            "⠙",
+            "⠚",
+            "⠒",
+            "⠂",
+            "⠂",
+            "⠒",
+            "⠲",
+            "⠴",
+            "⠦",
+            "⠖",
+            "⠒",
+            "⠐",
+            "⠐",
+            "⠒",
+            "⠓",
+            "⠋",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⢀⠀",
-                "⡀⠀",
-                "⠄⠀",
-                "⢂⠀",
-                "⡂⠀",
-                "⠅⠀",
-                "⢃⠀",
-                "⡃⠀",
-                "⠍⠀",
-                "⢋⠀",
-                "⡋⠀",
-                "⠍⠁",
-                "⢋⠁",
-                "⡋⠁",
-                "⠍⠉",
-                "⠋⠉",
-                "⠋⠉",
-                "⠉⠙",
-                "⠉⠙",
-                "⠉⠩",
-                "⠈⢙",
-                "⠈⡙",
-                "⢈⠩",
-                "⡀⢙",
-                "⠄⡙",
-                "⢂⠩",
-                "⡂⢘",
-                "⠅⡘",
-                "⢃⠨",
-                "⡃⢐",
-                "⠍⡐",
-                "⢋⠠",
-                "⡋⢀",
-                "⠍⡁",
-                "⢋⠁",
-                "⡋⠁",
-                "⠍⠉",
-                "⠋⠉",
-                "⠋⠉",
-                "⠉⠙",
-                "⠉⠙",
-                "⠉⠩",
-                "⠈⢙",
-                "⠈⡙",
-                "⠈⠩",
-                "⠀⢙",
-                "⠀⡙",
-                "⠀⠩",
-                "⠀⢘",
-                "⠀⡘",
-                "⠀⠨",
-                "⠀⢐",
-                "⠀⡐",
-                "⠀⠠",
-                "⠀⢀",
-                "⠀⡀",
-            };
-        }
-        private sealed class Dots8BitSpinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots6Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+            "⠁",
+            "⠉",
+            "⠙",
+            "⠚",
+            "⠒",
+            "⠂",
+            "⠂",
+            "⠒",
+            "⠲",
+            "⠴",
+            "⠤",
+            "⠄",
+            "⠄",
+            "⠤",
+            "⠴",
+            "⠲",
+            "⠒",
+            "⠂",
+            "⠂",
+            "⠒",
+            "⠚",
+            "⠙",
+            "⠉",
+            "⠁",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "⠀",
-                "⠁",
-                "⠂",
-                "⠃",
-                "⠄",
-                "⠅",
-                "⠆",
-                "⠇",
-                "⡀",
-                "⡁",
-                "⡂",
-                "⡃",
-                "⡄",
-                "⡅",
-                "⡆",
-                "⡇",
-                "⠈",
-                "⠉",
-                "⠊",
-                "⠋",
-                "⠌",
-                "⠍",
-                "⠎",
-                "⠏",
-                "⡈",
-                "⡉",
-                "⡊",
-                "⡋",
-                "⡌",
-                "⡍",
-                "⡎",
-                "⡏",
-                "⠐",
-                "⠑",
-                "⠒",
-                "⠓",
-                "⠔",
-                "⠕",
-                "⠖",
-                "⠗",
-                "⡐",
-                "⡑",
-                "⡒",
-                "⡓",
-                "⡔",
-                "⡕",
-                "⡖",
-                "⡗",
-                "⠘",
-                "⠙",
-                "⠚",
-                "⠛",
-                "⠜",
-                "⠝",
-                "⠞",
-                "⠟",
-                "⡘",
-                "⡙",
-                "⡚",
-                "⡛",
-                "⡜",
-                "⡝",
-                "⡞",
-                "⡟",
-                "⠠",
-                "⠡",
-                "⠢",
-                "⠣",
-                "⠤",
-                "⠥",
-                "⠦",
-                "⠧",
-                "⡠",
-                "⡡",
-                "⡢",
-                "⡣",
-                "⡤",
-                "⡥",
-                "⡦",
-                "⡧",
-                "⠨",
-                "⠩",
-                "⠪",
-                "⠫",
-                "⠬",
-                "⠭",
-                "⠮",
-                "⠯",
-                "⡨",
-                "⡩",
-                "⡪",
-                "⡫",
-                "⡬",
-                "⡭",
-                "⡮",
-                "⡯",
-                "⠰",
-                "⠱",
-                "⠲",
-                "⠳",
-                "⠴",
-                "⠵",
-                "⠶",
-                "⠷",
-                "⡰",
-                "⡱",
-                "⡲",
-                "⡳",
-                "⡴",
-                "⡵",
-                "⡶",
-                "⡷",
-                "⠸",
-                "⠹",
-                "⠺",
-                "⠻",
-                "⠼",
-                "⠽",
-                "⠾",
-                "⠿",
-                "⡸",
-                "⡹",
-                "⡺",
-                "⡻",
-                "⡼",
-                "⡽",
-                "⡾",
-                "⡿",
-                "⢀",
-                "⢁",
-                "⢂",
-                "⢃",
-                "⢄",
-                "⢅",
-                "⢆",
-                "⢇",
-                "⣀",
-                "⣁",
-                "⣂",
-                "⣃",
-                "⣄",
-                "⣅",
-                "⣆",
-                "⣇",
-                "⢈",
-                "⢉",
-                "⢊",
-                "⢋",
-                "⢌",
-                "⢍",
-                "⢎",
-                "⢏",
-                "⣈",
-                "⣉",
-                "⣊",
-                "⣋",
-                "⣌",
-                "⣍",
-                "⣎",
-                "⣏",
-                "⢐",
-                "⢑",
-                "⢒",
-                "⢓",
-                "⢔",
-                "⢕",
-                "⢖",
-                "⢗",
-                "⣐",
-                "⣑",
-                "⣒",
-                "⣓",
-                "⣔",
-                "⣕",
-                "⣖",
-                "⣗",
-                "⢘",
-                "⢙",
-                "⢚",
-                "⢛",
-                "⢜",
-                "⢝",
-                "⢞",
-                "⢟",
-                "⣘",
-                "⣙",
-                "⣚",
-                "⣛",
-                "⣜",
-                "⣝",
-                "⣞",
-                "⣟",
-                "⢠",
-                "⢡",
-                "⢢",
-                "⢣",
-                "⢤",
-                "⢥",
-                "⢦",
-                "⢧",
-                "⣠",
-                "⣡",
-                "⣢",
-                "⣣",
-                "⣤",
-                "⣥",
-                "⣦",
-                "⣧",
-                "⢨",
-                "⢩",
-                "⢪",
-                "⢫",
-                "⢬",
-                "⢭",
-                "⢮",
-                "⢯",
-                "⣨",
-                "⣩",
-                "⣪",
-                "⣫",
-                "⣬",
-                "⣭",
-                "⣮",
-                "⣯",
-                "⢰",
-                "⢱",
-                "⢲",
-                "⢳",
-                "⢴",
-                "⢵",
-                "⢶",
-                "⢷",
-                "⣰",
-                "⣱",
-                "⣲",
-                "⣳",
-                "⣴",
-                "⣵",
-                "⣶",
-                "⣷",
-                "⢸",
-                "⢹",
-                "⢺",
-                "⢻",
-                "⢼",
-                "⢽",
-                "⢾",
-                "⢿",
-                "⣸",
-                "⣹",
-                "⣺",
-                "⣻",
-                "⣼",
-                "⣽",
-                "⣾",
-                "⣿",
-            };
-        }
-        private sealed class CircleHalvesSpinner : Spinner
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots7Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            public override TimeSpan Interval => TimeSpan.FromMilliseconds(50);
+            "⠈",
+            "⠉",
+            "⠋",
+            "⠓",
+            "⠒",
+            "⠐",
+            "⠐",
+            "⠒",
+            "⠖",
+            "⠦",
+            "⠤",
+            "⠠",
+            "⠠",
+            "⠤",
+            "⠦",
+            "⠖",
+            "⠒",
+            "⠐",
+            "⠐",
+            "⠒",
+            "⠓",
+            "⠋",
+            "⠉",
+            "⠈",
+        };
 
-            public override IReadOnlyList<string> Frames => new List<string>
-            {
-                "◐",
-                "◓",
-                "◑",
-                "◒",
-            };
-        }
-        /// <summary>
-        /// Contains all predefined spinners.
-        /// </summary>
-        public static class Predefined
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots8BitSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
         {
-            /// <summary>
-            /// Gets the "Default" spinner.
-            /// </summary>
-            public static Spinner Default { get; } = new DefaultSpinner();
+            "⠀",
+            "⠁",
+            "⠂",
+            "⠃",
+            "⠄",
+            "⠅",
+            "⠆",
+            "⠇",
+            "⡀",
+            "⡁",
+            "⡂",
+            "⡃",
+            "⡄",
+            "⡅",
+            "⡆",
+            "⡇",
+            "⠈",
+            "⠉",
+            "⠊",
+            "⠋",
+            "⠌",
+            "⠍",
+            "⠎",
+            "⠏",
+            "⡈",
+            "⡉",
+            "⡊",
+            "⡋",
+            "⡌",
+            "⡍",
+            "⡎",
+            "⡏",
+            "⠐",
+            "⠑",
+            "⠒",
+            "⠓",
+            "⠔",
+            "⠕",
+            "⠖",
+            "⠗",
+            "⡐",
+            "⡑",
+            "⡒",
+            "⡓",
+            "⡔",
+            "⡕",
+            "⡖",
+            "⡗",
+            "⠘",
+            "⠙",
+            "⠚",
+            "⠛",
+            "⠜",
+            "⠝",
+            "⠞",
+            "⠟",
+            "⡘",
+            "⡙",
+            "⡚",
+            "⡛",
+            "⡜",
+            "⡝",
+            "⡞",
+            "⡟",
+            "⠠",
+            "⠡",
+            "⠢",
+            "⠣",
+            "⠤",
+            "⠥",
+            "⠦",
+            "⠧",
+            "⡠",
+            "⡡",
+            "⡢",
+            "⡣",
+            "⡤",
+            "⡥",
+            "⡦",
+            "⡧",
+            "⠨",
+            "⠩",
+            "⠪",
+            "⠫",
+            "⠬",
+            "⠭",
+            "⠮",
+            "⠯",
+            "⡨",
+            "⡩",
+            "⡪",
+            "⡫",
+            "⡬",
+            "⡭",
+            "⡮",
+            "⡯",
+            "⠰",
+            "⠱",
+            "⠲",
+            "⠳",
+            "⠴",
+            "⠵",
+            "⠶",
+            "⠷",
+            "⡰",
+            "⡱",
+            "⡲",
+            "⡳",
+            "⡴",
+            "⡵",
+            "⡶",
+            "⡷",
+            "⠸",
+            "⠹",
+            "⠺",
+            "⠻",
+            "⠼",
+            "⠽",
+            "⠾",
+            "⠿",
+            "⡸",
+            "⡹",
+            "⡺",
+            "⡻",
+            "⡼",
+            "⡽",
+            "⡾",
+            "⡿",
+            "⢀",
+            "⢁",
+            "⢂",
+            "⢃",
+            "⢄",
+            "⢅",
+            "⢆",
+            "⢇",
+            "⣀",
+            "⣁",
+            "⣂",
+            "⣃",
+            "⣄",
+            "⣅",
+            "⣆",
+            "⣇",
+            "⢈",
+            "⢉",
+            "⢊",
+            "⢋",
+            "⢌",
+            "⢍",
+            "⢎",
+            "⢏",
+            "⣈",
+            "⣉",
+            "⣊",
+            "⣋",
+            "⣌",
+            "⣍",
+            "⣎",
+            "⣏",
+            "⢐",
+            "⢑",
+            "⢒",
+            "⢓",
+            "⢔",
+            "⢕",
+            "⢖",
+            "⢗",
+            "⣐",
+            "⣑",
+            "⣒",
+            "⣓",
+            "⣔",
+            "⣕",
+            "⣖",
+            "⣗",
+            "⢘",
+            "⢙",
+            "⢚",
+            "⢛",
+            "⢜",
+            "⢝",
+            "⢞",
+            "⢟",
+            "⣘",
+            "⣙",
+            "⣚",
+            "⣛",
+            "⣜",
+            "⣝",
+            "⣞",
+            "⣟",
+            "⢠",
+            "⢡",
+            "⢢",
+            "⢣",
+            "⢤",
+            "⢥",
+            "⢦",
+            "⢧",
+            "⣠",
+            "⣡",
+            "⣢",
+            "⣣",
+            "⣤",
+            "⣥",
+            "⣦",
+            "⣧",
+            "⢨",
+            "⢩",
+            "⢪",
+            "⢫",
+            "⢬",
+            "⢭",
+            "⢮",
+            "⢯",
+            "⣨",
+            "⣩",
+            "⣪",
+            "⣫",
+            "⣬",
+            "⣭",
+            "⣮",
+            "⣯",
+            "⢰",
+            "⢱",
+            "⢲",
+            "⢳",
+            "⢴",
+            "⢵",
+            "⢶",
+            "⢷",
+            "⣰",
+            "⣱",
+            "⣲",
+            "⣳",
+            "⣴",
+            "⣵",
+            "⣶",
+            "⣷",
+            "⢸",
+            "⢹",
+            "⢺",
+            "⢻",
+            "⢼",
+            "⢽",
+            "⢾",
+            "⢿",
+            "⣸",
+            "⣹",
+            "⣺",
+            "⣻",
+            "⣼",
+            "⣽",
+            "⣾",
+            "⣿",
+        };
 
-            /// <summary>
-            /// Gets the "Ascii" spinner.
-            /// </summary>
-            public static Spinner Ascii { get; } = new AsciiSpinner();
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots8Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
+        {
+            "⠁",
+            "⠁",
+            "⠉",
+            "⠙",
+            "⠚",
+            "⠒",
+            "⠂",
+            "⠂",
+            "⠒",
+            "⠲",
+            "⠴",
+            "⠤",
+            "⠄",
+            "⠄",
+            "⠤",
+            "⠠",
+            "⠠",
+            "⠤",
+            "⠦",
+            "⠖",
+            "⠒",
+            "⠐",
+            "⠐",
+            "⠒",
+            "⠓",
+            "⠋",
+            "⠉",
+            "⠈",
+            "⠈",
+        };
 
-            /// <summary>
-            /// Gets the "dots" spinner.
-            /// </summary>
-            public static Spinner Dots { get; } = new DotsSpinner();
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class Dots9Spinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
+        {
+            "⢹",
+            "⢺",
+            "⢼",
+            "⣸",
+            "⣇",
+            "⡧",
+            "⡗",
+            "⡏",
+        };
 
-            /// <summary>
-            /// Gets the "dots2" spinner.
-            /// </summary>
-            public static Spinner Dots2 { get; } = new Dots2Spinner();
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class DotsSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
+        {
+            "⠋",
+            "⠙",
+            "⠹",
+            "⠸",
+            "⠼",
+            "⠴",
+            "⠦",
+            "⠧",
+            "⠇",
+            "⠏",
+        };
 
-            /// <summary>
-            /// Gets the "dots3" spinner.
-            /// </summary>
-            public static Spinner Dots3 { get; } = new Dots3Spinner();
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(80);
+    }
+    public sealed class EarthSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
+        {
+            "🌍 ",
+            "🌎 ",
+            "🌏 "
+        };
 
-            /// <summary>
-            /// Gets the "dots4" spinner.
-            /// </summary>
-            public static Spinner Dots4 { get; } = new Dots4Spinner();
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(180);
+    }
+    public sealed class MindblownSpinner : Spinner
+    {
+        public override IReadOnlyList<string> Frames => new List<string>
+        {
+            "😐 ",
+            "😐 ",
+            "😮 ",
+            "😮 ",
+            "😦 ",
+            "😦 ",
+            "😧 ",
+            "😧 ",
+            "🤯 ",
+            "💥 ",
+            "✨ ",
+            "\u3000 ",
+            "\u3000 ",
+            "\u3000 "
+        };
 
-            /// <summary>
-            /// Gets the "dots5" spinner.
-            /// </summary>
-            public static Spinner Dots5 { get; } = new Dots5Spinner();
-
-            /// <summary>
-            /// Gets the "dots6" spinner.
-            /// </summary>
-            public static Spinner Dots6 { get; } = new Dots6Spinner();
-
-            /// <summary>
-            /// Gets the "dots7" spinner.
-            /// </summary>
-            public static Spinner Dots7 { get; } = new Dots7Spinner();
-
-            /// <summary>
-            /// Gets the "dots8" spinner.
-            /// </summary>
-            public static Spinner Dots8 { get; } = new Dots8Spinner();
-
-            /// <summary>
-            /// Gets the "dots9" spinner.
-            /// </summary>
-            public static Spinner Dots9 { get; } = new Dots9Spinner();
-
-            /// <summary>
-            /// Gets the "dots10" spinner.
-            /// </summary>
-            public static Spinner Dots10 { get; } = new Dots10Spinner();
-
-            /// <summary>
-            /// Gets the "dots11" spinner.
-            /// </summary>
-            public static Spinner Dots11 { get; } = new Dots11Spinner();
-
-            /// <summary>
-            /// Gets the "dots12" spinner.
-            /// </summary>
-            public static Spinner Dots12 { get; } = new Dots12Spinner();
-
-            /// <summary>
-            /// Gets the "dots8Bit" spinner.
-            /// </summary>
-            public static Spinner Dots8Bit { get; } = new Dots8BitSpinner();
-
-            /// <summary>
-            /// Gets the "circleHalves" spinner.
-            /// </summary>
-            public static Spinner CircleHalves { get; } = new CircleHalvesSpinner();
-        }
+        public override TimeSpan Interval => TimeSpan.FromMilliseconds(160);
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="Animators\Rotator.cs" />
     <Compile Include="Animators\Spinner.cs" />
     <Compile Include="Animators\Spinner.Predefined.cs" />
+    <Compile Include="Animators\SpinnerAnimator.cs" />
     <Compile Include="Animators\UnionAnimator.cs" />
     <Compile Include="Colors\Common.cs" />
     <Compile Include="Colors\Status.cs" />
@@ -71,6 +72,14 @@
     </Compile>
     <Compile Include="Controls\EventArgs\FileDropEventArgs.cs" />
     <Compile Include="Controls\FileDropHandler.cs" />
+    <Compile Include="Controls\ListViewItem\SpinnerLVI.cs" />
+    <Compile Include="Designers\FormSpinnerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Designers\FormSpinnerEditor.Designer.cs">
+      <DependentUpon>FormSpinnerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designers\SpinnerEditor.cs" />
     <Compile Include="Drawing\Astro\AstroColor.cs" />
     <Compile Include="Controls\Button\ButtonAwaiter.cs" />
     <Compile Include="Drawing\CommonColor.cs" />
@@ -243,6 +252,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\TextBoxEx.resx">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designers\FormSpinnerEditor.resx">
+      <DependentUpon>FormSpinnerEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionBox.resx">
       <DependentUpon>ExceptionBox.cs</DependentUpon>

@@ -3,81 +3,75 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using JANL.Animators;
+using JANL.Designers;
 
 namespace JANL.Controls
 {
     /// <summary>
-    /// Спиннер
+    /// Элемент отображения спиннера на <see cref="StatusStrip"/>
     /// </summary>
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.StatusStrip)]
     public class ToolStripSpinner : ToolStripLabel
     {
-        private readonly Timer timer = new Timer { Interval = 100 };
-        private int index;
+
+        private readonly SpinnerAnimator animator;
 
         /// <summary>
         /// Создает элемент отображения спиннера
         /// </summary>
         public ToolStripSpinner()
         {
+            Text = "-";
+
+            animator = new SpinnerAnimator();
+            animator.FrameChanged += Animator_FrameChanged;
+
             Spinner = Spinner.Predefined.Default;
-            timer.Tick += (object _, EventArgs e) => UpdateSpinner();
         }
 
         /// <summary>
         /// Запускает анимацию спиннера
         /// </summary>
-        public void Start() => timer.Start();
+        public void Start() => animator.Start();
 
         /// <summary>
         /// Останавливает анимацию спиннера
         /// </summary>
         public void Stop()
         {
-            timer.Stop();
-            ResetSpinner();
+            animator.Stop(true);
+            base.Text = Text;
         }
 
-        private void ResetSpinner()
+        private void Animator_FrameChanged(object sender, EventArgs e)
         {
-            timer.Interval = Spinner.Interval.Milliseconds;
-            index = 0;
-            Text = "-";
-        }
-
-        private void UpdateSpinner()
-        {
-            var frame = Spinner.Frames[index];
-            index = (index + 1) % Spinner.Frames.Count;
-            Text = frame;
+            base.Text = animator.Frame;
         }
 
         #region Properties
-        private Spinner _spinner;
 
         /// <summary>
         /// Спиннер
         /// </summary>
-        [Browsable(false)]
+        //  [Browsable(false)]
+        //  [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Editor(typeof(SpinnerEditor), typeof(System.Drawing.Design.UITypeEditor)), DefaultValue(typeof(DefaultSpinner), "")]
         public Spinner Spinner
         {
-            get => _spinner;
+            get => animator.Spinner;
             set
             {
-                _spinner = value;
-                ResetSpinner();
+                if (animator.Spinner == value) { return; }
+                animator.Spinner = value;
+
             }
         }
 
         /// <summary>
         /// Текст
         /// </summary>
-        [Browsable(false)]
-        protected new string Text
-        {
-            get => base.Text;
-            set => base.Text = value;
-        }
+        [DefaultValue("-")]
+        protected new string Text { get; set; }
 
         #endregion Properties
     }
