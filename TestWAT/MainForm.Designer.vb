@@ -22,10 +22,12 @@ Partial Class MainForm
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EarthSpinner1 As JANL.Animators.EarthSpinner = New JANL.Animators.EarthSpinner()
         Me.MS_Main = New System.Windows.Forms.MenuStrip()
         Me.ФормыToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MI_Controls = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_MDI = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MI_Select = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MI_Controls = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_FormOffice = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_Animation_1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MI_Animation_2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,13 +48,15 @@ Partial Class MainForm
         Me.B_Vowels = New System.Windows.Forms.Button()
         Me.Status = New System.Windows.Forms.StatusStrip()
         Me.TS_Spinner = New JANL.Controls.ToolStripSpinner()
-        Me.TS_Stopwatch = New JANL.Controls.ToolStripStopwatch()
         Me.TS_Search = New JANL.Controls.ToolStripTextBoxLabel()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TS_Stopwatch = New JANL.Controls.ToolStripStopwatch()
         Me.TB_Search = New System.Windows.Forms.TextBox()
-        Me.MI_Select = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MS_Main.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Status.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MS_Main
@@ -60,7 +64,7 @@ Partial Class MainForm
         Me.MS_Main.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ФормыToolStripMenuItem, Me.PerfTestsToolStripMenuItem, Me.DaDataToolStripMenuItem, Me.РазноеToolStripMenuItem})
         Me.MS_Main.Location = New System.Drawing.Point(0, 0)
         Me.MS_Main.Name = "MS_Main"
-        Me.MS_Main.Size = New System.Drawing.Size(685, 24)
+        Me.MS_Main.Size = New System.Drawing.Size(707, 24)
         Me.MS_Main.TabIndex = 0
         Me.MS_Main.Text = "MenuStrip1"
         '
@@ -71,17 +75,23 @@ Partial Class MainForm
         Me.ФормыToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ФормыToolStripMenuItem.Text = "Формы"
         '
-        'MI_Controls
-        '
-        Me.MI_Controls.Name = "MI_Controls"
-        Me.MI_Controls.Size = New System.Drawing.Size(198, 22)
-        Me.MI_Controls.Text = "Элементы управления"
-        '
         'MI_MDI
         '
         Me.MI_MDI.Name = "MI_MDI"
         Me.MI_MDI.Size = New System.Drawing.Size(198, 22)
         Me.MI_MDI.Text = "Формы MDI"
+        '
+        'MI_Select
+        '
+        Me.MI_Select.Name = "MI_Select"
+        Me.MI_Select.Size = New System.Drawing.Size(198, 22)
+        Me.MI_Select.Text = "Формы выбора"
+        '
+        'MI_Controls
+        '
+        Me.MI_Controls.Name = "MI_Controls"
+        Me.MI_Controls.Size = New System.Drawing.Size(198, 22)
+        Me.MI_Controls.Text = "Элементы управления"
         '
         'MI_FormOffice
         '
@@ -155,26 +165,26 @@ Partial Class MainForm
         'FormAsyncToolStripMenuItem
         '
         Me.FormAsyncToolStripMenuItem.Name = "FormAsyncToolStripMenuItem"
-        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormAsyncToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.FormAsyncToolStripMenuItem.Text = "FormAsync"
         '
         'SelectTestToolStripMenuItem
         '
         Me.SelectTestToolStripMenuItem.Name = "SelectTestToolStripMenuItem"
-        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SelectTestToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.SelectTestToolStripMenuItem.Text = "SelectTest"
         '
         'DGVTEditorToolStripMenuItem
         '
         Me.DGVTEditorToolStripMenuItem.Name = "DGVTEditorToolStripMenuItem"
-        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DGVTEditorToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.DGVTEditorToolStripMenuItem.Text = "DGVT Editor"
         '
         'B_Beep
         '
         Me.B_Beep.AutoSize = True
         Me.B_Beep.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_Beep.Location = New System.Drawing.Point(47, 3)
+        Me.B_Beep.Location = New System.Drawing.Point(52, 8)
         Me.B_Beep.Name = "B_Beep"
         Me.B_Beep.Padding = New System.Windows.Forms.Padding(1)
         Me.B_Beep.Size = New System.Drawing.Size(44, 25)
@@ -186,7 +196,7 @@ Partial Class MainForm
         '
         Me.B_SQL.AutoSize = True
         Me.B_SQL.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_SQL.Location = New System.Drawing.Point(3, 3)
+        Me.B_SQL.Location = New System.Drawing.Point(8, 8)
         Me.B_SQL.Name = "B_SQL"
         Me.B_SQL.Padding = New System.Windows.Forms.Padding(1)
         Me.B_SQL.Size = New System.Drawing.Size(38, 25)
@@ -201,17 +211,18 @@ Partial Class MainForm
         Me.FlowLayoutPanel1.Controls.Add(Me.B_SQL)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Beep)
         Me.FlowLayoutPanel1.Controls.Add(Me.B_Vowels)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 360)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 24)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(685, 31)
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(5)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(707, 41)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'B_Vowels
         '
         Me.B_Vowels.AutoSize = True
         Me.B_Vowels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.B_Vowels.Location = New System.Drawing.Point(97, 3)
+        Me.B_Vowels.Location = New System.Drawing.Point(102, 8)
         Me.B_Vowels.Name = "B_Vowels"
         Me.B_Vowels.Padding = New System.Windows.Forms.Padding(1)
         Me.B_Vowels.Size = New System.Drawing.Size(49, 25)
@@ -221,53 +232,66 @@ Partial Class MainForm
         '
         'Status
         '
-        Me.Status.BackColor = System.Drawing.SystemColors.Control
-        Me.Status.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TS_Spinner, Me.TS_Stopwatch, Me.TS_Search})
-        Me.Status.Location = New System.Drawing.Point(0, 391)
+        Me.Status.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TS_Spinner, Me.TS_Search, Me.ToolStripStatusLabel1, Me.TS_Stopwatch})
+        Me.Status.Location = New System.Drawing.Point(0, 309)
         Me.Status.Name = "Status"
-        Me.Status.Size = New System.Drawing.Size(685, 23)
+        Me.Status.Size = New System.Drawing.Size(707, 23)
         Me.Status.TabIndex = 5
         Me.Status.Text = "StatusStrip1"
         '
         'TS_Spinner
         '
         Me.TS_Spinner.Name = "TS_Spinner"
-        Me.TS_Spinner.Size = New System.Drawing.Size(12, 21)
-        Me.TS_Spinner.Text = "-"
+        Me.TS_Spinner.Size = New System.Drawing.Size(22, 21)
+        Me.TS_Spinner.Spinner = EarthSpinner1
+        Me.TS_Spinner.Text = "🌍 "
+        '
+        'TS_Search
+        '
+        Me.TS_Search.Label = "Введите текст"
+        Me.TS_Search.Name = "TS_Search"
+        Me.TS_Search.Size = New System.Drawing.Size(150, 23)
+        Me.TS_Search.ToolTipText = "Esc - очистить фильтр"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(429, 18)
+        Me.ToolStripStatusLabel1.Spring = True
         '
         'TS_Stopwatch
         '
+        Me.TS_Stopwatch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.TS_Stopwatch.Name = "TS_Stopwatch"
         Me.TS_Stopwatch.ShowText = False
         Me.TS_Stopwatch.Size = New System.Drawing.Size(58, 21)
         Me.TS_Stopwatch.Text = "Uptime"
         '
-        'TS_Search
-        '
-        Me.TS_Search.Name = "TS_Search"
-        Me.TS_Search.Size = New System.Drawing.Size(100, 23)
-        Me.TS_Search.ToolTipText = "Esc - очистить фильтр"
-        '
         'TB_Search
         '
-        Me.TB_Search.Location = New System.Drawing.Point(274, 264)
+        Me.TB_Search.Location = New System.Drawing.Point(3, 3)
         Me.TB_Search.Name = "TB_Search"
-        Me.TB_Search.Size = New System.Drawing.Size(143, 22)
+        Me.TB_Search.Size = New System.Drawing.Size(162, 22)
         Me.TB_Search.TabIndex = 6
         '
-        'MI_Select
+        'FlowLayoutPanel2
         '
-        Me.MI_Select.Name = "MI_Select"
-        Me.MI_Select.Size = New System.Drawing.Size(198, 22)
-        Me.MI_Select.Text = "Формы выбора"
+        Me.FlowLayoutPanel2.AutoSize = True
+        Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlowLayoutPanel2.Controls.Add(Me.TB_Search)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 281)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(707, 28)
+        Me.FlowLayoutPanel2.TabIndex = 7
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = Global.TestWAT.My.MySettings.Default.BackColor
-        Me.ClientSize = New System.Drawing.Size(685, 414)
-        Me.Controls.Add(Me.TB_Search)
+        Me.ClientSize = New System.Drawing.Size(707, 332)
+        Me.Controls.Add(Me.FlowLayoutPanel2)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.MS_Main)
         Me.Controls.Add(Me.Status)
@@ -278,13 +302,15 @@ Partial Class MainForm
         Me.ForeColor = Global.TestWAT.My.MySettings.Default.ForeColor
         Me.MainMenuStrip = Me.MS_Main
         Me.Name = "MainForm"
-        Me.Text = "Form1"
+        Me.Text = "MainForm"
         Me.MS_Main.ResumeLayout(False)
         Me.MS_Main.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.Status.ResumeLayout(False)
         Me.Status.PerformLayout()
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.FlowLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -318,4 +344,6 @@ Partial Class MainForm
     Friend WithEvents B_Vowels As Button
     Friend WithEvents MI_Colors As ToolStripMenuItem
     Friend WithEvents MI_Select As ToolStripMenuItem
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class

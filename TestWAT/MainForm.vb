@@ -1,20 +1,22 @@
 ﻿Imports System.Management
-Imports JANL.Animators.Spinner
+Imports JANL.Controls
+Imports JANL.Designers
 Imports JANL.Extensions
+Imports JANL.Forms
 
 Public Class MainForm
 
     Public Sub New()
         InitializeComponent()
+
         Icon = My.Resources.shrek
     End Sub
 
     Protected Overrides Sub OnLoad(e As EventArgs)
         MyBase.OnLoad(e)
 
-        TS_Spinner.Spinner = Predefined.Dots4
+        'TS_Spinner.Spinner = Predefined.Dots4
         TS_Spinner.Start()
-
         TS_Stopwatch.Start()
     End Sub
 
@@ -124,6 +126,23 @@ Public Class MainForm
 
     Private Sub TS_Search_InputDone(sender As Object, e As EventArgs) Handles TS_Search.InputDone
         TB_Search.Text = TS_Search.Text
+    End Sub
+
+    Private Sub TS_Spinner_DoubleClick(sender As Object, e As EventArgs) Handles TS_Spinner.DoubleClick
+
+    End Sub
+
+    Private Sub TS_Spinner_Click(sender As Object, e As EventArgs) Handles TS_Spinner.Click
+        Dim items = SpinnerEditor.CreateSpinnerItems()
+        items.ForEach(Sub(I) I.Start())
+        Using F As New FormItemSelector()
+            F.Items = items
+            If F.ShowDialog(Me) = DialogResult.OK Then
+                Dim item = DirectCast(F.SelectedItems.FirstOrDefault(), SpinnerLVI)
+                TS_Spinner.Spinner = item.Tag
+            End If
+        End Using
+
     End Sub
 
 #End Region

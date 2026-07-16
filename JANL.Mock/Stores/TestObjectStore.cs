@@ -15,7 +15,7 @@ namespace JANL.Stores
             DT.Columns.Add("TestInteger", typeof(int));
             DT.Columns.Add("TestString", typeof(string));
             DT.Columns.Add("TestDate", typeof(DateTime));
-            DT.Columns.Add("TestDecimal", typeof(Decimal));
+            DT.Columns.Add("TestDecimal", typeof(decimal));
             for (int i = 0; i < 100; i++)
             {
                 var R = DT.NewRow();

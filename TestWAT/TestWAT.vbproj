@@ -120,6 +120,8 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Beep.vb" />
     <Compile Include="Controls\DateLVI.vb" />
+    <Compile Include="Controls\DecadeLVI.vb" />
+    <Compile Include="Controls\TestSpinner.vb" />
     <Compile Include="ExtensionsModule.vb" />
     <Compile Include="Forms\FormAnimation.Designer.vb">
       <DependentUpon>FormAnimation.vb</DependentUpon>
