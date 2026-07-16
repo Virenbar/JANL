@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JANL.Helpers;
 
 namespace JANL.SQL
 {

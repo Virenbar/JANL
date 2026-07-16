@@ -7,6 +7,11 @@
     {
         /// <summary>
         /// Соединение по умолчанию
+        /// <list type="bullet">
+        /// <item>В классе <see cref="Helpers.SQLHelper"/></item>
+        /// <item>В классе <see cref="Helpers.SQLCommandExecutor"/></item>
+        /// <item>В пространстве <see cref="SQL"/></item>
+        /// </list>
         /// </summary>
         public static string Connection { get; set; }
 

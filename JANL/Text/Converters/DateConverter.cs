@@ -2,6 +2,9 @@
 
 namespace JANL.Text.Converters
 {
+    /// <summary>
+    /// Класс для перевода дат в текст
+    /// </summary>
     public static class DateConverter
     {
         /// <summary>

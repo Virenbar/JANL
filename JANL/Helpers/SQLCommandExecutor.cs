@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JANL.SQL
+namespace JANL.Helpers
 {
     /// <summary>
     /// Класс для выполнения SQL команд
@@ -45,70 +42,63 @@ namespace JANL.SQL
         /// </summary>
         public string Connection { get; set; }
 
-        /// <summary>
-        /// https://dba.stackexchange.com/questions/9840/why-would-set-arithabort-on-dramatically-speed-up-a-query
-        /// https://dba.stackexchange.com/questions/2500/make-sqlclient-default-to-arithabort-on
-        /// </summary>
-        /// <param name="connection">Соединение</param>
-        private static void SetARITHABORT(SqlConnection connection)
-        {
-            SqlCommand ARITHABORT = new SqlCommand("SET ARITHABORT ON", connection);
-            ARITHABORT.ExecuteNonQuery();
-        }
-
         #region NonQuery
 
         /// <summary>
         /// Выполнить с соединением по умолчанию
         /// </summary>
-        public void NonQuery() => NonQuery(Connection);
+        public int NonQuery() => NonQuery(Connection);
 
         /// <summary>
         /// Выполнить с указанным соединением
         /// </summary>
-        public void NonQuery(string connection)
+        /// <param name="connection">Соединение</param>
+        public int NonQuery(string connection)
         {
             using (var Connection = new SqlConnection(connection))
             {
                 Connection.Open();
                 Command.Connection = Connection;
-                Command.ExecuteNonQuery();
+                return Command.ExecuteNonQuery();
             }
         }
 
         /// <summary>
         /// Выполнить асинхронно с соединением по умолчанию
         /// </summary>
-        public async Task NonQueryAsync(CancellationToken token) => await NonQueryAsync(Connection, token);
+        /// <param name="token">Токен отмены</param>
+        public async Task<int> NonQueryAsync(CancellationToken token) => await NonQueryAsync(Connection, token);
 
         /// <summary>
         /// Выполнить асинхронно с соединением по умолчанию
         /// </summary>
-        public async Task NonQueryAsync() => await NonQueryAsync(Connection);
+        public async Task<int> NonQueryAsync() => await NonQueryAsync(Connection);
 
         /// <summary>
         /// Выполнить асинхронно с указанным соединением
         /// </summary>
-        public async Task NonQueryAsync(string connection, CancellationToken token)
+        /// <param name="connection">Соединение</param>
+        /// <param name="token">Токен отмены</param>
+        public async Task<int> NonQueryAsync(string connection, CancellationToken token)
         {
             using (var Connection = new SqlConnection(connection))
             {
                 Connection.Open();
                 Command.Connection = Connection;
-                await Command.ExecuteNonQueryAsync(token);
+                return await Command.ExecuteNonQueryAsync(token);
             }
         }
 
         /// <summary>
         /// Выполнить асинхронно с указанным соединением
         /// </summary>
-        public async Task NonQueryAsync(string connection)
+        public async Task<int> NonQueryAsync(string connection)
         {
             using (var Connection = new SqlConnection(connection))
             {
                 Connection.Open();
                 Command.Connection = Connection;
-                await Command.ExecuteNonQueryAsync();
+                return await Command.ExecuteNonQueryAsync();
             }
         }
 
@@ -124,6 +114,7 @@ namespace JANL.SQL
         /// <summary>
         /// Выполнить с указанным соединением
         /// </summary>
+        /// <param name="connection">Соединение</param>
         public object Scalar(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -137,11 +128,14 @@ namespace JANL.SQL
         /// <summary>
         /// Выполнить с соединением по умолчанию
         /// </summary>
+        /// <typeparam name="T">Тип результата</typeparam>
         public T Scalar<T>() => Scalar<T>(Connection);
 
         /// <summary>
         /// Выполнить с указанным соединением
         /// </summary>
+        /// <typeparam name="T">Тип результата</typeparam>
+        /// <param name="connection">Соединение</param>
         public T Scalar<T>(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -156,8 +150,17 @@ namespace JANL.SQL
 
         #region ScalarFunction
 
+        /// <summary>
+        /// Выполнить с соединением по умолчанию
+        /// </summary>
+        /// <typeparam name="T">Тип результата</typeparam>
         public T ScalarFunction<T>() => ScalarFunction<T>(Connection);
 
+        /// <summary>
+        /// Выполнить с указанным соединением
+        /// </summary>
+        /// <typeparam name="T">Тип результата</typeparam>
+        /// <param name="connection">Соединение</param>
         public T ScalarFunction<T>(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -175,8 +178,15 @@ namespace JANL.SQL
 
         #region SelectDataTable
 
+        /// <summary>
+        /// Выполнить с соединением по умолчанию
+        /// </summary>
         public DataTable Select() => Select(Connection);
 
+        /// <summary>
+        /// Выполнить с указанным соединением
+        /// </summary>
+        /// <param name="connection">Соединение</param>
         public DataTable Select(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -269,9 +279,16 @@ namespace JANL.SQL
 
         #endregion SelectDataTable<T>
 
-        #region SelectRow
+        #region SelectDataRow
 
-        public TResult SelectRow<TResult>(Func<DataRow, TResult> selector, SqlConnection connection)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="selector"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        private TResult SelectRow<TResult>(Func<DataRow, TResult> selector, SqlConnection connection)
         {
             using (var Result = Select(connection))
             {
@@ -283,14 +300,12 @@ namespace JANL.SQL
         /// <summary>
         /// Возвращает первую строку либо <see langword="null"/>
         /// </summary>
-        /// <returns></returns>
         public DataRow SelectRow() => SelectRow(Connection);
 
         /// <summary>
         /// Возвращает первую строку либо <see langword="null"/>
         /// </summary>
         /// <param name="connection"></param>
-        /// <returns></returns>
         public DataRow SelectRow(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -312,12 +327,19 @@ namespace JANL.SQL
             return Result.Rows.Count > 0 ? Result.Rows[0] : null;
         }
 
-        #endregion SelectRow
+        #endregion SelectDataRow
 
         #region SelectDataSet
 
+        /// <summary>
+        ///
+        /// </summary>
         public DataSet SelectSet() => SelectSet(Connection);
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="connection">Соединение</param>
         public DataSet SelectSet(string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -344,18 +366,21 @@ namespace JANL.SQL
 
         #region Reader
 
+        /// <summary>
+        /// Создает <see cref="SqlDataReader"/>
+        /// </summary>
+        /// <returns></returns>
         public SqlDataReader Reader() => Reader(Connection);
 
+        /// <summary>
+        /// Создает <see cref="SqlDataReader"/>
+        /// </summary>
+        /// <param name="connection">Соединение</param>
         public SqlDataReader Reader(string connection)
         {
             var Connection = new SqlConnection(connection);
             Connection.Open();
-            return Reader(Connection);
-        }
-
-        private SqlDataReader Reader(SqlConnection connection)
-        {
-            Command.Connection = connection;
+            Command.Connection = Connection;
             return Command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 

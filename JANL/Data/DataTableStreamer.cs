@@ -1,7 +1,7 @@
-﻿using JANL.SQL;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using JANL.Helpers;
 
 namespace JANL.Data
 {

@@ -17,8 +17,8 @@ namespace JANL.Helpers
         /// <param name="text">Текст</param>
         public static void RemoveParagraph(WordprocessingDocument package, string text)
         {
-            var Body = package.MainDocumentPart.Document.Body;
-            foreach (var run in Body.Descendants<Run>().Where(R => R.InnerText.Contains(text)))
+            var body = package.MainDocumentPart.Document.Body;
+            foreach (var run in body.Descendants<Run>().Where(R => R.InnerText.Contains(text)))
             {
                 run.Parent.Remove();
             }

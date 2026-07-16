@@ -1,7 +1,7 @@
-﻿using JANL.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JANL.Extensions;
 
 namespace JANL.Helpers
 {

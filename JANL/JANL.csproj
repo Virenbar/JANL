@@ -67,7 +67,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="General\ProgressTracker.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="SQL\SQLCommandExecutor.cs" />
+    <Compile Include="Helpers\SQLCommandExecutor.cs" />
     <Compile Include="Text\Converters\DateConverter.cs" />
     <Compile Include="Text\Noun.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
@@ -106,7 +106,7 @@
     <Compile Include="SQL\ScalarProcedure.cs" />
     <Compile Include="SQL\NonQueryProcedure.cs" />
     <Compile Include="SQL\SelectView.cs" />
-    <Compile Include="SQL\SQLHelper.cs" />
+    <Compile Include="Helpers\SQLHelper.cs" />
     <Compile Include="SQL\SQLProcedure.cs" />
     <Compile Include="SQL\SQLText.cs" />
     <Compile Include="DataReaders\XMLDataReader.cs" />

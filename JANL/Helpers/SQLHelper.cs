@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace JANL.SQL
+namespace JANL.Helpers
 {
     /// <summary>
     /// Класс для работы с SQL командами

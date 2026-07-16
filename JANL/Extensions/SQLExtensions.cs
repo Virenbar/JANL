@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using JANL.Helpers;
 
 namespace JANL.Extensions
 {
@@ -12,10 +13,50 @@ namespace JANL.Extensions
     {
         private static string DefaultConnection => Defaults.Connection;
 
+        /// <summary>
+        /// Добавить параметр в команду
+        /// </summary>
+        /// <param name="command">Команда</param>
+        /// <param name="name">Название</param>
+        /// <param name="type">Тип</param>
+        /// <param name="value">Значение</param>
+        public static SqlParameter AddParameter(this SqlCommand command, string name, SqlDbType type, object value)
+        {
+            return command.Parameters.Add(new SqlParameter(name, type) { Value = value });
+        }
+
+        /// <summary>
+        /// Добавляет параметр в команду
+        /// </summary>
+        /// <param name="command">Команда</param>
+        /// <param name="name">Название</param>
+        /// <param name="value">Значение</param>
+        public static SqlParameter AddParameter(this SqlCommand command, string name, object value) => command.Parameters.AddWithValue(name, value);
+
+        /// <summary>
+        /// Устанавливает схему команды
+        /// </summary>
+        /// <param name="command">Команда</param>
+        /// <param name="schema">Схема</param>
+        public static SqlCommand SetSchema(this SqlCommand command, string schema)
+        {
+            var name = command.CommandText.Split('.').Last();
+            command.CommandText = $"{schema}.{name}";
+            return command;
+        }
+
         #region NonQuery
 
+        /// <summary>
+        /// Выполнить с соединением по умолчанию
+        /// </summary>
         public static void ExecuteNonQuery(this SqlCommand command) => ExecuteNonQuery(command, DefaultConnection);
 
+        /// <summary>
+        /// Выполнить с указанным соединением
+        /// </summary>
+        /// <param name="command">Команда</param>
+        /// <param name="connection">Соединение</param>
         public static void ExecuteNonQuery(this SqlCommand command, string connection)
         {
             using (var Connection = new SqlConnection(connection))
@@ -61,7 +102,7 @@ namespace JANL.Extensions
 
         #endregion Scalar
 
-        #region Select
+        #region SelectDataTable
 
         public static DataTable ExecuteSelect(this SqlCommand command) => ExecuteSelect(command, DefaultConnection);
 
@@ -85,9 +126,9 @@ namespace JANL.Extensions
             return Result;
         }
 
-        #endregion Select
+        #endregion SelectDataTable
 
-        #region SelectRow
+        #region SelectDataRow
 
         public static DataRow ExecuteSelectRow(this SqlCommand command) => ExecuteSelectRow(command, DefaultConnection);
 
@@ -111,20 +152,26 @@ namespace JANL.Extensions
             return Result.Rows.Count > 0 ? Result.Rows[0] : null;
         }
 
-        #endregion SelectRow
+        #endregion SelectDataRow
 
-        public static SqlParameter AddParameter(this SqlCommand command, string name, SqlDbType type, object value)
+        #region Executor
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="command">Команда</param>
+        public static SQLCommandExecutor Executor(this SqlCommand command) => Executor(command, DefaultConnection);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="command">Команда</param>
+        /// <param name="connection">Соединение</param>
+        public static SQLCommandExecutor Executor(this SqlCommand command, string connection)
         {
-            return command.Parameters.Add(new SqlParameter(name, type) { Value = value });
+            return new SQLCommandExecutor(command, connection);
         }
 
-        public static SqlParameter AddParameter(this SqlCommand command, string name, object value) => command.Parameters.AddWithValue(name, value);
-
-        public static SqlCommand SetSchema(this SqlCommand command, string schema)
-        {
-            var name = command.CommandText.Split('.').Last();
-            command.CommandText = $"{schema}.{name}";
-            return command;
-        }
+        #endregion Executor
     }
 }

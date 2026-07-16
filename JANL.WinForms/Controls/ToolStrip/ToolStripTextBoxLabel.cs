@@ -32,7 +32,9 @@ namespace JANL.Controls
 
         private void Timer_Tick(object sender, EventArgs e) => CompleteInput();
 
-        private void UpdateColor() => base.ForeColor = IsText ? ForeColor : LabelColor;
+        private void UpdateBaseColor() => base.ForeColor = IsText ? ForeColor : LabelColor;
+
+        private void UpdateBaseText() => base.Text = IsText ? _textValue : _labelValue;
 
         #region Properties
 
@@ -53,7 +55,7 @@ namespace JANL.Controls
             {
                 if (_foreColor == value) { return; }
                 _foreColor = value;
-                UpdateColor();
+                UpdateBaseColor();
             }
         }
 
@@ -68,8 +70,9 @@ namespace JANL.Controls
             {
                 if (_labelValue == value) { return; }
                 _labelValue = value;
-                if (_textValue?.Length == 0) { base.Text = _labelValue; }
-                UpdateColor();
+                //if (_textValue?.Length == 0) { base.Text = _labelValue; }
+                UpdateBaseText();
+                UpdateBaseColor();
             }
         }
 
@@ -84,7 +87,7 @@ namespace JANL.Controls
             {
                 if (_labelColor == value) { return; }
                 _labelColor = value;
-                UpdateColor();
+                UpdateBaseColor();
             }
         }
 
@@ -99,8 +102,9 @@ namespace JANL.Controls
             {
                 if (_textValue == value) { return; }
                 _textValue = value;
-                base.Text = IsText ? _textValue : _labelValue;
-                UpdateColor();
+                //base.Text = IsText ? _textValue : _labelValue;
+                UpdateBaseText();
+                UpdateBaseColor();
             }
         }
 
@@ -139,7 +143,7 @@ namespace JANL.Controls
         {
             focused = true;
             base.Text = _textValue;
-            UpdateColor();
+            UpdateBaseColor();
             base.OnGotFocus(e);
         }
 
@@ -171,7 +175,7 @@ namespace JANL.Controls
         protected override void OnTextChanged(EventArgs e)
         {
             if (focused) { _textValue = base.Text; }
-            UpdateColor();
+            UpdateBaseColor();
             base.OnTextChanged(e);
         }
 
