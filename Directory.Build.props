@@ -5,6 +5,10 @@
 		<Copyright>Copyright © Virenbar 2026</Copyright>
 		<AssemblyVersion>2.0.0</AssemblyVersion>
 	</PropertyGroup>
+    <PropertyGroup>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
 	</ItemGroup>
