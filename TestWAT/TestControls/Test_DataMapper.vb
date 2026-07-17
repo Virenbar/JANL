@@ -22,7 +22,7 @@ Public Class Test_DataMapper
         '
         Dim Command = New SqlCommand()
         Dim Output = Command.Parameters
-        SQLDataMapper.ReadFromObject(Output, Input)
+        SQLDataMapper.ReadFromObject(Input, Output)
     End Sub
 
     Private Sub B_SQL_Click(sender As Object, e As EventArgs) Handles B_SQL.Click
@@ -33,18 +33,18 @@ Public Class Test_DataMapper
         'DT.Rows.Add(Input)
         '
         Dim Output = New TestModelData()
-        SQLDataMapper.WriteToObject(Output, Input)
+        SQLDataMapper.WriteToObject(Input, Output)
     End Sub
 
     Public Class TestModelData
 
-        <SQLData("Date")>
+        <MapperColumn("Date")>
         Public Property TestDate As Date?
 
-        <SQLData("String")>
+        <MapperColumn("String")>
         Public Property TestString As String
 
-        <SQLData>
+        <MapperColumn>
         Public Property TestDecimal As Decimal
 
     End Class

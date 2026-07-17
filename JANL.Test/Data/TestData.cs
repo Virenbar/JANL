@@ -9,6 +9,15 @@ namespace JANL.Test.Data
     internal static class TestData
     {
         private readonly static TestObjectStore TestStore = new TestObjectStore();
+
+        /// <summary>
+        /// Тестовая таблица
+        /// Key = i;
+        /// TestInteger = i;
+        /// TestString = $"String {i}";
+        /// TestDate = DateTime.Today.AddDays(i);
+        /// TestDecimal = new decimal (i);
+        /// </summary>
         public static DataTable DataTable { get; set; }
 
         [OneTimeTearDown]

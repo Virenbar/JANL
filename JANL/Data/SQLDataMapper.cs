@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,38 +9,106 @@ using System.Runtime.CompilerServices;
 
 namespace JANL.Data
 {
+    /// <summary>
+    /// Класс для заполнения свойств объекта на основе <see cref="DataRow"/> и заполнения параметров <see cref="SqlParameterCollection"/> на основе объекта
+    /// </summary>
     public static class SQLDataMapper
     {
+        private static ConcurrentDictionary<Type, PropertyInfo[]> Cache = new ConcurrentDictionary<Type, PropertyInfo[]>();
+
         /// <summary>
-        /// Reads
+        /// Считать свойства объекта в <see cref="SqlParameterCollection"/>
         /// </summary>
-        /// <param name="parameters"></param>
-        /// <param name="data"></param>
-        public static void ReadFromObject(SqlParameterCollection parameters, object data)
+        /// <param name="data">Объект</param>
+        /// <param name="parameters">Параметры</param>
+        public static void ReadFromObject(object data, SqlParameterCollection parameters)
         {
             var type = data.GetType();
-            var t = type.GetCustomAttributes(typeof(SQLObjectAttribute), false).FirstOrDefault();
+            //var t = type.GetCustomAttributes(typeof(SQLObjectAttribute), false).FirstOrDefault();
 
+            //var t = Cache.GetOrAdd(type, type.GetProperties());
             var properties = data.GetType().GetProperties();
             foreach (var prop in properties)
             {
                 if (!prop.CanRead) { continue; }
-                var attribute = (SQLMemberAttribute)prop.GetCustomAttributes(typeof(SQLMemberAttribute), false).FirstOrDefault();
-                if (attribute is null || attribute.WriteOnly) { continue; }
+                var name = prop.Name;
 
-                var name = attribute.MemberName;
+                //var key = prop.GetAttribute<PrimaryKeyAttribute>();
+                //if (key != null) { continue; }
+
+                var ignore = prop.GetAttribute<MapperIgnoreAttribute>();
+                if (ignore != null) { continue; }
+
+                var member = prop.GetAttribute<MapperColumnAttribute>();
+                if (member != null)
+                {
+                    if (member.WriteOnly) { continue; }
+                    name = member.MemberName;
+                }
+
                 var value = prop.GetValue(data);
 
-                //if (value == DBNull.Value) { continue; }
+                if (value is null) { continue; }
+
+                if (parameters.Contains($"@{name}")) { continue; }
                 parameters.AddWithValue($"@{name}", value);
             }
         }
 
         /// <summary>
-        /// Преобразует DataTable в список объектов типа Т
+        /// Создаёт экземпляр <typeparamref name="T"/> и записывает значения ячеек в свойства объекта
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="DT"></param>
+        /// <param name="row">Строка</param>
+        public static T WriteToObject<T>(DataRow row) where T : new()
+        {
+            var Object = new T();
+            WriteToObject(row, Object);
+            return Object;
+        }
+
+        /// <summary>
+        /// Записать данные строки в объект
+        /// </summary>
+        /// <param name="row">Строка</param>
+        /// <param name="data">Объект</param>
+        public static void WriteToObject(DataRow row, object data)
+        {
+            var properties = data.GetType().GetProperties();
+            foreach (var prop in properties)
+            {
+                if (!prop.CanWrite) { continue; }
+                var name = prop.Name;
+
+                var ignore = prop.GetAttribute<MapperIgnoreAttribute>();
+                if (ignore != null) { continue; }
+
+                var member = prop.GetAttribute<MapperColumnAttribute>();
+                //if (member is null || member.ReadOnly) { continue; }
+                if (member != null)
+                {
+                    if (member.ReadOnly) { continue; }
+                    name = member.MemberName;
+                }
+
+                var value = row[name];
+
+                //if (Nullable.GetUnderlyingType(prop.PropertyType) is null) { }
+                if (value == DBNull.Value) { continue; }
+                prop.SetValue(data, value);
+            }
+        }
+
+        private static T GetAttribute<T>(this PropertyInfo propertie) where T : Attribute
+        {
+            return (T)propertie.GetCustomAttributes(typeof(T), false).FirstOrDefault();
+        }
+
+        #region ToObject
+
+        /// <summary>
+        /// Перенесен в <see cref="DataMapper{T}.ToObject(DataTable)"/>
+        /// </summary>
+        [Obsolete("Use Data.DataMapper<T>.ToObject")]
         public static List<T> ToObject<T>(DataTable DT) where T : class, new()
         {
             Dictionary<string, string> D = DT.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => v.ColumnName);
@@ -60,11 +129,9 @@ namespace JANL.Data
         }
 
         /// <summary>
-        /// Преобразует DataRow в объект типа <typeparamref name="T"/>
+        /// Перенесен в <see cref="DataMapper{T}.ToObject(DataRow)"/>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="R"></param>
-        /// <returns></returns>
+        [Obsolete("Use Data.DataMapper<T>.ToObject")]
         public static T ToObject<T>(DataRow R) where T : class, new()
         {
             Dictionary<string, string> D = R.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => v.ColumnName);
@@ -78,58 +145,82 @@ namespace JANL.Data
             return Item;
         }
 
-        public static void WriteToObject(object data, DataRow row)
-        {
-            var properties = data.GetType().GetProperties();
-            foreach (var prop in properties)
-            {
-                if (!prop.CanWrite) { continue; }
-                var attribute = (SQLMemberAttribute)prop.GetCustomAttributes(typeof(SQLMemberAttribute), false).FirstOrDefault();
-                if (attribute is null || attribute.ReadOnly) { continue; }
-
-                var name = attribute.MemberName;
-                var value = row[name];
-
-                //if (Nullable.GetUnderlyingType(prop.PropertyType) is null) { }
-                if (value == DBNull.Value) { continue; }
-                prop.SetValue(data, value);
-            }
-        }
+        #endregion ToObject
     }
-    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false), Obsolete]
-    public class SQLDataAttribute : SQLMemberAttribute
+
+    #region Attributes
+
+    /// <summary>
+    /// Параметры привязки свойства к столбцу
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    public class MapperColumnAttribute : Attribute
     {
-        public SQLDataAttribute([CallerMemberName] string memberName = null)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="memberName"></param>
+        public MapperColumnAttribute([CallerMemberName] string memberName = null)
         {
             MemberName = memberName;
         }
-    }
 
+        /// <summary>
+        /// Имя столбца
+        /// </summary>
+        public string MemberName { get; protected set; }
+
+        /// <summary>
+        /// Только чтение (Свойство не будет заполнено из строки)
+        /// </summary>
+        public bool ReadOnly { get; set; }
+
+        /// <summary>
+        /// Только запись (<see cref="SqlParameter"/> не будет создан из свойства)
+        /// </summary>
+        public bool WriteOnly { get; set; }
+    }
+    /// <summary>
+    /// Игнорировать свойство
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    public class MapperIgnoreAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+    public class MapperObjectAttribute : Attribute
+    {
+    }
+    #endregion Attributes
+
+    /// <summary>
+    /// Параметры привязки свойства к столбцу
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    [Obsolete("Use MapperColumnAttribute")]
     public class SQLMemberAttribute : Attribute
     {
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="memberName"></param>
         public SQLMemberAttribute([CallerMemberName] string memberName = null)
         {
             MemberName = memberName;
         }
 
+        /// <summary>
+        /// Имя столбца
+        /// </summary>
         public string MemberName { get; protected set; }
+
+        /// <summary>
+        /// Только чтение (Свойство не будет заполнено из строки)
+        /// </summary>
         public bool ReadOnly { get; set; }
+
+        /// <summary>
+        /// Только запись (<see cref="SqlParameter"/> не будет создан из свойства)
+        /// </summary>
         public bool WriteOnly { get; set; }
     }
 
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public class SQLObjectAttribute : Attribute
-    {
-    }
-
-    public class ColumnNameAttribute : Attribute
-    {
-        public string Name { get; }
-
-        public ColumnNameAttribute(string name)
-        {
-            Name = name;
-        }
-    }
 }
