@@ -91,6 +91,11 @@
     <PackageReference Include="EPPlus">
       <Version>4.5.3.3</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub">
+      <Version>8.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="OpenXmlPowerTools">
       <Version>4.5.3.2</Version>
     </PackageReference>
