@@ -78,6 +78,8 @@ namespace JANL.Forms
 
         private void SelectBox_Load(object sender, EventArgs e)
         {
+            Icon = Owner?.Icon;
+
             var DM = LB_Items.DisplayMember;
             LB_Items.DataSource = Items.ToList();
             LB_Items.DisplayMember = DM;

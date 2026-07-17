@@ -131,7 +131,9 @@
             this.ForeColor = global::JANL.Properties.Settings.Default.ForeColor;
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "FormTextBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormTextBox";
+            this.Load += new System.EventHandler(this.FormTextBox_Load);
             this.TableLayoutPanel2.ResumeLayout(false);
             this.TableLayoutPanel2.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);

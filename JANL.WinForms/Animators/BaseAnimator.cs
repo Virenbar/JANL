@@ -6,25 +6,46 @@ using JANL.Interfaces;
 
 namespace JANL.Animators
 {
+    /// <summary>
+    /// Базовый класс анимации
+    /// </summary>
     public abstract class BaseAnimator : ObservableObject, IAnimator
     {
         private readonly Stopwatch Stopwatch = new Stopwatch();
         private readonly Timer Timer = new Timer();
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator()
         {
             UpdateDelay();
             Timer.Tick += Timer_Tick;
         }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator(Image image) : this() { SourceImage = image; }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator(Image image, int duration) : this(image) { Duration = duration; }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator(Image image, int duration, int framerate) : this(image, framerate) { Framerate = framerate; }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator(int duration) : this(null, duration) { }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         protected BaseAnimator(int duration, int framerate) : this(null, duration, framerate) { }
 
         /// <summary>
@@ -166,16 +187,37 @@ namespace JANL.Animators
 
         #region Events
 
+        /// <summary>
+        /// Вызывает <see cref="CurrentImageChanged"/>
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnCurrentImageChanged(EventArgs e) => CurrentImageChanged?.Invoke(this, e);
 
+        /// <summary>
+        /// Вызывает <see cref="DurationChanged"/>
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnDurationChanged(EventArgs e) => DurationChanged?.Invoke(this, e);
 
+        /// <summary>
+        /// Вызывает <see cref="FramerateChanged"/>
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnFramerateChanged(EventArgs e) => FramerateChanged?.Invoke(this, e);
 
+        /// <summary>
+        /// Происходит при изменении кадра
+        /// </summary>
         public event EventHandler CurrentImageChanged;
 
+        /// <summary>
+        /// Происходит при изменении длительности анимации
+        /// </summary>
         public event EventHandler DurationChanged;
 
+        /// <summary>
+        /// Происходит при изменении частоты анимации
+        /// </summary>
         public event EventHandler FramerateChanged;
 
         #endregion Events

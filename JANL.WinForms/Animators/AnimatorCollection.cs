@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using JANL.Interfaces;
 
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
 namespace JANL.Animators
 {
     public class AnimatorCollection : Collection<IAnimator>

@@ -4,14 +4,20 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
 namespace JANL.UserControls
 {
+    /// <summary>
+    /// Элемент для отображения прошедшего времени
+    /// </summary>
     public partial class StopWatchLabel : UserControl
     {
-        private const string Format = @"d\.hh\:mm\:ss";
         private readonly Stopwatch StopWatch;
         private readonly Timer Timer;
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public StopWatchLabel()
         {
             InitializeComponent();
@@ -24,16 +30,22 @@ namespace JANL.UserControls
             ImageRunning = PB_Image.Image;
             PB_Image.Image = ImageWaiting;
             L_Prefix.Text = "Time passed:";
-            L_Time.Text = TimeSpan.Zero.ToString(Format);
+            L_Time.Text = TimeSpan.Zero.ToString(Defaults.TimespanFormat);
             UpdateText();
         }
 
+        /// <summary>
+        /// Останавливает и сбрасывает измерение
+        /// </summary>
         public void Reset()
         {
             Stop();
-            L_Time.Text = TimeSpan.Zero.ToString(Format);
+            L_Time.Text = TimeSpan.Zero.ToString(Defaults.TimespanFormat);
         }
 
+        /// <summary>
+        /// Останавливает измерение
+        /// </summary>
         public void Start()
         {
             StopWatch.Restart();
@@ -41,6 +53,9 @@ namespace JANL.UserControls
             PB_Image.Image = ImageRunning;
         }
 
+        /// <summary>
+        /// Запускает измерение
+        /// </summary>
         public void Stop()
         {
             Timer.Stop();
@@ -52,7 +67,7 @@ namespace JANL.UserControls
 
         private void UpdateText()
         {
-            L_Time.Text = TimeElapsed.ToString(Format);
+            L_Time.Text = TimeElapsed.ToString(Defaults.TimespanFormat);
         }
 
         #region Properties
@@ -88,6 +103,9 @@ namespace JANL.UserControls
 
         #endregion Designer
 
+        /// <summary>
+        /// Прошедшее время
+        /// </summary>
         [Browsable(false)]
         public TimeSpan TimeElapsed => StopWatch.Elapsed;
 

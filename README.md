@@ -4,7 +4,7 @@
 [![NuGet][nuget-1-src]][nuget-1-href]
 [![NuGet][nuget-2-src]][nuget-2-href]
 
-## Just Another .Net Library
+## Just Another .NET Library
 
 Commonly used controls and classes for internal software  
 

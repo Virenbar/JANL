@@ -3,29 +3,50 @@ using System.Drawing;
 
 namespace JANL.Animators
 {
+    /// <summary>
+    /// Класс анимации дыхания
+    /// </summary>
     public sealed class Breather : BaseAnimator
     {
         private bool down;
         private float scale = 1;
         private float scaleStep;
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public Breather()
         {
             UpdateScaleStep();
         }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public Breather(Image image) : this() { SourceImage = image; }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public Breather(Image image, float minimalScale) : this(image) { MinimalScale = minimalScale; }
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public Breather(float minimalScale) : this() { MinimalScale = minimalScale; }
 
+        /// <summary>
+        /// Сброс состояния анимации
+        /// </summary>
         public override void ResetAnimation()
         {
             scale = 1;
             base.ResetAnimation();
         }
 
+        /// <summary>
+        /// Вызывается перед созданием нового кадра
+        /// </summary>
         protected override void BeforeTransform()
         {
             scale += scaleStep * (down ? -1 : 1);
@@ -34,6 +55,12 @@ namespace JANL.Animators
             base.BeforeTransform();
         }
 
+        /// <summary>
+        /// Создает новый кадр
+        /// </summary>
+        /// <param name="SourceImage">Исходный кадр</param>
+        /// <param name="CurrentImage">Текущий кадр</param>
+        /// <returns>Новый кадр</returns>
         protected override Image Transform(Image SourceImage, Image CurrentImage)
         {
             Image B = new Bitmap(Width, Height);
@@ -60,6 +87,9 @@ namespace JANL.Animators
         #region Properties
         private float _minScale = 0.5f;
 
+        /// <summary>
+        /// Минимальный размер изображения
+        /// </summary>
         public float MinimalScale
         {
             get => _minScale;
@@ -75,12 +105,18 @@ namespace JANL.Animators
 
         #region Events
 
-        protected override void OnDurationChanged(EventArgs e)
+        /// <summary>
+        /// Private
+        /// </summary>
+        protected sealed override void OnDurationChanged(EventArgs e)
         {
             UpdateScaleStep();
             base.OnDurationChanged(e);
         }
 
+        /// <summary>
+        /// Private
+        /// </summary>
         protected override void OnFramerateChanged(EventArgs e)
         {
             UpdateScaleStep();

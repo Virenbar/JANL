@@ -7,7 +7,7 @@ using System.Windows.Forms.Design;
 namespace JANL.Controls
 {
     /// <summary>
-    ///
+    /// Элемент отображения времени выполнения на <see cref="StatusStrip"/>
     /// </summary>
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
     public class ToolStripStopwatch : ToolStripLabel
@@ -15,12 +15,19 @@ namespace JANL.Controls
         private readonly Stopwatch stopwatch = new Stopwatch();
         private readonly Timer timer = new Timer { Interval = 500 };
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public ToolStripStopwatch()
+
         {
             timer.Tick += (object _, EventArgs e) => UpdateText();
             UpdateText();
         }
 
+        /// <summary>
+        /// Останавливает и сбрасывает измерение
+        /// </summary>
         public void Reset()
         {
             stopwatch.Reset();
@@ -28,12 +35,18 @@ namespace JANL.Controls
             UpdateText();
         }
 
+        /// <summary>
+        /// Запускает измерение
+        /// </summary>
         public void Start()
         {
             stopwatch.Restart();
             timer.Start();
         }
 
+        /// <summary>
+        /// Останавливает измерение
+        /// </summary>
         public void Stop()
         {
             stopwatch.Stop();
@@ -41,17 +54,23 @@ namespace JANL.Controls
             UpdateText();
         }
 
+        /// <summary>
+        /// Обновляет текст
+        /// </summary>
         protected void UpdateText()
         {
-            var time = stopwatch.Elapsed.ToString(Defaults.TimespanFormat);
-            base.Text = ShowText ? $"{_text}: {time}" : time;
+            var time = TimeElapsed.ToString(Defaults.TimespanFormat);
+            base.Text = ShowText ? $"{Text}: {time}" : time;
         }
 
         #region Properties
 
         #region Designer
-        protected string _text = "Stopwatch";
+        private string _text = "Stopwatch";
 
+        /// <summary>
+        /// Частота обновления
+        /// </summary>
         [Browsable(true), Category("ToolStripStopwatch"), DefaultValue(500)]
         public int RefreshInterval
         {
@@ -59,9 +78,15 @@ namespace JANL.Controls
             set => timer.Interval = value;
         }
 
+        /// <summary>
+        /// Показывать текст перед временем
+        /// </summary>
         [Browsable(true), Category("ToolStripStopwatch"), DefaultValue(true)]
         public bool ShowText { get; set; }
 
+        /// <summary>
+        /// Текст перед временем
+        /// </summary>
         [Browsable(true), DefaultValue("Stopwatch")]
         public new string Text
 
@@ -76,6 +101,9 @@ namespace JANL.Controls
 
         #endregion Designer
 
+        /// <summary>
+        /// Измеренное время
+        /// </summary>
         [Browsable(false)]
         public TimeSpan TimeElapsed => stopwatch.Elapsed;
 
