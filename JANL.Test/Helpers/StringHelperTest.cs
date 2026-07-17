@@ -1,4 +1,5 @@
-﻿using JANL.Exceptions;
+﻿using System;
+using JANL.Exceptions;
 using JANL.Helpers;
 using JANL.Text;
 using NUnit.Framework;
@@ -45,8 +46,8 @@ namespace JANL.Test.Helpers
         public void NumberToText_Exception()
         {
             void Result() { StringHelper.NumberToText(22, Day); }
-            Assert.Throws<SyntacticIncongruityException>(Result);
-            Assert.That(Result, Throws.Exception.TypeOf<SyntacticIncongruityException>());
+            Assert.Throws<SyntacticIncongruityException>((Action)Result);
+            Assert.That((Action)Result, Throws.Exception.TypeOf<SyntacticIncongruityException>());
         }
 
         [Test]
