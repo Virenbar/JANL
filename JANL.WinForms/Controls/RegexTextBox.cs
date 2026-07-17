@@ -13,6 +13,9 @@ namespace JANL.Controls
     /// </summary>
     public class RegexTextBox : TextBox
     {
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public RegexTextBox()
         {
             BackColor = Color.White;
@@ -62,7 +65,7 @@ namespace JANL.Controls
         private bool _Required;
 
         /// <summary>
-        /// Верно но ли заполнено поле
+        /// Верно ли заполнено поле
         /// </summary>
         [Browsable(false)]
         public bool IsValid { get; private set; }

@@ -4,14 +4,24 @@ using System.Windows.Forms;
 
 namespace JANL.Controls
 {
-    public class PixelPictureBox : PictureBox
+    /// <summary>
+    /// <see cref="PictureBox"/> без сглаживания
+    /// </summary>
+    public sealed class PixelPictureBox : PictureBox
     {
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public PixelPictureBox()
         {
             InterpolationMode = InterpolationMode.NearestNeighbor;
             PixelOffsetMode = PixelOffsetMode.Half;
         }
 
+        /// <summary>
+        /// Private
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.PixelOffsetMode = PixelOffsetMode;

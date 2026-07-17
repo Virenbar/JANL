@@ -12,7 +12,7 @@ namespace JANL.Data
     public class DataMapper<T> where T : class, new()
     {
         /// <summary>
-        ///
+        /// Создаёт новый экземпляр
         /// </summary>
         public DataMapper()
         {
@@ -27,8 +27,8 @@ namespace JANL.Data
         /// <summary>
         /// Преобразует DataRow в объект типа <typeparamref name="T"/>
         /// </summary>
-        /// <param name="item"></param>
-        /// <param name="row"></param>
+        /// <param name="item">Объект</param>
+        /// <param name="row">Строка</param>
         public T FillObject(T item, DataRow row)
         {
             var data = row.Table.Columns.Cast<DataColumn>().ToDictionary(k => k.ColumnName.ToLower(), v => row[v]);
@@ -44,7 +44,7 @@ namespace JANL.Data
         /// <summary>
         /// Преобразует DataTable в <see cref="List{T}"/>
         /// </summary>
-        /// <param name="table"></param>
+        /// <param name="table">Таблица</param>
         public List<T> ToObject(DataTable table)
         {
             var items = new List<T>();
@@ -58,7 +58,7 @@ namespace JANL.Data
         /// <summary>
         /// Преобразует DataRow в объект типа <typeparamref name="T"/>
         /// </summary>
-        /// <param name="row"></param>
+        /// <param name="row">Строка</param>
         public T ToObject(DataRow row) => FillObject(new T(), row);
     }
 }

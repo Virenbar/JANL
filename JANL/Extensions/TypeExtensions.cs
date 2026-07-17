@@ -73,6 +73,7 @@ namespace JANL.Extensions
         /// </summary>
         /// <param name="MI"></param>
         /// <returns></returns>
+        [Obsolete()]
         public static bool IsOverride(this MethodInfo MI) => MI.GetBaseDefinition().DeclaringType != MI.DeclaringType;
 
         /// <summary>
@@ -80,6 +81,7 @@ namespace JANL.Extensions
         /// </summary>
         /// <param name="PI"></param>
         /// <returns></returns>
+        [Obsolete()]
         public static bool IsOverride(this PropertyInfo PI) => PI.GetMethod.GetBaseDefinition().DeclaringType != PI.DeclaringType;
 
         /// <summary>
@@ -88,6 +90,7 @@ namespace JANL.Extensions
         /// <param name="T">Тип</param>
         /// <param name="Name">Имя метода или свойства</param>
         /// <returns></returns>
+        [Obsolete()]
         public static bool IsOverride(this Type T, string Name)
         {
             var Members = T.GetMember(Name);
