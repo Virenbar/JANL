@@ -84,7 +84,7 @@ namespace JANL.Word
         }
 
         /// <summary>
-        /// Создает шаблон на основе буфера
+        /// Создает шаблон на основе буфера или потока
         /// </summary>
         protected virtual WordprocessingDocument CreateDocumentTemplate()
         {

@@ -1,30 +1,50 @@
-﻿using OfficeOpenXml;
-using System.IO;
+﻿using System.IO;
+using OfficeOpenXml;
 
 namespace JANL.Excel
 {
+    /// <summary>
+    /// Базовый класс таблицы
+    /// </summary>
     public abstract class Report
     {
-        protected FileInfo File;
+        /// <summary>
+        /// Файл для сохранения
+        /// </summary>
+        protected FileInfo _file;
 
+        /// <summary>
+        ///
+        /// </summary>
         protected Report()
         {
-            File = new FileInfo(Path.GetTempFileName().Replace("tmp", "xlsx"));
+            _file = new FileInfo(Path.GetTempFileName().Replace("tmp", "xlsx"));
         }
 
+        /// <summary>
+        /// Формирует таблицу и сохраняет во временный файл
+        /// </summary>
         public FileInfo Print()
         {
-            Print(File);
-            return File;
+            Print(_file);
+            return _file;
         }
 
-        public FileInfo Print(string FileName)
+        /// <summary>
+        /// Формирует таблицу и сохраняет его по пути <paramref name="fileName"/>
+        /// </summary>
+        /// <param name="fileName">Путь для сохранения</param>
+        public FileInfo Print(string fileName)
         {
-            File = new FileInfo(FileName);
-            Print(File);
-            return File;
+            _file = new FileInfo(fileName);
+            Print(_file);
+            return _file;
         }
 
+        /// <summary>
+        /// Формирует таблицу и сохраняет в файл <paramref name="file"/>
+        /// </summary>
+        /// <param name="file">Файл для сохранения</param>
         public virtual void Print(FileInfo file)
         {
             if (!file.Directory.Exists) { file.Directory.Create(); }
@@ -35,6 +55,10 @@ namespace JANL.Excel
             }
         }
 
+        /// <summary>
+        /// Метод заполнения таблицы
+        /// </summary>
+        /// <param name="package">Таблица</param>
         protected abstract void PrintReport(ExcelPackage package);
     }
 }
