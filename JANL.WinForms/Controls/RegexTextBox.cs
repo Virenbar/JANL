@@ -25,14 +25,24 @@ namespace JANL.Controls
             Validate();
         }
 
+        /// <summary>
+        /// Вызывает <see cref="Control.TextChanged"/>
+        /// </summary>
+
         protected override void OnTextChanged(EventArgs e)
         {
             IsValid = Validate();
             base.OnTextChanged(e);
         }
 
+        /// <summary>
+        /// Вызывает <see cref="Control.Validated"/>
+        /// </summary>
         protected override void OnValidated(EventArgs e) => base.OnValidated(e);
 
+        /// <summary>
+        /// Вызывает <see cref="Control.Validating"/>
+        /// </summary>
         protected override void OnValidating(CancelEventArgs e)
         {
             IsValid = Validate();

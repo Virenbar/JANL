@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JANL.Helpers;
 
+#pragma warning disable CS1591 // Отсутствует комментарий XML для открытого видимого типа или члена
 namespace JANL.SQL
 {
     public class ScalarFunction<T> : BaseSQLCommand<T>

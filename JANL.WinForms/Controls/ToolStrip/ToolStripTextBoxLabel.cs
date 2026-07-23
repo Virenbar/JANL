@@ -20,7 +20,7 @@ namespace JANL.Controls
         /// </summary>
         public ToolStripTextBoxLabel()
         {
-            ToolTipText = "Esc - очистить фильтр";
+            ToolTipText = "Esc - очистить поле";
             Timer.Tick += Timer_Tick;
         }
 

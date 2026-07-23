@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,6 +18,9 @@ namespace JANL.Controls
         private IEnumerable<string> Collumns;
         private DataGridView DGV;
 
+        /// <summary>
+        /// Создаёт новый экземпляр
+        /// </summary>
         public DGVFilter()
         {
             DefaultLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("ru-RU"));
@@ -36,14 +40,18 @@ namespace JANL.Controls
             this.DGV = DGV;
             this.Collumns = Collumns;
             {
-                var Parent = DGV.FindForm();
-                Parent.KeyPreview = true;
-                Parent.KeyDown += DGV_Search_F;
+                var parent = DGV.FindForm();
+                parent.KeyPreview = true;
+                parent.KeyDown += DGV_Search_F;
             }
             ForeColor = OffColor;
             Text = OffText;
         }
 
+        /// <summary>
+        /// Устанавливает текст фильтра
+        /// </summary>
+        /// <param name="str"></param>
         public void SetFilter(string str)
         {
             ForeColor = string.IsNullOrWhiteSpace(str) ? OffColor : Color.Empty;
@@ -51,6 +59,9 @@ namespace JANL.Controls
             ApplyFilter();
         }
 
+        /// <summary>
+        /// Обрабатывает управляющую клавишу
+        /// </summary>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -85,8 +96,15 @@ namespace JANL.Controls
 
         #region Properties
 
+        /// <summary>
+        /// Язык поля по умолчанию
+        /// </summary>
         public InputLanguage DefaultLanguage { get; set; }
 
+        /// <summary>
+        /// Время ожидания окончания ввода
+        /// </summary>
+        [DefaultValue(1000)]
         public int WaitTime
         {
             get => Timer.Interval;
@@ -138,8 +156,14 @@ namespace JANL.Controls
 
         #region Events
 
+        /// <summary>
+        /// Вызывает <see cref="FilterApplied"/>
+        /// </summary>
         protected void OnFilterApplied() => FilterApplied?.Invoke(this, EventArgs.Empty);
 
+        /// <summary>
+        /// Происходит при применении фильтра
+        /// </summary>
         public event EventHandler FilterApplied;
 
         #endregion Events

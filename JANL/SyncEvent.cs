@@ -11,6 +11,10 @@ namespace JANL
         private readonly SynchronizationContext Context;
         private readonly object Sender;
 
+        /// <summary>
+        /// Создаёт новый экземпляр с текущим контекстом
+        /// </summary>
+        /// <param name="sender"></param>
         public SyncEvent(object sender)
         {
             Sender = sender;

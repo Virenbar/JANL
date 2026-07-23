@@ -1,18 +1,21 @@
-﻿using OfficeOpenXml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using OfficeOpenXml;
 
 namespace JANL.Excel
 {
     /// <summary>
     /// Класс для записи данных в Excel файл
+    /// <para>
+    /// В первой строке должны быть указаны названия столбцов или формулы
+    /// </para>
     /// </summary>
     public class WorksheetWriter
     {
         /// <summary>
-        /// Создает класс на основе файла и индекса страницы
+        /// Создает экземпляр на основе файла и индекса страницы
         /// </summary>
         /// <param name="package">Файл Excel</param>
         /// <param name="position">Индекс страницы</param>
@@ -22,13 +25,13 @@ namespace JANL.Excel
         }
 
         /// <summary>
-        /// Создает класс на основе файла и первой страницы
+        /// Создает экземпляр на основе файла и первой страницы
         /// </summary>
         /// <param name="package">Файл Excel</param>
         public WorksheetWriter(ExcelPackage package) : this(package.Workbook.Worksheets.First()) { }
 
         /// <summary>
-        /// Создает класс на основе страницы
+        /// Создает экземпляр на основе страницы
         /// </summary>
         /// <param name="worksheet">Страница Excel</param>
         public WorksheetWriter(ExcelWorksheet worksheet)
@@ -81,14 +84,26 @@ namespace JANL.Excel
         /// </summary>
         public ExcelWorksheet Worksheet { get; }
 
+        /// <summary>
+        /// Увеличить номер строки
+        /// </summary>
         public void IncrementRow()
         {
             CurrentRowIndex++;
             CurrentRowNumber++;
         }
 
+        /// <summary>
+        /// Записать данные (Начиная со 2 строки)
+        /// </summary>
+        /// <param name="reader">Данные</param>
         public void Write(IDataReader reader) => Write(reader, 2);
 
+        /// <summary>
+        /// Записать данные (Начиная с указанной строки)
+        /// </summary>
+        /// <param name="reader">Данные</param>
+        /// <param name="rowFirst">Номер первой строки</param>
         public void Write(IDataReader reader, int rowFirst)
         {
             RowIndexFirst = rowFirst;
