@@ -25,7 +25,7 @@ namespace JANL.UserControls
             InitializeComponent();
 
             var T = DateTime.Today;
-            Months = Enumerable.Range(1, 12).Select(i => new MonthItem(i)).ToList();
+            Months = Enumerable.Range(1, 12).Select(i => new MonthItem(i)).Reverse().ToList();
             CB_Month.DataSource = Months;
             CB_Month.DisplayMember = "Name";
             CB_Month.ValueMember = "Index";
@@ -42,7 +42,7 @@ namespace JANL.UserControls
         private void FillYear()
         {
             var Y = MaxYear ?? DateTime.Today.Year;
-            CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).ToList();
+            CB_Year.DataSource = Enumerable.Range(MinYear, Y - MinYear + 1).Reverse().ToList();
             if (MinYear <= Y) { CB_Year.Text = Y.ToString(); }
         }
 
