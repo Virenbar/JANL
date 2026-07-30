@@ -70,6 +70,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\SQLCommandExecutor.cs" />
     <Compile Include="Text\Converters\DateConverter.cs" />
+    <Compile Include="Text\Converters\NumberConverter.Ruble.cs" />
     <Compile Include="Text\Noun.cs" />
     <Compile Include="DataReaders\UnionDataReader.cs" />
     <Compile Include="DataReaders\CSVDataReader.cs" />

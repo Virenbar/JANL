@@ -9,21 +9,9 @@ namespace JANL.Text.Converters
     /// <summary>
     /// Класс для перевода чисел в пропись
     /// </summary>
-    public static class NumberConverter
+    public static partial class NumberConverter
     {
         private const int MAX_CLASS = 1000;
-        private readonly static string[] Dozen;
-        private readonly static string[] Hundreds;
-        private readonly static Noun Kopek;
-        private readonly static Noun Ruble;
-
-        static NumberConverter()
-        {
-            Dozen = new[] { "", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто" };
-            Hundreds = new[] { "", "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот" };
-            Kopek = new Noun("копейка", "копейки", "копеек", NounKind.Female);
-            Ruble = new Noun("рубль", "рубля", "рублей");
-        }
 
         /// <summary>
         /// Перевод целого числа в строку
@@ -48,76 +36,38 @@ namespace JANL.Text.Converters
         /// <returns>Возвращает строковую запись числа</returns>
         public static string NumberToText(BigInteger number, NounKind kind)
         {
+            // Проверка на ноль
+            if (number.IsZero) { return "ноль"; }
+            // Проверка на возможность преобразования
+            if (BigInteger.Log10(number) / 3 > MAX_CLASS + 2) { return number.ToString("E"); }
+            // Проверка на сочетаемость
             // https://orfogrammka.ru/грамматика/синтаксическая_несочетаемость_в_числительных/
             if (kind == NounKind.Plural && number > 20 && (number % 10).IsBetween(2, 4)) { throw new SyntacticIncongruityException(); }
-            if (number.IsZero) { return "Ноль"; }
 
-            var Minus = number.Sign < 0;
+            var minus = number.Sign < 0;
             var N = BigInteger.Abs(number);
-            if (BigInteger.Log10(N) / 3 > MAX_CLASS + 2) { return N.ToString("E"); }
 
             var SB = new StringBuilder();
             InsertClass(SB, (int)(N % 1000), kind);
             if (N > 999)
             {
-                var ClassIndex = 0;
+                var classIndex = 0;
                 N /= 1000;
                 while (N != 0)
                 {
-                    var Noun = GenerateNoun(ClassIndex);
-                    var Part = (int)(N % 1000);
-                    ClassIndex++;
+                    var classNoun = GenerateNoun(classIndex);
+                    var classPart = (int)(N % 1000);
+                    classIndex++;
                     N /= 1000;
 
-                    if (Part == 0) { continue; }
-                    SB.Insert(0, " " + CaseForNumber(Part, Noun) + " ");
-                    InsertClass(SB, Part, Noun.Kind);
+                    if (classPart == 0) { continue; }
+                    SB.Insert(0, " " + CaseForNumber(classPart, classNoun) + " ");
+                    InsertClass(SB, classPart, classNoun.Kind);
                 }
             }
 
-            if (Minus) { SB.Insert(0, "минус "); }
+            if (minus) { SB.Insert(0, "минус "); }
             return SB.ToString().Trim(' ');
-        }
-
-        /// <summary>
-        /// Перевод суммы в текст
-        /// </summary>
-        public static string RubleToText(BigInteger number)
-        {
-            return $"{NumberToText(number, Ruble)} {CaseForNumber((int)(number % 1000), Ruble)}";
-        }
-
-        /// <summary>
-        /// Перевод суммы в текст
-        /// </summary>
-        public static string RubleToText(decimal number)
-        {
-            int kopek = (int)((number % 1) * 100);
-            return $"{NumberToText(new BigInteger(number), Ruble)} {kopek} {CaseForNumber(kopek, Kopek)}";
-        }
-
-        /// <summary>
-        /// Выбор правильного падежного окончания существительного
-        /// </summary>
-        /// <param name="number">Число</param>
-        /// <param name="one">Форма существительного в единственном числе</param>
-        /// <param name="few">Форма существительного от двух до четырёх</param>
-        /// <param name="many">Форма существительного от пяти и больше</param>
-        /// <returns>Возвращает существительное с падежным окончанием, которое соответствует числу</returns>
-        private static string CaseForNumber(int number, string one, string few, string many)
-        {
-            int t = number % 100 > 20 ? number % 10 : number % 20;
-            switch (t)
-            {
-                case 1:
-                    return one;
-
-                case object _ when 2 <= t && t <= 4:
-                    return few;
-
-                default:
-                    return many;
-            }
         }
 
         /// <summary>
@@ -126,7 +76,21 @@ namespace JANL.Text.Converters
         /// <param name="number">Число</param>
         /// <param name="noun">Существительное</param>
         /// <returns>Возвращает существительное с падежным окончанием, которое соответствует числу</returns>
-        private static string CaseForNumber(int number, Noun noun) => CaseForNumber(number, noun.One, noun.Few, noun.Many);
+        private static string CaseForNumber(int number, Noun noun)
+        {
+            int digit = number % 100 > 20 ? number % 10 : number % 20;
+            switch (digit)
+            {
+                case 1:
+                    return noun.One;
+
+                case object _ when 2 <= digit && digit <= 4:
+                    return noun.Few;
+
+                default:
+                    return noun.Many;
+            }
+        }
 
         private static Noun CreateNoun(string name) => new Noun(name, $"{name}а", $"{name}ов");
 
@@ -231,10 +195,8 @@ namespace JANL.Text.Converters
         }
 
         /// <summary>
-        /// Получить наименование десятка для значения класса
+        /// Получить наименование для числа меньше 20
         /// </summary>
-        private static string GetDozen(int number) => Dozen[number % 100 / 10];
-
         private static string GetFraction20(int number, NounKind kind)
         {
             if (number == 0) { return ""; }
@@ -249,20 +211,71 @@ namespace JANL.Text.Converters
                     default: throw new InvalidOperationException("Invalid Kind");
                 }
             }
-            return new[] { "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать" }[number - 3];
+            return new[] {
+                "три",
+                "четыре",
+                "пять",
+                "шесть",
+                "семь",
+                "восемь",
+                "девять",
+                "десять",
+                "одиннадцать",
+                "двенадцать",
+                "тринадцать",
+                "четырнадцать",
+                "пятнадцать",
+                "шестнадцать",
+                "семнадцать",
+                "восемнадцать",
+                "девятнадцать"
+            }[number - 3];
         }
 
         /// <summary>
         /// Получить наименование сотни для значения класса
         /// </summary>
-        private static string GetHundred(int number) => Hundreds[number / 100];
+        private static string GetHundred(int number)
+        {
+            return new[] {
+                "",
+                "сто",
+                "двести",
+                "триста",
+                "четыреста",
+                "пятьсот",
+                "шестьсот",
+                "семьсот",
+                "восемьсот",
+                "девятьсот"
+            }[number / 100];
+        }
+
+        /// <summary>
+        /// Получить наименование десятка для значения класса
+        /// </summary>
+        private static string GetTen(int number)
+        {
+            return new[] {
+                "",
+                "десять",
+                "двадцать",
+                "тридцать",
+                "сорок",
+                "пятьдесят",
+                "шестьдесят",
+                "семьдесят",
+                "восемьдесят",
+                "девяносто"
+            }[number % 100 / 10];
+        }
 
         private static void InsertClass(StringBuilder SB, int number, NounKind kind)
         {
             if (number == 0) { return; }
             string Class = number % 100 < 20
                 ? $"{GetHundred(number)} {GetFraction20(number % 20, kind)}"
-                : $"{GetHundred(number)} {GetDozen(number)} {GetFraction20(number % 10, kind)}";
+                : $"{GetHundred(number)} {GetTen(number)} {GetFraction20(number % 10, kind)}";
             SB.Insert(0, Class.Trim(' '));
         }
     }
