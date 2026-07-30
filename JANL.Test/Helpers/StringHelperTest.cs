@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using JANL.Exceptions;
 using JANL.Helpers;
 using JANL.Text;
@@ -29,8 +30,16 @@ namespace JANL.Test.Helpers
         [Test]
         public void NumberToText_3()
         {
-            var target = "двести две тысячи сто один";
-            var result = StringHelper.NumberToText(202101);
+            var target = "минус двести две тысячи сто один";
+            var result = StringHelper.NumberToText(-202101);
+            Assert.That(result, Is.EqualTo(target));
+        }
+
+        [Test]
+        public void NumberToText_4()
+        {
+            var target = "1.000000E+3010";
+            var result = StringHelper.NumberToText(BigInteger.Pow(10, 3010));
             Assert.That(result, Is.EqualTo(target));
         }
 
@@ -43,7 +52,7 @@ namespace JANL.Test.Helpers
         }
 
         [Test]
-        public void NumberToText_Exception()
+        public void NumberToText_Day_Exception()
         {
             void Result() { StringHelper.NumberToText(22, Day); }
             Assert.Throws<SyntacticIncongruityException>((Action)Result);
@@ -63,6 +72,14 @@ namespace JANL.Test.Helpers
         {
             var target = "двести две тысячи сто один рубль 55 копеек";
             var result = StringHelper.RubleToText(202101.55m);
+            Assert.That(result, Is.EqualTo(target));
+        }
+
+        [Test]
+        public void RubleToText_3()
+        {
+            var target = "двести две тысячи сто один рубль";
+            var result = StringHelper.RubleToText(new BigInteger(202101));
             Assert.That(result, Is.EqualTo(target));
         }
     }

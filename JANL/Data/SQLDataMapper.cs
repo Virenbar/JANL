@@ -14,7 +14,7 @@ namespace JANL.Data
     /// </summary>
     public static class SQLDataMapper
     {
-        private static ConcurrentDictionary<Type, PropertyInfo[]> Cache = new ConcurrentDictionary<Type, PropertyInfo[]>();
+        private readonly static ConcurrentDictionary<Type, PropertyInfo[]> Cache = new ConcurrentDictionary<Type, PropertyInfo[]>();
 
         /// <summary>
         /// Считать свойства объекта в <see cref="SqlParameterCollection"/>

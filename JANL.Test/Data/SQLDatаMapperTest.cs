@@ -53,7 +53,8 @@ namespace JANL.Test.Data
         [Test]
         public void ToObject_1()
         {
-            var output = SQLDataMapper.WriteToObject<TestObject1>(TestData.DataTable.Rows[I]);
+            var input = TestData.DataTable.Rows[I];
+            var output = SQLDataMapper.WriteToObject<TestObject1>(input);
             Assert.That(output.TestDate, Is.EqualTo(DateTime.Today));
             Assert.That(output.TestDecimal, Is.EqualTo((decimal)I));
             Assert.That(output.TestInteger, Is.EqualTo(I));
@@ -63,7 +64,8 @@ namespace JANL.Test.Data
         [Test]
         public void ToObject_2()
         {
-            var output = SQLDataMapper.WriteToObject<TestObject2>(TestData.DataTable.Rows[I]);
+            var input = TestData.DataTable.Rows[I];
+            var output = SQLDataMapper.WriteToObject<TestObject2>(input);
             Assert.That(output.TestDate_Custom, Is.EqualTo(DateTime.Today));
             Assert.That(output.TestDecimal, Is.EqualTo((decimal)I));
             Assert.That(output.TestInteger, Is.Not.EqualTo(I));
