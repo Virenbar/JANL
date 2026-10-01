@@ -8,7 +8,7 @@ runs:
   using: composite
   steps:
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v5
+      uses: actions/setup-dotnet@v6
       with:
         dotnet-version: 6.x
 
@@ -21,7 +21,7 @@ runs:
       uses: microsoft/setup-msbuild@v3
 
     - name: Restore cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: ~/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/packages.lock.json') }}
