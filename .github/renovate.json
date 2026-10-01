@@ -15,9 +15,16 @@
       ]
     },
     {
-      "description": "Skip nuget",
+      "description": "Disable nuget",
       "matchManagers": [
         "nuget"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Disable uses-with",
+      "matchDepTypes": [
+        "uses-with"
       ],
       "enabled": false
     }
