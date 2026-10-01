@@ -18,7 +18,7 @@ jobs:
       - name: Install .NET Core
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 6.x
+          dotnet-version: 6.0.428
 
       - name: Download artifact
         uses: actions/download-artifact@v8
